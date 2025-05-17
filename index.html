@@ -1,1604 +1,600 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mulia Agency Digital - Presentasi Bisnis | PT. Rumah Mulia Indonesia</title>
-    <meta name="description" content="Presentasi sistem kemitraan digital Mulia Agency untuk transformasi pemasaran properti PT. Rumah Mulia Indonesia">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://muliaagency.com/">
-    <meta property="og:title" content="Mulia Agency Digital - Solusi Kemitraan Modern">
-    <meta property="og:description" content="Transformasi sistem pemasaran properti dengan model kemitraan digital Mulia Agency.">
-    <meta property="og:image" content="https://i.imgur.com/EimqXek.jpeg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://muliaagency.com/">
-    <meta property="twitter:title" content="Mulia Agency Digital - Solusi Kemitraan Modern">
-    <meta property="twitter:description" content="Transformasi sistem pemasaran properti dengan model kemitraan digital Mulia Agency.">
-    <meta property="twitter:image" content="https://i.imgur.com/EimqXek.jpeg">
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://i.imgur.com/aVIjrGJ.png" type="image/png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
+    <title>MEA - Marketing Executive Area | PT Rumah Mulia Indonesia</title>
+    <meta name="description" content="Proposal bisnis MEA (Marketing Eksekutif Area) - Unit profesional pemasaran properti terpadu didukung PT Rumah Mulia Indonesia">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== GLOBAL STYLES ===== */
         :root {
-            --primary: #2e59a7;
-            --primary-dark: #1e3f8b;
-            --primary-light: #4a7bc8;
-            --secondary: #f1c40f;
-            --secondary-dark: #e67e22;
-            --accent: #2ecc71;
-            --accent-dark: #27ae60;
-            --dark: #111;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            overflow-x: hidden;
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --accent: #00b4d8;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            line-height: 1.3;
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
         }
         
-        img {
-            max-width: 100%;
-            height: auto;
+        .gold-gradient {
+            background: linear-gradient(to right, #d4af37, #f9d423);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        a {
-            text-decoration: none;
-            color: inherit;
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--primary) 50%), 
+                        linear-gradient(to top right, var(--primary) 49%, transparent 50%);
+            background-size: 100% 50%;
+            background-repeat: no-repeat;
         }
         
-        button, .btn {
-            cursor: pointer;
-            transition: var(--transition);
+        .floating {
+            animation: floating 6s ease-in-out infinite;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .section {
-            padding: 80px 0;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .section-title h2::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--secondary-dark));
-            border-radius: 2px;
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-align: center;
-            transition: var(--transition);
-            border: none;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(45deg, var(--secondary), var(--secondary-dark));
-            color: var(--dark);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            background: var(--white);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo img {
-            height: 50px;
-            transition: var(--transition);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-menu a {
-            font-weight: 600;
-            font-size: 0.95rem;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        /* Modern Hero Styles */
-        .hero {
-            background: linear-gradient(135deg, rgba(30, 63, 139, 0.95), rgba(46, 89, 167, 0.9)), 
-                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-        }
-
-        .hero-logo img {
-            max-width: 180px;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .highlight-text {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-cta {
-            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
-            color: var(--white);
-            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
-        }
-
-        .btn-outline-light {
-            background: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline-light:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        /* Animated Background Elements */
-        .hero-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="50" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100px 100px;
-            animation: particles 20s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes particles {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
-        }
-
-        .hero-shape-1, .hero-shape-2 {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(241,196,15,0.2) 0%, rgba(241,196,15,0) 70%);
-            z-index: 1;
-        }
-
-        .hero-shape-1 {
-            width: 300px;
-            height: 300px;
-            top: -100px;
-            right: -100px;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero-shape-2 {
-            width: 500px;
-            height: 500px;
-            bottom: -200px;
-            left: -200px;
-            animation: float 12s ease-in-out infinite;
-            animation-delay: 2s;
-        }
-
-        /* About Section Styles */
-        .about-section {
-            background-color: var(--white);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .about-text {
-            order: 2;
-        }
-        
-        .about-image {
-            order: 1;
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .feature-card {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-left: 4px solid var(--primary);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        /* Comparison Section Styles */
-        .comparison-section {
-            background: linear-gradient(135deg, var(--light-gray), var(--white));
-        }
-        
-        .comparison-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            padding: 15px 0;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 0 auto;
-            box-shadow: var(--shadow);
-            border-radius: 10px;
-            overflow: hidden;
-            min-width: 800px;
-        }
-        
-        .comparison-table th, 
-        .comparison-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .comparison-table th {
-            background: var(--primary);
-            color: var(--white);
-            font-weight: 600;
-            text-align: center;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background-color: rgba(233, 236, 239, 0.5);
-        }
-        
-        .comparison-table td:first-child {
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .badge-success {
-            background-color: rgba(46, 204, 113, 0.2);
-            color: var(--accent-dark);
-        }
-        
-        .badge-danger {
-            background-color: rgba(231, 76, 60, 0.2);
-            color: #e74c3c;
-        }
-
-        /* Structure Section Styles */
-        .structure-section {
-            background-color: var(--white);
-        }
-        
-        .structure-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .structure-diagram {
-            width: 100%;
-            max-width: 800px;
-            margin: 40px 0;
-            position: relative;
-        }
-        
-        .structure-level {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .structure-node {
-            background: var(--primary);
-            color: var(--white);
-            padding: 15px 25px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 2;
-            min-width: 200px;
-        }
-        
-        .structure-node h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        
-        .structure-node p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .structure-connector {
-            position: absolute;
-            height: 40px;
-            width: 2px;
-            background: var(--primary-light);
-            left: 50%;
-            bottom: -40px;
-            z-index: 1;
-        }
-        
-        .structure-horizontal {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-        }
-        
-        .structure-horizontal .structure-node {
-            background: var(--secondary);
-            color: var(--dark);
-            margin: 0 10px;
-        }
-        
-        .commission-card {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow-lg);
-            margin-top: 40px;
-            max-width: 800px;
-            width: 100%;
-            border-top: 5px solid var(--accent);
-        }
-        
-        .commission-card h3 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .commission-example {
-            background: rgba(46, 89, 167, 0.05);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .commission-example h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        /* Cost Section Styles */
-        .cost-section {
-            background: linear-gradient(135deg, var(--light-gray), var(--white));
-        }
-        
-        .cost-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .cost-card {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .cost-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .cost-card h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .cost-card h3::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-        }
-        
-        .cost-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dashed var(--light-gray);
-        }
-        
-        .cost-item:last-child {
-            border-bottom: none;
-        }
-        
-        .cost-item strong {
-            color: var(--primary);
-        }
-        
-        .cost-total {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid var(--primary-light);
-        }
-
-        /* Benefit Section Styles */
-        .benefit-section {
-            background-color: var(--primary);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .benefit-section .section-title h2 {
-            color: var(--white);
-        }
-        
-        .benefit-section .section-title h2::after {
-            background: var(--secondary);
-        }
-        
-        .benefit-section .section-title p {
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .benefit-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            border-radius: 10px;
-            padding: 30px;
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.15);
-        }
-        
-        .benefit-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .benefit-card h3 {
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-
-        /* Chart Section Styles */
-        .chart-section {
-            background-color: var(--white);
-            padding: 80px 0;
-        }
-
-        .chart-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .chart-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .chart-card h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary);
-        }
-
-        .chart-wrapper {
-            position: relative;
-            height: 400px;
-        }
-
-        /* CTA Section Styles */
-        .cta-section {
-            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-            color: var(--dark);
-            text-align: center;
-            padding: 60px 0;
-        }
-        
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 80px 0 30px;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-        
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo img {
-            max-width: 200px;
-        }
-        
-        .footer-about p {
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .footer-social a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-heading {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--white);
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-heading::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: rgba(255,255,255,0.8);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-        
-        .footer-links i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes float {
+        @keyframes floating {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ===== RESPONSIVE STYLES ===== */
-        @media (min-width: 768px) {
-            .section {
-                padding: 100px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 3rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .about-text {
-                order: 1;
-            }
-            
-            .about-image {
-                order: 2;
-            }
-            
-            .benefit-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .cost-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 4rem;
-            }
-
-            .chart-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .hover-scale {
+            transition: transform 0.3s ease;
         }
         
-        @media (min-width: 992px) {
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-            
-            .benefit-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 767px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--white);
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 20px;
-                transition: var(--transition);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* AOS Animation Delay */
-        [data-aos-delay="100"] {
-            transition-delay: 100ms;
+        .hover-scale:hover {
+            transform: scale(1.03);
         }
         
-        [data-aos-delay="200"] {
-            transition-delay: 200ms;
+        .stat-card {
+            border-left: 4px solid var(--secondary);
         }
         
-        [data-aos-delay="300"] {
-            transition-delay: 300ms;
-        }
-        
-        [data-aos-delay="400"] {
-            transition-delay: 400ms;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 4px solid var(--primary);
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <div class="header-container container">
-            <div class="logo">
-                <img src="https://i.imgur.com/aVIjrGJ.png" alt="Mulia Agency Digital" loading="lazy">
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-chess-queen text-2xl mr-2 text-yellow-400"></i>
+                        <span class="text-xl font-bold">MEA</span>
+                    </div>
+                    <span class="hidden md:block text-sm opacity-80">Marketing Executive Area</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-yellow-400 transition">Tentang</a>
+                    <a href="#structure" class="hover:text-yellow-400 transition">Struktur</a>
+                    <a href="#strategy" class="hover:text-yellow-400 transition">Strategi</a>
+                    <a href="#roi" class="hover:text-yellow-400 transition">ROI</a>
+                    <a href="#contact" class="px-4 py-2 bg-yellow-500 text-gray-900 rounded-lg font-medium hover:bg-yellow-400 transition">Kontak</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-            <nav class="nav-menu" id="navMenu">
-                <a href="#latar-belakang">Latar Belakang</a>
-                <a href="#perbandingan">Perbandingan</a>
-                <a href="#struktur">Struktur</a>
-                <a href="#biaya">Biaya</a>
-                <a href="#keuntungan">Keuntungan</a>
-            </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
-    </header>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden gradient-bg w-full px-6 py-4" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="hover:text-yellow-400 transition">Tentang</a>
+                <a href="#structure" class="hover:text-yellow-400 transition">Struktur</a>
+                <a href="#strategy" class="hover:text-yellow-400 transition">Strategi</a>
+                <a href="#roi" class="hover:text-yellow-400 transition">ROI</a>
+                <a href="#contact" class="px-4 py-2 bg-yellow-500 text-gray-900 rounded-lg font-medium hover:bg-yellow-400 transition text-center">Kontak</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-logo" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://i.imgur.com/aVIjrGJ.png" alt="Mulia Agency Digital" loading="lazy">
+    <section class="gradient-bg text-white pt-32 pb-20 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <span class="gold-gradient">MEA</span> Marketing Executive Area
+                    </h1>
+                    <p class="text-xl mb-8 opacity-90">
+                        Unit profesional pemasaran properti terpadu didukung penuh oleh <span class="font-semibold text-yellow-400">PT Rumah Mulia Indonesia</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#about" class="px-8 py-3 bg-yellow-500 text-gray-900 rounded-lg font-bold text-center hover:bg-yellow-400 transition hover-scale">
+                            Pelajari Proposal
+                        </a>
+                        <a href="#contact" class="px-8 py-3 border-2 border-white text-white rounded-lg font-bold text-center hover:bg-white hover:text-gray-900 transition hover-scale">
+                            Hubungi Kami
+                        </a>
+                    </div>
                 </div>
-                <h1 data-aos="fade-up" data-aos-delay="150">TRANSFORMASI DIGITAL MARKETING PROPERTI</h1>
-                <p data-aos="fade-up" data-aos-delay="200" class="hero-subtitle">Solusi Modern & Efektif untuk Digitalisasi dan Peningkatan Penjualan Properti PT. Rumah Mulia Indonesia</p>
-                
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#presentasi" class="btn btn-primary btn-cta">
-                        <i class="fas fa-play-circle"></i> Tonton Video Presentasi
-                    </a>
-                    <a href="#latar-belakang" class="btn btn-outline-light">
-                        <i class="fas fa-arrow-down"></i> Pelajari Lebih Lanjut
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Animated Background Elements -->
-        <div class="hero-particles"></div>
-        <div class="hero-shape-1"></div>
-        <div class="hero-shape-2"></div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section section" id="latar-belakang">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>LATAR BELAKANG</h2>
-                <p>Mengapa kami mengusulkan sistem kemitraan digital ini?</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <p>PT Rumah Mulia Indonesia saat ini menghadapi tantangan dalam hal efektivitas pemasaran, produktivitas tim, dan efisiensi anggaran. Sistem pemasaran yang digunakan selama ini bersifat konvensional dengan metode canvassing dan belum memanfaatkan digital marketing secara optimal.</p>
-                    <p>Hasil penjualan stagnan, motivasi marketing rendah, dan efisiensi anggaran belum tercapai. Oleh karena itu, kami mengusulkan pembentukan sistem kemitraan berbasis digital marketing di bawah naungan Mulia Agency Digital sebagai anak usaha tidak langsung (afiliasi independen) dari PT. Rumah Mulia Indonesia.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Penjualan Stagnan</h3>
-                            <p>Metode konvensional tidak memberikan pertumbuhan penjualan yang signifikan</p>
-                        </div>
-                        
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Motivasi Tim Rendah</h3>
-                            <p>Sistem gaji tetap tidak mendorong peningkatan produktivitas</p>
-                        </div>
-                        
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="feature-icon">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                            <h3>Anggaran Tidak Efisien</h3>
-                            <p>Biaya operasional tinggi dengan hasil yang tidak optimal</p>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-10 -left-10 w-64 h-64 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+                        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+                        <div class="relative floating">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Marketing Property" class="rounded-xl shadow-2xl border-4 border-white">
                         </div>
                     </div>
                 </div>
-                
-                <div class="about-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital Marketing Team" loading="lazy">
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison-section section" id="perbandingan">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>PERBANDINGAN SISTEM</h2>
-                <p>Sistem Lama vs Sistem Kemitraan Digital</p>
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Tentang <span class="gold-gradient">MEA</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
             </div>
             
-            <div class="comparison-wrapper" data-aos="fade-up">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Komponen</th>
-                            <th>Sistem Lama (Canvassing)</th>
-                            <th>Sistem Baru (Kemitraan Digital)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Struktur</strong></td>
-                            <td>Pegawai Tetap (Gaji bulanan)</td>
-                            <td><span class="badge badge-success">Mitra Lepas (Non-karyawan)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Metode Kerja</strong></td>
-                            <td>Canvassing manual</td>
-                            <td><span class="badge badge-success">Digital marketing + lead conversion system</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sistem Digital</strong></td>
-                            <td>Tidak ada</td>
-                            <td><span class="badge badge-success">Website, Tracking System, Pixel, WA Rotator</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Jumlah Marketing</strong></td>
-                            <td>3 orang</td>
-                            <td><span class="badge badge-success">4 orang (termasuk Digital Strategist)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Gaji Marketing</strong></td>
-                            <td>Rp2.000.000/orang/bulan</td>
-                            <td><span class="badge badge-success">Tidak ada (diganti sistem komisi)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Uang Makan</strong></td>
-                            <td>Rp10.000/hari/orang (kecuali Senin & Kamis)</td>
-                            <td><span class="badge badge-success">Rp30.000/hari/orang full (Rp3.600.000/bulan total)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fee Closing</strong></td>
-                            <td>Rp1.000.000/closing</td>
-                            <td><span class="badge badge-success">Komisi 3% dari nilai properti per closing</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Biaya Konversi/Bensin</strong></td>
-                            <td>Tidak terukur, dikeluarkan rutin</td>
-                            <td><span class="badge badge-success">Tidak ada (kerja online dari lokasi masing-masing)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Penjualan</strong></td>
-                            <td>Tidak terukur, stagnan</td>
-                            <td><span class="badge badge-success">Terukur & potensi peningkatan signifikan</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Turnover Pegawai</strong></td>
-                            <td>Tinggi (sering keluar-masuk)</td>
-                            <td><span class="badge badge-success">Rendah (mitra lebih terikat secara kepemilikan sistem)</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-bullseye text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Visi</h3>
+                    <p class="text-gray-600">Menjadi kekuatan utama dalam strategi pemasaran proyek-proyek PT Rumah Mulia Indonesia dengan sistem terpadu dan mandiri.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-cyan-500 mb-4">
+                        <i class="fas fa-tasks text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Misi</h3>
+                    <p class="text-gray-600">Membangun tim pemasaran yang solid dan produktif dengan mengoptimalkan pemasaran digital dan offline secara efisien.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-flag-checkered text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Tujuan</h3>
+                    <p class="text-gray-600">Menyediakan infrastruktur kerja yang menunjang kinerja tim dan memberikan ROI yang jelas dan adil kepada PT Rumah Mulia Indonesia.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900 text-white rounded-xl p-8 md:p-12 shadow-xl" data-aos="fade-up">
+                <h3 class="text-2xl font-bold mb-6 text-yellow-400">Pendahuluan</h3>
+                <p class="mb-6 text-gray-300">
+                    MEA (Marketing Eksekutif Area) adalah unit profesional yang dibentuk untuk menjalankan sistem pemasaran properti secara terpadu, terstruktur, dan mandiri. MEA akan menjadi kekuatan utama dalam strategi pemasaran proyek-proyek PT Rumah Mulia Indonesia, baik secara organik (gratis) maupun berbayar (ads), dengan visi ekspansi di tahun kedua.
+                </p>
+                <div class="flex items-center">
+                    <div class="mr-4">
+                        <i class="fas fa-check-circle text-yellow-400 text-2xl"></i>
+                    </div>
+                    <p class="text-gray-300">
+                        Didukung penuh oleh <span class="font-semibold text-yellow-400">PT Rumah Mulia Indonesia</span> dengan sistem dan lisensi yang komprehensif.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Structure Section -->
-    <section class="structure-section section" id="struktur">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>STRUKTUR KERJA & PEMBAGIAN KOMISI</h2>
-                <p>Model Kemitraan Mulia Agency Digital</p>
+    <section id="structure" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Struktur <span class="gold-gradient">Organisasi</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
             </div>
             
-            <div class="structure-container" data-aos="fade-up">
-                <div class="structure-diagram">
-                    <div class="structure-level">
-                        <div class="structure-node">
-                            <h3>PT. Rumah Mulia Indonesia</h3>
-                            <p>Developer Properti</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-4">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-crown text-2xl text-yellow-500"></i>
                         </div>
-                        <div class="structure-connector"></div>
+                        <h3 class="text-lg font-bold mb-2">Kepala Kitab Marketing</h3>
+                        <p class="text-sm text-gray-500 mb-4">Penanggung Jawab Utama</p>
                     </div>
-                    
-                    <div class="structure-level">
-                        <div class="structure-node">
-                            <h3>Mulia Agency Digital</h3>
-                            <p>Afiliasi Independen</p>
-                        </div>
-                        <div class="structure-connector"></div>
-                    </div>
-                    
-                    <div class="structure-level">
-                        <div class="structure-horizontal">
-                            <div class="structure-node">
-                                <h3>Digital Strategist</h3>
-                                <p>Pencetus Sistem</p>
-                            </div>
-                            <div class="structure-node">
-                                <h3>Marketing Mitra 1</h3>
-                                <p>Lead Conversion</p>
-                            </div>
-                            <div class="structure-node">
-                                <h3>Marketing Mitra 2</h3>
-                                <p>Lead Conversion</p>
-                            </div>
-                            <div class="structure-node">
-                                <h3>Marketing Mitra 3</h3>
-                                <p>Lead Conversion</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="commission-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>PEMBAGIAN KOMISI PENJUALAN</h3>
-                    <p>Total Komisi: <strong>3%</strong> dari nilai properti</p>
-                    
-                    <div class="commission-example">
-                        <h4>Contoh Perhitungan (Properti Rp168.000.000)</h4>
-                        <p>Total Komisi 3% = Rp5.040.000</p>
-                        <p>0.5% untuk Strategist = Rp840.000</p>
-                        <p>2.5% dibagi 4 orang = Rp1.260.000/orang per closing</p>
-                    </div>
-                    
-                    <div class="commission-example">
-                        <h4>Simulasi Jika 10 Closing</h4>
-                        <p>Total Komisi = Rp50.400.000</p>
-                        <p>Strategist: Rp8.400.000</p>
-                        <p>Masing-masing 3 marketing: Rp12.000.000/orang</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cost Section -->
-    <section class="cost-section section" id="biaya">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>BIAYA PERUSAHAAN</h2>
-                <p>Pengeluaran dalam Sistem Kemitraan</p>
-            </div>
-            
-            <div class="cost-cards">
-                <div class="cost-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>PENGELUARAN AWAL</h3>
-                    
-                    <div class="cost-item">
-                        <span>2 Laptop</span>
-                        <strong>Disediakan perusahaan</strong>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span>Biaya Iklan Digital (1 bulan)</span>
-                        <strong>Rp3.000.000</strong>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span>Amunisi Facebook</span>
-                        <strong>Rp500.000</strong>
-                    </div>
-                    
-                    <div class="cost-total">
-                        <span>Total Biaya Awal</span>
-                        <strong>Rp3.500.000</strong>
-                    </div>
-                    
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
-                        <i class="fas fa-info-circle"></i> 1x modal awal dibayarkan perusahaan, selanjutnya oleh mitra
-                    </p>
-                </div>
-                
-                <div class="cost-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>PENGELUARAN BULANAN</h3>
-                    
-                    <div class="cost-item">
-                        <span>Biaya Harian 4 Mitra</span>
-                        <strong>Rp3.600.000</strong>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span>Fee Sistem ke Mulia Agency</span>
-                        <strong>Rp2.000.000</strong>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <span>Komisi Penjualan (3%)</span>
-                        <strong>Hanya jika terjadi penjualan</strong>
-                    </div>
-                    
-                    <div class="cost-total">
-                        <span>Catatan Penting</span>
-                    </div>
-                    
-                    <ul style="margin-top: 15px; padding-left: 20px; color: var(--gray);">
-                        <li>Tidak ada gaji tetap</li>
-                        <li>Tidak ada biaya konversi/bensin</li>
-                        <li>Tidak ada uang makan tambahan</li>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
+                            <span>Koordinator utama sistem MEA</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
+                            <span>Pengambil keputusan strategis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
+                            <span>Bertanggung jawab penuh pada sistem dan hasil penjualan</span>
+                        </li>
                     </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-lg font-bold text-gray-900">Rp6.500.000</span>
+                        <span class="text-sm text-gray-500">/ bulan</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chart Section -->
-    <section class="chart-section section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>ANALISIS BIAYA & PROYEKSI PENJUALAN</h2>
-                <p>Perbandingan Efisiensi Sistem Lama vs Sistem Kemitraan</p>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-4">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-laptop-code text-2xl text-cyan-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Asisten Digital Marketing</h3>
+                        <p class="text-sm text-gray-500 mb-4">Konten & Iklan Digital</p>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-cyan-500 mr-2 mt-1"></i>
+                            <span>Membuat desain, video, konten sosial media & iklan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-cyan-500 mr-2 mt-1"></i>
+                            <span>Support organik dan berbayar</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-lg font-bold text-gray-900">Rp3.000.000</span>
+                        <span class="text-sm text-gray-500">/ bulan</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-4">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clipboard-list text-2xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">General Affairs (GA)</h3>
+                        <p class="text-sm text-gray-500 mb-4">Administrasi & Logistik</p>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
+                            <span>Administrasi internal, arsip, logistik</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
+                            <span>Pengadaan kebutuhan tim</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-lg font-bold text-gray-900">Rp2.000.000</span>
+                        <span class="text-sm text-gray-500">/ bulan</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center mb-4">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Marketing (3 Orang)</h3>
+                        <p class="text-sm text-gray-500 mb-4">Lead Generation & Closing</p>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Bertugas mencari leads</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Follow-up calon pembeli</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Closing penjualan</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-100">
+                        <span class="text-lg font-bold text-gray-900">Rp2.500.000</span>
+                        <span class="text-sm text-gray-500">/ orang / bulan</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="chart-container">
-                <div class="chart-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Perbandingan Biaya Bulanan</h3>
-                    <div class="chart-wrapper">
-                        <canvas id="costChart"></canvas>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gray-900 text-white p-8 md:p-12">
+                        <h3 class="text-2xl font-bold mb-6 text-yellow-400">Rekap Gaji Tim</h3>
+                        <p class="text-gray-300 mb-6">Total biaya gaji tim MEA per bulan:</p>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Kepala Penanggung Jawab</span>
+                                <span class="font-medium">Rp6.500.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Asisten Digital</span>
+                                <span class="font-medium">Rp3.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">General Affairs (GA)</span>
+                                <span class="font-medium">Rp2.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Marketing (3 Orang)</span>
+                                <span class="font-medium">Rp7.500.000</span>
+                            </div>
+                            <div class="flex justify-between pt-4">
+                                <span class="text-lg font-bold text-yellow-400">Total Gaji/Bulan</span>
+                                <span class="text-lg font-bold">Rp19.000.000</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="chart-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Proyeksi Pertumbuhan Penjualan</h3>
-                    <div class="chart-wrapper">
-                        <canvas id="salesChart"></canvas>
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900">Kebutuhan Aset & Fasilitas</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Tablet presentasi marketing</span>
+                                <span class="font-medium">Rp6.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Laptop untuk GA</span>
+                                <span class="font-medium">Rp6.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">PC Editing Konten Digital</span>
+                                <span class="font-medium">Rp13.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">PC Kepala Digital Marketing</span>
+                                <span class="font-medium">Rp17.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Meja & kursi kerja</span>
+                                <span class="font-medium">Rp5.400.000</span>
+                            </div>
+                            <div class="flex justify-between pt-4">
+                                <span class="text-lg font-bold text-gray-900">Total Aset & Fasilitas</span>
+                                <span class="text-lg font-bold">Rp49.000.000</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefit Section -->
-    <section class="benefit-section section" id="keuntungan">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>ANALISA KEUNTUNGAN</h2>
-                <p>Mengapa kemitraan adalah solusi terbaik?</p>
+    <!-- Strategy Section -->
+    <section id="strategy" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Strategi <span class="gold-gradient">Pemasaran</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
             </div>
             
-            <div class="benefit-grid">
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-pie"></i>
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-green-500 mb-4">
+                        <i class="fas fa-leaf text-3xl"></i>
                     </div>
-                    <h3>Efisiensi Biaya</h3>
-                    <p>Perusahaan tidak lagi menanggung beban tetap tinggi seperti gaji dan biaya operasional harian. Biaya hanya dikeluarkan berdasarkan hasil penjualan.</p>
-                </div>
-                
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="benefit-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Produktivitas Tinggi</h3>
-                    <p>Mitra lebih termotivasi karena komisi berbasis hasil. Sistem digital memungkinkan kerja lebih efisien dengan jangkauan pasar lebih luas.</p>
-                </div>
-                
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="benefit-icon">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3>Terukur & Terlacak</h3>
-                    <p>Setiap penjualan bisa dilacak dengan sistem digital. Performa tim dapat diukur secara real-time untuk pengambilan keputusan strategis.</p>
-                </div>
-                
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="benefit-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3>Struktur Jelas</h3>
-                    <p>Mulia Agency dikelola secara profesional dan fokus ke hasil. Pembagian tugas dan komisi transparan sesuai kontribusi masing-masing.</p>
-                </div>
-                
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="benefit-icon">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                    <h3>Scalable</h3>
-                    <p>Sistem ini mudah dikembangkan untuk semua proyek PT Rumah Mulia Indonesia di masa depan tanpa perlu restrukturisasi besar.</p>
-                </div>
-                
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h3>Turnover Rendah</h3>
-                    <p>Mitra lebih terikat dengan sistem karena merasa memiliki bagian dari kesuksesan bersama. Mengurangi biaya rekrutmen dan training.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section section">
-        <div class="container">
-            <div class="cta-content" data-aos="fade-up">
-                <h2>Siap Mentransformasi Sistem Pemasaran Anda?</h2>
-                <p>Mulai implementasi sistem kemitraan digital Mulia Agency untuk efisiensi biaya dan peningkatan penjualan yang signifikan.</p>
-                <a href="#kontak" class="btn btn-primary">Diskusikan Implementasi</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="kontak">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="https://i.imgur.com/aVIjrGJ.png" alt="Mulia Agency Digital" loading="lazy">
-                    </div>
-                    <p>Solusi modern untuk transformasi digital pemasaran properti PT. Rumah Mulia Indonesia melalui sistem kemitraan yang efektif dan terukur.</p>
-                    
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h3 class="footer-heading">Navigasi Cepat</h3>
-                    <ul>
-                        <li><a href="#latar-belakang"><i class="fas fa-chevron-right"></i> Latar Belakang</a></li>
-                        <li><a href="#perbandingan"><i class="fas fa-chevron-right"></i> Perbandingan Sistem</a></li>
-                        <li><a href="#struktur"><i class="fas fa-chevron-right"></i> Struktur Kemitraan</a></li>
-                        <li><a href="#biaya"><i class="fas fa-chevron-right"></i> Biaya Perusahaan</a></li>
-                        <li><a href="#keuntungan"><i class="fas fa-chevron-right"></i> Keuntungan</a></li>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Organik (Gratis)</h3>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Konten edukatif, testimonial, video, dan story harian</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Optimasi Instagram, TikTok, Facebook</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Didukung penuh oleh Asisten Digital</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Hubungi Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Kantor PT. Rumah Mulia Indonesia, Kuningan</p>
-                    <p><i class="fas fa-phone"></i> +62 897-7771-080</p>
-                    <p><i class="fas fa-envelope"></i> info@muliaagency.com</p>
-                    
-                    <h3 class="footer-heading" style="margin-top: 30px;">Presentasi</h3>
-                    <p><i class="fas fa-file-pdf"></i> <a href="#" style="color: var(--secondary);">Download Proposal Lengkap</a></p>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-ad text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Berbayar</h3>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
+                            <span>Facebook/IG Ads, Google Ads, Retargeting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
+                            <span>Target: Lead harian untuk closing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
+                            <span>Anggaran iklan Rp8.500.000/bulan</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-store text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Offline</h3>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
+                            <span>Brosur, booth, dan presentasi dengan tablet</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
+                            <span>Event dan pameran properti</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
+                            <span>Jaringan referral</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                &copy; 2023 Mulia Agency Digital. Hak Cipta Dilindungi.
+            <div class="bg-gray-900 text-white rounded-xl p-8 md:p-12 shadow-xl" data-aos="fade-up">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h3 class="text-2xl font-bold mb-6 text-yellow-400">Biaya Operasional 6 Bulan</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Gaji Tim (Rp19jt x 6)</span>
+                                <span class="font-medium">Rp114.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Iklan Digital (Rp8,5jt x 6)</span>
+                                <span class="font-medium">Rp51.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Operasional & Logistik</span>
+                                <span class="font-medium">Rp12.000.000</span>
+                            </div>
+                            <div class="flex justify-between pt-4">
+                                <span class="text-lg font-bold text-yellow-400">Total Operasional 6 Bulan</span>
+                                <span class="text-lg font-bold">Rp177.000.000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 md:border-l md:border-gray-700">
+                        <h3 class="text-2xl font-bold mb-6 text-cyan-400">Total Pendanaan Awal</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Biaya Operasional 6 Bulan</span>
+                                <span class="font-medium">Rp177.000.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Aset & Fasilitas</span>
+                                <span class="font-medium">Rp49.000.000</span>
+                            </div>
+                            <div class="flex justify-between pt-4">
+                                <span class="text-xl font-bold text-cyan-400">TOTAL INVESTASI</span>
+                                <span class="text-xl font-bold">Rp226.000.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    
-    <script>
-        // Initialize AOS Animation
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update URL without jumping
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        window.location.hash = targetId;
-                    }
-                }
-            });
-        });
-        
-        // Initialize charts when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cost Comparison Chart
-            const ctx1 = document.getElementById('costChart');
-            if (ctx1) {
-                new Chart(ctx1, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Gaji', 'Fee Closing', 'Uang Makan', 'Bensin', 'Total'],
-                        datasets: [
-                            {
-                                label: 'Sistem Lama',
-                                data: [6000000, 3000000, 540000, 500000, 10040000],
-                                backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                                borderColor: 'rgba(231, 76, 60, 1)',
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Sistem Kemitraan',
-                                data: [0, 0, 3600000, 0, 3600000],
-                                backgroundColor: 'rgba(46, 204, 113, 0.7)',
-                                borderColor: 'rgba(46, 204, 113, 1)',
-                                borderWidth: 1
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    callback: function(value) {
-                                        return 'Rp' + value.toLocaleString();
-                                    }
-                                }
-                            }
-                        },
-                        plugins: {
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        label += 'Rp' + context.raw.toLocaleString();
-                                        return label;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
+    <!-- ROI Section -->
+    <section id="roi" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Pengembalian <span class="gold-gradient">Modal (ROI)</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
             
-            // Sales Growth Chart
-            const ctx2 = document.getElementById('salesChart');
-            if (ctx2) {
-                new Chart(ctx2, {
-                    type: 'line',
-                    data: {
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
-                        datasets: [
-                            {
-                                label: 'Sistem Lama',
-                                data: [5, 4, 6, 5, 4, 5],
-                                borderColor: 'rgba(231, 76, 60, 1)',
-                                backgroundColor: 'rgba(231, 76, 60, 0.1)',
-                                borderWidth: 2,
-                                tension: 0.3,
-                                fill: true
-                            },
-                            {
-                                label: 'Proyeksi Sistem Kemitraan',
-                                data: [5, 7, 9, 12, 15, 18],
-                                borderColor: 'rgba(46, 204, 113, 1)',
-                                backgroundColor: 'rgba(46, 204, 113, 0.1)',
-                                borderWidth: 2,
-                                tension: 0.3,
-                                fill: true,
-                                borderDash: [5, 5]
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Jumlah Penjualan'
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        });
-        
-        // Responsive adjustments
-        function handleResponsive() {
-            // Adjust hero height on mobile
-            if (window.innerWidth < 768) {
-                document.querySelector('.hero').style.minHeight = 'auto';
-                document.querySelector('.hero').style.padding = '100px 0';
-            } else {
-                document.querySelector('.hero').style.minHeight = '100vh';
-                document.querySelector('.hero').style.padding = '0';
-            }
-        }
-        
-        // Run on load and resize
-        window.addEventListener('load', handleResponsive);
-        window.addEventListener('resize', handleResponsive);
-    </script>
-</body>
-</html>
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div data-aos="fade-right">
+                    <div class="bg-white p-8 rounded-xl shadow-md mb-8 hover-scale">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-holding-usd text-2xl text-yellow-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900">Skema Pengembalian Modal</h3>
+                                <p class="text-gray-600">MEA akan mulai mencicil dana investasi mulai bulan ke-7</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mr-3 mt-1"></i>
+                                <span>Cicilan bersifat tetap dan disepakati di awal</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mr-3 mt-1"></i>
+                                <span>Contoh cicilan: Rp15.000.000 per bulan selama 12 bulan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mr-3 mt-1"></i>
+                                <span>Pengembalian tidak dipotong dari komisi penjualan</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-crown text-2xl text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900">Royalti untuk PT Rumah Mulia Indonesia</h3>
+                                <p class="text-gray-600">Mulai bulan ke-7 setelah ROI terpenuhi</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-500 mr-3 mt-1"></i>
+                                <span>Setiap penjualan dikenakan <span class="font-bold">royalti 10%</span> dari komisi bersih</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-500 mr-3 mt-1"></i>
+                                <span>Hak lisensi dan sistem dari PT Rumah Mulia Indonesia</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-500 mr-3 mt-1"></i>
+                                <span>Berlaku untuk proyek internal dan ekspansi</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <div class="bg-white p-8 rounded-xl shadow-md mb-8 hover-scale">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-chart-line text-2xl text-green-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900">Rencana Ekspansi Tahun ke-2</h3>
+                                <p class="text-gray-600">Pengembangan bisnis setelah sistem berjalan stabil</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span>MEA membuka kerja sama dengan proyek developer eksternal</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span>Komisi tetap 3% (bersih) untuk MEA</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span>Developer luar memberikan <span class="font-bold">10% royalti</span> ke PT Rumah Mulia Indonesia</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span>Potensi pendapatan tambahan yang signifikan</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-8 rounded-xl shadow-lg text-white hover-scale">
+                        <h3 class="text-xl font-bold mb-4">Timeline Proyeksi</h3>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-0 h-full w-0.5 bg-white bg-opacity-30"></div>
+                            
+                            <div class="relative mb-8 timeline-item">
+                                <div class="text-sm text-blue-200 mb-1">Bulan 1-6</div>
+                                <h4 class="text-lg font-bold mb-2">Operasional Awal</h4>
+                                <p class="text-blue-100">Fase pembentukan tim, sistem, dan pemasaran awal. Fokus pada penjualan properti PT Rumah Mulia Indonesia.</p>
+                            </div>
+                            
+                            <div class="relative mb-8 timeline-item">
+                                <div class="text-sm text-blue-200 mb-1">Bulan 7-18</div>
+                                <h4 class="text-lg font-bold mb-2">Pengembalian Modal</h4>
+                                <p class="text-blue-100">Mulai cicilan pengembalian modal dengan skema yang telah disepakati. Pemberian royalti 10% untuk PT Rumah Mulia Indonesia.</p>
+                            </div>
+                            
+                            <div
