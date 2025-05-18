@@ -326,34 +326,16 @@
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white text-gray-800 shadow-lg transition-all duration-300">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center">
-                        <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
-                        <span class="text-2xl font-bold text-blue-800">MEA</span>
-                    </div>
-                    <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
+    <div class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                    <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
+                    <span class="text-2xl font-bold text-blue-800">MEA</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
-                    <a href="#structure" class="hover:text-blue-600 transition">Struktur</a>
-                    <a href="#strategy" class="hover:text-blue-600 transition">Strategi</a>
-                    <a href="#hardware" class="hover:text-blue-600 transition">Perangkat</a>
-                    <a href="#uniform" class="hover:text-blue-600 transition">Seragam</a>
-                    <a href="#commission" class="hover:text-blue-600 transition">Komisi</a>
-                    <a href="#roi" class="hover:text-blue-600 transition">ROI</a>
-                    <a href="#recruitment" class="hover:text-blue-600 transition">Rekrutmen</a>
-                    <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
-                </div>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
             </div>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white w-full px-6 py-4 transition-all duration-300" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
+            <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
                 <a href="#structure" class="hover:text-blue-600 transition">Struktur</a>
                 <a href="#strategy" class="hover:text-blue-600 transition">Strategi</a>
@@ -364,8 +346,26 @@
                 <a href="#recruitment" class="hover:text-blue-600 transition">Rekrutmen</a>
                 <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
             </div>
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-    </nav>
+    </div>
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden bg-white w-full absolute left-0 top-full px-6 py-4 transition-all duration-300 shadow-lg" id="mobile-menu">
+        <div class="flex flex-col space-y-4">
+            <a href="#about" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Tentang</a>
+            <a href="#structure" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Struktur</a>
+            <a href="#strategy" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Strategi</a>
+            <a href="#hardware" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Perangkat</a>
+            <a href="#uniform" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Seragam</a>
+            <a href="#commission" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Komisi</a>
+            <a href="#roi" class="hover:text-blue-600 transition py-2 border-b border-gray-100">ROI</a>
+            <a href="#recruitment" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Rekrutmen</a>
+            <a href="#mapping" class="hover:text-blue-600 transition py-2">Mapping</a>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="gradient-bg text-white pt-32 pb-20 px-6 relative overflow-hidden">
@@ -1133,173 +1133,193 @@
 
     <!-- Commission Section -->
     <section id="commission" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Skema <span class="gold-gradient">Komisi & Pembagian</span></h2>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
-                    Simulasi pembagian komisi dari penjualan 20 unit properti dengan harga Rp143.000.000 per unit (Total Komisi 3% = Rp85.800.000)
-                </p>
+    <div class="container mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Skema <span class="gold-gradient">Komisi & Pembagian</span></h2>
+            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+                Perhitungan komisi 3% dari harga properti (Rp143jt) dengan royalti 10% untuk PT RMI
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right">
+                <h3 class="text-2xl font-bold mb-6 text-gray-900">Pembagian Komisi</h3>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                        <div>
+                            <h4 class="font-bold">Harga Rumah</h4>
+                            <p class="text-sm text-gray-500">Kertamulya Residence</p>
+                        </div>
+                        <div class="text-lg font-bold">Rp143.000.000</div>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                        <div>
+                            <h4 class="font-bold">Komisi 3%</h4>
+                            <p class="text-sm text-gray-500">Total komisi penjualan</p>
+                        </div>
+                        <div class="text-lg font-bold">Rp4.290.000</div>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                        <div>
+                            <h4 class="font-bold">Royalti PT RMI (10%)</h4>
+                            <p class="text-sm text-gray-500">Dari total komisi</p>
+                        </div>
+                        <div class="text-lg font-bold">Rp429.000</div>
+                    </div>
+                    <div class="flex justify-between items-center pb-4">
+                        <div>
+                            <h4 class="font-bold">Sisa untuk MEA (2.7%)</h4>
+                            <p class="text-sm text-gray-500">Komisi bersih</p>
+                        </div>
+                        <div class="text-lg font-bold">Rp3.861.000</div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <div class="chart-container">
+                        <canvas id="commissionChart"></canvas>
+                    </div>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Pembagian Komisi</h3>
-                    <div class="space-y-6">
-                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                            <div>
-                                <h4 class="font-bold">Royalti PT Rumah Mulia Indonesia</h4>
-                                <p class="text-sm text-gray-500">10% dari total komisi</p>
-                            </div>
-                            <div class="text-lg font-bold">Rp8.580.000</div>
+            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-left">
+                <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Internal MEA</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-600">Marketing Executive (0.9%)</span>
+                            <span class="font-medium">Rp1.287.000</span>
                         </div>
-                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                            <div>
-                                <h4 class="font-bold">Sisa untuk MEA</h4>
-                                <p class="text-sm text-gray-500">90% dari total komisi</p>
-                            </div>
-                            <div class="text-lg font-bold">Rp77.220.000</div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-500 h-2 rounded-full" style="width: 33.33%"></div>
                         </div>
                     </div>
-                    <div class="mt-8">
-                        <div class="chart-container">
-                            <canvas id="commissionChart"></canvas>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-600">General Affairs & Digital (0.2%)</span>
+                            <span class="font-medium">Rp286.000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 7.41%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-600">Manager MEA (0.8%)</span>
+                            <span class="font-medium">Rp1.144.000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 29.63%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-600">Bisnis & Ops (0.8%)</span>
+                            <span class="font-medium">Rp1.144.000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-red-500 h-2 rounded-full" style="width: 29.63%"></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-left">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Internal MEA</h3>
+                <div class="mt-8">
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Dividend Section -->
+        <div class="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale mb-12" data-aos="fade-up">
+            <h3 class="text-2xl font-bold mb-6">Distribusi Dividen</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
+                    <h4 class="font-bold mb-3 text-center">Tahap 1</h4>
+                    <p class="text-green-100 text-sm text-center">6 Bulan Pertama</p>
+                    <div class="mt-4 text-center">
+                        <div class="text-2xl font-bold">100%</div>
+                        <p class="text-xs">Reinvestasi ke operasional</p>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
+                    <h4 class="font-bold mb-3 text-center">Tahap 2</h4>
+                    <p class="text-green-100 text-sm text-center">Setelah ROI</p>
+                    <div class="mt-4 text-center">
+                        <div class="text-2xl font-bold">20%</div>
+                        <p class="text-xs">Cadangan operasional</p>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
+                    <h4 class="font-bold mb-3 text-center">Tahap 3</h4>
+                    <p class="text-green-100 text-sm text-center">Distribusi</p>
+                    <div class="mt-4 text-center">
+                        <div class="text-2xl font-bold">80%</div>
+                        <p class="text-xs">Dividen untuk tim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+            <div class="md:flex">
+                <div class="md:w-1/2 p-8 md:p-12 bg-gray-50">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Contoh Perhitungan 20 Unit</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b border-gray-200 pb-3">
+                            <span class="text-gray-600">Total Komisi (20 unit)</span>
+                            <span class="font-bold">Rp85.800.000</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 pb-3">
+                            <span class="text-gray-600">Royalti PT RMI (10%)</span>
+                            <span class="font-bold">Rp8.580.000</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 pb-3">
+                            <span class="text-gray-600">Komisi Bersih MEA</span>
+                            <span class="font-bold">Rp77.220.000</span>
+                        </div>
+                        <div class="flex justify-between pt-4">
+                            <span class="text-gray-600">Dividen untuk Tim (80%)</span>
+                            <span class="font-bold text-green-600">Rp61.776.000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Dividen Tim</h3>
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Marketing Executive (2 Orang) = 1.2%</span>
-                                <span class="font-medium">Rp34.320.000</span>
+                                <span class="text-gray-600">Marketing Executive (60%)</span>
+                                <span class="font-medium">Rp37.065.600</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">General Affairs = 0.1%</span>
-                                <span class="font-medium">Rp2.860.000</span>
+                                <span class="text-gray-600">Staf Pendukung (20%)</span>
+                                <span class="font-medium">Rp12.355.200</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 10%"></div>
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 20%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Digital Experts = 0.1%</span>
-                                <span class="font-medium">Rp2.860.000</span>
+                                <span class="text-gray-600">Manager (20%)</span>
+                                <span class="font-medium">Rp12.355.200</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-purple-500 h-2 rounded-full" style="width: 10%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Manager MEA = 0.8%</span>
-                                <span class="font-medium">Rp11.440.000</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Pengembangan Bisnis = 0.8%</span>
-                                <span class="font-medium">Rp25.740.000</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-red-500 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <div class="chart-container">
-                            <canvas id="distributionChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
-                <div class="flex flex-col md:flex-row gap-6">
-                    <div class="md:w-1/2">
-                        <h3 class="text-2xl font-bold mb-6">Rincian Pembagian</h3>
-                        <div class="commission-grid gap-4">
-                            <div class="bg-white bg-opacity-10 rounded-lg p-4 glass-card">
-                                <div class="text-sm text-purple-200 mb-1">Per Unit (Rp143jt)</div>
-                                <div class="text-xl font-bold">Rp4.290.000</div>
-                                <div class="text-xs text-purple-200">(3%)</div>
-                            </div>
-                            <div class="bg-white bg-opacity-10 rounded-lg p-4 glass-card">
-                                <div class="text-sm text-purple-200 mb-1">Royalti PT RMI</div>
-                                <div class="text-xl font-bold">Rp429.000</div>
-                                <div class="text-xs text-purple-200">(10%)</div>
-                            </div>
-                            <div class="bg-white bg-opacity-10 rounded-lg p-4 glass-card">
-                                <div class="text-sm text-purple-200 mb-1">Marketing Executive (2 Orang)</div>
-                                <div class="text-xl font-bold">Rp858.000</div>
-                                <div class="text-xs text-purple-200">/orang/unit</div>
-                            </div>
-                            <div class="bg-white bg-opacity-10 rounded-lg p-4 glass-card">
-                                <div class="text-sm text-purple-200 mb-1">Pengembangan Bisnis</div>
-                                <div class="text-xl font-bold">Rp1.287.000</div>
-                                <div class="text-xs text-purple-200">/unit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2">
-                        <h3 class="text-2xl font-bold mb-6">Perhitungan Komisi</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between border-b border-purple-500 border-opacity-30 pb-2">
-                                <span class="text-purple-200">Harga Rumah</span>
-                                <span class="font-medium">Rp143.000.000</span>
-                            </div>
-                            <div class="flex justify-between border-b border-purple-500 border-opacity-30 pb-2">
-                                <span class="text-purple-200">Komisi 3%</span>
-                                <span class="font-medium">Rp4.290.000</span>
-                            </div>
-                            <div class="flex justify-between border-b border-purple-500 border-opacity-30 pb-2">
-                                <span class="text-purple-200">Royalti PT RMI (10%)</span>
-                                <span class="font-medium">Rp429.000</span>
-                            </div>
-                            <div class="flex justify-between border-b border-purple-500 border-opacity-30 pb-2">
-                                <span class="text-purple-200">Sisa untuk MEA</span>
-                                <span class="font-medium">Rp3.861.000</span>
-                            </div>
-                            <div class="pt-4">
-                                <div class="text-sm text-purple-200 mb-2">Distribusi MEA:</div>
-                                <div class="text-sm flex justify-between mb-1">
-                                    <span>Marketing (1.2%)</span>
-                                    <span>Rp1.716.000</span>
-                                </div>
-                                <div class="text-sm flex justify-between mb-1">
-                                    <span>GA (0.1%)</span>
-                                    <span>Rp143.000</span>
-                                </div>
-                                <div class="text-sm flex justify-between mb-1">
-                                    <span>Digital Experts (0.1%)</span>
-                                    <span>Rp143.000</span>
-                                </div>
-                                <div class="text-sm flex justify-between mb-1">
-                                    <span>Manager MEA (0.8%)</span>
-                                    <span>Rp1.144.000</span>
-                                </div>
-                                <div class="text-sm flex justify-between">
-                                    <span>Pengembangan Bisnis (0.8%)</span>
-                                    <span>Rp715.000</span>
-                                </div>
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 20%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ROI Section -->
     <section id="roi" class="py-20 px-6 bg-gray-50">
@@ -2012,12 +2032,25 @@
             offset: 120
         });
         
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+         // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
         
+        // Toggle aria-expanded attribute
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        
+        // Toggle icon
+        const icon = this.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2064,115 +2097,63 @@
             }
         });
         
-        // Initialize Commission Chart
-        const commissionCtx = document.getElementById('commissionChart').getContext('2d');
-        const commissionChart = new Chart(commissionCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Royalti PT RMI (10%)', 'Sisa untuk MEA (90%)'],
-                datasets: [{
-                    data: [10, 90],
-                    backgroundColor: [
-                        '#3B82F6',
-                        '#D4AF37'
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#6B7280',
-                            font: {
-                                family: 'Inter'
-                            }
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                label += context.raw + '%';
-                                return label;
-                            }
-                        }
-                    }
-                },
-                cutout: '70%'
-            }
-        });
-        
-        // Initialize Distribution Chart
-        const distributionCtx = document.getElementById('distributionChart').getContext('2d');
-        const distributionChart = new Chart(distributionCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Marketing (1.2%)', 'GA (0.1%)', 'Digital (0.1%)', 'Manager MEA (0.8%)', 'Pengembangan (0.8%)'],
-                datasets: [{
-                    label: 'Persentase',
-                    data: [1.2, 0.1, 0.1, 0.8, 0.8],
-                    backgroundColor: [
-                        '#10B981',
-                        '#3B82F6',
-                        '#8B5CF6',
-                        '#D4AF37',
-                        '#EF4444'
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                label += context.raw + '%';
-                                return label;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 2,
-                        ticks: {
-                            color: '#6B7280',
-                            callback: function(value) {
-                                return value + '%';
-                            }
-                        },
-                        grid: {
-                            color: '#E5E7EB'
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: '#6B7280'
-                        },
-                        grid: {
-                            display: false
+         // Initialize Commission Chart
+    const commissionCtx = document.getElementById('commissionChart').getContext('2d');
+    const commissionChart = new Chart(commissionCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Royalti PT RMI (10%)', 'Komisi MEA (90%)'],
+            datasets: [{
+                data: [10, 90],
+                backgroundColor: ['#3B82F6', '#D4AF37'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw}%`;
                         }
                     }
                 }
+            },
+            cutout: '70%'
+        }
+    });
+
+    // Initialize Distribution Chart
+    const distributionCtx = document.getElementById('distributionChart').getContext('2d');
+    const distributionChart = new Chart(distributionCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Marketing (0.9%)', 'GA & Digital (0.2%)', 'Manager (0.8%)', 'Bisnis (0.8%)'],
+            datasets: [{
+                data: [0.9, 0.2, 0.8, 0.8],
+                backgroundColor: ['#10B981', '#3B82F6', '#D4AF37', '#EF4444'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1,
+                    ticks: {
+                        callback: function(value) { return value + '%'; }
+                    }
+                },
+                x: { grid: { display: false } }
             }
-        });
+        }
+    });
         
         // Presentation mode
         let presentationInterval;
