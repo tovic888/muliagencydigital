@@ -321,6 +321,24 @@
                 height: 50px;
             }
         }
+
+ .presentation-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        background: rgba(212, 175, 55, 0.3);
+        z-index: 9999;
+        transition: width 0.3s ease;
+    }
+    .presentation-highlight {
+        animation: highlight 2s ease;
+    }
+    @keyframes highlight {
+        0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+        50% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -1513,160 +1531,156 @@
     </section>
 
     <!-- Recruitment Section -->
-    <section id="recruitment" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Rekrutmen <span class="gold-gradient">Tim MEA</span></h2>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
-                    Proses rekrutmen untuk membentuk tim profesional pemasaran properti di Kuningan, Jawa Barat
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-center mb-6">
-                        <div class="bg-blue-100 p-4 rounded-full inline-block">
-                            <i class="fas fa-user-tie text-blue-500 text-3xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Marketing Executive</h3>
-                    <div class="mb-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
-                        <ul class="list-disc list-inside text-gray-600 text-sm">
-                            <li>Pendidikan minimal SMA/STM sederajat</li>
-                            <li>Memiliki SIM C aktif</li>
-                            <li>Pengalaman canvassing/Marketing Executive</li>
-                            <li>Mampu menjelaskan produk dengan baik</li>
-                        </ul>
-                    </div>
-                    <div class="mb-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
-                        <ul class="list-disc list-inside text-gray-600 text-sm">
-                            <li>Canvassing langsung ke lokasi strategis</li>
-                            <li>Menemani buyer survei lokasi</li>
-                            <li>Follow-up prospek harian</li>
-                        </ul>
-                    </div>
-                    <div class="text-center mt-6">
-                        <span class="text-lg font-bold text-gray-900">Rp2.500.000</span>
-                        <span class="text-sm text-gray-500">/ bulan</span>
+ <section id="recruitment" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Rekrutmen <span class="gold-gradient">Tim MEA</span></h2>
+            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+                Proses rekrutmen untuk membentuk tim profesional pemasaran properti di Kuningan, Jawa Barat
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Marketing Executive -->
+            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center mb-6">
+                    <div class="bg-blue-100 p-4 rounded-full inline-block">
+                        <i class="fas fa-user-tie text-blue-500 text-3xl"></i>
                     </div>
                 </div>
-                
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-center mb-6">
-                        <div class="bg-purple-100 p-4 rounded-full inline-block">
-                            <i class="fas fa-laptop-code text-purple-500 text-3xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Digital Experts</h3>
-                    <div class="mb-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
-                        <ul class="list-disc list-inside text-gray-600 text-sm">
-                            <li>Pendidikan minimal SMK Multimedia/DKV</li>
-                            <li>Menguasai editing video (CapCut/VN)</li>
-                            <li>Percaya diri tampil di depan kamera</li>
-                            <li>Memahami algoritma media sosial</li>
-                        </ul>
-                    </div>
-                    <div class="mb-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
-                        <ul class="list-disc list-inside text-gray-600 text-sm">
-                            <li>Membuat konten harian (Reels/TikTok)</li>
-                            <li>Menjalankan iklan berbayar</li>
-                            <li>Monitoring performa konten</li>
-                        </ul>
-                    </div>
-                    <div class="text-center mt-6">
-                        <span class="text-lg font-bold text-gray-900">Rp3.000.000</span>
-                        <span class="text-sm text-gray-500">/ bulan</span>
-                    </div>
+                <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Marketing Executive</h3>
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        <li>Pendidikan minimal SMA/STM sederajat</li>
+                        <li>Memiliki SIM C aktif</li>
+                        <li>Pengalaman marketing/penjualan</li>
+                        <li>Percaya diri membuat konten video</li>
+                        <li>Menguasai TikTok/Instagram Reels</li>
+                    </ul>
                 </div>
-                
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-center mb-6">
-                        <div class="bg-green-100 p-4 rounded-full inline-block">
-                            <i class="fas fa-file-alt text-green-500 text-3xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-gray-900">General Affairs</h3>
-                    <div class="mb-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
-                        <ul class="list-disc list-inside text-gray-600 text-sm">
-                            <li>Pendidikan minimal SMK Administrasi</li>
-                            <li>Teliti dan rapi dalam administrasi</li>
-                            <li>Mampu mengkoordinasi berbagai pihak</li>
-                            <li>Memahami proses KPR (nilai tambah)</li>
-                        </ul>
-                    </div>
-                    <div class="mb-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
-                        <ul class="list-disc list-inside text-gray-600 text-sm">
-                            <li>Mengelola dokumen penjualan</li>
-                            <li>Koordinasi dengan tim admin PT RMI</li>
-                            <li>Menyiapkan kebutuhan operasional</li>
-                        </ul>
-                    </div>
-                    <div class="text-center mt-6">
-                        <span class="text-lg font-bold text-gray-900">Rp2.200.000</span>
-                        <span class="text-sm text-gray-500">/ bulan</span>
-                    </div>
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        <li>Canvassing langsung ke lokasi strategis</li>
+                        <li>Membuat konten video properti harian</li>
+                        <li>Melakukan live TikTok minimal 3x/minggu</li>
+                        <li>Follow-up prospek harian</li>
+                        <li>Menemani buyer survei lokasi</li>
+                    </ul>
+                </div>
+                <div class="text-center mt-6">
+                    <span class="text-lg font-bold text-gray-900">Rp2.500.000</span>
+                    <span class="text-sm text-gray-500">+ Bonus Penjualan</span>
                 </div>
             </div>
             
-            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
-                <div class="md:flex items-center">
-                    <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
-                        <h3 class="text-2xl font-bold mb-6">Proses Rekrutmen</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="bg-white bg-opacity-20 rounded-full p-2 mr-4">
-                                    <i class="fas fa-search text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-2">Seleksi Administrasi</h4>
-                                    <p class="text-blue-100 text-sm">Verifikasi dokumen dan kualifikasi dasar</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-white bg-opacity-20 rounded-full p-2 mr-4">
-                                    <i class="fas fa-comments text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-2">Wawancara Awal</h4>
-                                    <p class="text-blue-100 text-sm">Assesment motivasi dan kemampuan dasar</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-white bg-opacity-20 rounded-full p-2 mr-4">
-                                    <i class="fas fa-tasks text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-2">Tes Praktik</h4>
-                                    <p class="text-blue-100 text-sm">Simulasi tugas sesuai posisi</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-white bg-opacity-20 rounded-full p-2 mr-4">
-                                    <i class="fas fa-user-check text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-2">Wawancara Akhir</h4>
-                                    <p class="text-blue-100 text-sm">Dengan manajer dan perwakilan PT RMI</p>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Digital Specialist -->
+            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center mb-6">
+                    <div class="bg-purple-100 p-4 rounded-full inline-block">
+                        <i class="fas fa-chart-line text-purple-500 text-3xl"></i>
                     </div>
-                    <div class="md:w-1/3 bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                        <h4 class="font-bold mb-4 text-center">Status Rekrutmen</h4>
-                        <div class="text-4xl font-bold text-center mb-2">Dibuka</div>
-                        <p class="text-sm text-blue-200 text-center">Fase awal pembentukan tim</p>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Digital Specialist</h3>
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        <li>Pendidikan minimal D3 Digital Marketing</li>
+                        <li>Pengalaman mengelola iklan digital</li>
+                        <li>Menguasai Facebook Ads & Google Ads</li>
+                        <li>Memahami analitik performa konten</li>
+                        <li>Mampu membuat strategi konten</li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        <li>Mengelola iklan berbayar (Rp8.5jt/bulan)</li>
+                        <li>Membuat strategi konten bulanan</li>
+                        <li>Analisis performa konten & iklan</li>
+                        <li>Optimasi konversi lead ke penjualan</li>
+                        <li>Melaporkan ROI iklan mingguan</li>
+                    </ul>
+                </div>
+                <div class="text-center mt-6">
+                    <span class="text-lg font-bold text-gray-900">Rp3.500.000</span>
+                    <span class="text-sm text-gray-500">+ Bonus Performa</span>
+                </div>
+            </div>
+            
+            <!-- General Affairs -->
+            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-center mb-6">
+                    <div class="bg-green-100 p-4 rounded-full inline-block">
+                        <i class="fas fa-file-alt text-green-500 text-3xl"></i>
                     </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-center text-gray-900">General Affairs</h3>
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        <li>Pendidikan minimal D3 Administrasi</li>
+                        <li>Pengalaman admin minimal 1 tahun</li>
+                        <li>Teliti dan rapi dalam administrasi</li>
+                        <li>Menguasai Excel & sistem administrasi</li>
+                        <li>Memahami proses KPR (nilai tambah)</li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        <li>Mengelola dokumen penjualan</li>
+                        <li>Koordinasi dengan tim admin PT RMI</li>
+                        <li>Menyiapkan kebutuhan operasional</li>
+                        <li>Mengelola database prospek</li>
+                        <li>Melaporkan perkembangan penjualan</li>
+                    </ul>
+                </div>
+                <div class="text-center mt-6">
+                    <span class="text-lg font-bold text-gray-900">Rp2.800.000</span>
+                    <span class="text-sm text-gray-500">+ Bonus Tim</span>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- New Recruitment Process Section -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
+            <h3 class="text-2xl font-bold mb-6">Proses Rekrutmen</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-alt text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">1. Seleksi Administrasi</h4>
+                    <p class="text-blue-100 text-sm">Verifikasi dokumen & kualifikasi</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-video text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">2. Tes Praktik</h4>
+                    <p class="text-blue-100 text-sm">Buat konten video/iklan contoh</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">3. Wawancara Tim</h4>
+                    <p class="text-blue-100 text-sm">Dengan Manager & PT RMI</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">4. Pengumuman</h4>
+                    <p class="text-blue-100 text-sm">Max 3 hari setelah wawancara</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Expansion Section -->
     <section id="expansion" class="py-20 px-6 bg-gray-50">
@@ -2018,9 +2032,7 @@
     </footer>
 
     <!-- Presentation Mode Button -->
-    <div class="presentation-btn" id="presentation-btn">
-        <i class="fas fa-expand"></i>
-    </div>
+    <div class="presentation-progress" id="presentation-progress"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
@@ -2154,55 +2166,116 @@
             }
         }
     });
+    
+ // Enhanced Presentation Mode
+    let presentationInterval;
+    let currentSection = 0;
+    const sections = [
+        '#about', '#structure', '#strategy', '#hardware',
+        '#uniform', '#commission', '#roi', '#recruitment', '#mapping'
+    ];
+    const sectionDurations = [20000, 20000, 20000, 20000, 20000, 25000, 25000, 20000, 20000]; // 20-25s per section
+    
+    function startPresentation() {
+        // Reset state
+        currentSection = 0;
+        document.body.classList.add('presentation-active');
         
-        // Presentation mode
-        let presentationInterval;
-        let currentSection = 0;
-        const sections = [
-            '#about', '#structure', '#strategy', '#hardware', 
-            '#uniform', '#commission', '#roi', '#recruitment', '#mapping'
-        ];
+        // Initial setup
+        navigateToSection(currentSection);
+        updateProgress();
         
-        function startPresentation() {
-            currentSection = 0;
+        // Start auto-advance
+        presentationInterval = setInterval(() => {
+            currentSection = (currentSection + 1) % sections.length;
             navigateToSection(currentSection);
+            updateProgress();
             
-            presentationInterval = setInterval(() => {
-                currentSection = (currentSection + 1) % sections.length;
-                navigateToSection(currentSection);
-            }, 15000); // 15 seconds per section
-            
-            document.getElementById('presentation-btn').innerHTML = '<i class="fas fa-compress"></i>';
-            document.getElementById('presentation-btn').classList.add('bg-yellow-500');
-        }
-        
-        function stopPresentation() {
+            // Restart timer with new duration
             clearInterval(presentationInterval);
-            document.getElementById('presentation-btn').innerHTML = '<i class="fas fa-expand"></i>';
-            document.getElementById('presentation-btn').classList.remove('bg-yellow-500');
-        }
+            presentationInterval = setInterval(arguments.callee, sectionDurations[currentSection]);
+        }, sectionDurations[currentSection]);
         
-        function navigateToSection(index) {
-            const section = document.querySelector(sections[index]);
-            if (section) {
-                section.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
+        // Update button
+        const btn = document.getElementById('presentation-btn');
+        btn.innerHTML = '<i class="fas fa-stop"></i>';
+        btn.classList.remove('bg-blue-800');
+        btn.classList.add('bg-red-500');
+    }
+    
+    function stopPresentation() {
+        clearInterval(presentationInterval);
+        document.body.classList.remove('presentation-active');
+        document.getElementById('presentation-progress').style.width = '0%';
         
-        document.getElementById('presentation-btn').addEventListener('click', function() {
-            if (presentationInterval) {
-                stopPresentation();
-            } else {
-                startPresentation();
-            }
+        const btn = document.getElementById('presentation-btn');
+        btn.innerHTML = '<i class="fas fa-expand"></i>';
+        btn.classList.remove('bg-red-500');
+        btn.classList.add('bg-blue-800');
+        
+        // Remove all highlights
+        document.querySelectorAll('.presentation-highlight').forEach(el => {
+            el.classList.remove('presentation-highlight');
         });
-        
-        document.getElementById('presentation-mode').addEventListener('click', function() {
+    }
+    
+    function navigateToSection(index) {
+        const section = document.querySelector(sections[index]);
+        if (section) {
+            // Remove previous highlight
+            document.querySelectorAll('.presentation-highlight').forEach(el => {
+                el.classList.remove('presentation-highlight');
+            });
+            
+            // Scroll to section
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Add highlight
+            section.classList.add('presentation-highlight');
+            
+            // Update mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                document.getElementById('menu-toggle').querySelector('i').classList.replace('fa-times', 'fa-bars');
+            }
+        }
+    }
+    
+    function updateProgress() {
+        const progress = ((currentSection + 1) / sections.length) * 100;
+        document.getElementById('presentation-progress').style.width = `${progress}%`;
+    }
+    
+    // Event listeners
+    document.getElementById('presentation-btn').addEventListener('click', function() {
+        if (document.body.classList.contains('presentation-active')) {
+            stopPresentation();
+        } else {
             startPresentation();
-        });
+        }
+    });
+    
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+        if (!document.body.classList.contains('presentation-active')) return;
+        
+        if (e.key === 'ArrowRight') {
+            currentSection = Math.min(currentSection + 1, sections.length - 1);
+            navigateToSection(currentSection);
+            updateProgress();
+        } else if (e.key === 'ArrowLeft') {
+            currentSection = Math.max(currentSection - 1, 0);
+            navigateToSection(currentSection);
+            updateProgress();
+        } else if (e.key === 'Escape') {
+            stopPresentation();
+        }
+    });    
+        
     </script>
 </body>
 </html>
