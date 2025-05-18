@@ -472,60 +472,178 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Navigation Dropdown Styles */
+nav .group:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+}
+
+/* Mobile Accordion Styles */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion.active .accordion-content {
+    max-height: 500px;
+}
+
+.accordion.active i {
+    transform: rotate(180deg);
+}
+
+/* Mobile Menu Fixes */
+#mobile-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    z-index: 40;
+}
+
+#mobile-menu.active {
+    display: block;
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white text-gray-800 shadow-lg transition-all duration-300">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center">
-                        <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
-                        <span class="text-2xl font-bold text-blue-800">MEA</span>
+    <!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white text-gray-800 shadow-lg transition-all duration-300">
+    <div class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                    <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
+                    <span class="text-2xl font-bold text-blue-800">MEA</span>
+                </div>
+                <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Main Menu Items -->
+                <div class="relative group">
+                    <button class="hover:text-blue-600 transition flex items-center">
+                        Tentang <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                        <a href="#about" class="block px-4 py-2 hover:bg-gray-100">Tentang MEA</a>
+                        <a href="#structure" class="block px-4 py-2 hover:bg-gray-100">Struktur Tim</a>
+                        <a href="#schedule" class="block px-4 py-2 hover:bg-gray-100">Jadwal Kerja</a>
                     </div>
-                    <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
-                    <a href="#structure" class="hover:text-blue-600 transition">Struktur</a>
-                    <a href="#strategy" class="hover:text-blue-600 transition">Strategi</a>
-<a href="#market-validation" class="hover:text-blue-600 transition">Validasi</a>
-<a href="#finance" class="hover:text-blue-600 transition">Keuangan</a>
-
-<a href="#kpi" class="hover:text-blue-600 transition">KPI</a>
-                    <a href="#hardware" class="hover:text-blue-600 transition">Perangkat</a>
-                    <a href="#uniform" class="hover:text-blue-600 transition">Seragam</a>
-                    <a href="#commission" class="hover:text-blue-600 transition">Komisi</a>
-                    <a href="#roi" class="hover:text-blue-600 transition">ROI</a>
-                    <a href="#recruitment" class="hover:text-blue-600 transition">Rekrutmen</a>
-                    <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
+                
+                <div class="relative group">
+                    <button class="hover:text-blue-600 transition flex items-center">
+                        Strategi <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                        <a href="#strategy" class="block px-4 py-2 hover:bg-gray-100">Strategi Pemasaran</a>
+                        <a href="#market-validation" class="block px-4 py-2 hover:bg-gray-100">Validasi Pasar</a>
+                        <a href="#kpi" class="block px-4 py-2 hover:bg-gray-100">KPI & Monitoring</a>
+                    </div>
                 </div>
-                <button class="md:hidden focus:outline-none" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
-                    <i class="fas fa-bars text-2xl"></i>
+                
+                <div class="relative group">
+                    <button class="hover:text-blue-600 transition flex items-center">
+                        Operasional <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                        <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100">Perangkat Kerja</a>
+                        <a href="#uniform" class="block px-4 py-2 hover:bg-gray-100">Seragam</a>
+                        <a href="#commission" class="block px-4 py-2 hover:bg-gray-100">Komisi</a>
+                        <a href="#recruitment" class="block px-4 py-2 hover:bg-gray-100">Rekrutmen</a>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <button class="hover:text-blue-600 transition flex items-center">
+                        Keuangan <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                        <a href="#finance" class="block px-4 py-2 hover:bg-gray-100">Proyeksi Keuangan</a>
+                        <a href="#roi" class="block px-4 py-2 hover:bg-gray-100">ROI</a>
+                    </div>
+                </div>
+                
+                <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden focus:outline-none" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="md:hidden bg-white w-full absolute left-0 top-full px-6 py-4 transition-all duration-300 shadow-lg hidden" id="mobile-menu">
+        <div class="space-y-2">
+            <!-- Accordion Item 1 -->
+            <div class="accordion">
+                <button class="w-full flex justify-between items-center py-2 font-medium text-left">
+                    <span>Tentang</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
+                <div class="accordion-content pl-4">
+                    <a href="#about" class="block py-2 hover:text-blue-600">Tentang MEA</a>
+                    <a href="#structure" class="block py-2 hover:text-blue-600">Struktur Tim</a>
+                    <a href="#schedule" class="block py-2 hover:text-blue-600">Jadwal Kerja</a>
+                </div>
             </div>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden bg-white w-full absolute left-0 top-full px-6 py-4 transition-all duration-300 shadow-lg" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
-                <a href="#about" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Tentang</a>
-                <a href="#structure" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Struktur</a>
-                <a href="#strategy" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Strategi</a>
-<a href="#market-validation" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Validasi</a>
-<a href="#finance" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Keuangan</a>
-
-<a href="#kpi" class="hover:text-blue-600 transition py-2 border-b border-gray-100">KPI</a>
-
-                <a href="#hardware" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Perangkat</a>
-                <a href="#uniform" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Seragam</a>
-                <a href="#commission" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Komisi</a>
-                <a href="#roi" class="hover:text-blue-600 transition py-2 border-b border-gray-100">ROI</a>
-                <a href="#recruitment" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Rekrutmen</a>
-                <a href="#mapping" class="hover:text-blue-600 transition py-2">Mapping</a>
+            
+            <!-- Accordion Item 2 -->
+            <div class="accordion">
+                <button class="w-full flex justify-between items-center py-2 font-medium text-left">
+                    <span>Strategi</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content pl-4">
+                    <a href="#strategy" class="block py-2 hover:text-blue-600">Strategi Pemasaran</a>
+                    <a href="#market-validation" class="block py-2 hover:text-blue-600">Validasi Pasar</a>
+                    <a href="#kpi" class="block py-2 hover:text-blue-600">KPI & Monitoring</a>
+                </div>
             </div>
+            
+            <!-- Accordion Item 3 -->
+            <div class="accordion">
+                <button class="w-full flex justify-between items-center py-2 font-medium text-left">
+                    <span>Operasional</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content pl-4">
+                    <a href="#hardware" class="block py-2 hover:text-blue-600">Perangkat Kerja</a>
+                    <a href="#uniform" class="block py-2 hover:text-blue-600">Seragam</a>
+                    <a href="#commission" class="block py-2 hover:text-blue-600">Komisi</a>
+                    <a href="#recruitment" class="block py-2 hover:text-blue-600">Rekrutmen</a>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 4 -->
+            <div class="accordion">
+                <button class="w-full flex justify-between items-center py-2 font-medium text-left">
+                    <span>Keuangan</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content pl-4">
+                    <a href="#finance" class="block py-2 hover:text-blue-600">Proyeksi Keuangan</a>
+                    <a href="#roi" class="block py-2 hover:text-blue-600">ROI</a>
+                </div>
+            </div>
+            
+            <a href="#mapping" class="block py-2 hover:text-blue-600">Mapping</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="gradient-bg text-white pt-32 pb-20 px-6 relative overflow-hidden">
@@ -2949,7 +3067,20 @@ const targetChart = new Chart(targetCtx, {
         }
     }
 });
+        // Mobile Accordion Functionality
+document.querySelectorAll('.accordion button').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordion = button.parentElement;
+        accordion.classList.toggle('active');
         
+        // Close other accordions
+        document.querySelectorAll('.accordion').forEach(item => {
+            if (item !== accordion) {
+                item.classList.remove('active');
+            }
+        });
+    });
+});
     </script>
 </body>
 </html>
