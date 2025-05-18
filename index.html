@@ -404,70 +404,71 @@
     }
     
   /* Image Modal Styles */
-.imageModal {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    padding: 20px;
-    overflow: auto;
-    transition: opacity 0.3s ease;
-}
-
-.imageModal .relative {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding: 20px;
-}
-
-.modalImage {
-    max-width: 100%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 4px;
-}
-
-.closeModal {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.3);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10000;
-    color: white;
-    font-size: 24px;
-    transition: all 0.3s ease;
-}
-
-.closeModal:hover {
-    background: rgba(255,255,255,0.5);
-    transform: scale(1.1);
-}
-
-/* For touch devices */
-@media (hover: none) {
-    .closeModal {
-        background: rgba(255,255,255,0.5);
+ .imageModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        background-color: rgba(0,0,0,0.75);
+        padding: 1rem;
     }
-}
+    
+    .imageModal .modal-container {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .modalImage {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 0.5rem;
+    }
+    
+    .closeModal {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background: rgba(0,0,0,0.7);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+        border: 2px solid white;
+    }
+    
+    @media (max-width: 768px) {
+        .imageModal .modal-container {
+            max-width: 95vw;
+            max-height: 95vh;
+        }
+        
+        .modalImage {
+            max-height: 85vh;
+        }
+        
+        .closeModal {
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+        }
+    }
     
     </style>
 </head>
@@ -1319,12 +1320,11 @@
 </section>
 
 <!-- Image Zoom Modal -->
-<div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-75">
-    <div class="relative max-w-4xl w-full p-4">
-        <button id="closeModal" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
-        <img id="modalImage" class="max-h-screen mx-auto" src="" alt="Zoomed Image">
+div id="imageModal" class="hidden imageModal">
+    <div class="modal-container">
+        <button id="closeModal" class="closeModal">&times;</button>
+        <img id="modalImage" class="modalImage" src="" alt="Zoomed Image">
     </div>
-</div>
     <!-- Commission Section -->
     <section id="commission" class="py-20 px-6 bg-white">
     <div class="container mx-auto">
