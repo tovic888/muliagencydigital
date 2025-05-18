@@ -1170,70 +1170,78 @@ nav .group:hover .dropdown {
         </div>
     </section>
 <!-- Market Validation Section -->
-<section id="market-validation" class="py-20 px-6 bg-white">
+<!-- Market Validation Section - Diperbaiki -->
+<section id="market-validation" class="py-12 md:py-20 px-4 sm:px-6 bg-white">
     <div class="container mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Validasi <span class="gold-gradient">Pasar Kuningan</span></h2>
-            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+        <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4 text-gray-900">Validasi <span class="gold-gradient">Pasar Kuningan</span></h2>
+            <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+            <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Analisis kebutuhan hunian di Kabupaten Kuningan dan positioning unik Kertamulya Residence
             </p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-blue-500 mb-4">
-                    <i class="fas fa-chart-line text-3xl"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Demand Card -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-chart-line text-blue-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900">Demand Hunian</h3>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gray-900">Demand Hunian</h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between">
+                <div class="space-y-4 mb-4">
+                    <div class="flex justify-between items-center">
                         <span class="text-gray-600">Pertumbuhan permintaan</span>
                         <span class="font-bold text-blue-600">15% per tahun</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between items-center">
                         <span class="text-gray-600">Harga rata-rata</span>
                         <span class="font-bold text-blue-600">Rp120-150jt</span>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex justify-between items-center">
                         <span class="text-gray-600">Kebutuhan per tahun</span>
                         <span class="font-bold text-blue-600">500+ unit</span>
                     </div>
                 </div>
-                <div class="mt-6">
-                    <div class="chart-container">
-                        <canvas id="demandChart"></canvas>
-                    </div>
+                <div class="chart-container" style="height: 200px;">
+                    <canvas id="demandChart"></canvas>
                 </div>
             </div>
             
-            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-yellow-500 mb-4">
-                    <i class="fas fa-users text-3xl"></i>
+            <!-- Profil Konsumen Card -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-users text-yellow-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900">Profil Konsumen</h3>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gray-900">Profil Konsumen</h3>
-                <div class="space-y-6">
-                    <div class="border-l-4 border-green-500 pl-4 py-2">
-                        <h4 class="font-bold text-gray-800">Keluarga Muda</h4>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-2">Keluarga Muda</h4>
                         <p class="text-sm text-gray-600">Pasangan usia 25-35 tahun, penghasilan Rp5-8jt/bulan, mencari rumah pertama dengan cicilan terjangkau.</p>
                     </div>
-                    <div class="border-l-4 border-purple-500 pl-4 py-2">
-                        <h4 class="font-bold text-gray-800">Hijrahpreneur</h4>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-2">Hijrahpreneur</h4>
                         <p class="text-sm text-gray-600">Pengusaha muda muslim, tertarik konsep syariah, mencari properti sebagai investasi.</p>
                     </div>
-                    <div class="border-l-4 border-blue-500 pl-4 py-2">
-                        <h4 class="font-bold text-gray-800">First Time Buyer</h4>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-gray-800 mb-2">First Time Buyer</h4>
                         <p class="text-sm text-gray-600">Pembeli pertama kali, butuh edukasi, lebih percaya rekomendasi daripada iklan.</p>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
-                <div class="text-red-500 mb-4">
-                    <i class="fas fa-medal text-3xl"></i>
+            <!-- Pembeda MEA Card -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="bg-red-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-medal text-red-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900">Pembeda MEA</h3>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-gray-900">Pembeda MEA</h3>
-                <ul class="space-y-4 text-gray-700">
+                <ul class="space-y-3 text-gray-700 mb-4">
                     <li class="flex items-start">
                         <i class="fas fa-check-circle text-yellow-500 mr-2 mt-1"></i>
                         <span><strong>Sistem Terpadu:</strong> Digital + offline dengan tracking terpusat</span>
@@ -1246,12 +1254,8 @@ nav .group:hover .dropdown {
                         <i class="fas fa-check-circle text-yellow-500 mr-2 mt-1"></i>
                         <span><strong>Pendekatan Islami:</strong> Konsep syariah, transaksi jelas</span>
                     </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-yellow-500 mr-2 mt-1"></i>
-                        <span><strong>USP Kertamulya:</strong> Lokasi strategis, harga kompetitif, lingkungan islami</span>
-                    </li>
                 </ul>
-                <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
                     <p class="text-sm text-yellow-800">"70% pembeli di Kuningan lebih memilih rekomendasi dari kenalan daripada iklan konvensional" - Data internal PT RMI</p>
                 </div>
             </div>
@@ -1259,295 +1263,198 @@ nav .group:hover .dropdown {
     </div>
 </section>
 
-<!-- Finance Projection Section -->
-<section id="finance" class="py-20 px-6 bg-gray-50">
+<!-- Finance Projection Section - Diperbaiki -->
+<section id="finance" class="py-12 md:py-20 px-4 sm:px-6 bg-gray-50">
     <div class="container mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Proyeksi <span class="gold-gradient">Keuangan</span></h2>
-            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+        <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4 text-gray-900">Proyeksi <span class="gold-gradient">Keuangan</span></h2>
+            <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+            <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Simulasi keuangan berdasarkan pencapaian target penjualan 20 unit per 6 bulan
             </p>
         </div>
         
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900">Breakdown Pendapatan</h3>
-                <div class="space-y-6">
-                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <!-- Breakdown Pendapatan -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-right">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Breakdown Pendapatan</h3>
+                <div class="space-y-4 mb-6">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-3">
                         <div>
-                            <h4 class="font-bold">Harga per Unit</h4>
-                            <p class="text-sm text-gray-500">Kertamulya Residence</p>
+                            <h4 class="font-medium text-gray-800">Harga per Unit</h4>
+                            <p class="text-xs text-gray-500">Kertamulya Residence</p>
                         </div>
                         <div class="text-lg font-bold">Rp143.000.000</div>
                     </div>
-                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-3">
                         <div>
-                            <h4 class="font-bold">Target Penjualan</h4>
-                            <p class="text-sm text-gray-500">6 bulan pertama</p>
+                            <h4 class="font-medium text-gray-800">Target Penjualan</h4>
+                            <p class="text-xs text-gray-500">6 bulan pertama</p>
                         </div>
                         <div class="text-lg font-bold">20 Unit</div>
                     </div>
-                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-3">
                         <div>
-                            <h4 class="font-bold">Total Penjualan</h4>
-                            <p class="text-sm text-gray-500">Nilai transaksi</p>
-                        </div>
-                        <div class="text-lg font-bold">Rp2.860.000.000</div>
-                    </div>
-                    <div class="flex justify-between items-center pb-4">
-                        <div>
-                            <h4 class="font-bold">Komisi MEA (3%)</h4>
-                            <p class="text-sm text-gray-500">Dari total penjualan</p>
+                            <h4 class="font-medium text-gray-800">Komisi 3%</h4>
+                            <p class="text-xs text-gray-500">Total komisi penjualan</p>
                         </div>
                         <div class="text-lg font-bold">Rp85.800.000</div>
                     </div>
                 </div>
-                <div class="mt-8">
-                    <div class="chart-container">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
+                <div class="chart-container" style="height: 250px;">
+                    <canvas id="revenueChart"></canvas>
                 </div>
             </div>
             
-            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-left">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900">Break-Even Analysis</h3>
-                <div class="mb-8">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-gray-600">Progress BEP</span>
-                        <span class="text-gray-600">8 Unit</span>
+            <!-- Break-Even Analysis -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-left">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Break-Even Analysis</h3>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm text-gray-600">Progress BEP</span>
+                        <span class="text-sm font-medium">8 Unit</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
                         <div class="bg-green-500 h-2.5 rounded-full" style="width: 40%"></div>
                     </div>
-                    <p class="text-sm text-gray-500">Perlu menjual 8 unit untuk menutup biaya operasional 6 bulan</p>
+                    <p class="text-xs text-gray-500">Perlu menjual 8 unit untuk menutup biaya operasional 6 bulan</p>
                 </div>
                 
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="font-bold mb-2">Proyeksi Berdasarkan Pencapaian Target</h4>
-                        <div class="grid grid-cols-3 gap-2 text-center mb-4">
-                            <div class="bg-blue-50 p-2 rounded">
-                                <div class="text-xl font-bold">100%</div>
-                                <div class="text-sm">20 Unit</div>
-                            </div>
-                            <div class="bg-yellow-50 p-2 rounded">
-                                <div class="text-xl font-bold">50%</div>
-                                <div class="text-sm">10 Unit</div>
-                            </div>
-                            <div class="bg-red-50 p-2 rounded">
-                                <div class="text-xl font-bold">25%</div>
-                                <div class="text-sm">5 Unit</div>
-                            </div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="targetChart"></canvas>
-                        </div>
-                    </div>
+                <h4 class="font-bold mb-4 text-gray-800">Proyeksi Berdasarkan Pencapaian Target</h4>
+                <div class="chart-container" style="height: 250px;">
+                    <canvas id="targetChart"></canvas>
                 </div>
             </div>
         </div>
         
-        <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
-            <div class="md:flex items-center">
-                <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
-                    <h3 class="text-2xl font-bold mb-6">Analisis Risiko & Mitigasi</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-2 text-purple-200">Risiko Utama</h4>
-                            <ul class="list-disc list-inside text-purple-100 space-y-2">
-                                <li>Target penjualan tidak tercapai</li>
-                                <li>Biaya operasional membengkak</li>
-                                <li>Turnover tim marketing tinggi</li>
-                                <li>Perubahan kebijakan iklan digital</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-2 text-purple-200">Strategi Mitigasi</h4>
-                            <ul class="list-disc list-inside text-purple-100 space-y-2">
-                                <li>Monitoring harian & evaluasi mingguan</li>
-                                <li>Budget control ketat dengan approval</li>
-                                <li>Sistem bonus menarik & pelatihan</li>
-                                <li>Diversifikasi channel pemasaran</li>
-                            </ul>
-                        </div>
-                    </div>
+        <!-- Risk Analysis -->
+        <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-xl p-6 md:p-8 shadow-xl hover-scale max-w-4xl mx-auto" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-6">Analisis Risiko & Mitigasi</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-bold mb-3 text-purple-200">Risiko Utama</h4>
+                    <ul class="list-disc list-inside text-purple-100 space-y-2 text-sm">
+                        <li>Target penjualan tidak tercapai</li>
+                        <li>Biaya operasional membengkak</li>
+                        <li>Turnover tim marketing tinggi</li>
+                    </ul>
                 </div>
-                <div class="md:w-1/3 bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                    <h4 class="font-bold mb-4 text-center">Worst Case Scenario</h4>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold mb-2">25%</div>
-                        <p class="text-sm text-purple-200">Pencapaian target (5 unit)</p>
-                        <div class="mt-4">
-                            <div class="text-sm">Komisi Bersih</div>
-                            <div class="text-xl font-bold">Rp19.305.000</div>
-                            <p class="text-xs text-purple-200">(Setelah royalti PT RMI)</p>
-                        </div>
-                    </div>
+                <div>
+                    <h4 class="font-bold mb-3 text-purple-200">Strategi Mitigasi</h4>
+                    <ul class="list-disc list-inside text-purple-100 space-y-2 text-sm">
+                        <li>Monitoring harian & evaluasi mingguan</li>
+                        <li>Budget control ketat dengan approval</li>
+                        <li>Sistem bonus menarik & pelatihan</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- KPI Section -->
-<section id="kpi" class="py-20 px-6 bg-gray-50">
+<!-- KPI Section - Diperbaiki -->
+<section id="kpi" class="py-12 md:py-20 px-4 sm:px-6 bg-white">
     <div class="container mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Monitoring <span class="gold-gradient">& KPI</span></h2>
-            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+        <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4 text-gray-900">Monitoring <span class="gold-gradient">& KPI</span></h2>
+            <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+            <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Sistem pengukuran kinerja dan tools monitoring untuk tim MEA
             </p>
         </div>
         
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900">Tools Monitoring</h3>
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="bg-blue-100 p-3 rounded-lg mr-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <!-- Tools Monitoring -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-right">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Tools Monitoring</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="bg-blue-100 p-2 rounded-lg mr-4">
                             <i class="fab fa-google text-blue-500 text-xl"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Google Data Studio</h4>
-                            <p class="text-gray-600 text-sm">Dashboard real-time untuk melacak leads, penjualan, dan ROI iklan.</p>
+                            <p class="text-sm text-gray-600">Dashboard real-time untuk melacak leads, penjualan, dan ROI iklan.</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-green-100 p-3 rounded-lg mr-4">
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="bg-green-100 p-2 rounded-lg mr-4">
                             <i class="fab fa-whatsapp text-green-500 text-xl"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">WhatsApp CRM</h4>
-                            <p class="text-gray-600 text-sm">Sistem penomoran khusus untuk tracking interaksi dengan prospek.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 p-3 rounded-lg mr-4">
-                            <i class="fab fa-trello text-purple-500 text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Trello Board</h4>
-                            <p class="text-gray-600 text-sm">Manajemen tugas harian untuk tim dengan sistem checklist.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="bg-yellow-100 p-3 rounded-lg mr-4">
-                            <i class="fas fa-file-excel text-yellow-500 text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Laporan Excel</h4>
-                            <p class="text-gray-600 text-sm">Template standar untuk laporan mingguan ke PT RMI.</p>
+                            <p class="text-sm text-gray-600">Sistem penomoran khusus untuk tracking interaksi dengan prospek.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-left">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900">Key Performance Indicator</h3>
+            <!-- Key Performance Indicator -->
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-left">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Key Performance Indicator</h3>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-600">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
-                                <th class="px-4 py-3">Divisi</th>
-                                <th class="px-4 py-3">KPI Mingguan</th>
-                                <th class="px-4 py-3">Target</th>
+                                <th class="px-3 py-2">Divisi</th>
+                                <th class="px-3 py-2">KPI</th>
+                                <th class="px-3 py-2">Target</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-xs">
                             <tr class="border-b border-gray-200">
-                                <td class="px-4 py-3 font-medium">Digital Specialist</td>
-                                <td class="px-4 py-3">
+                                <td class="px-3 py-3 font-medium">Digital</td>
+                                <td class="px-3 py-3">
                                     <ul class="list-disc list-inside">
                                         <li>Konten diproduksi</li>
                                         <li>Leads generated</li>
-                                        <li>ROI iklan</li>
                                     </ul>
                                 </td>
-                                <td class="px-4 py-3">
+                                <td class="px-3 py-3">
                                     <ul class="list-inside">
                                         <li>15 konten</li>
                                         <li>500 leads</li>
-                                        <li>Min. 3x</li>
                                     </ul>
                                 </td>
                             </tr>
                             <tr class="border-b border-gray-200">
-                                <td class="px-4 py-3 font-medium">Marketing Executive</td>
-                                <td class="px-4 py-3">
+                                <td class="px-3 py-3 font-medium">Marketing</td>
+                                <td class="px-3 py-3">
                                     <ul class="list-disc list-inside">
                                         <li>Kunjungan langsung</li>
                                         <li>Closing</li>
-                                        <li>Live TikTok</li>
                                     </ul>
                                 </td>
-                                <td class="px-4 py-3">
+                                <td class="px-3 py-3">
                                     <ul class="list-inside">
                                         <li>25 visit</li>
                                         <li>10 closing</li>
-                                        <li>2x live</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-3 font-medium">General Affairs</td>
-                                <td class="px-4 py-3">
-                                    <ul class="list-disc list-inside">
-                                        <li>Proses KPR</li>
-                                        <li>Dokumen lengkap</li>
-                                        <li>Follow-up</li>
-                                    </ul>
-                                </td>
-                                <td class="px-4 py-3">
-                                    <ul class="list-inside">
-                                        <li>20 proses</li>
-                                        <li>100% lengkap</li>
-                                        <li>50 prospek</li>
                                     </ul>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-                    <p class="text-sm text-blue-800">Evaluasi KPI dilakukan setiap Jumat sore dengan penanggung jawab MEA dan perwakilan PT RMI.</p>
-                </div>
             </div>
         </div>
         
-        <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
-            <div class="md:flex items-center">
-                <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
-                    <h3 class="text-2xl font-bold mb-6">Sistem Reward & Punishment</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-2 text-yellow-200">Reward</h4>
-                            <ul class="list-disc list-inside text-yellow-100 space-y-2">
-                                <li>Bonus closing Rp 200.000/unit di atas target</li>
-                                <li>Kenaikan gaji 5% utk performa konsisten</li>
-                                                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-2 text-yellow-200">Punishment</h4>
-                            <ul class="list-disc list-inside text-yellow-100 space-y-2">
-                                <li>Peringatan tertulis untuk KPI <50%</li>
-                                <li>Evaluasi ulang kontrak utk performa buruk</li>
-                               
-                            </ul>
-                        </div>
-                    </div>
+        <!-- Reward System -->
+        <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white rounded-xl p-6 md:p-8 shadow-xl hover-scale max-w-4xl mx-auto" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-6">Sistem Reward & Punishment</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-bold mb-3 text-yellow-200">Reward</h4>
+                    <ul class="list-disc list-inside text-yellow-100 space-y-2 text-sm">
+                        <li>Bonus closing Rp 200.000/unit di atas target</li>
+                        <li>Kenaikan gaji 5% utk performa konsisten</li>
+                    </ul>
                 </div>
-                <div class="md:w-1/3 bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                    <h4 class="font-bold mb-4 text-center">Siklus Evaluasi</h4>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold mb-2">Mingguan</div>
-                        <p class="text-sm text-yellow-200">Review KPI tiap Jumat</p>
-                        <div class="mt-4">
-                            <div class="text-sm">Bulanan</div>
-                            <p class="text-sm text-yellow-200">Evaluasi komprehensif</p>
-                        </div>
-                    </div>
+                <div>
+                    <h4 class="font-bold mb-3 text-yellow-200">Punishment</h4>
+                    <ul class="list-disc list-inside text-yellow-100 space-y-2 text-sm">
+                        <li>Peringatan tertulis untuk KPI &lt;50%</li>
+                        <li>Evaluasi ulang kontrak utk performa buruk</li>
+                    </ul>
                 </div>
             </div>
         </div>
