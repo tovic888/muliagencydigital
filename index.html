@@ -2180,114 +2180,46 @@
     });
     
  // Enhanced Presentation Mode
-    let presentationInterval;
-    let currentSection = 0;
-    const sections = [
-        '#about', '#structure', '#strategy', '#hardware',
-        '#uniform', '#commission', '#roi', '#recruitment', '#mapping'
-    ];
-    const sectionDurations = [20000, 20000, 20000, 20000, 20000, 25000, 25000, 20000, 20000]; // 20-25s per section
+   // Replace existing presentation mode code with this:
+const presentationBtn = document.getElementById('presentation-mode');
+let presentationActive = false;
+let presentationInterval;
+
+presentationBtn.addEventListener('click', function() {
+    presentationActive = !presentationActive;
     
-    function startPresentation() {
-        // Reset state
-        currentSection = 0;
-        document.body.classList.add('presentation-active');
-        
-        // Initial setup
-        navigateToSection(currentSection);
-        updateProgress();
-        
-        // Start auto-advance
-        presentationInterval = setInterval(() => {
-            currentSection = (currentSection + 1) % sections.length;
-            navigateToSection(currentSection);
-            updateProgress();
-            
-            // Restart timer with new duration
-            clearInterval(presentationInterval);
-            presentationInterval = setInterval(arguments.callee, sectionDurations[currentSection]);
-        }, sectionDurations[currentSection]);
-        
-        // Update button
-        const btn = document.getElementById('presentation-btn');
-        btn.innerHTML = '<i class="fas fa-stop"></i>';
-        btn.classList.remove('bg-blue-800');
-        btn.classList.add('bg-red-500');
-    }
-    
-    function stopPresentation() {
+    if (presentationActive) {
+        this.innerHTML = 'Exit Presentation <i class="fas fa-times ml-2"></i>';
+        document.body.classList.add('presentation-mode');
+        startPresentation();
+    } else {
+        this.innerHTML = 'Mode Presentasi <i class="fas fa-expand ml-2"></i>';
+        document.body.classList.remove('presentation-mode');
         clearInterval(presentationInterval);
-        document.body.classList.remove('presentation-active');
-        document.getElementById('presentation-progress').style.width = '0%';
-        
-        const btn = document.getElementById('presentation-btn');
-        btn.innerHTML = '<i class="fas fa-expand"></i>';
-        btn.classList.remove('bg-red-500');
-        btn.classList.add('bg-blue-800');
-        
-        // Remove all highlights
-        document.querySelectorAll('.presentation-highlight').forEach(el => {
-            el.classList.remove('presentation-highlight');
+    }
+});
+
+function startPresentation() {
+    const sections = document.querySelectorAll('section');
+    let currentIndex = 0;
+    
+    function showSection(index) {
+        sections.forEach((section, i) => {
+            if (i === index) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                section.classList.add('presentation-highlight');
+            } else {
+                section.classList.remove('presentation-highlight');
+            }
         });
     }
     
-    function navigateToSection(index) {
-        const section = document.querySelector(sections[index]);
-        if (section) {
-            // Remove previous highlight
-            document.querySelectorAll('.presentation-highlight').forEach(el => {
-                el.classList.remove('presentation-highlight');
-            });
-            
-            // Scroll to section
-            section.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-            // Add highlight
-            section.classList.add('presentation-highlight');
-            
-            // Update mobile menu if open
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                document.getElementById('menu-toggle').querySelector('i').classList.replace('fa-times', 'fa-bars');
-            }
-        }
-    }
-    
-    function updateProgress() {
-        const progress = ((currentSection + 1) / sections.length) * 100;
-        document.getElementById('presentation-progress').style.width = `${progress}%`;
-    }
-    
-    // Event listeners
-    document.getElementById('presentation-btn').addEventListener('click', function() {
-        if (document.body.classList.contains('presentation-active')) {
-            stopPresentation();
-        } else {
-            startPresentation();
-        }
-    });
-    
-    // Keyboard controls
-    document.addEventListener('keydown', (e) => {
-        if (!document.body.classList.contains('presentation-active')) return;
-        
-        if (e.key === 'ArrowRight') {
-            currentSection = Math.min(currentSection + 1, sections.length - 1);
-            navigateToSection(currentSection);
-            updateProgress();
-        } else if (e.key === 'ArrowLeft') {
-            currentSection = Math.max(currentSection - 1, 0);
-            navigateToSection(currentSection);
-            updateProgress();
-        } else if (e.key === 'Escape') {
-            stopPresentation();
-        }
-    });    
-
+    showSection(currentIndex);
+    presentationInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % sections.length;
+        showSection(currentIndex);
+    }, 15000); // 15 seconds per section
+}
 // Add this script right after mobile menu HTML
 document.addEventListener('DOMContentLoaded', function() {
     // Force show mobile menu on small screens
