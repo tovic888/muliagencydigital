@@ -3081,6 +3081,30 @@ document.querySelectorAll('.accordion button').forEach(button => {
         });
     });
 });
+// Tambahkan kode ini di bagian script
+document.addEventListener('DOMContentLoaded', function() {
+    // Dropdown menu desktop
+    const navItems = document.querySelectorAll('nav .hidden.md\\:flex a');
+    
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            // Hapus class active dari semua item
+            navItems.forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            
+            // Tambahkan class active ke item yang dihover
+            this.classList.add('active');
+        });
+    });
+    
+    // Tutup dropdown saat mouse leave dari nav
+    document.querySelector('nav').addEventListener('mouseleave', function() {
+        navItems.forEach(item => {
+            item.classList.remove('active');
+        });
+    });
+});
     </script>
 </body>
 </html>
