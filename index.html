@@ -393,84 +393,87 @@
             }
         }
 
-    
-     .zoomable-image {
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-    
-    .zoomable-image:hover {
-        transform: scale(1.05);
-    }
-    
-  /* Image Modal Styles */
- .imageModal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        z-index: 999;
-        background-color: rgba(0,0,0,0.75);
-        padding: 1rem;
-    }
-    
-    .imageModal .modal-container {
-        position: relative;
-        max-width: 90vw;
-        max-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .modalImage {
-        max-width: 100%;
-        max-height: 80vh;
-        object-fit: contain;
-        border-radius: 0.5rem;
-    }
-    
-    .closeModal {
-        position: absolute;
-        top: -15px;
-        right: -15px;
-        background: rgba(0,0,0,0.7);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        color: white;
-        font-size: 1.5rem;
-        border: 2px solid white;
-    }
-    
-    @media (max-width: 768px) {
+        .zoomable-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .zoomable-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Image Modal Styles */
+        .imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            background-color: rgba(0,0,0,0.75);
+            padding: 1rem;
+        }
+        
+        .imageModal.active {
+            display: flex;
+        }
+        
         .imageModal .modal-container {
-            max-width: 95vw;
-            max-height: 95vh;
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .modalImage {
-            max-height: 85vh;
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
         }
         
         .closeModal {
-            top: -10px;
-            right: -10px;
-            width: 30px;
-            height: 30px;
-            font-size: 1.2rem;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: rgba(0,0,0,0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+            border: 2px solid white;
         }
-    }
-    
-    </style>
+        
+        @media (max-width: 768px) {
+            .imageModal .modal-container {
+                max-width: 95vw;
+                max-height: 95vh;
+            }
+            
+            .modalImage {
+                max-height: 85vh;
+            }
+            
+            .closeModal {
+                top: -10px;
+                right: -10px;
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+        }
+
+   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
