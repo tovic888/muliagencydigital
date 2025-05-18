@@ -512,6 +512,36 @@ nav .group:hover .dropdown {
 #mobile-menu.active {
     display: block;
 }
+
+/* Tambahkan di bagian media queries */
+@media (max-width: 768px) {
+    /* Market Validation */
+    #market-validation .grid.md\\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Finance Projection */
+    #finance .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* KPI Section */
+    #kpi .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Perbaikan tabel KPI */
+    #kpi table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* Perbaikan chart containers */
+    .chart-container {
+        height: 250px !important;
+    }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
