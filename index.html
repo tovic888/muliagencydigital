@@ -189,6 +189,11 @@
             display: flex;
             overflow-x: auto;
             padding: 20px 0;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .timeline-horizontal::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
         
         .timeline-item-horizontal {
@@ -246,7 +251,89 @@
             background: var(--secondary);
         }
         
+        /* Presentation Mode Styles */
+        .presentation-mode {
+            overflow: hidden;
+        }
+        
+        .presentation-mode section {
+            display: none;
+            height: 100vh;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            overflow-y: auto;
+        }
+        
+        .presentation-mode section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .presentation-highlight {
+            animation: highlight 2s ease;
+        }
+        
+        @keyframes highlight {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        .presentation-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: rgba(212, 175, 55, 0.3);
+            z-index: 9999;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        /* Mobile Menu Fixes */
+        #mobile-menu {
+            display: none;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 100%;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            z-index: 40;
+        }
+        
+        #mobile-menu.active {
+            display: block;
+        }
+        
+        /* Responsive Fixes */
         @media (max-width: 768px) {
+            html, body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+            
+            .timeline-horizontal {
+                flex-direction: column;
+            }
+            
+            .timeline-item-horizontal {
+                min-width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .timeline-item-horizontal::before {
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
             .map-container {
                 height: 350px;
             }
@@ -280,20 +367,11 @@
                 height: 250px;
             }
             
-            .timeline-horizontal {
-                flex-direction: column;
-            }
-            
-            .timeline-item-horizontal {
-                min-width: 100%;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .timeline-item-horizontal::before {
-                top: -10px;
-                left: 50%;
-                transform: translateX(-50%);
+            .presentation-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
             }
         }
         
@@ -313,89 +391,52 @@
             .uniform-gallery {
                 grid-template-columns: 1fr;
             }
-            
-            .presentation-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-            }
         }
-
- .presentation-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 4px;
-        background: rgba(212, 175, 55, 0.3);
-        z-index: 9999;
-        transition: width 0.3s ease;
-    }
-    .presentation-highlight {
-        animation: highlight 2s ease;
-    }
-    @keyframes highlight {
-        0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-        50% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-    }
-
-/* Add to your media queries */
-@media (max-width: 768px) {
-    html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    #mobile-menu {
-        display: none; /* Start hidden but toggleable */
-    }
-}
-
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white text-gray-800 shadow-lg transition-all duration-300">
-    <div class="container mx-auto px-6 py-3">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <div class="flex items-center">
-                    <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
-                    <span class="text-2xl font-bold text-blue-800">MEA</span>
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
+                        <span class="text-2xl font-bold text-blue-800">MEA</span>
+                    </div>
+                    <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
                 </div>
-                <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
+                    <a href="#structure" class="hover:text-blue-600 transition">Struktur</a>
+                    <a href="#strategy" class="hover:text-blue-600 transition">Strategi</a>
+                    <a href="#hardware" class="hover:text-blue-600 transition">Perangkat</a>
+                    <a href="#uniform" class="hover:text-blue-600 transition">Seragam</a>
+                    <a href="#commission" class="hover:text-blue-600 transition">Komisi</a>
+                    <a href="#roi" class="hover:text-blue-600 transition">ROI</a>
+                    <a href="#recruitment" class="hover:text-blue-600 transition">Rekrutmen</a>
+                    <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
-                <a href="#structure" class="hover:text-blue-600 transition">Struktur</a>
-                <a href="#strategy" class="hover:text-blue-600 transition">Strategi</a>
-                <a href="#hardware" class="hover:text-blue-600 transition">Perangkat</a>
-                <a href="#uniform" class="hover:text-blue-600 transition">Seragam</a>
-                <a href="#commission" class="hover:text-blue-600 transition">Komisi</a>
-                <a href="#roi" class="hover:text-blue-600 transition">ROI</a>
-                <a href="#recruitment" class="hover:text-blue-600 transition">Rekrutmen</a>
-                <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden bg-white w-full absolute left-0 top-full px-6 py-4 transition-all duration-300 shadow-lg" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Tentang</a>
+                <a href="#structure" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Struktur</a>
+                <a href="#strategy" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Strategi</a>
+                <a href="#hardware" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Perangkat</a>
+                <a href="#uniform" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Seragam</a>
+                <a href="#commission" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Komisi</a>
+                <a href="#roi" class="hover:text-blue-600 transition py-2 border-b border-gray-100">ROI</a>
+                <a href="#recruitment" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Rekrutmen</a>
+                <a href="#mapping" class="hover:text-blue-600 transition py-2">Mapping</a>
             </div>
-            <button class="md:hidden focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
         </div>
-    </div>
-    <!-- Mobile menu -->
-    <div class="md:hidden hidden bg-white w-full absolute left-0 top-full px-6 py-4 transition-all duration-300 shadow-lg" id="mobile-menu">
-        <div class="flex flex-col space-y-4">
-            <a href="#about" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Tentang</a>
-            <a href="#structure" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Struktur</a>
-            <a href="#strategy" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Strategi</a>
-            <a href="#hardware" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Perangkat</a>
-            <a href="#uniform" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Seragam</a>
-            <a href="#commission" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Komisi</a>
-            <a href="#roi" class="hover:text-blue-600 transition py-2 border-b border-gray-100">ROI</a>
-            <a href="#recruitment" class="hover:text-blue-600 transition py-2 border-b border-gray-100">Rekrutmen</a>
-            <a href="#mapping" class="hover:text-blue-600 transition py-2">Mapping</a>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Hero Section -->
     <section class="gradient-bg text-white pt-32 pb-20 px-6 relative overflow-hidden">
@@ -1163,193 +1204,184 @@
 
     <!-- Commission Section -->
     <section id="commission" class="py-20 px-6 bg-white">
-    <div class="container mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Skema <span class="gold-gradient">Komisi & Pembagian</span></h2>
-            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
-                Perhitungan komisi 3% dari harga properti (Rp143jt) dengan royalti 10% untuk PT RMI
-            </p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900">Pembagian Komisi</h3>
-                <div class="space-y-6">
-                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                        <div>
-                            <h4 class="font-bold">Harga Rumah</h4>
-                            <p class="text-sm text-gray-500">Kertamulya Residence</p>
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Skema <span class="gold-gradient">Komisi & Pembagian</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+                    Perhitungan komisi 3% dari harga properti (Rp143jt) dengan royalti 10% untuk PT RMI
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Pembagian Komisi</h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <div>
+                                <h4 class="font-bold">Harga Rumah</h4>
+                                <p class="text-sm text-gray-500">Kertamulya Residence</p>
+                            </div>
+                            <div class="text-lg font-bold">Rp143.000.000</div>
                         </div>
-                        <div class="text-lg font-bold">Rp143.000.000</div>
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <div>
+                                <h4 class="font-bold">Komisi 3%</h4>
+                                <p class="text-sm text-gray-500">Total komisi penjualan</p>
+                            </div>
+                            <div class="text-lg font-bold">Rp4.290.000</div>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <div>
+                                <h4 class="font-bold">Royalti PT RMI (10%)</h4>
+                                <p class="text-sm text-gray-500">Dari total komisi</p>
+                            </div>
+                            <div class="text-lg font-bold">Rp429.000</div>
+                        </div>
+                        <div class="flex justify-between items-center pb-4">
+                            <div>
+                                <h4 class="font-bold">Sisa untuk MEA (2.7%)</h4>
+                                <p class="text-sm text-gray-500">Komisi bersih</p>
+                            </div>
+                            <div class="text-lg font-bold">Rp3.861.000</div>
+                        </div>
                     </div>
-                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                        <div>
-                            <h4 class="font-bold">Komisi 3%</h4>
-                            <p class="text-sm text-gray-500">Total komisi penjualan</p>
+                    <div class="mt-8">
+                        <div class="chart-container">
+                            <canvas id="commissionChart"></canvas>
                         </div>
-                        <div class="text-lg font-bold">Rp4.290.000</div>
-                    </div>
-                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                        <div>
-                            <h4 class="font-bold">Royalti PT RMI (10%)</h4>
-                            <p class="text-sm text-gray-500">Dari total komisi</p>
-                        </div>
-                        <div class="text-lg font-bold">Rp429.000</div>
-                    </div>
-                    <div class="flex justify-between items-center pb-4">
-                        <div>
-                            <h4 class="font-bold">Sisa untuk MEA (2.7%)</h4>
-                            <p class="text-sm text-gray-500">Komisi bersih</p>
-                        </div>
-                        <div class="text-lg font-bold">Rp3.861.000</div>
                     </div>
                 </div>
-                <div class="mt-8">
-                    <div class="chart-container">
-                        <canvas id="commissionChart"></canvas>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Internal MEA</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">Marketing Executive (0.9%)</span>
+                                <span class="font-medium">Rp1.287.000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 33.33%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">General Affairs & Digital (0.2%)</span>
+                                <span class="font-medium">Rp286.000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 7.41%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">Manager MEA (0.8%)</span>
+                                <span class="font-medium">Rp1.144.000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 29.63%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">Bisnis & Ops (0.8%)</span>
+                                <span class="font-medium">Rp1.144.000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full" style="width: 29.63%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="chart-container">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white p-8 rounded-xl shadow-md hover-scale" data-aos="fade-left">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Internal MEA</h3>
-                <div class="space-y-4">
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-600">Marketing Executive (0.9%)</span>
-                            <span class="font-medium">Rp1.287.000</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-green-500 h-2 rounded-full" style="width: 33.33%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-600">General Affairs & Digital (0.2%)</span>
-                            <span class="font-medium">Rp286.000</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-blue-500 h-2 rounded-full" style="width: 7.41%"></div>
+            <!-- Updated Dividend Section -->
+            <div class="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale mb-12" data-aos="fade-up">
+                <h3 class="text-2xl font-bold mb-6">Distribusi Dividen Tahunan</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
+                        <h4 class="font-bold mb-3 text-center">PT Rumah Mulia Indonesia</h4>
+                        <p class="text-green-100 text-sm text-center">Pemilik MEA</p>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold">30%</div>
+                            <p class="text-xs">Dari laba bersih tahunan</p>
                         </div>
                     </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-600">Manager MEA (0.8%)</span>
-                            <span class="font-medium">Rp1.144.000</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 29.63%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="text-gray-600">Bisnis & Ops (0.8%)</span>
-                            <span class="font-medium">Rp1.144.000</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-red-500 h-2 rounded-full" style="width: 29.63%"></div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
+                        <h4 class="font-bold mb-3 text-center">Cadangan Operasional</h4>
+                        <p class="text-green-100 text-sm text-center">MEA 6 bulan kedepan</p>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold">20%</div>
+                            <p class="text-xs">Dari laba bersih tahunan</p>
                         </div>
                     </div>
-                </div>
-                <div class="mt-8">
-                    <div class="chart-container">
-                        <canvas id="distributionChart"></canvas>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
+                        <h4 class="font-bold mb-3 text-center">Bonus & THR Tim</h4>
+                        <p class="text-green-100 text-sm text-center">Seluruh staf MEA</p>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold">50%</div>
+                            <p class="text-xs">Dari laba bersih tahunan</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- New Dividend Section -->
-        <div class="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale mb-12" data-aos="fade-up">
-            <h3 class="text-2xl font-bold mb-6">Distribusi Dividen</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                    <h4 class="font-bold mb-3 text-center">Tahap 1</h4>
-                    <p class="text-green-100 text-sm text-center">6 Bulan Pertama</p>
-                    <div class="mt-4 text-center">
-                        <div class="text-2xl font-bold">100%</div>
-                        <p class="text-xs">Reinvestasi ke operasional</p>
-                    </div>
-                </div>
-                <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                    <h4 class="font-bold mb-3 text-center">Tahap 2</h4>
-                    <p class="text-green-100 text-sm text-center">Setelah ROI</p>
-                    <div class="mt-4 text-center">
-                        <div class="text-2xl font-bold">20%</div>
-                        <p class="text-xs">Cadangan operasional</p>
-                    </div>
-                </div>
-                <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                    <h4 class="font-bold mb-3 text-center">Tahap 3</h4>
-                    <p class="text-green-100 text-sm text-center">Distribusi</p>
-                    <div class="mt-4 text-center">
-                        <div class="text-2xl font-bold">80%</div>
-                        <p class="text-xs">Dividen untuk tim</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-            <div class="md:flex">
-                <div class="md:w-1/2 p-8 md:p-12 bg-gray-50">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Contoh Perhitungan 20 Unit</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between border-b border-gray-200 pb-3">
-                            <span class="text-gray-600">Total Komisi (20 unit)</span>
-                            <span class="font-bold">Rp85.800.000</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-3">
-                            <span class="text-gray-600">Royalti PT RMI (10%)</span>
-                            <span class="font-bold">Rp8.580.000</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-3">
-                            <span class="text-gray-600">Komisi Bersih MEA</span>
-                            <span class="font-bold">Rp77.220.000</span>
-                        </div>
-                        <div class="flex justify-between pt-4">
-                            <span class="text-gray-600">Dividen untuk Tim (80%)</span>
-                            <span class="font-bold text-green-600">Rp61.776.000</span>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12 bg-gray-50">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900">Contoh Perhitungan 20 Unit</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-200 pb-3">
+                                <span class="text-gray-600">Total Komisi (20 unit)</span>
+                                <span class="font-bold">Rp85.800.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-200 pb-3">
+                                <span class="text-gray-600">Royalti PT RMI (10%)</span>
+                                <span class="font-bold">Rp8.580.000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-200 pb-3">
+                                <span class="text-gray-600">Komisi Bersih MEA</span>
+                                <span class="font-bold">Rp77.220.000</span>
+                            </div>
+                            <div class="flex justify-between pt-4">
+                                <span class="text-gray-600">Dividen untuk Tim (50%)</span>
+                                <span class="font-bold text-green-600">Rp38.610.000</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="md:w-1/2 p-8 md:p-12">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Dividen Tim</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Marketing Executive (60%)</span>
-                                <span class="font-medium">Rp37.065.600</span>
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900">Distribusi Dividen Tim</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">Bonus Kinerja (40%)</span>
+                                    <span class="font-medium">Rp30.888.000</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 40%"></div>
+                                </div>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Staf Pendukung (20%)</span>
-                                <span class="font-medium">Rp12.355.200</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 20%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-600">Manager (20%)</span>
-                                <span class="font-medium">Rp12.355.200</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 20%"></div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">THR (10%)</span>
+                                    <span class="font-medium">Rp7.722.000</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 10%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ROI Section -->
     <section id="roi" class="py-20 px-6 bg-gray-50">
@@ -1543,156 +1575,159 @@
     </section>
 
     <!-- Recruitment Section -->
- <section id="recruitment" class="py-20 px-6 bg-white">
-    <div class="container mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Rekrutmen <span class="gold-gradient">Tim MEA</span></h2>
-            <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
-                Proses rekrutmen untuk membentuk tim profesional pemasaran properti di Kuningan, Jawa Barat
-            </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <!-- Marketing Executive -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-center mb-6">
-                    <div class="bg-blue-100 p-4 rounded-full inline-block">
-                        <i class="fas fa-user-tie text-blue-500 text-3xl"></i>
+    <section id="recruitment" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Rekrutmen <span class="gold-gradient">Tim MEA</span></h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+                    Proses rekrutmen independen oleh MEA untuk membentuk tim profesional pemasaran properti di Kuningan, Jawa Barat
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Marketing Executive -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <div class="bg-blue-100 p-4 rounded-full inline-block">
+                            <i class="fas fa-user-tie text-blue-500 text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Marketing Executive</h3>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Pendidikan minimal SMA/STM sederajat</li>
+                            <li>Memiliki SIM C aktif</li>
+                            <li>Pengalaman marketing/penjualan</li>
+                            <li>Percaya diri membuat konten video</li>
+                            <li>Menguasai TikTok/Instagram Reels</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Canvassing langsung ke lokasi strategis</li>
+                            <li>Membuat konten video properti harian</li>
+                            <li>Melakukan live TikTok minimal 3x/minggu</li>
+                            <li>Follow-up prospek harian</li>
+                            <li>Menemani buyer survei lokasi</li>
+                        </ul>
+                    </div>
+                    <div class="text-center mt-6">
+                        <span class="text-lg font-bold text-gray-900">Rp2.500.000</span>
+                        <span class="text-sm text-gray-500">+ Bonus Penjualan</span>
                     </div>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Marketing Executive</h3>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
-                    <ul class="list-disc list-inside text-gray-600 text-sm">
-                        <li>Pendidikan minimal SMA/STM sederajat</li>
-                        <li>Memiliki SIM C aktif</li>
-                        <li>Pengalaman marketing/penjualan</li>
-                        <li>Percaya diri membuat konten video</li>
-                        <li>Menguasai TikTok/Instagram Reels</li>
-                    </ul>
+                
+                <!-- Digital Specialist -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <div class="bg-purple-100 p-4 rounded-full inline-block">
+                            <i class="fas fa-chart-line text-purple-500 text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Digital Specialist</h3>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Pendidikan minimal D3 Digital Marketing</li>
+                            <li>Pengalaman mengelola iklan digital</li>
+                            <li>Menguasai Facebook Ads & Google Ads</li>
+                            <li>Memahami analitik performa konten</li>
+                            <li>Mampu membuat strategi konten</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Mengelola iklan berbayar (Rp8.5jt/bulan)</li>
+                            <li>Membuat strategi konten bulanan</li>
+                            <li>Analisis performa konten & iklan</li>
+                            <li>Optimasi konversi lead ke penjualan</li>
+                            <li>Melaporkan ROI iklan mingguan</li>
+                        </ul>
+                    </div>
+                    <div class="text-center mt-6">
+                        <span class="text-lg font-bold text-gray-900">Rp3.500.000</span>
+                        <span class="text-sm text-gray-500">+ Bonus Performa</span>
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
-                    <ul class="list-disc list-inside text-gray-600 text-sm">
-                        <li>Canvassing langsung ke lokasi strategis</li>
-                        <li>Membuat konten video properti harian</li>
-                        <li>Melakukan live TikTok minimal 3x/minggu</li>
-                        <li>Follow-up prospek harian</li>
-                        <li>Menemani buyer survei lokasi</li>
-                    </ul>
-                </div>
-                <div class="text-center mt-6">
-                    <span class="text-lg font-bold text-gray-900">Rp2.500.000</span>
-                    <span class="text-sm text-gray-500">+ Bonus Penjualan</span>
+                
+                <!-- General Affairs -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <div class="bg-green-100 p-4 rounded-full inline-block">
+                            <i class="fas fa-file-alt text-green-500 text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-900">General Affairs</h3>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Pendidikan minimal D3 Administrasi</li>
+                            <li>Pengalaman admin minimal 1 tahun</li>
+                            <li>Teliti dan rapi dalam administrasi</li>
+                            <li>Menguasai Excel & sistem administrasi</li>
+                            <li>Memahami proses KPR (nilai tambah)</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Mengelola dokumen penjualan</li>
+                            <li>Koordinasi dengan tim admin PT RMI</li>
+                            <li>Menyiapkan kebutuhan operasional</li>
+                            <li>Mengelola database prospek</li>
+                            <li>Melaporkan perkembangan penjualan</li>
+                        </ul>
+                    </div>
+                    <div class="text-center mt-6">
+                        <span class="text-lg font-bold text-gray-900">Rp2.800.000</span>
+                        <span class="text-sm text-gray-500">+ Bonus Tim</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Digital Specialist -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-center mb-6">
-                    <div class="bg-purple-100 p-4 rounded-full inline-block">
-                        <i class="fas fa-chart-line text-purple-500 text-3xl"></i>
+            <!-- Updated Recruitment Process Section -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
+                <h3 class="text-2xl font-bold mb-6">Proses Rekrutmen Independen</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-alt text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">1. Seleksi Administrasi</h4>
+                        <p class="text-blue-100 text-sm">Verifikasi dokumen & kualifikasi oleh MEA</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-video text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">2. Tes Praktik</h4>
+                        <p class="text-blue-100 text-sm">Buat konten video/iklan contoh</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">3. Wawancara</h4>
+                        <p class="text-blue-100 text-sm">Dengan Manager MEA</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-signature text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">4. Kontrak Kerja</h4>
+                        <p class="text-blue-100 text-sm">Dibawah PT Rumah Mulia Indonesia</p>
                     </div>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-center text-gray-900">Digital Specialist</h3>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
-                    <ul class="list-disc list-inside text-gray-600 text-sm">
-                        <li>Pendidikan minimal D3 Digital Marketing</li>
-                        <li>Pengalaman mengelola iklan digital</li>
-                        <li>Menguasai Facebook Ads & Google Ads</li>
-                        <li>Memahami analitik performa konten</li>
-                        <li>Mampu membuat strategi konten</li>
-                    </ul>
-                </div>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
-                    <ul class="list-disc list-inside text-gray-600 text-sm">
-                        <li>Mengelola iklan berbayar (Rp8.5jt/bulan)</li>
-                        <li>Membuat strategi konten bulanan</li>
-                        <li>Analisis performa konten & iklan</li>
-                        <li>Optimasi konversi lead ke penjualan</li>
-                        <li>Melaporkan ROI iklan mingguan</li>
-                    </ul>
-                </div>
-                <div class="text-center mt-6">
-                    <span class="text-lg font-bold text-gray-900">Rp3.500.000</span>
-                    <span class="text-sm text-gray-500">+ Bonus Performa</span>
-                </div>
-            </div>
-            
-            <!-- General Affairs -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
-                <div class="text-center mb-6">
-                    <div class="bg-green-100 p-4 rounded-full inline-block">
-                        <i class="fas fa-file-alt text-green-500 text-3xl"></i>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-center text-gray-900">General Affairs</h3>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Kualifikasi:</h4>
-                    <ul class="list-disc list-inside text-gray-600 text-sm">
-                        <li>Pendidikan minimal D3 Administrasi</li>
-                        <li>Pengalaman admin minimal 1 tahun</li>
-                        <li>Teliti dan rapi dalam administrasi</li>
-                        <li>Menguasai Excel & sistem administrasi</li>
-                        <li>Memahami proses KPR (nilai tambah)</li>
-                    </ul>
-                </div>
-                <div class="mb-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Tanggung Jawab:</h4>
-                    <ul class="list-disc list-inside text-gray-600 text-sm">
-                        <li>Mengelola dokumen penjualan</li>
-                        <li>Koordinasi dengan tim admin PT RMI</li>
-                        <li>Menyiapkan kebutuhan operasional</li>
-                        <li>Mengelola database prospek</li>
-                        <li>Melaporkan perkembangan penjualan</li>
-                    </ul>
-                </div>
-                <div class="text-center mt-6">
-                    <span class="text-lg font-bold text-gray-900">Rp2.800.000</span>
-                    <span class="text-sm text-gray-500">+ Bonus Tim</span>
+                <div class="mt-8 pt-6 border-t border-blue-500 text-center">
+                    <p class="text-blue-200">Seluruh proses rekrutmen sepenuhnya tanggung jawab MEA. PT Rumah Mulia Indonesia hanya bertanggung jawab atas legalitas kontrak kerja.</p>
                 </div>
             </div>
         </div>
-        
-        <!-- New Recruitment Process Section -->
-        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale" data-aos="fade-up">
-            <h3 class="text-2xl font-bold mb-6">Proses Rekrutmen</h3>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-file-alt text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">1. Seleksi Administrasi</h4>
-                    <p class="text-blue-100 text-sm">Verifikasi dokumen & kualifikasi</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-video text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">2. Tes Praktik</h4>
-                    <p class="text-blue-100 text-sm">Buat konten video/iklan contoh</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">3. Wawancara Tim</h4>
-                    <p class="text-blue-100 text-sm">Dengan Manager & PT RMI</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check-circle text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">4. Pengumuman</h4>
-                    <p class="text-blue-100 text-sm">Max 3 hari setelah wawancara</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Expansion Section -->
     <section id="expansion" class="py-20 px-6 bg-gray-50">
@@ -1745,28 +1780,28 @@
                         </p>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center glass-card">
-                                <div class="text-3xl font-bold">60%</div>
+                                <div class="text-3xl font-bold">30%</div>
                                 <div class="text-sm">PT Rumah Mulia Indonesia</div>
                             </div>
                             <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center glass-card">
-                                <div class="text-3xl font-bold">40%</div>
-                                <div class="text-sm">Manager MEA MEA</div>
+                                <div class="text-3xl font-bold">70%</div>
+                                <div class="text-sm">MEA (Cadangan & Bonus Tim)</div>
                             </div>
                         </div>
                     </div>
                     <div class="md:w-1/3 bg-white bg-opacity-20 rounded-lg p-6 glass-card">
                         <h4 class="font-bold mb-4 text-center">Contoh Perhitungan</h4>
                         <div class="text-center">
-                            <div class="text-2xl font-bold mb-2">Rp25jt</div>
-                            <p class="text-sm text-green-200">Laba bersih per siklus</p>
+                            <div class="text-2xl font-bold mb-2">Rp100jt</div>
+                            <p class="text-sm text-green-200">Laba bersih tahunan</p>
                             <div class="mt-4">
                                 <div class="text-sm flex justify-between mb-1">
-                                    <span>PT RMI (60%)</span>
-                                    <span>Rp15jt</span>
+                                    <span>PT RMI (30%)</span>
+                                    <span>Rp30jt</span>
                                 </div>
                                 <div class="text-sm flex justify-between">
-                                    <span>Manager MEA (40%)</span>
-                                    <span>Rp10jt</span>
+                                    <span>MEA (70%)</span>
+                                    <span>Rp70jt</span>
                                 </div>
                             </div>
                         </div>
@@ -2056,25 +2091,36 @@
             offset: 120
         });
         
-         // Mobile menu toggle
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+            
+            // Toggle aria-expanded attribute
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            
+            // Toggle icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
         
-        // Toggle aria-expanded attribute
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.remove('active');
+                document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+                document.getElementById('menu-toggle').querySelector('i').classList.remove('fa-times');
+                document.getElementById('menu-toggle').querySelector('i').classList.add('fa-bars');
+            });
+        });
         
-        // Toggle icon
-        const icon = this.querySelector('i');
-        if (icon.classList.contains('fa-bars')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2089,12 +2135,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
                 }
             });
         });
@@ -2121,120 +2161,201 @@
             }
         });
         
-         // Initialize Commission Chart
-    const commissionCtx = document.getElementById('commissionChart').getContext('2d');
-    const commissionChart = new Chart(commissionCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Royalti PT RMI (10%)', 'Komisi MEA (90%)'],
-            datasets: [{
-                data: [10, 90],
-                backgroundColor: ['#3B82F6', '#D4AF37'],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.label}: ${context.raw}%`;
+        // Initialize Commission Chart
+        const commissionCtx = document.getElementById('commissionChart').getContext('2d');
+        const commissionChart = new Chart(commissionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Royalti PT RMI (10%)', 'Komisi MEA (90%)'],
+                datasets: [{
+                    data: [10, 90],
+                    backgroundColor: ['#3B82F6', '#D4AF37'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
                         }
                     }
-                }
-            },
-            cutout: '70%'
-        }
-    });
-
-    // Initialize Distribution Chart
-    const distributionCtx = document.getElementById('distributionChart').getContext('2d');
-    const distributionChart = new Chart(distributionCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Marketing (0.9%)', 'GA & Digital (0.2%)', 'Manager (0.8%)', 'Bisnis (0.8%)'],
-            datasets: [{
-                data: [0.9, 0.2, 0.8, 0.8],
-                backgroundColor: ['#10B981', '#3B82F6', '#D4AF37', '#EF4444'],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 1,
-                    ticks: {
-                        callback: function(value) { return value + '%'; }
-                    }
                 },
-                x: { grid: { display: false } }
-            }
-        }
-    });
-    
- // Enhanced Presentation Mode
-   // Replace existing presentation mode code with this:
-const presentationBtn = document.getElementById('presentation-mode');
-let presentationActive = false;
-let presentationInterval;
-
-presentationBtn.addEventListener('click', function() {
-    presentationActive = !presentationActive;
-    
-    if (presentationActive) {
-        this.innerHTML = 'Exit Presentation <i class="fas fa-times ml-2"></i>';
-        document.body.classList.add('presentation-mode');
-        startPresentation();
-    } else {
-        this.innerHTML = 'Mode Presentasi <i class="fas fa-expand ml-2"></i>';
-        document.body.classList.remove('presentation-mode');
-        clearInterval(presentationInterval);
-    }
-});
-
-function startPresentation() {
-    const sections = document.querySelectorAll('section');
-    let currentIndex = 0;
-    
-    function showSection(index) {
-        sections.forEach((section, i) => {
-            if (i === index) {
-                section.scrollIntoView({ behavior: 'smooth' });
-                section.classList.add('presentation-highlight');
-            } else {
-                section.classList.remove('presentation-highlight');
+                cutout: '70%'
             }
         });
-    }
-    
-    showSection(currentIndex);
-    presentationInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % sections.length;
-        showSection(currentIndex);
-    }, 15000); // 15 seconds per section
-}
-// Add this script right after mobile menu HTML
-document.addEventListener('DOMContentLoaded', function() {
-    // Force show mobile menu on small screens
-    if (window.innerWidth <= 768) {
-        document.getElementById('mobile-menu').classList.add('hidden');
-        document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
-    }
 
-    // Prevent horizontal scrolling
-    document.body.style.overflowX = 'hidden';
-    window.addEventListener('resize', function() {
-        document.body.style.overflowX = 'hidden';
-    });
-});
+        // Initialize Distribution Chart
+        const distributionCtx = document.getElementById('distributionChart').getContext('2d');
+        const distributionChart = new Chart(distributionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Marketing (0.9%)', 'GA & Digital (0.2%)', 'Manager (0.8%)', 'Bisnis (0.8%)'],
+                datasets: [{
+                    data: [0.9, 0.2, 0.8, 0.8],
+                    backgroundColor: ['#10B981', '#3B82F6', '#D4AF37', '#EF4444'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1,
+                        ticks: {
+                            callback: function(value) { return value + '%'; }
+                        }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
         
+        // Enhanced Presentation Mode
+        const presentationBtn = document.getElementById('presentation-mode');
+        let presentationActive = false;
+        let presentationInterval;
+        let currentSectionIndex = 0;
+        const sections = document.querySelectorAll('section');
+        const progressBar = document.getElementById('presentation-progress');
+
+        presentationBtn.addEventListener('click', function() {
+            presentationActive = !presentationActive;
+            
+            if (presentationActive) {
+                // Enter presentation mode
+                this.innerHTML = 'Exit Presentation <i class="fas fa-times ml-2"></i>';
+                document.body.classList.add('presentation-mode');
+                
+                // Hide all sections first
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show first section
+                currentSectionIndex = 0;
+                sections[currentSectionIndex].classList.add('active');
+                
+                // Start presentation progress
+                startPresentation();
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // Exit presentation mode
+                this.innerHTML = 'Mode Presentasi <i class="fas fa-expand ml-2"></i>';
+                document.body.classList.remove('presentation-mode');
+                
+                // Show all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = '';
+                });
+                
+                // Clear interval
+                clearInterval(presentationInterval);
+                
+                // Reset progress bar
+                progressBar.style.width = '0%';
+                
+                // Scroll to first section
+                sections[0].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        function startPresentation() {
+            // Update progress bar
+            updateProgressBar();
+            
+            // Set interval for auto-advance
+            presentationInterval = setInterval(() => {
+                // Move to next section
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+                
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show current section
+                sections[currentSectionIndex].classList.add('active');
+                
+                // Update progress bar
+                updateProgressBar();
+                
+                // Scroll to top of section
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 15000); // 15 seconds per section
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', handleKeyPress);
+        }
+        
+        function updateProgressBar() {
+            const progress = ((currentSectionIndex + 1) / sections.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        function handleKeyPress(e) {
+            if (!presentationActive) return;
+            
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                // Next section
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                // Previous section
+                currentSectionIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+            } else if (e.key === 'Escape') {
+                // Exit presentation
+                presentationBtn.click();
+                return;
+            } else {
+                return;
+            }
+            
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show current section
+            sections[currentSectionIndex].classList.add('active');
+            
+            // Update progress bar
+            updateProgressBar();
+            
+            // Scroll to top of section
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Reset interval
+            clearInterval(presentationInterval);
+            presentationInterval = setInterval(() => {
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                sections[currentSectionIndex].classList.add('active');
+                updateProgressBar();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 15000);
+        }
+        
+        // Prevent horizontal scrolling on mobile
+        window.addEventListener('load', function() {
+            document.body.style.overflowX = 'hidden';
+        });
+        
+        window.addEventListener('resize', function() {
+            document.body.style.overflowX = 'hidden';
+        });
     </script>
 </body>
 </html>
