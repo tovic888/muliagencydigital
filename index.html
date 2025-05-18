@@ -339,6 +339,18 @@
         50% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
         100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
     }
+
+/* Add to your media queries */
+@media (max-width: 768px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    #mobile-menu {
+        display: none; /* Start hidden but toggleable */
+    }
+}
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -2275,6 +2287,21 @@
             stopPresentation();
         }
     });    
+
+// Add this script right after mobile menu HTML
+document.addEventListener('DOMContentLoaded', function() {
+    // Force show mobile menu on small screens
+    if (window.innerWidth <= 768) {
+        document.getElementById('mobile-menu').classList.add('hidden');
+        document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+    }
+
+    // Prevent horizontal scrolling
+    document.body.style.overflowX = 'hidden';
+    window.addEventListener('resize', function() {
+        document.body.style.overflowX = 'hidden';
+    });
+});
         
     </script>
 </body>
