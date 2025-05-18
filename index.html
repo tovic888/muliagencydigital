@@ -542,11 +542,50 @@ nav .group:hover .dropdown {
         height: 250px !important;
     }
 }
+
+        /* Navigation Dropdown Styles - Diperbaiki */
+nav .nav-item {
+    position: relative;
+}
+
+nav .dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    z-index: 50;
+    padding: 0.5rem 0;
+}
+
+nav .nav-item:hover .dropdown {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+nav .dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #4b5563;
+    transition: all 0.2s ease;
+}
+
+nav .dropdown a:hover {
+    background-color: #f3f4f6;
+    color: #1e40af;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <!-- Navigation -->
+     <!-- Navigation -->
 <nav class="fixed w-full z-50 bg-white text-gray-800 shadow-lg transition-all duration-300">
     <div class="container mx-auto px-6 py-3">
         <div class="flex justify-between items-center">
@@ -558,54 +597,57 @@ nav .group:hover .dropdown {
                 <span class="hidden md:block text-sm opacity-80 text-gray-600">Mulia Estate Agency</span>
             </div>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-4">
-                <!-- Main Menu Items -->
-                <div class="relative group">
-                    <button class="hover:text-blue-600 transition flex items-center">
+            <!-- Desktop Menu - Diperbaiki -->
+            <div class="hidden md:flex items-center space-x-8">
+                <!-- Tentang Menu -->
+                <div class="nav-item relative">
+                    <button class="hover:text-blue-600 transition flex items-center py-2 px-1">
                         Tentang <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                        <a href="#about" class="block px-4 py-2 hover:bg-gray-100">Tentang MEA</a>
-                        <a href="#structure" class="block px-4 py-2 hover:bg-gray-100">Struktur Tim</a>
-                        <a href="#schedule" class="block px-4 py-2 hover:bg-gray-100">Jadwal Kerja</a>
+                    <div class="dropdown">
+                        <a href="#about" class="px-4 py-2 hover:bg-gray-100">Tentang MEA</a>
+                        <a href="#structure" class="px-4 py-2 hover:bg-gray-100">Struktur Tim</a>
+                        <a href="#schedule" class="px-4 py-2 hover:bg-gray-100">Jadwal Kerja</a>
                     </div>
                 </div>
                 
-                <div class="relative group">
-                    <button class="hover:text-blue-600 transition flex items-center">
+                <!-- Strategi Menu -->
+                <div class="nav-item relative">
+                    <button class="hover:text-blue-600 transition flex items-center py-2 px-1">
                         Strategi <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                        <a href="#strategy" class="block px-4 py-2 hover:bg-gray-100">Strategi Pemasaran</a>
-                        <a href="#market-validation" class="block px-4 py-2 hover:bg-gray-100">Validasi Pasar</a>
-                        <a href="#kpi" class="block px-4 py-2 hover:bg-gray-100">KPI & Monitoring</a>
+                    <div class="dropdown">
+                        <a href="#strategy" class="px-4 py-2 hover:bg-gray-100">Strategi Pemasaran</a>
+                        <a href="#market-validation" class="px-4 py-2 hover:bg-gray-100">Validasi Pasar</a>
+                        <a href="#kpi" class="px-4 py-2 hover:bg-gray-100">KPI & Monitoring</a>
                     </div>
                 </div>
                 
-                <div class="relative group">
-                    <button class="hover:text-blue-600 transition flex items-center">
+                <!-- Operasional Menu -->
+                <div class="nav-item relative">
+                    <button class="hover:text-blue-600 transition flex items-center py-2 px-1">
                         Operasional <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                        <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100">Perangkat Kerja</a>
-                        <a href="#uniform" class="block px-4 py-2 hover:bg-gray-100">Seragam</a>
-                        <a href="#commission" class="block px-4 py-2 hover:bg-gray-100">Komisi</a>
-                        <a href="#recruitment" class="block px-4 py-2 hover:bg-gray-100">Rekrutmen</a>
+                    <div class="dropdown">
+                        <a href="#hardware" class="px-4 py-2 hover:bg-gray-100">Perangkat Kerja</a>
+                        <a href="#uniform" class="px-4 py-2 hover:bg-gray-100">Seragam</a>
+                        <a href="#commission" class="px-4 py-2 hover:bg-gray-100">Komisi</a>
+                        <a href="#recruitment" class="px-4 py-2 hover:bg-gray-100">Rekrutmen</a>
                     </div>
                 </div>
                 
-                <div class="relative group">
-                    <button class="hover:text-blue-600 transition flex items-center">
+                <!-- Keuangan Menu -->
+                <div class="nav-item relative">
+                    <button class="hover:text-blue-600 transition flex items-center py-2 px-1">
                         Keuangan <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                        <a href="#finance" class="block px-4 py-2 hover:bg-gray-100">Proyeksi Keuangan</a>
-                        <a href="#roi" class="block px-4 py-2 hover:bg-gray-100">ROI</a>
+                    <div class="dropdown">
+                        <a href="#finance" class="px-4 py-2 hover:bg-gray-100">Proyeksi Keuangan</a>
+                        <a href="#roi" class="px-4 py-2 hover:bg-gray-100">ROI</a>
                     </div>
                 </div>
                 
-                <a href="#mapping" class="hover:text-blue-600 transition">Mapping</a>
+                <a href="#mapping" class="hover:text-blue-600 transition py-2 px-1">Mapping</a>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -3018,30 +3060,7 @@ document.querySelectorAll('.accordion button').forEach(button => {
         });
     });
 });
-// Tambahkan kode ini di bagian script
-document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown menu desktop
-    const navItems = document.querySelectorAll('nav .hidden.md\\:flex a');
-    
-    navItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            // Hapus class active dari semua item
-            navItems.forEach(navItem => {
-                navItem.classList.remove('active');
-            });
-            
-            // Tambahkan class active ke item yang dihover
-            this.classList.add('active');
-        });
-    });
-    
-    // Tutup dropdown saat mouse leave dari nav
-    document.querySelector('nav').addEventListener('mouseleave', function() {
-        navItems.forEach(item => {
-            item.classList.remove('active');
-        });
-    });
-});
+
     </script>
 </body>
 </html>
