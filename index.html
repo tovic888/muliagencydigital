@@ -582,6 +582,15 @@ nav .dropdown a:hover {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+        @media (max-width: 768px) {
+    .grid-cols-3, .grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+    .chart-container {
+        height: 250px !important;
+    }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
