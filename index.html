@@ -2045,93 +2045,283 @@ nav .dropdown a:hover {
             <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Sistem Penilaian <span class="gold-gradient">Kinerja (KPI)</span></h2>
             <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
-                Kriteria penilaian untuk tim marketing MEA dengan target 40 unit closing per bulan
+                Kriteria penilaian profesional untuk tim marketing MEA dengan target 40 unit closing per bulan
             </p>
         </div>
-        
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-right">
-                <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Struktur Tim Marketing</h3>
+
+        <!-- Team Structure Card -->
+        <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-8 shadow-lg mb-12 hover-scale" data-aos="fade-up">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
+                    <i class="fas fa-users text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">Struktur Tim Marketing (5 Orang)</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-headset text-green-600"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800">In-Host (CS + 1) - 2 Orang</h4>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+                        <li>Pegang HP kantor (lead masuk)</li>
+                        <li>Fast response (≤5 menit)</li>
+                        <li>Distribusi lead ke tim</li>
+                        <li>Dampingi buyer (jadwal rotasi)</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-map-marked-alt text-yellow-600"></i>
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800">Lapangan - 3 Orang</h4>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+                        <li>Follow up leads harian</li>
+                        <li>Ajak survei lokasi</li>
+                        <li>Closing buyer</li>
+                        <li>Bantu konten & data jika perlu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Goals -->
+        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-xl p-8 shadow-lg mb-12 hover-scale" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center mb-6">
+                <div class="bg-yellow-600 text-white p-3 rounded-full mr-4">
+                    <i class="fas fa-bullseye text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">Tujuan Utama Tim</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-3">40</div>
+                    <p class="font-medium text-gray-800">Unit/Bulan</p>
+                    <p class="text-sm text-gray-600 mt-2">Target Penjualan</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-3">5</div>
+                    <p class="font-medium text-gray-800">Orang Team</p>
+                    <p class="text-sm text-gray-600 mt-2">Kerja Sama Tim</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl font-bold text-purple-600 mb-3">2 JT</div>
+                    <p class="font-medium text-gray-800">Per Orang</p>
+                    <p class="text-sm text-gray-600 mt-2">Tunjangan Maksimal</p>
+                </div>
+            </div>
+            
+            <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                <p class="text-blue-800 font-medium">Semua konten (reels, video, dll) dikerjakan bersama 5 orang → masuk penilaian tim</p>
+            </div>
+        </div>
+
+        <!-- KPI Components -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Team KPI -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover-scale" data-aos="fade-up">
+                <div class="flex items-center mb-4">
+                    <div class="bg-indigo-100 p-2 rounded-full mr-3">
+                        <i class="fas fa-users-cog text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">KPI Tim (25%)</h3>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">Berlaku untuk semua anggota tim</p>
+                
                 <div class="space-y-4">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-2">1 CS Fast Respon WhatsApp</h4>
-                        <p class="text-sm text-gray-600">Menangani chat dan follow-up via WhatsApp</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Hadir & kontribusi konten</span>
+                        <span class="font-bold text-indigo-600">10%</span>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-2">2 Follow-up & Closing</h4>
-                        <p class="text-sm text-gray-600">Menghubungi prospek dan closing penjualan</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-indigo-500 h-2 rounded-full" style="width: 10%"></div>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-2">1 Kanvasing Offline</h4>
-                        <p class="text-sm text-gray-600">Distribusi brosur dan pendekatan langsung</p>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Kerja tim (saling bantu)</span>
+                        <span class="font-bold text-indigo-600">10%</span>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-2">1 Ide Konten & Upload TikTok</h4>
-                        <p class="text-sm text-gray-600">Membuat dan mengunggah konten video</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-indigo-500 h-2 rounded-full" style="width: 10%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Komunikasi & kedisiplinan</span>
+                        <span class="font-bold text-indigo-600">5%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-indigo-500 h-2 rounded-full" style="width: 5%"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white p-6 rounded-xl shadow-md hover-scale" data-aos="fade-left">
-                <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">KPI Dasar (Minimal 80%)</h3>
+            <!-- In-Host KPI -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover-scale" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 p-2 rounded-full mr-3">
+                        <i class="fas fa-headset text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">KPI In-Host (75%)</h3>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">Untuk 2 orang CS/In-Host</p>
+                
                 <div class="space-y-4">
-                    <div class="flex items-start">
-                        <div class="bg-blue-100 p-2 rounded-full mr-4">
-                            <i class="fas fa-clipboard-check text-blue-500"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Kehadiran & Aktivitas Harian</h4>
-                            <p class="text-sm text-gray-600">Absen + keaktifan WFO/WFH (Bobot: 25%)</p>
-                        </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Fast response (≤5 menit)</span>
+                        <span class="font-bold text-green-600">25%</span>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-green-100 p-2 rounded-full mr-4">
-                            <i class="fas fa-file-alt text-green-500"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Laporan Kinerja Harian</h4>
-                            <p class="text-sm text-gray-600">Jelas & update (Bobot: 20%)</p>
-                        </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 25%"></div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-yellow-100 p-2 rounded-full mr-4">
-                            <i class="fas fa-tasks text-yellow-500"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Tugas Role & Konten</h4>
-                            <p class="text-sm text-gray-600">Dijalankan sesuai job desk (Bobot: 25%)</p>
-                        </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Distribusi lead merata</span>
+                        <span class="font-bold text-green-600">15%</span>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 p-2 rounded-full mr-4">
-                            <i class="fas fa-chart-line text-purple-500"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Kontribusi Akad Penjualan</h4>
-                            <p class="text-sm text-gray-600">Minimal 32 unit dari target 40 unit/bulan (Bobot: 30%)</p>
-                        </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 15%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Update data leads harian</span>
+                        <span class="font-bold text-green-600">10%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 10%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Dampingi buyer survei</span>
+                        <span class="font-bold text-green-600">15%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 15%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Tidak ada keluhan tim</span>
+                        <span class="font-bold text-green-600">10%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 10%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Field Marketing KPI -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover-scale" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                        <i class="fas fa-map-marked-alt text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">KPI Lapangan (75%)</h3>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">Untuk 3 orang Marketing Lapangan</p>
+                
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Follow-up leads harian</span>
+                        <span class="font-bold text-yellow-600">20%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Ajak buyer survei</span>
+                        <span class="font-bold text-yellow-600">15%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 15%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Closing dari follow-up</span>
+                        <span class="font-bold text-yellow-600">20%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Laporan harian</span>
+                        <span class="font-bold text-yellow-600">10%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 10%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Bantu tim saat overload</span>
+                        <span class="font-bold text-yellow-600">10%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 10%"></div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale max-w-4xl mx-auto" data-aos="fade-up">
-            <h3 class="text-2xl font-bold mb-6">Bonus Tambahan</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="font-bold mb-3 text-yellow-200">Syarat Bonus</h4>
-                    <ul class="list-disc list-inside text-yellow-100 space-y-2 text-sm">
-                        <li>Mencapai minimal 80% dari total KPI</li>
-                        <li>Mencapai target 40 unit closing per bulan</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-3 text-yellow-200">Nilai Bonus</h4>
-                    <ul class="list-disc list-inside text-yellow-100 space-y-2 text-sm">
-                        <li>Bonus per marketing: Rp 1.000.000</li>
-                        <li>Diambil dari alokasi "Bonus Marketing (0.2%)"</li>
-                    </ul>
-                </div>
+
+        <!-- Performance Allowance -->
+        <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-xl p-8 md:p-12 shadow-xl hover-scale max-w-4xl mx-auto" data-aos="fade-up">
+            <h3 class="text-2xl font-bold mb-6">Tunjangan Performa Maksimal: Rp 2.000.000/Orang</h3>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-purple-500">
+                            <th class="py-3 px-4 font-bold">Pencapaian KPI</th>
+                            <th class="py-3 px-4 font-bold text-right">Tunjangan</th>
+                            <th class="py-3 px-4 font-bold text-right">Potongan</th>
+                            <th class="py-3 px-4 font-bold">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-purple-500 hover:bg-purple-700">
+                            <td class="py-3 px-4">≥ 80%</td>
+                            <td class="py-3 px-4 text-right font-bold">Rp 2.000.000</td>
+                            <td class="py-3 px-4 text-right">0%</td>
+                            <td class="py-3 px-4">Full tunjangan</td>
+                        </tr>
+                        <tr class="border-b border-purple-500 hover:bg-purple-700">
+                            <td class="py-3 px-4">70% – 79%</td>
+                            <td class="py-3 px-4 text-right font-bold">Rp 1.600.000</td>
+                            <td class="py-3 px-4 text-right">20%</td>
+                            <td class="py-3 px-4">Peringatan 1x</td>
+                        </tr>
+                        <tr class="border-b border-purple-500 hover:bg-purple-700">
+                            <td class="py-3 px-4">60% – 69%</td>
+                            <td class="py-3 px-4 text-right font-bold">Rp 1.200.000</td>
+                            <td class="py-3 px-4 text-right">40%</td>
+                            <td class="py-3 px-4">Evaluasi coaching</td>
+                        </tr>
+                        <tr class="border-b border-purple-500 hover:bg-purple-700">
+                            <td class="py-3 px-4">50% – 59%</td>
+                            <td class="py-3 px-4 text-right font-bold">Rp 800.000</td>
+                            <td class="py-3 px-4 text-right">60%</td>
+                            <td class="py-3 px-4">Teguran resmi</td>
+                        </tr>
+                        <tr class="hover:bg-purple-700">
+                            <td class="py-3 px-4">< 50%</td>
+                            <td class="py-3 px-4 text-right font-bold">Rp 0</td>
+                            <td class="py-3 px-4 text-right">100%</td>
+                            <td class="py-3 px-4">Evaluasi kontrak</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-purple-500">
+                <p class="text-purple-200 text-sm">"Mitra berhak atas Tunjangan Performa bulanan maksimal sebesar Rp 2.000.000, yang diberikan jika pencapaian KPI mencapai minimal 80%. Pencapaian di bawah 80% akan diberikan secara proporsional sesuai tabel evaluasi performa. Sistem kerja bersifat kerja tim, dengan pembagian tugas dan tanggung jawab saling melengkapi."</p>
             </div>
         </div>
     </div>
