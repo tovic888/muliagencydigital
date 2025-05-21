@@ -3024,18 +3024,25 @@ nav .dropdown a:hover {
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    window.addEventListener('load', function() {
-    // Inisialisasi AOS dan chart setelah semua resource selesai dimuat
+// Inisialisasi saat window selesai dimuat
+window.addEventListener('load', function() {
+    // Initialize AOS
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true
     });
-    
-    // Inisialisasi chart di sini
+
+    // Panggil fungsi inisialisasi
+    initMobileMenu();
+    initAccordions();
+    initImageModals();
+    initPresentationMode();
+    initCharts();
 });
 
-    // Mobile menu toggle
+// Fungsi untuk mobile menu
+function initMobileMenu() {
     document.getElementById('menu-toggle').addEventListener('click', function() {
         const mobileMenu = document.getElementById('mobile-menu');
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
@@ -3054,8 +3061,10 @@ nav .dropdown a:hover {
             icon.classList.add('fa-bars');
         }
     });
+}
 
-    // Accordion functionality
+// Fungsi untuk accordion
+function initAccordions() {
     document.querySelectorAll('.accordion button').forEach(button => {
         button.addEventListener('click', () => {
             const accordion = button.closest('.accordion');
@@ -3066,8 +3075,10 @@ nav .dropdown a:hover {
             icon.classList.toggle('rotate-180');
         });
     });
+}
 
-    // Image modal functionality
+// Fungsi untuk image modal
+function initImageModals() {
     document.querySelectorAll('.zoomable-image').forEach(image => {
         image.addEventListener('click', () => {
             const modal = document.getElementById('imageModal');
@@ -3081,8 +3092,10 @@ nav .dropdown a:hover {
     document.getElementById('closeModal').addEventListener('click', () => {
         document.getElementById('imageModal').classList.remove('active');
     });
+}
 
-    // Presentation mode functionality
+// Fungsi untuk presentation mode
+function initPresentationMode() {
     const presentationBtn = document.getElementById('presentation-btn');
     const presentationModeBtn = document.getElementById('presentation-mode');
     const sections = document.querySelectorAll('section');
@@ -3094,15 +3107,11 @@ nav .dropdown a:hover {
         document.body.classList.add('presentation-mode');
         isPresentationMode = true;
         
-        // Hide all sections except the first one
         sections.forEach((section, index) => {
             section.classList.remove('active');
-            if (index === 0) {
-                section.classList.add('active');
-            }
+            if (index === 0) section.classList.add('active');
         });
         
-        // Update progress bar
         updateProgressBar();
     }
 
@@ -3110,13 +3119,11 @@ nav .dropdown a:hover {
         document.body.classList.remove('presentation-mode');
         isPresentationMode = false;
         
-        // Show all sections
         sections.forEach(section => {
             section.classList.remove('active');
             section.style.display = 'block';
         });
         
-        // Reset progress bar
         presentationProgress.style.width = '0%';
     }
 
@@ -3126,52 +3133,30 @@ nav .dropdown a:hover {
     }
 
     function showSection(index) {
-        // Validate index
         if (index < 0) index = sections.length - 1;
         if (index >= sections.length) index = 0;
         
-        // Update current section index
         currentSectionIndex = index;
         
-        // Hide all sections
-        sections.forEach(section => {
-            section.classList.remove('active');
-        });
-        
-        // Show current section
+        sections.forEach(section => section.classList.remove('active'));
         sections[index].classList.add('active');
-        
-        // Scroll to top
         window.scrollTo(0, 0);
-        
-        // Update progress bar
         updateProgressBar();
         
-        // Highlight section briefly
         sections[index].classList.add('presentation-highlight');
         setTimeout(() => {
             sections[index].classList.remove('presentation-highlight');
         }, 2000);
     }
 
-    // Toggle presentation mode
     presentationModeBtn.addEventListener('click', () => {
-        if (isPresentationMode) {
-            exitPresentationMode();
-        } else {
-            enterPresentationMode();
-        }
+        isPresentationMode ? exitPresentationMode() : enterPresentationMode();
     });
 
     presentationBtn.addEventListener('click', () => {
-        if (isPresentationMode) {
-            exitPresentationMode();
-        } else {
-            enterPresentationMode();
-        }
+        isPresentationMode ? exitPresentationMode() : enterPresentationMode();
     });
 
-    // Navigation in presentation mode
     document.addEventListener('keydown', (e) => {
         if (!isPresentationMode) return;
         
@@ -3190,214 +3175,155 @@ nav .dropdown a:hover {
                 break;
         }
     });
+}
 
-    // Initialize charts when DOM is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Distribution Chart - REVISED
-        const distributionCtx = document.getElementById('distributionChart')?.getContext('2d');
-        if (distributionCtx) {
-            new Chart(distributionCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Marketing (1%)', 'Manager (0.4%)', 'Bonus (0.2%)', 'Pengembangan (0.3%)', 'Cadangan (0.2%)', 'Dividen (0.6%)'],
-                    datasets: [{
-                        data: [1430000, 572000, 286000, 429000, 286000, 858000],
-                        backgroundColor: [
-                            'rgba(16, 185, 129, 0.7)',    // Green - Marketing
-                            'rgba(234, 179, 8, 0.7)',      // Yellow - Manager
-                            'rgba(59, 130, 246, 0.7)',     // Blue - Bonus
-                            'rgba(139, 92, 246, 0.7)',     // Purple - Pengembangan
-                            'rgba(220, 38, 38, 0.7)',      // Red - Cadangan
-                            'rgba(6, 182, 212, 0.7)'       // Cyan - Dividen
-                        ],
-                        borderColor: [
-                            'rgba(16, 185, 129, 1)',
-                            'rgba(234, 179, 8, 1)',
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(139, 92, 246, 1)',
-                            'rgba(220, 38, 38, 1)',
-                            'rgba(6, 182, 212, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 12
-                                },
-                                padding: 20
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    const value = context.raw;
-                                    label += 'Rp' + value.toLocaleString('id-ID');
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
+// Fungsi untuk inisialisasi chart
+function initCharts() {
+    // Revenue Chart
+    const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
+    if (revenueCtx) {
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Komisi Kotor', 'Royalti RMI', 'Komisi Bersih'],
+                datasets: [{
+                    label: 'Nilai (Rp)',
+                    data: [171600000, 17160000, 154440000],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(220, 38, 38, 0.7)',
+                        'rgba(16, 185, 129, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(220, 38, 38, 1)',
+                        'rgba(16, 185, 129, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    }
 
-        // Revenue Chart
-        const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
-        if (revenueCtx) {
-            new Chart(revenueCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Komisi Kotor', 'Royalti RMI', 'Komisi Bersih'],
-                    datasets: [{
-                        label: 'Nilai (Rp)',
-                        data: [171600000, 17160000, 154440000],
-                        backgroundColor: [
-                            'rgba(59, 130, 246, 0.7)',
-                            'rgba(220, 38, 38, 0.7)',
-                            'rgba(16, 185, 129, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(220, 38, 38, 1)',
-                            'rgba(16, 185, 129, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
+    // Target Chart
+    const targetCtx = document.getElementById('targetChart')?.getContext('2d');
+    if (targetCtx) {
+        new Chart(targetCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['BEP (12 Unit)', 'Target (40 Unit)', 'Potensi Keuntungan'],
+                datasets: [{
+                    data: [12, 28, 60],
+                    backgroundColor: [
+                        'rgba(220, 38, 38, 0.7)',
+                        'rgba(234, 179, 8, 0.7)',
+                        'rgba(16, 185, 129, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(220, 38, 38, 1)',
+                        'rgba(234, 179, 8, 1)',
+                        'rgba(16, 185, 129, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    }
+
+    // Commission Chart
+    const commissionCtx = document.getElementById('commissionChart')?.getContext('2d');
+    if (commissionCtx) {
+        new Chart(commissionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Komisi Kotor (3%)', 'Royalti RMI (10%)', 'Komisi Bersih (2.7%)'],
+                datasets: [{
+                    data: [4290000, 429000, 3861000],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(220, 38, 38, 0.7)',
+                        'rgba(16, 185, 129, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(220, 38, 38, 1)',
+                        'rgba(16, 185, 129, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    }
+
+    // Distribution Chart
+    const distributionCtx = document.getElementById('distributionChart')?.getContext('2d');
+    if (distributionCtx) {
+        new Chart(distributionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Marketing Executive (1%)', 'Manager MEA (0.4%)', 'Bonus Marketing (0.2%)', 'Pengembangan Bisnis (0.3%)', 'Cadangan OPS (0.2%)', 'Dividen MEA & RMI (0.6%)'],
+                datasets: [{
+                    data: [1430000, 572000, 286000, 429000, 286000, 858000],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(234, 179, 8, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(139, 92, 246, 0.7)',
+                        'rgba(220, 38, 38, 0.7)',
+                        'rgba(212, 175, 55, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(234, 179, 8, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(220, 38, 38, 1)',
+                        'rgba(212, 175, 55, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 12 },
+                            padding: 20
                         }
                     },
-                    scales: {
-                        y: {
-                            beginAtZero: true
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) label += ': ';
+                                label += 'Rp' + context.raw.toLocaleString('id-ID');
+                                return label;
+                            }
                         }
                     }
-                }
-            });
-        }
-
-        // Target Chart
-        const targetCtx = document.getElementById('targetChart')?.getContext('2d');
-        if (targetCtx) {
-            new Chart(targetCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['BEP (12 Unit)', 'Target (40 Unit)', 'Potensi Keuntungan'],
-                    datasets: [{
-                        data: [12, 28, 60],
-                        backgroundColor: [
-                            'rgba(220, 38, 38, 0.7)',
-                            'rgba(234, 179, 8, 0.7)',
-                            'rgba(16, 185, 129, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(220, 38, 38, 1)',
-                            'rgba(234, 179, 8, 1)',
-                            'rgba(16, 185, 129, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-        }
-
-        // Commission Chart
-        const commissionCtx = document.getElementById('commissionChart')?.getContext('2d');
-        if (commissionCtx) {
-            new Chart(commissionCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Komisi Kotor (3%)', 'Royalti RMI (10%)', 'Komisi Bersih (2.7%)'],
-                    datasets: [{
-                        data: [4290000, 429000, 3861000],
-                        backgroundColor: [
-                            'rgba(59, 130, 246, 0.7)',
-                            'rgba(220, 38, 38, 0.7)',
-                            'rgba(16, 185, 129, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(220, 38, 38, 1)',
-                            'rgba(16, 185, 129, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-        }
-
-        // Ganti kode chart distribution dengan ini:
-const distributionCtx = document.getElementById('distributionChart')?.getContext('2d');
-if (distributionCtx) {
-    new Chart(distributionCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Marketing Executive (1%)', 'Manager MEA (0.4%)', 'Bonus Marketing (0.2%)', 'Pengembangan Bisnis (0.3%)', 'Cadangan OPS (0.2%)', 'Dividen MEA & RMI (0.6%)'],
-            datasets: [{
-                data: [1430000, 572000, 286000, 429000, 286000, 858000],
-                backgroundColor: [
-                    'rgba(16, 185, 129, 0.7)',    // Green - Marketing
-                    'rgba(234, 179, 8, 0.7)',     // Yellow - Manager
-                    'rgba(59, 130, 246, 0.7)',    // Blue - Bonus
-                    'rgba(139, 92, 246, 0.7)',    // Purple - Pengembangan
-                    'rgba(220, 38, 38, 0.7)',     // Red - Cadangan
-                    'rgba(212, 175, 55, 0.7)'     // Gold - Dividen
-                ],
-                borderColor: [
-                    'rgba(16, 185, 129, 1)',
-                    'rgba(234, 179, 8, 1)',
-                    'rgba(59, 130, 246, 1)',
-                    'rgba(139, 92, 246, 1)',
-                    'rgba(220, 38, 38, 1)',
-                    'rgba(212, 175, 55, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom'
                 }
             }
-        }
-    });
+        });
+    }
 }
 </script>
   
