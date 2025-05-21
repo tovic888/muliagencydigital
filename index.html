@@ -1441,7 +1441,7 @@ nav .dropdown a:hover {
                             <span class="font-medium">Rp429.000</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-purple-500 h-2 rounded-full" style="width: 11.1%"></div>
+                            <div class="bg-purple-500 h-2 rounded-full" style="width: 14.8%"></div>
                         </div>
                     </div>
                     <div>
@@ -2043,7 +2043,7 @@ nav .dropdown a:hover {
                         <ul class="list-disc list-inside text-gray-600 text-sm">
                             <li>Canvassing langsung ke lokasi strategis</li>
                             <li>Membuat konten video properti harian</li>
-                            <li>Melakukan live TikTok minimal 1x/minggu</li>
+                            <li>Melakukan live TikTok minimal 3x/minggu</li>
                             <li>Follow-up prospek harian</li>
                             <li>Menemani buyer survei lokasi</li>
                         </ul>
@@ -3189,45 +3189,64 @@ nav .dropdown a:hover {
 
     // Initialize charts when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-        // Distribution Chart
-const distributionCtx2 = document.getElementById('distributionChart')?.getContext('2d');
-if (distributionCtx2) {
-    new Chart(distributionCtx2, {
-        type: 'pie',
-        data: {
-            labels: ['Marketing (1%)', 'Manager (0.4%)', 'Bonus (0.2%)', 'Pengembangan (0.3%)', 'Cadangan (0.2%)', 'Dividen (0.6%)'],
-            datasets: [{
-                data: [1430000, 572000, 286000, 429000, 286000, 858000],
-                backgroundColor: [
-                    'rgba(16, 185, 129, 0.7)',    // Green - Marketing
-                    'rgba(234, 179, 8, 0.7)',     // Yellow - Manager
-                    'rgba(59, 130, 246, 0.7)',    // Blue - Bonus
-                    'rgba(139, 92, 246, 0.7)',    // Purple - Pengembangan
-                    'rgba(220, 38, 38, 0.7)',     // Red - Cadangan
-                    'rgba(6, 182, 212, 0.7)'      // Cyan - Dividen
-                ],
-                borderColor: [
-                    'rgba(16, 185, 129, 1)',
-                    'rgba(234, 179, 8, 1)',
-                    'rgba(59, 130, 246, 1)',
-                    'rgba(139, 92, 246, 1)',
-                    'rgba(220, 38, 38, 1)',
-                    'rgba(6, 182, 212, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom'
+        // Distribution Chart - REVISED
+        const distributionCtx = document.getElementById('distributionChart')?.getContext('2d');
+        if (distributionCtx) {
+            new Chart(distributionCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Marketing (1%)', 'Manager (0.4%)', 'Bonus (0.2%)', 'Pengembangan (0.3%)', 'Cadangan (0.2%)', 'Dividen (0.6%)'],
+                    datasets: [{
+                        data: [1430000, 572000, 286000, 429000, 286000, 858000],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.7)',    // Green - Marketing
+                            'rgba(234, 179, 8, 0.7)',      // Yellow - Manager
+                            'rgba(59, 130, 246, 0.7)',     // Blue - Bonus
+                            'rgba(139, 92, 246, 0.7)',     // Purple - Pengembangan
+                            'rgba(220, 38, 38, 0.7)',      // Red - Cadangan
+                            'rgba(6, 182, 212, 0.7)'       // Cyan - Dividen
+                        ],
+                        borderColor: [
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(234, 179, 8, 1)',
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(220, 38, 38, 1)',
+                            'rgba(6, 182, 212, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 12
+                                },
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    const value = context.raw;
+                                    label += 'Rp' + value.toLocaleString('id-ID');
+                                    return label;
+                                }
+                            }
+                        }
+                    }
                 }
-            }
+            });
         }
-    });
-}
 
         // Revenue Chart
         const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
