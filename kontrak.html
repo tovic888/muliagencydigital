@@ -1332,4 +1332,265 @@
                             </div>
                             
                             <!-- Reporting Lines -->
-                            <div class="mt-8 border-t
+                            <div class="mt-8 border-t-2 border-dashed border-blue-200 pt-8">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="bg-white rounded-lg p-3 shadow text-center border-l-4 border-yellow-500">
+                                        <div class="font-semibold text-blue-900">Harian</div>
+                                        <div class="text-xs text-gray-600">Laporan Canvasing</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow text-center border-l-4 border-yellow-500">
+                                        <div class="font-semibold text-blue-900">Mingguan</div>
+                                        <div class="text-xs text-gray-600">Progress Closing</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow text-center border-l-4 border-yellow-500">
+                                        <div class="font-semibold text-blue-900">Bulanan</div>
+                                        <div class="text-xs text-gray-600">Evaluasi KPI</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Legend -->
+                        <div class="mt-8 bg-blue-50 rounded-lg p-4">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-blue-900 rounded mr-2"></div>
+                                    <div class="text-xs">Struktur Tim</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
+                                    <div class="text-xs">Alur Kerja</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-yellow-500 rounded mr-2"></div>
+                                    <div class="text-xs">Pelaporan</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-white rounded mr-2 border"></div>
+                                    <div class="text-xs">Proses</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="logo-glow inline-block mb-4">
+                    <div class="text-3xl font-bold">MEA</div>
+                    <div class="text-sm opacity-80">PT Rumah Mulia Indonesia</div>
+                </div>
+                
+                <div class="text-lg mb-6">Proyek Kertamulya Residence</div>
+                
+                <!-- Rating -->
+                <div class="flex justify-center items-center mb-6">
+                    <div class="mr-4">Rating Presentasi:</div>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                    </div>
+                </div>
+                
+                <div class="text-sm opacity-80 mb-6">
+                    © 2023 PT Rumah Mulia Indonesia. Hak Cipta Dilindungi.
+                </div>
+                
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Interactive calculator
+        const unitsSoldInput = document.getElementById('units-sold');
+        const unitsValue = document.getElementById('units-value');
+        const teamCommission = document.getElementById('team-commission');
+        const perPersonCommission = document.getElementById('per-person-commission');
+        const teamBonus = document.getElementById('team-bonus');
+        const perPersonBonus = document.getElementById('per-person-bonus');
+        const teamFee = document.getElementById('team-fee');
+        const perPersonFee = document.getElementById('per-person-fee');
+        const totalTeam = document.getElementById('total-team');
+        const totalPerson = document.getElementById('total-person');
+
+        unitsSoldInput.addEventListener('input', function() {
+            const units = parseInt(this.value);
+            unitsValue.textContent = units;
+            
+            // Calculate values
+            const commission = units * 1430000;
+            const bonus = units >= 30 ? units * 286000 : 0;
+            const fee = units * 400000;
+            
+            const perPersonComm = Math.round(commission / 4);
+            const perPersonBon = Math.round(bonus / 4);
+            const perPersonFe = Math.round(fee / 4);
+            
+            const totalTeamValue = commission + bonus + fee;
+            const totalPersonValue = perPersonComm + perPersonBon + perPersonFe;
+            
+            // Update DOM
+            teamCommission.textContent = formatCurrency(commission);
+            perPersonCommission.textContent = formatCurrency(perPersonComm);
+            teamBonus.textContent = formatCurrency(bonus);
+            perPersonBonus.textContent = formatCurrency(perPersonBon);
+            teamFee.textContent = formatCurrency(fee);
+            perPersonFee.textContent = formatCurrency(perPersonFe);
+            totalTeam.textContent = formatCurrency(totalTeamValue);
+            totalPerson.textContent = formatCurrency(totalPersonValue);
+        });
+
+        function formatCurrency(amount) {
+            return 'Rp' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        // Accordion functionality
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle content
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    bar.style.width = '70%'; // Example progress
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateProgressBars);
+        window.addEventListener('load', animateProgressBars);
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Initialize with some values
+        unitsSoldInput.dispatchEvent(new Event('input'));
+
+        // Initialize map
+        function initMap() {
+            // Coordinates for Kertayasa Sindangagung Kuningan
+            const kertayasa = [-6.9816, 108.4833];
+            
+            // Create map
+            const map = L.map('map').setView(kertayasa, 14);
+            
+            // Add tile layer (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add marker for Kertayasa
+            L.marker(kertayasa).addTo(map)
+                .bindPopup('<b>Kertayasa Sindangagung</b><br>Lokasi Proyek')
+                .openPopup();
+            
+            // Add circle around the area
+            L.circle(kertayasa, {
+                color: '#1e3a8a',
+                fillColor: '#3b82f6',
+                fillOpacity: 0.2,
+                radius: 2000
+            }).addTo(map).bindPopup("Area Canvasing Utama");
+            
+            // Add some points of interest
+            const poi = [
+                { coords: [-6.9916, 108.4733], name: "Pasar Sindangagung", type: "market" },
+                { coords: [-6.9716, 108.4933], name: "Kantor Kecamatan", type: "government" },
+                { coords: [-6.9816, 108.4733], name: "Sekolah Dasar", type: "school" },
+                { coords: [-6.9716, 108.4733], name: "Masjid Agung", type: "religious" },
+                { coords: [-6.9916, 108.4933], name: "Puskesmas", type: "hospital" }
+            ];
+            
+            poi.forEach(point => {
+                let iconColor;
+                switch(point.type) {
+                    case 'market': iconColor = 'green'; break;
+                    case 'government': iconColor = 'blue'; break;
+                    case 'school': iconColor = 'orange'; break;
+                    case 'religious': iconColor = 'purple'; break;
+                    case 'hospital': iconColor = 'red'; break;
+                    default: iconColor = 'gray';
+                }
+                
+                L.marker(point.coords, {
+                    icon: L.divIcon({
+                        className: 'custom-icon',
+                        html: `<div style="background-color: ${iconColor}; width: 20px; height: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 12px;">${point.type[0].toUpperCase()}</div>`,
+                        iconSize: [20, 20]
+                    })
+                }).addTo(map).bindPopup(`<b>${point.name}</b><br>Tempat Canvasing`);
+            });
+        }
+
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>
