@@ -1,643 +1,1049 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontrak Marketing Executive Team - Kertamulya Residence</title>
-    <meta name="description" content="Kontrak profesional Tim Marketing Executive MEA untuk Kertamulya Residence dengan sistem KPI berbasis performa dan komisi kolektif.">
+    <title>Kontrak Kerja Marketing Executive – MEA Kertamulya Residence</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://i.imgur.com/yy0vB2n.png" type="image/png">
     <style>
         :root {
-            --primary: #1a365d;
-            --secondary: #d4af37;
-            --accent: #00b4d8;
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --gold-accent: #d4af37;
+            --light-gold: #f5e6ab;
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+            min-height: 600px;
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+        .section {
+            scroll-margin-top: 80px;
         }
         
-        .gold-gradient {
-            background: linear-gradient(to right, #d4af37, #f9d423);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .flip-card {
+            perspective: 1000px;
         }
         
-        .hover-scale {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
         }
         
-        .hover-scale:hover {
-            transform: scale(1.03);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08);
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
         }
         
-        .stat-card {
-            border-left: 4px solid var(--secondary);
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
         }
         
-        .glass-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .highlight-card {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .highlight-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0) 70%);
-            z-index: -1;
-            animation: rotate 15s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .flip-card-back {
+            transform: rotateY(180deg);
         }
         
         .progress-bar {
-            height: 6px;
-            border-radius: 3px;
-            background: linear-gradient(to right, var(--secondary), #f9d423);
             transition: width 1.5s ease-in-out;
         }
         
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .gold-badge {
+            background: linear-gradient(135deg, #d4af37, #f5e6ab);
+            color: var(--primary-blue);
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
         }
         
-        .timeline-item::before {
+        .logo-glow {
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .funnel-step {
+            position: relative;
+        }
+        
+        .funnel-step:not(:last-child):after {
             content: '';
             position: absolute;
-            left: -38px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--secondary);
-            border: 4px solid var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: var(--gold-accent);
         }
         
-        /* Mobile Menu Styles */
-        #mobile-menu {
-            display: none;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 100%;
-            background: white;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            z-index: 40;
-        }
-        
-        #mobile-menu.active {
-            display: block;
-        }
-        
-        /* Responsive Fixes */
         @media (max-width: 768px) {
-            .responsive-text {
-                font-size: 1.5rem !important;
+            .hero {
+                background-attachment: scroll;
+                min-height: 500px;
             }
             
-            .responsive-text-sm {
-                font-size: 0.9rem !important;
+            .section {
+                scroll-margin-top: 60px;
             }
-            
-            .responsive-padding {
-                padding: 1.5rem !important;
-            }
-            
-            .team-avatar {
-                width: 80px;
-                height: 80px;
-            }
-        }
-        
-        .kpi-meter {
-            height: 12px;
-            border-radius: 6px;
-            background: #e5e7eb;
-            overflow: hidden;
-        }
-        
-        .kpi-fill {
-            height: 100%;
-            background: linear-gradient(to right, #10b981, #3b82f6);
-            transition: width 0.5s ease;
-        }
-        
-        .contract-clause {
-            counter-increment: clause-counter;
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contract-clause::before {
-            content: counter(clause-counter) ".";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-        
-        .signature-box {
-            border-top: 1px dashed #6b7280;
-            width: 200px;
-            padding-top: 1rem;
-            margin-top: 3rem;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white text-gray-800 shadow-lg transition-all duration-300">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center">
-                        <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12 mr-3">
-                        <span class="text-2xl font-bold text-blue-800">MEA</span>
-                    </div>
-                    <span class="hidden md:block text-sm opacity-80 text-gray-600">Marketing Executive Team</span>
-                </div>
-                
-                <!-- Mobile Menu Toggle -->
-                <button class="md:hidden focus:outline-none" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-bold text-blue-900 mr-2">MEA</div>
+                <div class="text-sm text-gray-600">PT Rumah Mulia Indonesia</div>
             </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#team" class="text-blue-900 hover:text-gold-600 transition">Tim</a>
+                <a href="#commission" class="text-blue-900 hover:text-gold-600 transition">Komisi</a>
+                <a href="#kpi" class="text-blue-900 hover:text-gold-600 transition">KPI</a>
+                <a href="#schedule" class="text-blue-900 hover:text-gold-600 transition">Jadwal</a>
+                <a href="#summary" class="text-blue-900 hover:text-gold-600 transition">Ringkasan</a>
+            </div>
+            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                <svg class="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-        
         <!-- Mobile menu -->
-        <div class="md:hidden bg-white w-full absolute left-0 top-full px-6 py-4 transition-all duration-300 shadow-lg hidden" id="mobile-menu">
-            <div class="space-y-4">
-                <a href="#team" class="block py-2 hover:text-blue-600 font-medium">Tim Kami</a>
-                <a href="#contract" class="block py-2 hover:text-blue-600 font-medium">Kontrak Kerja</a>
-                <a href="#kpi" class="block py-2 hover:text-blue-600 font-medium">Sistem KPI</a>
-                <a href="#commission" class="block py-2 hover:text-blue-600 font-medium">Komisi & Bonus</a>
-                <a href="#schedule" class="block py-2 hover:text-blue-600 font-medium">Jadwal Kerja</a>
-                <a href="#responsibility" class="block py-2 hover:text-blue-600 font-medium">Tanggung Jawab</a>
+        <div class="md:hidden hidden bg-white w-full px-6 py-3" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#team" class="text-blue-900 hover:text-gold-600 transition">Tim</a>
+                <a href="#commission" class="text-blue-900 hover:text-gold-600 transition">Komisi</a>
+                <a href="#kpi" class="text-blue-900 hover:text-gold-600 transition">KPI</a>
+                <a href="#schedule" class="text-blue-900 hover:text-gold-600 transition">Jadwal</a>
+                <a href="#summary" class="text-blue-900 hover:text-gold-600 transition">Ringkasan</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white pt-32 pb-20 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-                <div class="absolute bottom-1/3 right-1/3 w-64 h-64 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-                <div class="absolute top-2/3 right-1/4 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-            </div>
-        </div>
-        <div class="container mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right" data-aos-delay="100">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight responsive-text">
-                        <span class="gold-gradient">Tim Marketing</span> Kertamulya Residence
-                    </h1>
-                    <p class="text-xl mb-8 opacity-90 max-w-lg responsive-text-sm">
-                        Kontrak kerja profesional berbasis KPI dengan sistem komisi kolektif dibawah PT Rumah Mulia Indonesia
-                    </p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contract" class="px-8 py-3 bg-yellow-500 text-gray-900 rounded-lg font-bold text-center hover:bg-yellow-400 transition hover-scale shadow-lg">
-                            Lihat Kontrak <i class="fas fa-file-contract ml-2"></i>
-                        </a>
-                        <a href="#kpi" class="px-8 py-3 bg-white text-gray-900 rounded-lg font-bold text-center hover:bg-gray-100 transition hover-scale shadow-lg">
-                            Sistem KPI <i class="fas fa-chart-line ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="200">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -top-10 -left-10 w-64 h-64 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-                        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Marketing Team" class="rounded-xl shadow-2xl border-4 border-white">
-                        </div>
-                    </div>
-                </div>
+    <section class="hero flex items-center justify-center text-center text-white pt-20">
+        <div class="container mx-auto px-6">
+            <div class="animate__animated animate__fadeInDown">
+                <div class="text-sm uppercase tracking-widest mb-2 opacity-80">MEA – PT Rumah Mulia Indonesia</div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Kontrak Kerja Marketing Executive</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-8">Kertamulya Residence</h2>
+                <p class="text-xl md:text-2xl opacity-90 mb-8">Landing Page Presentasi Kontrak & Sistem Komisi Marketing Executive</p>
+                <a href="#team" class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-flex items-center">
+                    Mulai Presentasi <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Tim <span class="gold-gradient">Marketing Executive</span></h2>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Profesional muda yang akan menjadi ujung tombak pemasaran Kertamulya Residence
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Member 1 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" class="team-avatar rounded-full mx-auto mb-4">
-                        <h3 class="text-lg font-bold mb-2">Ahmad Fauzi</h3>
-                        <p class="text-sm text-gray-500 mb-4">Team Leader</p>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <!-- Section 1: Team Structure -->
+        <section id="team" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="flex flex-col md:flex-row items-center mb-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                        <span class="relative z-10">Struktur Tim & Kontrak</span>
+                        <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                    </h2>
+                    <p class="text-gray-700 mb-6">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja.</p>
+                    
+                    <div class="flex items-center mb-4">
+                        <div class="gold-badge px-4 py-1 rounded-full text-sm font-semibold mr-4">6 Bulan</div>
+                        <span class="text-gray-600">Periode kontrak awal</span>
                     </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Pengalaman marketing 3 tahun</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Spesialisasi pemasaran properti</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Bertanggung jawab atas tim</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Member 2 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member" class="team-avatar rounded-full mx-auto mb-4">
-                        <h3 class="text-lg font-bold mb-2">Siti Nurhaliza</h3>
-                        <p class="text-sm text-gray-500 mb-4">Marketing Executive</p>
-                    </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
-                            <span>Lulusan Manajemen Bisnis</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
-                            <span>Ahli komunikasi & presentasi</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-blue-500 mr-2 mt-1"></i>
-                            <span>Fokus pada pendampingan buyer</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Member 3 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member" class="team-avatar rounded-full mx-auto mb-4">
-                        <h3 class="text-lg font-bold mb-2">Budi Santoso</h3>
-                        <p class="text-sm text-gray-500 mb-4">Marketing Executive</p>
-                    </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-500 mr-2 mt-1"></i>
-                            <span>Spesialis canvassing lapangan</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-500 mr-2 mt-1"></i>
-                            <span>Menguasai area Kuningan</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-500 mr-2 mt-1"></i>
-                            <span>Ahli mapping lokasi strategis</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Member 4 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member" class="team-avatar rounded-full mx-auto mb-4">
-                        <h3 class="text-lg font-bold mb-2">Dewi Lestari</h3>
-                        <p class="text-sm text-gray-500 mb-4">Marketing Executive</p>
-                    </div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
-                            <span>Pengalaman sales 2 tahun</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
-                            <span>Ahli follow-up prospek</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-yellow-500 mr-2 mt-1"></i>
-                            <span>Fokus pada administrasi tim</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="mt-12 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 shadow-xl hover-scale" data-aos="fade-up">
-                <div class="md:flex items-center">
-                    <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
-                        <h3 class="text-2xl font-bold mb-6">Struktur Tim Terpadu</h3>
-                        <p class="mb-6 text-blue-100">
-                            Tim Marketing Executive Kertamulya Residence bekerja secara kolektif dengan pembagian tugas yang jelas dan sistem KPI terukur.
-                        </p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center glass-card">
-                                <div class="text-3xl font-bold">4</div>
-                                <div class="text-sm">Anggota Tim</div>
-                            </div>
-                            <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center glass-card">
-                                <div class="text-3xl font-bold">1%</div>
-                                <div class="text-sm">Komisi Kolektif</div>
-                            </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <div class="text-blue-900 font-semibold">4 Orang</div>
+                            <div class="text-gray-600 text-sm">Anggota Tim</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <div class="text-blue-900 font-semibold">2L + 2P</div>
+                            <div class="text-gray-600 text-sm">Komposisi</div>
                         </div>
                     </div>
-                    <div class="md:w-1/3 bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                        <h4 class="font-bold mb-4 text-center">Target Tim</h4>
-                        <div class="text-4xl font-bold text-center mb-2">30 <span class="text-3xl">Unit</span></div>
-                        <p class="text-sm text-blue-200 text-center">Closing per bulan</p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-users text-blue-900 text-6xl opacity-30"></i>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-white p-4 rounded-full shadow-lg">
+                            <i class="fas fa-file-contract text-3xl text-yellow-600"></i>
+                        </div>
+                        <div class="absolute bottom-4 -left-4 bg-white p-3 rounded-full shadow-lg">
+                            <i class="fas fa-handshake text-2xl text-blue-600"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contract Section -->
-    <section id="contract" class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Kontrak <span class="gold-gradient">Kerja Profesional</span></h2>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Perjanjian kerja antara Marketing Executive dengan PT Rumah Mulia Indonesia
-                </p>
-            </div>
             
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-                <div class="p-8 md:p-12">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-4">Informasi Tim</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Kontrak Marketing Executive</h3>
-                            <p class="text-gray-600">Nomor: 12/MEA/III/2025</p>
-                        </div>
-                        <div class="mt-4 md:mt-0">
-                            <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium">Berlaku 1 Tahun</span>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-8">
-                        <!-- Clause 1 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Pihak-Pihak</h4>
-                            <p class="text-gray-700 mb-2">Kontrak ini dibuat antara:</p>
-                            <ul class="list-disc list-inside text-gray-700 ml-6 space-y-2">
-                                <li><strong>PT Rumah Mulia Indonesia</strong> (selanjutnya disebut "Perusahaan")</li>
-                                <li><strong>Marketing Executive</strong> (selanjutnya disebut "Pekerja")</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Clause 2 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Masa Kerja</h4>
-                            <p class="text-gray-700">Kontrak ini berlaku selama <strong>12 (dua belas) bulan</strong> terhitung sejak ditandatangani, dengan masa percobaan 1 (satu) bulan.</p>
-                        </div>
-                        
-                        <!-- Clause 3 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Sistem Remunerasi</h4>
-                            <p class="text-gray-700 mb-2">Pekerja akan menerima remunerasi berupa:</p>
-                            <ul class="list-disc list-inside text-gray-700 ml-6 space-y-2">
-                                <li><strong>KPI Performa:</strong> Rp2.500.000/bulan (dibayarkan berdasarkan pencapaian KPI)</li>
-                                <li><strong>Komisi Kolektif:</strong> 1% dari harga jual unit (dibagi rata ke 4 anggota tim)</li>
-                                <li><strong>Bonus Tambahan:</strong> 0.2% jika target 30 unit tercapai (dibagi rata)</li>
-                                <li><strong>Handling Fee:</strong> Rp400.000/unit dari marketing freelance (dibagi rata)</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Clause 4 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Jam Kerja</h4>
-                            <p class="text-gray-700 mb-2">Pekerja wajib bekerja sesuai jadwal berikut:</p>
-                            <ul class="list-disc list-inside text-gray-700 ml-6 space-y-2">
-                                <li><strong>Hari Kerja:</strong> Rabu - Minggu (Libur Senin & Selasa)</li>
-                                <li><strong>Jam Kerja:</strong> 08.00 - 16.30 WIB</li>
-                                <li><strong>Briefing Harian:</strong> Pukul 08.00 - 09.00 WIB</li>
-                            </ul>
-                            <p class="text-gray-700 mt-2">Jika libur nasional jatuh pada hari kerja, maka digantikan pada hari Jumat.</p>
-                        </div>
-                        
-                        <!-- Clause 5 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Hirarki</h4>
-                            <p class="text-gray-700">Pekerja berada dibawah pengawasan langsung <strong>Manager MEA - Taufik Mansur Marie</strong> dan bertanggung jawab atas semua aktivitas pemasaran yang dilakukan.</p>
-                        </div>
-                        
-                        <!-- Clause 6 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Aset Perusahaan</h4>
-                            <p class="text-gray-700">Pekerja bertanggung jawab penuh atas semua aset perusahaan yang digunakan termasuk namun tidak terbatas pada:</p>
-                            <ul class="list-disc list-inside text-gray-700 ml-6 space-y-2 mt-2">
-                                <li>Perangkat kerja (HP, tablet, dll)</li>
-                                <li>Dokumen pemasaran</li>
-                                <li>Data prospek dan buyer</li>
-                                <li>Kendaraan operasional</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Clause 7 -->
-                        <div class="contract-clause">
-                            <h4 class="text-xl font-bold mb-4 text-gray-800">Sanksi dan Terminasi</h4>
-                            <p class="text-gray-700 mb-2">Perusahaan berhak memberikan sanksi atau melakukan terminasi kontrak jika:</p>
-                            <ul class="list-disc list-inside text-gray-700 ml-6 space-y-2">
-                                <li>Pekerja melanggar ketentuan kontrak</li>
-                                <li>Pencapaian KPI di bawah 50% selama 3 bulan berturut-turut</li>
-                                <li>Melakukan tindakan yang merugikan perusahaan</li>
-                                <li>Menggunakan data perusahaan untuk kepentingan pribadi</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Signatures -->
-                    <div class="mt-12">
-                        <div class="grid md:grid-cols-2 gap-12">
-                            <div class="text-center">
-                                <div class="signature-box mx-auto">
-                                    <p class="font-bold">PT Rumah Mulia Indonesia</p>
-                                    <p class="text-sm text-gray-600 mt-4">Lia Nurmalasari</p>
-                                    <p class="text-xs text-gray-500">Direktur Utama</p>
+                            <div class="flex items-start mb-3">
+                                <div class="text-blue-900 mr-3"><i class="fas fa-tag"></i></div>
+                                <div>
+                                    <div class="font-semibold">Nama Tim</div>
+                                    <div class="text-gray-700">Marketing Executive – Kertamulya Residence</div>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <div class="signature-box mx-auto">
-                                    <p class="font-bold">Marketing Executive</p>
-                                    <p class="text-sm text-gray-600 mt-4">[Nama Pekerja]</p>
-                                    <p class="text-xs text-gray-500">Tim Kertamulya Residence</p>
+                            <div class="flex items-start mb-3">
+                                <div class="text-blue-900 mr-3"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <div class="font-semibold">Jumlah Anggota</div>
+                                    <div class="text-gray-700">4 Orang (2 Laki-laki & 2 Perempuan)</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-8 text-center text-sm text-gray-500">
-                            <p>Dokumen ini telah disahkan oleh Notaris Andre Abdul Karim, SH. pada tanggal 15 Maret 2025</p>
+                        <div>
+                            <div class="flex items-start mb-3">
+                                <div class="text-blue-900 mr-3"><i class="far fa-calendar-alt"></i></div>
+                                <div>
+                                    <div class="font-semibold">Periode Kontrak</div>
+                                    <div class="text-gray-700">6 bulan (dapat diperpanjang berdasarkan evaluasi)</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-blue-900 mr-3"><i class="fas fa-money-bill-wave"></i></div>
+                                <div>
+                                    <div class="font-semibold">Sistem Remunerasi</div>
+                                    <div class="text-gray-700">
+                                        <ul class="list-disc pl-5">
+                                            <li>Berbasis KPI individu</li>
+                                            <li>Komisi & bonus berdasarkan pencapaian tim</li>
+                                            <li>Tanpa gaji pokok (remunerasi tidak tetap)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- KPI Section -->
-    <section id="kpi" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Sistem <span class="gold-gradient">KPI Individu</span></h2>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Key Performance Indicator untuk mengukur kinerja masing-masing Marketing Executive
-                </p>
+        <!-- Section 2: Commission Table -->
+        <section id="commission" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Struktur Komisi & Fee</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Sistem komisi yang transparan dengan pembagian yang adil untuk seluruh anggota tim.</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <!-- Kehadiran -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-calendar-check text-green-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Kehadiran (35%)</h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <!-- Commission Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-percentage mr-2"></i> Komisi Tim
+                        </h3>
                     </div>
-                    <div class="space-y-4">
-                        <p class="text-gray-700">Bobot terbesar dalam penilaian KPI dengan target:</p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>24 hari kerja/bulan (Rabu-Minggu)</li>
-                            <li>Hadir tepat waktu briefing pukul 08.00</li>
-                            <li>Tidak ada alpha tanpa keterangan</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm text-gray-600">Perhitungan:</span>
-                                <span class="text-sm font-bold">(Hari Kerja/24) × 35% × Rp2.500.000</span>
-                            </div>
-                            <div class="kpi-meter">
-                                <div class="kpi-fill" style="width: 35%"></div>
-                            </div>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">1%</div>
+                        <div class="text-gray-700 mb-4">dari harga unit Rp143.000.000 = Rp1.430.000</div>
+                        <div class="border-t pt-4">
+                            <div class="text-sm text-gray-600">Dibagi rata:</div>
+                            <div class="text-xl font-semibold text-blue-900">Rp357.500/orang</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Canvasing -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-map-marked-alt text-blue-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Canvasing (20%)</h3>
+                <!-- Bonus Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-award mr-2"></i> Bonus Tim
+                        </h3>
                     </div>
-                    <div class="space-y-4">
-                        <p class="text-gray-700">Target kunjungan efektif per hari:</p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>12 kunjungan/hari (kecuali rolling inhouse)</li>
-                            <li>Dokumentasi lengkap + foto lokasi</li>
-                            <li>Input data ke Collabo real-time</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm text-gray-600">Perhitungan:</span>
-                                <span class="text-sm font-bold">(Kunjungan/288) × 20% × Rp2.500.000</span>
-                            </div>
-                            <div class="kpi-meter">
-                                <div class="kpi-fill" style="width: 20%"></div>
-                            </div>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">0.2%</div>
+                        <div class="text-gray-700 mb-4">Jika Target 30 Unit Tercapai = Rp286.000/unit</div>
+                        <div class="border-t pt-4">
+                            <div class="text-sm text-gray-600">Dibagi rata:</div>
+                            <div class="text-xl font-semibold text-blue-900">Rp71.500/orang</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Laporan -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover-scale" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-purple-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-file-alt text-purple-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Laporan (15%)</h3>
+                <!-- Freelance Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-user-tie mr-2"></i> Fee Freelance
+                        </h3>
                     </div>
-                    <div class="space-y-4">
-                        <p class="text-gray-700">Kualitas dan ketepatan waktu laporan:</p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Laporan harian sebelum jam 17.00</li>
-                            <li>Data akurat dan lengkap</li>
-                            <li>Kolaborasi dengan tim</li>
-                        </ul>
-                        <div class="mt-4">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm text-gray-600">Perhitungan:</span>
-                                <span class="text-sm font-bold">(Kualitas Laporan) × 15% × Rp2.500.000</span>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">Rp400.000</div>
+                        <div class="text-gray-700 mb-4">Leads dari Channel Bebas/Freelance per unit</div>
+                        <div class="border-t pt-4">
+                            <div class="text-sm text-gray-600">Dibagi rata:</div>
+                            <div class="text-xl font-semibold text-blue-900">Rp100.000/orang</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Simulation -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Simulasi Penghasilan (30 Unit Tercapai)</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-blue-900 text-white">
+                                    <th class="py-3 px-4 text-left rounded-tl-xl">Komponen</th>
+                                    <th class="py-3 px-4 text-left">Total Tim</th>
+                                    <th class="py-3 px-4 text-left rounded-tr-xl">Per Orang</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Komisi 1%</td>
+                                    <td class="py-3 px-4">Rp42.900.000</td>
+                                    <td class="py-3 px-4">Rp10.725.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Bonus 0,2%</td>
+                                    <td class="py-3 px-4">Rp8.580.000</td>
+                                    <td class="py-3 px-4">Rp2.145.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Fee Freelance</td>
+                                    <td class="py-3 px-4">Rp12.000.000</td>
+                                    <td class="py-3 px-4">Rp3.000.000</td>
+                                </tr>
+                                <tr class="bg-blue-100 font-semibold">
+                                    <td class="py-3 px-4 rounded-bl-xl">Total</td>
+                                    <td class="py-3 px-4">Rp63.480.000</td>
+                                    <td class="py-3 px-4 rounded-br-xl">Rp15.870.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Calculator -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Simulasi Interaktif</h3>
+                    
+                    <div class="mb-6">
+                        <label for="units-sold" class="block text-gray-700 mb-2">Jumlah Unit Terjual:</label>
+                        <input type="range" id="units-sold" min="0" max="30" value="15" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-sm text-gray-600 mt-1">
+                            <span>0</span>
+                            <span id="units-value">15</span>
+                            <span>30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-600 mb-1">Komisi Tim (1%)</div>
+                            <div class="text-xl font-semibold text-blue-900" id="team-commission">Rp21.450.000</div>
+                            <div class="text-sm text-gray-600 mt-1">Per orang: <span id="per-person-commission">Rp5.362.500</span></div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-600 mb-1">Bonus Tim (0.2%)</div>
+                            <div class="text-xl font-semibold text-blue-900" id="team-bonus">Rp4.290.000</div>
+                            <div class="text-sm text-gray-600 mt-1">Per orang: <span id="per-person-bonus">Rp1.072.500</span></div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-600 mb-1">Fee Freelance</div>
+                            <div class="text-xl font-semibold text-blue-900" id="team-fee">Rp6.000.000</div>
+                            <div class="text-sm text-gray-600 mt-1">Per orang: <span id="per-person-fee">Rp1.500.000</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-blue-900 text-white rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <div class="text-sm">Total Pendapatan Tim</div>
+                                <div class="text-2xl font-bold" id="total-team">Rp31.740.000</div>
                             </div>
-                            <div class="kpi-meter">
-                                <div class="kpi-fill" style="width: 15%"></div>
+                            <div class="text-right">
+                                <div class="text-sm">Per Orang</div>
+                                <div class="text-2xl font-bold" id="total-person">Rp7.935.000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: KPI Funnel -->
+        <section id="kpi" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Funnel Perhitungan KPI</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Sistem penilaian kinerja individu yang transparan dengan kompensasi maksimal Rp2.500.000/orang.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-10">
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-calendar-check text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Kehadiran</h3>
+                        <div class="text-sm text-gray-600 mb-2">35% Bobot</div>
+                        <div class="text-sm font-medium">24 hari kerja/bulan</div>
+                        <div class="text-yellow-600 font-semibold">Rp875.000</div>
+                    </div>
+                    
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-search-location text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Canvasing</h3>
+                        <div class="text-sm text-gray-600 mb-2">20% Bobot</div>
+                        <div class="text-sm font-medium">12 kunjungan/hari</div>
+                        <div class="text-yellow-600 font-semibold">Rp500.000</div>
+                    </div>
+                    
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-file-alt text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Laporan</h3>
+                        <div class="text-sm text-gray-600 mb-2">15% Bobot</div>
+                        <div class="text-sm font-medium">Collabo & dokumen</div>
+                        <div class="text-yellow-600 font-semibold">Rp375.000</div>
+                    </div>
+                    
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-handshake text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Closing Tim</h3>
+                        <div class="text-sm text-gray-600 mb-2">30% Bobot</div>
+                        <div class="text-sm font-medium">Target 30 unit</div>
+                        <div class="text-yellow-600 font-semibold">Rp750.000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Detail KPI Individu (Maksimal Rp2.500.000/orang)</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-blue-900 text-white">
+                                    <th class="py-3 px-4 text-left rounded-tl-xl">Aspek Penilaian</th>
+                                    <th class="py-3 px-4 text-left">Bobot</th>
+                                    <th class="py-3 px-4 text-left">Target</th>
+                                    <th class="py-3 px-4 text-left rounded-tr-xl">Kompensasi Maks.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Kehadiran</td>
+                                    <td class="py-3 px-4">35%</td>
+                                    <td class="py-3 px-4">24 hari kerja/bulan</td>
+                                    <td class="py-3 px-4">Rp875.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Canvasing</td>
+                                    <td class="py-3 px-4">20%</td>
+                                    <td class="py-3 px-4">12 kunjungan/hari</td>
+                                    <td class="py-3 px-4">Rp500.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Laporan</td>
+                                    <td class="py-3 px-4">15%</td>
+                                    <td class="py-3 px-4">Collabo & dokumen lapangan</td>
+                                    <td class="py-3 px-4">Rp375.000</td>
+                                </tr>
+                                <tr class="hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Closing Tim</td>
+                                    <td class="py-3 px-4">30%</td>
+                                    <td class="py-3 px-4">Target 30 unit</td>
+                                    <td class="py-3 px-4">Rp750.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Target Distribution -->
+        <section class="section mb-20 animate__animated animate__fadeIn">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h3 class="text-xl font-semibold text-blue-900 mb-6">Pembagian Target Closing Individu</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Target tim: 30 unit selama 6 bulan</div>
+                                <div class="text-sm text-gray-600">Estimasi rata-rata individu: 7–8 unit</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Tidak wajib merata, sistem tetap berbasis tim</div>
+                                <div class="text-sm text-gray-600">Selama target tim tercapai, komisi dan bonus dibagi rata</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Fee freelance juga tetap dibagi rata</div>
+                                <div class="text-sm text-gray-600">Meskipun hanya satu orang yang menangani buyer</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-blue-50 rounded-lg p-4 h-full">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl font-bold text-blue-900 mb-1">30</div>
+                                <div class="text-sm text-gray-600">Unit Target Tim</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center mb-2">
+                                <div class="text-sm font-medium">Progress Tim</div>
+                                <div class="text-sm font-semibold text-blue-900">0/30</div>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                            </div>
+                            
+                            <div class="mt-6 grid grid-cols-4 gap-2 text-center">
+                                <div>
+                                    <div class="text-lg font-semibold">7-8</div>
+                                    <div class="text-xs text-gray-600">Unit/Orang</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">1.43jt</div>
+                                    <div class="text-xs text-gray-600">Komisi/Unit</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">286k</div>
+                                    <div class="text-xs text-gray-600">Bonus/Unit</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">100k</div>
+                                    <div class="text-xs text-gray-600">Fee/Unit</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Schedule -->
+        <section id="schedule" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Jadwal Kerja dan SOP</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Struktur kerja yang jelas untuk memaksimalkan produktivitas tim marketing.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Jadwal & Tugas Harian</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="flex items-start mb-4">
+                                <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="far fa-calendar"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Hari Kerja: Rabu – Minggu</div>
+                                    <div class="text-sm text-gray-600">Libur: Senin & Selasa</div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-l-2 border-blue-200 pl-6 ml-4 space-y-6">
+                                <div>
+                                    <div class="font-medium text-blue-900">08.00 – 09.00</div>
+                                    <div class="text-gray-700">Briefing</div>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-blue-900">09.00 – 16.30</div>
+                                    <div class="text-gray-700">Canvasing (min. 12 kunjungan)</div>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-blue-900">Rolling Inhouse</div>
+                                    <div class="text-gray-700">1 orang/hari</div>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-blue-900">Sore</div>
+                                    <div class="text-gray-700">Administrasi (Collabo & laporan)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="bg-blue-50 rounded-lg p-6 h-full">
+                                <h4 class="font-semibold text-blue-900 mb-4 flex items-center">
+                                    <i class="fas fa-user-tie mr-2"></i> Atasan Langsung
+                                </h4>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-900 mb-1">Taufik Mansur Marie</div>
+                                    <div class="text-gray-700">Manager MEA</div>
+                                    <div class="mt-4">
+                                        <img src="https://via.placeholder.com/150" alt="Manager Photo" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- KPI Summary -->
-            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 shadow-xl hover-scale" data-aos="fade-up">
-                <h3 class="text-2xl font-bold mb-6">Total KPI Performa (70%)</h3>
-                <p class="mb-6 text-blue-100">
-                    Pencapaian minimal 70% dari total KPI (Rp1.750.000) diperlukan untuk mendapatkan tambahan 30% dari komisi closing kolektif.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                        <h4 class="font-bold mb-4 text-center">Contoh Pencapaian 80%</h4>
-                        <div class="text-3xl font-bold text-center text-yellow-400 mb-2">Rp2.000.000</div>
-                        <p class="text-sm text-blue-200 text-center">(80% × Rp2.500.000)</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- SOP Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-clipboard-list mr-2"></i> Kewajiban & SOP
+                        </h3>
                     </div>
-                    <div class="bg-white bg-opacity-20 rounded-lg p-6 glass-card">
-                        <h4 class="font-bold mb-4 text-center">Contoh Pencapaian 60%</h4>
-                        <div class="text-3xl font-bold text-center text-yellow-400 mb-2">Rp1.500.000</div>
-                        <p class="text-sm text-blue-200 text-center">(60% × Rp2.500.000)</p>
+                    <div class="p-6">
+                        <h4 class="font-medium text-blue-900 mb-2 flex items-center">
+                            <i class="fas fa-laptop mr-2"></i> Aset Perusahaan
+                        </h4>
+                        <ul class="list-disc pl-5 mb-4 text-gray-700 space-y-1">
+                            <li>Tablet, brosur, dan seragam harus dijaga baik</li>
+                            <li>Kerusakan atau kehilangan menjadi tanggung jawab pribadi</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-blue-900 mb-2 flex items-center">
+                            <i class="fas fa-exclamation-triangle mr-2"></i> SOP Penting
+                        </h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Dilarang menerima pembayaran langsung dari konsumen</li>
+                            <li>Wajib menggunakan nomor resmi marketing pada brosur</li>
+                        </ul>
                     </div>
+                </div>
+                
+                <!-- Sanctions Card -->
+                <div class="flip-card">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front bg-white rounded-xl shadow-md overflow-hidden h-full">
+                            <div class="bg-blue-900 text-white p-4">
+                                <h3 class="font-semibold text-lg flex items-center">
+                                    <i class="fas fa-gavel mr-2"></i> Sanksi & Terminasi
+                                </h3>
+                            </div>
+                            <div class="p-6 flex flex-col h-full">
+                                <div class="flex-grow">
+                                    <div class="text-center py-8">
+                                        <i class="fas fa-hand-pointer text-4xl text-blue-900 opacity-30 mb-3"></i>
+                                        <div class="text-blue-900 font-medium">Klik untuk melihat detail sanksi</div>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-500 text-center">
+                                    <i class="fas fa-sync-alt mr-1"></i> Flip card
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back bg-white rounded-xl shadow-md overflow-hidden h-full">
+                            <div class="bg-blue-900 text-white p-4">
+                                <h3 class="font-semibold text-lg flex items-center">
+                                    <i class="fas fa-gavel mr-2"></i> Sanksi & Terminasi
+                                </h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-start mb-4">
+                                    <div class="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-exclamation"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">KPI <50% selama 2 bulan berturut-turut</div>
+                                        <div class="text-sm text-gray-600">Teguran tertulis</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start mb-4">
+                                    <div class="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-ban"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">Pelanggaran SOP</div>
+                                        <div class="text-sm text-gray-600">Pemotongan komisi atau terminasi kontrak</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">Pengunduran Diri (Resign)</div>
+                                        <div class="text-sm text-gray-600">Wajib memberikan pemberitahuan minimal 30 hari sebelumnya</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Additional Notes -->
+        <section class="section mb-20 animate__animated animate__fadeIn">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Catatan Tambahan & Highlight Penting</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Accordion Item 1 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="accordion-button w-full flex justify-between items-center p-4 bg-blue-50 hover:bg-blue-100 transition">
+                                <span class="font-medium text-left">Komisi Masa Kerja</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 border-t text-gray-700">
+                                    Komisi tetap dibayarkan jika prospek dari masa kerja berhasil closing, meskipun kontrak sudah berakhir.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Accordion Item 2 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="accordion-button w-full flex justify-between items-center p-4 bg-blue-50 hover:bg-blue-100 transition">
+                                <span class="font-medium text-left">Fee Freelance</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 border-t text-gray-700">
+                                    Fee freelance tetap dibagi rata oleh seluruh anggota tim, meskipun hanya satu orang yang menangani prospek hingga closing.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Accordion Item 3 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="accordion-button w-full flex justify-between items-center p-4 bg-blue-50 hover:bg-blue-100 transition">
+                                <span class="font-medium text-left">Perpanjangan Kontrak</span>
+                                <i class="fas fa-chevron-down transition-transform"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 border-t text-gray-700">
+                                    Kontrak dapat diperpanjang atau dihentikan sesuai hasil evaluasi manajemen berdasarkan pencapaian KPI tim dan individu.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Summary Diagram -->
+        <section id="summary" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Struktur Alur Kerja & Reporting</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Diagram Positioning Architecture (PA) yang menjelaskan struktur kerja dan alur pelaporan.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="flex justify-center">
+                    <div class="relative w-full max-w-4xl">
+                        <!-- Diagram Container -->
+                        <div class="relative bg-blue-50 rounded-lg p-8">
+                            <!-- Manager -->
+                            <div class="bg-blue-900 text-white rounded-lg p-4 shadow-lg mx-auto w-64 text-center mb-8">
+                                <div class="font-bold">Manager MEA</div>
+                                <div class="text-sm">Taufik Mansur Marie</div>
+                            </div>
+                            
+                            <!-- Arrow -->
+                            <div class="flex justify-center mb-8">
+                                <div class="w-1 h-12 bg-blue-900"></div>
+                            </div>
+                            
+                            <!-- Team -->
+                            <div class="grid md:grid-cols-4 gap-4 mb-8">
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">ME 1</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">ME 2</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">ME 3</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">ME 4</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Process Flow -->
+                            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                                <div class="bg-blue-100 rounded-lg p-2 text-center">
+                                    <i class="fas fa-calendar-check text-blue-900 text-2xl mb-1"></i>
+                                    <div class="text-xs font-medium">Briefing</div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                                <div class="bg-blue-100 rounded-lg p-2 text-center">
+                                    <i class="fas fa-search-location text-blue-900 text-2xl mb-1"></i>
+                                    <div class="text-xs font-medium">Canvasing</div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                                <div class="bg-blue-100 rounded-lg p-2 text-center">
+                                    <i class="fas fa-handshake text-blue-900 text-2xl mb-1"></i>
+                                    <div class="text-xs font-medium">Closing</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Reporting Lines -->
+                            <div class="mt-8 border-t-2 border-dashed border-blue-200 pt-8">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="bg-white rounded-lg p-3 shadow text-center border-l-4 border-yellow-500">
+                                        <div class="font-semibold text-blue-900">Harian</div>
+                                        <div class="text-xs text-gray-600">Laporan Canvasing</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow text-center border-l-4 border-yellow-500">
+                                        <div class="font-semibold text-blue-900">Mingguan</div>
+                                        <div class="text-xs text-gray-600">Progress Closing</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow text-center border-l-4 border-yellow-500">
+                                        <div class="font-semibold text-blue-900">Bulanan</div>
+                                        <div class="text-xs text-gray-600">Evaluasi KPI</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Legend -->
+                        <div class="mt-8 bg-blue-50 rounded-lg p-4">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-blue-900 rounded mr-2"></div>
+                                    <div class="text-xs">Struktur Tim</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
+                                    <div class="text-xs">Alur Kerja</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-yellow-500 rounded mr-2"></div>
+                                    <div class="text-xs">Pelaporan</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-white rounded mr-2 border"></div>
+                                    <div class="text-xs">Proses</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="logo-glow inline-block mb-4">
+                    <div class="text-3xl font-bold">MEA</div>
+                    <div class="text-sm opacity-80">PT Rumah Mulia Indonesia</div>
+                </div>
+                
+                <div class="text-lg mb-6">Proyek Kertamulya Residence</div>
+                
+                <!-- Rating -->
+                <div class="flex justify-center items-center mb-6">
+                    <div class="mr-4">Rating Presentasi:</div>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                        <i class="fas fa-star text-yellow-400 mx-1"></i>
+                    </div>
+                </div>
+                
+                <div class="text-sm opacity-80 mb-6">
+                    © 2023 PT Rumah Mulia Indonesia. Hak Cipta Dilindungi.
+                </div>
+                
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fas fa-globe"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Commission Section -->
-    <section id="commission" class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Sistem <span class="gold-gradient">Komisi & Bonus</span></h2>
-                <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Pembagian komisi kolektif berdasarkan pencapaian target tim
-                </p>
-            </div>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Interactive calculator
+        const unitsSoldInput = document.getElementById('units-sold');
+        const unitsValue = document.getElementById('units-value');
+        const teamCommission = document.getElementById('team-commission');
+        const perPersonCommission = document.getElementById('per-person-commission');
+        const teamBonus = document.getElementById('team-bonus');
+        const perPersonBonus = document.getElementById('per-person-bonus');
+        const teamFee = document.getElementById('team-fee');
+        const perPersonFee = document.getElementById('per-person-fee');
+        const totalTeam = document.getElementById('total-team');
+        const totalPerson = document.getElementById('total-person');
+
+        unitsSoldInput.addEventListener('input', function() {
+            const units = parseInt(this.value);
+            unitsValue.textContent = units;
             
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Komisi Reguler -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover-scale"
+            // Calculate values
+            const commission = units * 1430000;
+            const bonus = units >= 30 ? units * 286000 : 0;
+            const fee = units * 400000;
+            
+            const perPersonComm = Math.round(commission / 4);
+            const perPersonBon = Math.round(bonus / 4);
+            const perPersonFe = Math.round(fee / 4);
+            
+            const totalTeamValue = commission + bonus + fee;
+            const totalPersonValue = perPersonComm + perPersonBon + perPersonFe;
+            
+            // Update DOM
+            teamCommission.textContent = formatCurrency(commission);
+            perPersonCommission.textContent = formatCurrency(perPersonComm);
+            teamBonus.textContent = formatCurrency(bonus);
+            perPersonBonus.textContent = formatCurrency(perPersonBon);
+            teamFee.textContent = formatCurrency(fee);
+            perPersonFee.textContent = formatCurrency(perPersonFe);
+            totalTeam.textContent = formatCurrency(totalTeamValue);
+            totalPerson.textContent = formatCurrency(totalPersonValue);
+        });
+
+        function formatCurrency(amount) {
+            return 'Rp' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        // Accordion functionality
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle content
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    bar.style.width = '70%'; // Example progress
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateProgressBars);
+        window.addEventListener('load', animateProgressBars);
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Initialize with some values
+        unitsSoldInput.dispatchEvent(new Event('input'));
+    </script>
+</body>
+</html>
