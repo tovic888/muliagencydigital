@@ -12,16 +12,22 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #f9f9f9;
         }
         .header {
             text-align: center;
             margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a365d 0%, #2a5298 100%);
+            color: white;
+            border-radius: 8px;
         }
         .header img {
             height: 80px;
+            filter: brightness(0) invert(1);
         }
         h1 {
-            color: #1a365d;
+            color: white;
             font-size: 24px;
             margin: 10px 0;
         }
@@ -56,11 +62,13 @@
             padding: 15px;
             border-left: 4px solid #d4af37;
             margin: 15px 0;
+            border-radius: 4px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
         }
         table, th, td {
             border: 1px solid #ddd;
@@ -71,12 +79,23 @@
         }
         th {
             background-color: #f2f2f2;
+            font-weight: bold;
         }
         .footer {
             text-align: center;
             margin-top: 50px;
             font-size: 12px;
             color: #666;
+        }
+        .kpi-table {
+            background-color: #e9f7fe;
+            border-left: 4px solid #1a365d;
+        }
+        .job-desk {
+            background-color: #fff8e6;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
         }
     </style>
 </head>
@@ -115,16 +134,39 @@
     </ol>
 
     <h2>PASAL 4 - TUGAS DAN TANGGUNG JAWAB</h2>
-    <p>PIHAK KEDUA berkewajiban untuk:</p>
-    <ol>
-        <li>Melakukan canvassing langsung ke lokasi strategis dengan target 12 kunjungan efektif/hari</li>
-        <li>Melakukan pendampingan calon buyer di kantor (sistem rolling 2 orang inhouse per hari)</li>
-        <li>Membuat dokumentasi lengkap + foto lokasi untuk setiap kunjungan</li>
-        <li>Membantu follow-up prospek yang gagal</li>
-        <li>Memasukkan data ke Google Sheets secara real-time</li>
-        <li>Melakukan presentasi properti & follow-up sampai closing</li>
-        <li>Mengikuti sistem KPI yang telah ditetapkan</li>
-    </ol>
+    <div class="job-desk">
+        <p>PIHAK KEDUA berkewajiban untuk:</p>
+        <ol>
+            <li><strong>Canvasing Lapangan</strong>:
+                <ul>
+                    <li>Melakukan canvassing langsung ke lokasi strategis dengan target 12 kunjungan efektif/hari</li>
+                    <li>Melakukan mapping area canvassing secara berkala</li>
+                    <li>Membuat dokumentasi lengkap + foto lokasi untuk setiap kunjungan</li>
+                </ul>
+            </li>
+            <li><strong>Pendampingan Buyer</strong>:
+                <ul>
+                    <li>Melakukan pendampingan calon buyer (sistem rolling 1 orang inhouse per hari)</li>
+                    <li>Melayani calon buyer dari freelance marketing</li>
+                    <li>Melakukan presentasi properti & follow-up sampai closing</li>
+                </ul>
+            </li>
+            <li><strong>Administrasi</strong>:
+                <ul>
+                    <li>Memasukkan data ke CRM secara real-time</li>
+                    <li>Menggunakan nomor telepon kantor untuk semua pemasaran</li>
+                    <li>Mengupdate laporan aktivitas harian</li>
+                </ul>
+            </li>
+            <li><strong>Teamwork</strong>:
+                <ul>
+                    <li>Berpartisipasi dalam sistem bonus kolektif</li>
+                    <li>Bekerja sama dengan tim marketing lainnya</li>
+                    <li>Mengikuti sistem KPI yang telah ditetapkan</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
 
     <h2>PASAL 5 - KOMPENSASI</h2>
     <ol>
@@ -132,57 +174,115 @@
             <strong>Gaji Pokok:</strong> Rp2.000.000,- (Dua Juta Rupiah) per bulan
         </li>
         <li>
-            <strong>Tunjangan Kinerja:</strong> Rp2.000.000,- (Dua Juta Rupiah) per bulan berdasarkan pencapaian KPI
-            <div class="highlight">
+            <strong>Tunjangan Kinerja:</strong> Dibayarkan setiap tanggal 27 dengan ketentuan:
+            <div class="highlight kpi-table">
                 <h3>Sistem Perhitungan Tunjangan Kinerja:</h3>
-                <p>Tunjangan dibayarkan berdasarkan pencapaian 4 indikator KPI dengan bobot:</p>
+                <table>
+                    <tr>
+                        <th>Pencapaian KPI</th>
+                        <th>Tunjangan</th>
+                        <th>Keterangan</th>
+                    </tr>
+                    <tr>
+                        <td>≥80%</td>
+                        <td>Rp2.000.000</td>
+                        <td>Full tunjangan</td>
+                    </tr>
+                    <tr>
+                        <td>70-79%</td>
+                        <td>Rp1.500.000</td>
+                        <td>Peringatan 1x</td>
+                    </tr>
+                    <tr>
+                        <td>60-69%</td>
+                        <td>Rp1.000.000</td>
+                        <td>Evaluasi coaching</td>
+                    </tr>
+                    <tr>
+                        <td>≤59%</td>
+                        <td>Rp500.000</td>
+                        <td>Teguran resmi</td>
+                    </tr>
+                </table>
+                
+                <h3>Indikator KPI:</h3>
                 <table>
                     <tr>
                         <th>Indikator KPI</th>
                         <th>Bobot</th>
-                        <th>Perhitungan Harian (24 hari kerja)</th>
+                        <th>Penilaian</th>
                     </tr>
                     <tr>
                         <td>Kehadiran</td>
-                        <td>35% (Rp700.000)</td>
-                        <td>Rp29.167/hari</td>
+                        <td>35%</td>
+                        <td>Dihitung per hari (24 hari kerja)</td>
                     </tr>
                     <tr>
-                        <td>Pendampingan Calon Buyer (Closing Rate)</td>
-                        <td>35% (Rp700.000)</td>
-                        <td>Rp29.167/hari</td>
+                        <td>Pendampingan Calon Buyer</td>
+                        <td>35%</td>
+                        <td>Berdasarkan closing rate team (target 40 closing/bulan)</td>
                     </tr>
                     <tr>
                         <td>Canvasing Efektif</td>
-                        <td>20% (Rp400.000)</td>
-                        <td>Rp16.667/hari</td>
+                        <td>20%</td>
+                        <td>Minimal 12 leads/hari (kecuali saat jaga inhouse)</td>
                     </tr>
                     <tr>
                         <td>Dokumentasi</td>
-                        <td>10% (Rp200.000)</td>
-                        <td>Rp8.333/hari</td>
+                        <td>10%</td>
+                        <td>Laporan aktivitas lengkap (foto, detail kunjungan)</td>
                     </tr>
                 </table>
-                <p>Tunjangan penuh (Rp2.000.000) diberikan jika mencapai ≥80% dari total KPI</p>
             </div>
         </li>
         <li>
-            <strong>Komisi Penjualan:</strong> 1% dari harga jual properti (sistem komisi sesuai ketentuan MEA)
+            <strong>Komisi Penjualan:</strong>
+            <ul>
+                <li>1% dari harga jual properti untuk penjualan yang ditutup sendiri</li>
+                <li>Bonus kolektif 0.2% dari setiap penjualan dibagi berdasarkan KPI team</li>
+                <li>Rp400.000 per closing dari freelance marketing, dibagi berdasarkan KPI</li>
+            </ul>
         </li>
-        <li>Pembayaran gaji dilakukan setiap tanggal 5 bulan berikutnya</li>
     </ol>
 
-    <h2>PASAL 6 - KETENTUAN KHUSUS</h2>
+    <h2>PASAL 6 - SISTEM KOMISI DAN BONUS</h2>
+    <div class="highlight">
+        <h3>Contoh Perhitungan Komisi dan Bonus:</h3>
+        <p><strong>Scenario 1:</strong> Marketing A menutup penjualan Rp1.000.000.000</p>
+        <ul>
+            <li>Komisi individu: 1% x 1M = Rp10.000.000</li>
+            <li>Bonus kolektif: 0.2% x 1M = Rp2.000.000 dibagi ke 4 marketing:
+                <ul>
+                    <li>Jika semua KPI ≥80%: masing-masing dapat Rp500.000</li>
+                    <li>Jika 3 orang KPI ≥80% dan 1 orang 70%:
+                        <ul>
+                            <li>Total bobot = 80+80+80+70 = 310</li>
+                            <li>Pembagian: (80/310 x 2jt), (80/310 x 2jt), (80/310 x 2jt), (70/310 x 2jt)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p><strong>Scenario 2:</strong> Closing dari freelance marketing (Rp400.000 bonus team)</p>
+        <ul>
+            <li>Dibagi berdasarkan KPI masing-masing marketing</li>
+            <li>Jika semua KPI ≥80%: masing-masing dapat Rp100.000</li>
+            <li>Jika perbandingan KPI 80%, 85%, 75%, 90%:
+                <ul>
+                    <li>Total bobot = 330</li>
+                    <li>Pembagian: (80/330 x 400rb), (85/330 x 400rb), (75/330 x 400rb), (90/330 x 400rb)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>PASAL 7 - KETENTUAN KHUSUS</h2>
     <ol>
         <li>PIHAK KEDUA wajib menjaga kerahasiaan data perusahaan dan tidak diperkenankan bekerja sama dengan kompetitor selama masa kontrak</li>
         <li>PIHAK KEDUA wajib mengikuti semua peraturan dan prosedur kerja yang ditetapkan oleh PIHAK PERTAMA</li>
         <li>Pelanggaran terhadap ketentuan kontrak dapat menjadi dasar pemutusan hubungan kerja sebelum masa kontrak berakhir</li>
-    </ol>
-
-    <h2>PASAL 7 - LAIN-LAIN</h2>
-    <ol>
-        <li>Hal-hal yang belum diatur dalam kontrak ini akan diatur kemudian berdasarkan kesepakatan kedua belah pihak</li>
-        <li>Jika terjadi perselisihan, kedua pihak sepakat menyelesaikan secara musyawarah, jika tidak tercapai akan diselesaikan melalui Pengadilan Negeri Kuningan</li>
+        <li>PIHAK KEDUA wajib menggunakan nomor telepon kantor untuk semua aktivitas pemasaran</li>
     </ol>
 
     <div class="signature-area">
