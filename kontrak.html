@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontrak Kerja Marketing Executive – MEA Kertamulya Residence</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -37,15 +37,11 @@
         
         .flip-card {
             perspective: 1000px;
-            min-height: 300px;
         }
         
         .flip-card-inner {
             transition: transform 0.6s;
             transform-style: preserve-3d;
-            position: relative;
-            width: 100%;
-            height: 100%;
         }
         
         .flip-card:hover .flip-card-inner {
@@ -53,12 +49,10 @@
         }
         
         .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
-            border-radius: 0.75rem;
-            overflow: hidden;
         }
         
         .flip-card-back {
@@ -191,67 +185,56 @@
             }
         }
         
-        .float-effect {
-            animation: float 6s ease-in-out infinite;
+        .fade-in {
+            animation: fadeIn 1s ease-in;
         }
         
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
-        .wave-effect {
-            animation: wave 8s linear infinite;
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
         }
         
-        @keyframes wave {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            25% {
-                transform: rotate(5deg);
-            }
-            50% {
-                transform: rotate(0deg);
-            }
-            75% {
-                transform: rotate(-5deg);
-            }
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         
-        .zoom-effect {
-            animation: zoom 5s ease-in-out infinite;
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
         }
         
-        @keyframes zoom {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .zoom-in {
+            animation: zoomIn 0.5s ease-out;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
         
         .holding-card {
             transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .holding-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
         }
         
         @media (max-width: 768px) {
             .hero {
                 background-attachment: scroll;
                 min-height: 500px;
-                height: auto;
-                padding: 100px 0;
             }
             
             .section {
@@ -260,19 +243,6 @@
             
             .map-container {
                 height: 300px;
-            }
-            
-            .flip-card {
-                min-height: auto;
-            }
-            
-            .team-card img {
-                height: 200px;
-                object-fit: cover;
-            }
-            
-            .holding-card {
-                margin-bottom: 1.5rem;
             }
             
             .text-4xl {
@@ -292,21 +262,17 @@
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-10 mr-3">
-                <div>
-                    <div class="text-sm text-gray-600">PT Rumah Mulia Indonesia</div>
-                    <div class="text-xs text-gray-500">Bimulialand Group</div>
-                </div>
+                <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-10 mr-2">
+                <div class="text-sm text-gray-600 hidden sm:block">PT Rumah Mulia Indonesia</div>
             </div>
             <div class="hidden md:flex space-x-6">
                 <a href="#team" class="text-blue-900 hover:text-yellow-600 transition font-medium">Tim</a>
+                <a href="#holding" class="text-blue-900 hover:text-yellow-600 transition font-medium">Struktur</a>
                 <a href="#schedule" class="text-blue-900 hover:text-yellow-600 transition font-medium">Jadwal</a>
                 <a href="#commission" class="text-blue-900 hover:text-yellow-600 transition font-medium">Komisi</a>
-                <a href="#mapping" class="text-blue-900 hover:text-yellow-600 transition font-medium">Mapping</a>
                 <a href="#kpi" class="text-blue-900 hover:text-yellow-600 transition font-medium">KPI</a>
-                <a href="#summary" class="text-blue-900 hover:text-yellow-600 transition font-medium">Ringkasan</a>
             </div>
             <button class="md:hidden focus:outline-none" id="mobile-menu-button">
                 <svg class="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -315,110 +281,153 @@
             </button>
         </div>
         <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white w-full px-4 py-3" id="mobile-menu">
+        <div class="md:hidden hidden bg-white w-full px-4 py-3 shadow-lg" id="mobile-menu">
             <div class="flex flex-col space-y-3">
                 <a href="#team" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">Tim</a>
+                <a href="#holding" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">Struktur</a>
                 <a href="#schedule" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">Jadwal</a>
                 <a href="#commission" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">Komisi</a>
-                <a href="#mapping" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">Mapping</a>
                 <a href="#kpi" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">KPI</a>
-                <a href="#summary" class="text-blue-900 hover:text-yellow-600 transition font-medium py-1">Ringkasan</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero flex items-center justify-center text-center text-white pt-20">
-        <div class="container mx-auto px-4 md:px-6">
+        <div class="container mx-auto px-4">
             <div class="animate__animated animate__fadeInDown">
-                <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="h-16 mx-auto mb-4">
-                <h1 class="text-3xl md:text-5xl font-bold mb-4 animate__animated animate__fadeIn">Kontrak Kerja Marketing Executive</h1>
-                <h2 class="text-xl md:text-2xl font-semibold mb-6 animate__animated animate__fadeIn animate__delay-1s">Kertamulya Residence</h2>
-                <p class="text-lg md:text-xl opacity-90 mb-8 animate__animated animate__fadeIn animate__delay-2s">Presentasi Kontrak & Sistem Komisi Marketing Executive</p>
-                <a href="#team" class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-flex items-center glow-effect animate__animated animate__fadeIn animate__delay-3s">
-                    Mulai Presentasi <i class="fas fa-chevron-down ml-2 animate-bounce"></i>
+                <div class="flex justify-center mb-4">
+                    <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-16">
+                </div>
+                <div class="text-sm uppercase tracking-widest mb-2 opacity-80">MEA – PT Rumah Mulia Indonesia</div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Kontrak Kerja Marketing Executive</h1>
+                <h2 class="text-xl md:text-3xl font-semibold mb-6">Kertamulya Residence</h2>
+                <p class="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">Presentasi Kontrak & Sistem Komisi Marketing Executive</p>
+                <a href="#team" class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-flex items-center glow-effect">
+                    Mulai Presentasi <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Holding Structure -->
-    <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 relative inline-block">
-                    <span class="relative z-10">Struktur Holding Bimulialand Group</span>
-                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 8px; bottom: 2px;"></span>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Section 1: Holding Structure -->
+        <section id="holding" class="section mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Struktur Holding Perusahaan</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 8px; bottom: 4px;"></span>
                 </h2>
-                <p class="text-lg opacity-90 max-w-3xl mx-auto">Organisasi yang solid dengan visi pengembangan properti terintegrasi.</p>
+                <p class="text-gray-700 max-w-2xl mx-auto">Struktur organisasi dan alur kerja perusahaan</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
                 <!-- Bimulialand -->
-                <div class="holding-card bg-white rounded-xl shadow-lg overflow-hidden text-center transform transition-all duration-500 hover:scale-105">
-                    <div class="bg-blue-900 p-6">
-                        <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="h-16 mx-auto mb-4">
-                        <h3 class="text-xl font-bold">Bimulialand</h3>
-                        <p class="text-sm opacity-80">Holding Company</p>
+                <div class="holding-card bg-white rounded-xl shadow-md overflow-hidden zoom-in">
+                    <div class="bg-gradient-to-r from-blue-900 to-blue-700 p-6 flex flex-col items-center">
+                        <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="h-16 mb-4">
+                        <h3 class="text-xl font-bold text-white text-center">Bimulialand</h3>
                     </div>
-                    <div class="p-6">
-                        <img src="https://i.imgur.com/9jEa0tM.jpg" alt="CEO Bimulialand" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md mb-4">
-                        <h4 class="font-bold text-blue-900">Eka Ahmad Fauzi</h4>
-                        <p class="text-sm text-gray-600">CEO Bimulialand</p>
-                        <div class="mt-4">
-                            <i class="fas fa-crown text-yellow-500 text-2xl"></i>
+                    <div class="p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://i.imgur.com/9jEa0tM.jpg" alt="Eka Ahmad Fauzi" class="w-24 h-24 rounded-full border-4 border-white shadow-md">
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">Eka Ahmad Fauzi</h4>
+                        <p class="text-sm text-gray-600 mb-4">CEO Bimulialand</p>
+                        <div class="flex justify-center">
+                            <i class="fas fa-crown text-yellow-500 text-xl"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- PT Rumah Mulia Indonesia -->
-                <div class="holding-card bg-white rounded-xl shadow-lg overflow-hidden text-center transform transition-all duration-500 hover:scale-105">
-                    <div class="bg-blue-800 p-6">
-                        <img src="https://i.imgur.com/yy0vB2n.png" alt="PT Rumah Mulia Logo" class="h-16 mx-auto mb-4">
-                        <h3 class="text-xl font-bold">PT Rumah Mulia Indonesia</h3>
-                        <p class="text-sm opacity-80">Development Company</p>
+                <div class="holding-card bg-white rounded-xl shadow-md overflow-hidden zoom-in" style="animation-delay: 0.2s;">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-6 flex flex-col items-center">
+                        <div class="text-2xl font-bold text-white mb-2">PT RMI</div>
+                        <h3 class="text-xl font-bold text-white text-center">PT Rumah Mulia Indonesia</h3>
                     </div>
-                    <div class="p-6">
-                        <img src="https://i.imgur.com/pslNJrs.jpg" alt="RD Manager" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md mb-4">
-                        <h4 class="font-bold text-blue-900">Rohmatullah</h4>
-                        <p class="text-sm text-gray-600">Research Development Manager</p>
-                        <div class="mt-4">
-                            <i class="fas fa-building text-blue-500 text-2xl"></i>
+                    <div class="p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://i.imgur.com/pslNJrs.jpg" alt="Rohmatullah" class="w-24 h-24 rounded-full border-4 border-white shadow-md">
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">Rohmatullah</h4>
+                        <p class="text-sm text-gray-600 mb-4">Research Development Manager</p>
+                        <div class="flex justify-center">
+                            <i class="fas fa-chart-line text-blue-500 text-xl"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- MEA -->
-                <div class="holding-card bg-white rounded-xl shadow-lg overflow-hidden text-center transform transition-all duration-500 hover:scale-105">
-                    <div class="bg-blue-700 p-6">
-                        <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-16 mx-auto mb-4">
-                        <h3 class="text-xl font-bold">MEA Marketing</h3>
-                        <p class="text-sm opacity-80">Marketing & Sales Division</p>
+                <div class="holding-card bg-white rounded-xl shadow-md overflow-hidden zoom-in" style="animation-delay: 0.4s;">
+                    <div class="bg-gradient-to-r from-blue-700 to-blue-500 p-6 flex flex-col items-center">
+                        <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-16 mb-2">
+                        <h3 class="text-xl font-bold text-white text-center">Mulia Estate Agency</h3>
                     </div>
-                    <div class="p-6">
-                        <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Manager MEA" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md mb-4">
-                        <h4 class="font-bold text-blue-900">Taufik Mansur Marie</h4>
-                        <p class="text-sm text-gray-600">Manager MEA</p>
-                        <div class="mt-4">
-                            <i class="fas fa-chart-line text-green-500 text-2xl"></i>
+                    <div class="p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Taufik Mansur Marie" class="w-24 h-24 rounded-full border-4 border-white shadow-md">
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">Taufik Mansur Marie</h4>
+                        <p class="text-sm text-gray-600 mb-4">Manager Marketing</p>
+                        <div class="flex justify-center">
+                            <i class="fas fa-users text-green-500 text-xl"></i>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="flex justify-center mb-10">
+                <div class="bg-white rounded-xl shadow-md p-6 max-w-4xl w-full">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+                            <h3 class="text-xl font-semibold text-blue-900 mb-4">Alur Kerja & Reporting</h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-yellow-600 mt-1 mr-2"></i>
+                                    <span>Laporan mingguan dari Marketing Executive ke Manager MEA</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-yellow-600 mt-1 mr-2"></i>
+                                    <span>Evaluasi bulanan dari Manager MEA ke RD PT RMI</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-yellow-600 mt-1 mr-2"></i>
+                                    <span>Strategi pengembangan dari RD ke CEO Bimulialand</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-yellow-600 mt-1 mr-2"></i>
+                                    <span>Meeting tim setiap Jumat pagi</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="bg-blue-50 rounded-lg p-4 h-full">
+                                <h4 class="font-semibold text-blue-900 mb-3 flex items-center">
+                                    <i class="fas fa-lightbulb mr-2"></i> Filosofi Kerja
+                                </h4>
+                                <p class="text-gray-700 mb-3">"Teamwork solid dengan komunikasi terbuka adalah kunci kesuksesan tim marketing kami."</p>
+                                <div class="flex items-center">
+                                    <i class="fas fa-quote-left text-yellow-600 mr-2 opacity-50"></i>
+                                    <span class="text-sm text-gray-600">- Taufik Mansur Marie</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 md:px-6 py-16">
-        <!-- Section 1: Team Structure -->
-        <section id="team" class="section mb-20 animate__animated animate__fadeIn">
-            <div class="flex flex-col md:flex-row items-center mb-12">
-                <div class="md:w-1/2 mb-8 md:mb-0">
+        <!-- Section 2: Team Structure -->
+        <section id="team" class="section mb-16">
+            <div class="flex flex-col md:flex-row items-center mb-10">
+                <div class="md:w-1/2 mb-8 md:mb-0 slide-in-left">
                     <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-4 relative inline-block">
-                        <span class="relative z-10">Struktur Tim & Kontrak</span>
-                        <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                        <span class="relative z-10">Struktur Tim Marketing</span>
+                        <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 8px; bottom: 4px;"></span>
                     </h2>
-                    <p class="text-gray-700 mb-6 text-lg">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja.</p>
+                    <p class="text-gray-700 mb-6">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja.</p>
                     
                     <div class="flex items-center mb-4">
                         <div class="gold-badge px-4 py-1 rounded-full text-sm font-semibold mr-4">3 Bulan</div>
@@ -435,8 +444,20 @@
                             <div class="text-gray-600 text-sm">Komposisi</div>
                         </div>
                     </div>
+                    
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-900 mb-2 flex items-center">
+                            <i class="fas fa-star mr-2"></i> Kriteria Tim
+                        </h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Teamwork solid dan komunikatif</li>
+                            <li>Siap mengikuti training online/offline</li>
+                            <li>Disiplin dalam pelaporan</li>
+                            <li>Berorientasi target tim</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
+                <div class="md:w-1/2 flex justify-center slide-in-right">
                     <div class="relative">
                         <div class="w-64 h-64 bg-blue-100 rounded-full flex items-center justify-center rotating-icon">
                             <i class="fas fa-users text-blue-900 text-6xl opacity-30"></i>
@@ -451,55 +472,67 @@
                 </div>
             </div>
             
-            <div class="grid md:grid-cols-4 gap-6 mb-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
                 <!-- Team Card 1 -->
-                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="h-64 bg-blue-900 flex items-center justify-center">
+                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden fade-in">
+                    <div class="h-48 bg-blue-900 flex items-center justify-center">
                         <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Manager MEA" class="h-full w-full object-cover">
                     </div>
                     <div class="p-4 text-center">
-                        <h3 class="text-lg font-bold text-blue-900 mb-1">Taufik Mansur Marie</h3>
+                        <h3 class="font-bold text-blue-900 mb-1">Taufik Mansur Marie</h3>
                         <p class="text-sm text-gray-600 mb-3">Manager MEA</p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-user-tie mr-1"></i> Atasan Langsung
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Team Card 2 -->
-                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="h-64 bg-blue-900 flex items-center justify-center">
+                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-blue-900 flex items-center justify-center">
                         <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="h-full w-full object-cover">
                     </div>
                     <div class="p-4 text-center">
-                        <h3 class="text-lg font-bold text-blue-900 mb-1">Syifa</h3>
+                        <h3 class="font-bold text-blue-900 mb-1">Syifa</h3>
                         <p class="text-sm text-gray-600 mb-3">Marketing Executive</p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-female mr-1"></i> Canvasing Specialist
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Team Card 3 -->
-                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="h-64 bg-blue-900 flex items-center justify-center">
+                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="animation-delay: 0.4s;">
+                    <div class="h-48 bg-blue-900 flex items-center justify-center">
                         <img src="https://i.imgur.com/9ziHjbS.png" alt="Riza" class="h-full w-full object-cover">
                     </div>
                     <div class="p-4 text-center">
-                        <h3 class="text-lg font-bold text-blue-900 mb-1">Riza</h3>
+                        <h3 class="font-bold text-blue-900 mb-1">Riza</h3>
                         <p class="text-sm text-gray-600 mb-3">Marketing Executive</p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-male mr-1"></i> Closing Specialist
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Team Card 4 -->
-                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="h-64 bg-blue-900 flex items-center justify-center">
+                <div class="team-card bg-white rounded-xl shadow-md overflow-hidden fade-in" style="animation-delay: 0.6s;">
+                    <div class="h-48 bg-blue-900 flex items-center justify-center">
                         <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="h-full w-full object-cover">
                     </div>
                     <div class="p-4 text-center">
-                        <h3 class="text-lg font-bold text-blue-900 mb-1">Royyan</h3>
+                        <h3 class="font-bold text-blue-900 mb-1">Royyan</h3>
                         <p class="text-sm text-gray-600 mb-3">Marketing Executive</p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-male mr-1"></i> Digital Marketing
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-6">
-                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Informasi Tim</h3>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Informasi Kontrak Tim</h3>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <div class="flex items-start mb-3">
@@ -516,16 +549,16 @@
                                     <div class="text-gray-700">4 Orang (2 Laki-laki & 2 Perempuan)</div>
                                 </div>
                             </div>
+                            <div class="flex items-start mb-3">
+                                <div class="text-blue-900 mr-3"><i class="fas fa-calendar-alt"></i></div>
+                                <div>
+                                    <div class="font-semibold">Periode Kontrak</div>
+                                    <div class="text-gray-700">3 bulan (dapat diperpanjang 1 tahun berdasarkan kinerja)</div>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <div class="flex items-start mb-3">
-                                <div class="text-blue-900 mr-3"><i class="far fa-calendar-alt"></i></div>
-                                <div>
-                                    <div class="font-semibold">Periode Kontrak</div>
-                                    <div class="text-gray-700">3 bulan (dapat diperpanjang 1 tahun berdasarkan evaluasi)</div>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
                                 <div class="text-blue-900 mr-3"><i class="fas fa-money-bill-wave"></i></div>
                                 <div>
                                     <div class="font-semibold">Sistem Remunerasi</div>
@@ -538,25 +571,32 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="flex items-start">
+                                <div class="text-blue-900 mr-3"><i class="fas fa-chart-line"></i></div>
+                                <div>
+                                    <div class="font-semibold">Evaluasi</div>
+                                    <div class="text-gray-700">Berdasarkan KPI bulanan tanpa evaluasi harian</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Schedule & Rolling Inhouse -->
-        <section id="schedule" class="section mb-20 animate__animated animate__fadeIn">
-            <div class="text-center mb-12">
+        <!-- Section 3: Schedule & Rolling Inhouse -->
+        <section id="schedule" class="section mb-16">
+            <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-4 relative inline-block">
                     <span class="relative z-10">Jadwal Kerja & Rolling Inhouse</span>
-                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 8px; bottom: 4px;"></span>
                 </h2>
-                <p class="text-gray-700 max-w-2xl mx-auto text-lg">Struktur kerja yang jelas untuk memaksimalkan produktivitas tim marketing.</p>
+                <p class="text-gray-700 max-w-2xl mx-auto">Struktur kerja yang jelas untuk memaksimalkan produktivitas tim marketing.</p>
             </div>
             
             <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
                 <div class="p-6">
-                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Jadwal & Tugas Harian</h3>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Kalender Kerja Harian</h3>
                     
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
@@ -565,27 +605,30 @@
                                     <i class="far fa-calendar"></i>
                                 </div>
                                 <div>
-                                    <div class="font-medium text-lg">Hari Kerja: Rabu – Minggu</div>
-                                    <div class="text-sm text-gray-600">Libur: Senin & Selasa (kecuali hari libur nasional diganti Jumat)</div>
+                                    <div class="font-medium">Hari Kerja: Rabu – Minggu</div>
+                                    <div class="text-sm text-gray-600">Libur: Senin & Selasa</div>
+                                    <div class="text-sm text-yellow-600 mt-1">
+                                        <i class="fas fa-info-circle mr-1"></i> Hari libur nasional diganti hari Jumat
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="border-l-2 border-blue-200 pl-6 ml-4 space-y-6">
                                 <div>
-                                    <div class="font-medium text-blue-900 text-lg">08.00 – 09.00</div>
-                                    <div class="text-gray-700">Briefing harian</div>
+                                    <div class="font-medium text-blue-900">08.00 – 09.00</div>
+                                    <div class="text-gray-700">Briefing harian & laporan</div>
                                 </div>
                                 <div>
-                                    <div class="font-medium text-blue-900 text-lg">09.00 – 16.30</div>
+                                    <div class="font-medium text-blue-900">09.00 – 16.30</div>
                                     <div class="text-gray-700">Canvasing (min. 12 kunjungan/hari)</div>
                                 </div>
                                 <div>
-                                    <div class="font-medium text-blue-900 text-lg">Rolling Inhouse</div>
+                                    <div class="font-medium text-blue-900">Rolling Inhouse</div>
                                     <div class="text-gray-700">1 orang/hari (jadwal tetap)</div>
                                 </div>
                                 <div>
-                                    <div class="font-medium text-blue-900 text-lg">Sore</div>
-                                    <div class="text-gray-700">Administrasi (Collabo & laporan harian)</div>
+                                    <div class="font-medium text-blue-900">16.30 – 17.30</div>
+                                    <div class="text-gray-700">Administrasi & laporan harian</div>
                                 </div>
                             </div>
                         </div>
@@ -593,138 +636,48 @@
                         <div>
                             <div class="bg-blue-50 rounded-lg p-6 h-full">
                                 <h4 class="font-semibold text-blue-900 mb-4 flex items-center">
-                                    <i class="fas fa-user-tie mr-2"></i> Atasan Langsung
+                                    <i class="fas fa-calendar-check mr-2"></i> Kalender Bulan Ini
                                 </h4>
-                                <div class="text-center">
-                                    <div class="text-xl md:text-2xl font-bold text-blue-900 mb-1">Taufik Mansur Marie</div>
-                                    <div class="text-gray-700">Manager MEA</div>
-                                    <div class="mt-4">
-                                        <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Manager Photo" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md">
-                                    </div>
+                                <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                                    <div class="text-xs font-semibold text-blue-900">M</div>
+                                    <div class="text-xs font-semibold text-blue-900">S</div>
+                                    <div class="text-xs font-semibold text-blue-900">S</div>
+                                    <div class="text-xs font-semibold text-blue-900">R</div>
+                                    <div class="text-xs font-semibold text-blue-900">K</div>
+                                    <div class="text-xs font-semibold text-blue-900">J</div>
+                                    <div class="text-xs font-semibold text-blue-900">S</div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Weekly Schedule -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Jadwal Rolling Inhouse Mingguan</h3>
-                    
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead>
-                                <tr class="bg-blue-900 text-white">
-                                    <th class="py-3 px-4 text-left rounded-tl-xl">Hari</th>
-                                    <th class="py-3 px-4 text-left">Inhouse</th>
-                                    <th class="py-3 px-4 text-left">Canvasing</th>
-                                    <th class="py-3 px-4 text-left rounded-tr-xl">Target</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b hover:bg-blue-50 transition">
-                                    <td class="py-3 px-4 font-medium">Rabu</td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex items-center">
-                                            <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-8 h-8 rounded-full mr-2">
-                                            <span>Syifa</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex flex-wrap gap-1">
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/9ziHjbS.png" alt="Riza" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Riza</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Royyan</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">12 kunjungan/orang</td>
-                                </tr>
-                                <tr class="border-b hover:bg-blue-50 transition">
-                                    <td class="py-3 px-4 font-medium">Kamis</td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex items-center">
-                                            <img src="https://i.imgur.com/9ziHjbS.png" alt="Riza" class="w-8 h-8 rounded-full mr-2">
-                                            <span>Riza</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex flex-wrap gap-1">
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Syifa</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Royyan</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">12 kunjungan/orang</td>
-                                </tr>
-                                <tr class="border-b hover:bg-blue-50 transition">
-                                    <td class="py-3 px-4 font-medium">Jumat</td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex items-center">
-                                            <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-8 h-8 rounded-full mr-2">
-                                            <span>Royyan</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex flex-wrap gap-1">
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Syifa</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/9ziHjbS.png" alt="Riza" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Riza</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">12 kunjungan/orang</td>
-                                </tr>
-                                <tr class="border-b hover:bg-blue-50 transition">
-                                    <td class="py-3 px-4 font-medium">Sabtu</td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex items-center">
-                                            <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-8 h-8 rounded-full mr-2">
-                                            <span>Syifa</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex flex-wrap gap-1">
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/9ziHjbS.png" alt="Riza" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Riza</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Royyan</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">12 kunjungan/orang</td>
-                                </tr>
-                                <tr class="hover:bg-blue-50 transition">
-                                    <td class="py-3 px-4 font-medium">Minggu</td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex items-center">
-                                            <img src="https://i.imgur.com/9ziHjbS.png" alt="Riza" class="w-8 h-8 rounded-full mr-2">
-                                            <span>Riza</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                        <div class="flex flex-wrap gap-1">
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-6 h-6 rounded-full mr-1">
-                                                <span>Syifa</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-6 h-6 rounded-full mr-
+                                <div class="grid grid-cols-7 gap-1 text-center">
+                                    <div class="p-1 text-gray-400 text-sm">29</div>
+                                    <div class="p-1 text-gray-400 text-sm">30</div>
+                                    <div class="p-1 text-gray-400 text-sm">31</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">1</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">2</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">3</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">4</div>
+                                    <div class="p-1 text-gray-400 text-sm">5</div>
+                                    <div class="p-1 text-gray-400 text-sm">6</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">7</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">8</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">9</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">10</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">11</div>
+                                    <div class="p-1 text-gray-400 text-sm">12</div>
+                                    <div class="p-1 text-gray-400 text-sm">13</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">14</div>
+                                    <div class="p-1 bg-blue-900 text-white rounded text-sm font-medium">15*</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">16</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">17</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">18</div>
+                                    <div class="p-1 text-gray-400 text-sm">19</div>
+                                    <div class="p-1 text-gray-400 text-sm">20</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">21</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">22</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">23</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">24</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">25</div>
+                                    <div class="p-1 text-gray-400 text-sm">26</div>
+                                    <div class="p-1 text-gray-400 text-sm">27</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">28</div>
+                                    <div class="p-1 bg-blue-100 rounded text-sm font-medium">29</div>
+                                    <div class="p-1 bg-blue-100
