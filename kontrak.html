@@ -694,4 +694,642 @@
                                         <i class="fas fa-exclamation"></i>
                                     </div>
                                     <div>
-                                        <div class="font-medium">KPI <50% selama 2 bulan
+                                        <div class="font-medium">KPI <50% selama 2 bulan berturut-turut</div>
+                                        <div class="text-sm text-gray-600">Teguran tertulis</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start mb-4">
+                                    <div class="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-ban"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">Pelanggaran SOP</div>
+                                        <div class="text-sm text-gray-600">Pemotongan komisi atau terminasi kontrak</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">Pengunduran Diri (Resign)</div>
+                                        <div class="text-sm text-gray-600">Wajib memberikan pemberitahuan minimal 30 hari sebelumnya</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Commission Table -->
+        <section id="commission" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Struktur Komisi & Fee</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Sistem komisi yang transparan dengan pembagian yang adil untuk seluruh anggota tim.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <!-- Commission Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-percentage mr-2"></i> Komisi Tim
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">1%</div>
+                        <div class="text-gray-700 mb-4">dari harga unit Rp143.000.000 = Rp1.430.000</div>
+                        <div class="border-t pt-4">
+                            <div class="text-sm text-gray-600">Dibagi rata:</div>
+                            <div class="text-xl font-semibold text-blue-900">Rp357.500/orang</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bonus Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-award mr-2"></i> Bonus Tim
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">0.2%</div>
+                        <div class="text-gray-700 mb-4">Jika Target 30 Unit Tercapai = Rp286.000/unit</div>
+                        <div class="border-t pt-4">
+                            <div class="text-sm text-gray-600">Dibagi rata:</div>
+                            <div class="text-xl font-semibold text-blue-900">Rp71.500/orang</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Freelance Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="bg-blue-900 text-white p-4">
+                        <h3 class="font-semibold text-lg flex items-center">
+                            <i class="fas fa-user-tie mr-2"></i> Fee Freelance
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">Rp400.000</div>
+                        <div class="text-gray-700 mb-4">Leads dari Channel Bebas/Freelance per unit</div>
+                        <div class="border-t pt-4">
+                            <div class="text-sm text-gray-600">Dibagi rata:</div>
+                            <div class="text-xl font-semibold text-blue-900">Rp100.000/orang</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Simulation -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Simulasi Penghasilan (30 Unit Tercapai)</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-blue-900 text-white">
+                                    <th class="py-3 px-4 text-left rounded-tl-xl">Komponen</th>
+                                    <th class="py-3 px-4 text-left">Total Tim</th>
+                                    <th class="py-3 px-4 text-left rounded-tr-xl">Per Orang</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Komisi 1%</td>
+                                    <td class="py-3 px-4">Rp42.900.000</td>
+                                    <td class="py-3 px-4">Rp10.725.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Bonus 0,2%</td>
+                                    <td class="py-3 px-4">Rp8.580.000</td>
+                                    <td class="py-3 px-4">Rp2.145.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Fee Freelance</td>
+                                    <td class="py-3 px-4">Rp12.000.000</td>
+                                    <td class="py-3 px-4">Rp3.000.000</td>
+                                </tr>
+                                <tr class="bg-blue-100 font-semibold">
+                                    <td class="py-3 px-4 rounded-bl-xl">Total</td>
+                                    <td class="py-3 px-4">Rp63.480.000</td>
+                                    <td class="py-3 px-4 rounded-br-xl">Rp15.870.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Calculator -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Simulasi Interaktif</h3>
+                    
+                    <div class="mb-6">
+                        <label for="units-sold" class="block text-gray-700 mb-2">Jumlah Unit Terjual:</label>
+                        <input type="range" id="units-sold" min="0" max="30" value="15" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-sm text-gray-600 mt-1">
+                            <span>0</span>
+                            <span id="units-value">15</span>
+                            <span>30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-600 mb-1">Komisi Tim (1%)</div>
+                            <div class="text-xl font-semibold text-blue-900" id="team-commission">Rp21.450.000</div>
+                            <div class="text-sm text-gray-600 mt-1">Per orang: <span id="per-person-commission">Rp5.362.500</span></div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-600 mb-1">Bonus Tim (0.2%)</div>
+                            <div class="text-xl font-semibold text-blue-900" id="team-bonus">Rp4.290.000</div>
+                            <div class="text-sm text-gray-600 mt-1">Per orang: <span id="per-person-bonus">Rp1.072.500</span></div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="text-sm text-gray-600 mb-1">Fee Freelance</div>
+                            <div class="text-xl font-semibold text-blue-900" id="team-fee">Rp6.000.000</div>
+                            <div class="text-sm text-gray-600 mt-1">Per orang: <span id="per-person-fee">Rp1.500.000</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-blue-900 text-white rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <div class="text-sm">Total Pendapatan Tim</div>
+                                <div class="text-2xl font-bold" id="total-team">Rp31.740.000</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm">Per Orang</div>
+                                <div class="text-2xl font-bold" id="total-person">Rp7.935.000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Area Mapping -->
+        <section id="mapping" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Mapping Area Canvasing</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Segmentasi target dan area canvasing di sekitar Kertayasa Sindangagung Kuningan Jawa Barat.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Peta Area Canvasing</h3>
+                    
+                    <div class="map-container" id="map"></div>
+                    
+                    <div class="mt-6 grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-blue-900 mb-3 flex items-center">
+                                <i class="fas fa-bullseye mr-2"></i> Segmentasi Target
+                            </h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                <li>Karyawan swasta dengan gaji > Rp5 juta/bulan</li>
+                                <li>Pegawai negeri (PNS/TNI/POLRI)</li>
+                                <li>Pengusaha kecil-menengah di Kuningan</li>
+                                <li>Warga perantauan yang ingin memiliki rumah di kampung halaman</li>
+                                <li>Pasangan muda yang baru menikah</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-blue-900 mb-3 flex items-center">
+                                <i class="fas fa-map-marked-alt mr-2"></i> Lokasi Prioritas
+                            </h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                <li>Pusat kota Kuningan (sekitar alun-alun)</li>
+                                <li>Perumahan di sekitar Sindangagung</li>
+                                <li>Kawasan industri Cirebon-Kuningan</li>
+                                <li>Pasar tradisional dan modern di Kuningan</li>
+                                <li>Sekolah dan kampus di Kuningan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customer Profile Examples -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Contoh Profil Customer Potensial (12 Kunjungan/Hari)</h3>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Customer 1 -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3 customer-avatar">
+                                <div>
+                                    <div class="font-semibold">Ibu Siti</div>
+                                    <div class="text-sm text-gray-600">Guru SMP Negeri</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
+                                    <span>Sindangagung</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
+                                    <span>Gaji Rp6.5 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
+                                    <span>Mencari rumah untuk keluarga kecil</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer 2 -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3 customer-avatar">
+                                <div>
+                                    <div class="font-semibold">Bapak Ahmad</div>
+                                    <div class="text-sm text-gray-600">Pegawai Bank</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
+                                    <span>Kuningan Kota</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
+                                    <span>Gaji Rp8 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
+                                    <span>Investasi properti</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer 3 -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3 customer-avatar">
+                                <div>
+                                    <div class="font-semibold">Ibu Rina</div>
+                                    <div class="text-sm text-gray-600">Pengusaha Batik</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
+                                    <span>Cigugur</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
+                                    <span>Omzet > Rp10 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
+                                    <span>Rumah untuk anak kuliah</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer 4 -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3 customer-avatar">
+                                <div>
+                                    <div class="font-semibold">Bapak Dedi</div>
+                                    <div class="text-sm text-gray-600">PNS</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
+                                    <span>Jalaksana</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
+                                    <span>Gaji Rp7.2 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
+                                    <span>Persiapan pensiun</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer 5 -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3 customer-avatar">
+                                <div>
+                                    <div class="font-semibold">Ibu Yani</div>
+                                    <div class="text-sm text-gray-600">Perawat RS</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
+                                    <span>Kadugede</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
+                                    <span>Gaji Rp5.8 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
+                                    <span>Rumah dekat tempat kerja</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer 6 -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3 customer-avatar">
+                                <div>
+                                    <div class="font-semibold">Bapak Heru</div>
+                                    <div class="text-sm text-gray-600">Wirausaha</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
+                                    <span>Ciawigebang</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
+                                    <span>Omzet > Rp15 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
+                                    <span>Investasi properti</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: KPI Funnel -->
+        <section id="kpi" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Funnel Perhitungan KPI</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Sistem penilaian kinerja individu yang transparan dengan kompensasi maksimal Rp2.500.000/orang.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-10">
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-calendar-check text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Kehadiran</h3>
+                        <div class="text-sm text-gray-600 mb-2">35% Bobot</div>
+                        <div class="text-sm font-medium">24 hari kerja/bulan</div>
+                        <div class="text-yellow-600 font-semibold">Rp875.000</div>
+                    </div>
+                    
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-search-location text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Canvasing</h3>
+                        <div class="text-sm text-gray-600 mb-2">20% Bobot</div>
+                        <div class="text-sm font-medium">12 kunjungan/hari</div>
+                        <div class="text-yellow-600 font-semibold">Rp500.000</div>
+                    </div>
+                    
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-file-alt text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Laporan</h3>
+                        <div class="text-sm text-gray-600 mb-2">15% Bobot</div>
+                        <div class="text-sm font-medium">Collabo & dokumen</div>
+                        <div class="text-yellow-600 font-semibold">Rp375.000</div>
+                    </div>
+                    
+                    <div class="funnel-step">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-handshake text-blue-900 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-blue-900 mb-1">Closing Tim</h3>
+                        <div class="text-sm text-gray-600 mb-2">30% Bobot</div>
+                        <div class="text-sm font-medium">Target 30 unit</div>
+                        <div class="text-yellow-600 font-semibold">Rp750.000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Detail KPI Individu (Maksimal Rp2.500.000/orang)</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-blue-900 text-white">
+                                    <th class="py-3 px-4 text-left rounded-tl-xl">Aspek Penilaian</th>
+                                    <th class="py-3 px-4 text-left">Bobot</th>
+                                    <th class="py-3 px-4 text-left">Target</th>
+                                    <th class="py-3 px-4 text-left rounded-tr-xl">Kompensasi Maks.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Kehadiran</td>
+                                    <td class="py-3 px-4">35%</td>
+                                    <td class="py-3 px-4">24 hari kerja/bulan</td>
+                                    <td class="py-3 px-4">Rp875.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Canvasing</td>
+                                    <td class="py-3 px-4">20%</td>
+                                    <td class="py-3 px-4">12 kunjungan/hari</td>
+                                    <td class="py-3 px-4">Rp500.000</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Laporan</td>
+                                    <td class="py-3 px-4">15%</td>
+                                    <td class="py-3 px-4">Collabo & dokumen lapangan</td>
+                                    <td class="py-3 px-4">Rp375.000</td>
+                                </tr>
+                                <tr class="hover:bg-blue-50 transition">
+                                    <td class="py-3 px-4 font-medium">Closing Tim</td>
+                                    <td class="py-3 px-4">30%</td>
+                                    <td class="py-3 px-4">Target 30 unit</td>
+                                    <td class="py-3 px-4">Rp750.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Target Distribution -->
+        <section class="section mb-20 animate__animated animate__fadeIn">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <h3 class="text-xl font-semibold text-blue-900 mb-6">Pembagian Target Closing Individu</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Target tim: 30 unit selama 6 bulan</div>
+                                <div class="text-sm text-gray-600">Estimasi rata-rata individu: 7–8 unit</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Tidak wajib merata, sistem tetap berbasis tim</div>
+                                <div class="text-sm text-gray-600">Selama target tim tercapai, komisi dan bonus dibagi rata</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-900 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Fee freelance juga tetap dibagi rata</div>
+                                <div class="text-sm text-gray-600">Meskipun hanya satu orang yang menangani buyer</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-blue-50 rounded-lg p-4 h-full">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl font-bold text-blue-900 mb-1">30</div>
+                                <div class="text-sm text-gray-600">Unit Target Tim</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center mb-2">
+                                <div class="text-sm font-medium">Progress Tim</div>
+                                <div class="text-sm font-semibold text-blue-900">0/30</div>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                            </div>
+                            
+                            <div class="mt-6 grid grid-cols-4 gap-2 text-center">
+                                <div>
+                                    <div class="text-lg font-semibold">7-8</div>
+                                    <div class="text-xs text-gray-600">Unit/Orang</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">1.43jt</div>
+                                    <div class="text-xs text-gray-600">Komisi/Unit</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">286k</div>
+                                    <div class="text-xs text-gray-600">Bonus/Unit</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">100k</div>
+                                    <div class="text-xs text-gray-600">Fee/Unit</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Summary Diagram -->
+        <section id="summary" class="section mb-20 animate__animated animate__fadeIn">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4 relative inline-block">
+                    <span class="relative z-10">Struktur Alur Kerja & Reporting</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-yellow-200 z-0 opacity-50" style="height: 10px; bottom: 5px;"></span>
+                </h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">Diagram Positioning Architecture (PA) yang menjelaskan struktur kerja dan alur pelaporan.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="flex justify-center">
+                    <div class="relative w-full max-w-4xl">
+                        <!-- Diagram Container -->
+                        <div class="relative bg-blue-50 rounded-lg p-8">
+                            <!-- Manager -->
+                            <div class="bg-blue-900 text-white rounded-lg p-4 shadow-lg mx-auto w-64 text-center mb-8">
+                                <div class="font-bold">Manager MEA</div>
+                                <div class="text-sm">Taufik Mansur Marie</div>
+                            </div>
+                            
+                            <!-- Arrow -->
+                            <div class="flex justify-center mb-8">
+                                <div class="w-1 h-12 bg-blue-900"></div>
+                            </div>
+                            
+                            <!-- Team -->
+                            <div class="grid md:grid-cols-4 gap-4 mb-8">
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">Syifa</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">Riza</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">Rahma</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 shadow text-center border-t-4 border-blue-500">
+                                    <div class="font-semibold text-blue-900">D</div>
+                                    <div class="text-xs text-gray-600">Marketing Executive</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Process Flow -->
+                            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                                <div class="bg-blue-100 rounded-lg p-2 text-center">
+                                    <i class="fas fa-calendar-check text-blue-900 text-2xl mb-1"></i>
+                                    <div class="text-xs font-medium">Briefing</div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                                <div class="bg-blue-100 rounded-lg p-2 text-center">
+                                    <i class="fas fa-search-location text-blue-900 text-2xl mb-1"></i>
+                                    <div class="text-xs font-medium">Canvasing</div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <i class="fas fa-arrow-right text-gray-400"></i>
+                                </div>
+                                <div class="bg-blue-100 rounded-lg p-2 text-center">
+                                    <i class="fas fa-handshake text-blue-900 text-2xl mb-1"></i>
+                                    <div class="text-xs font-medium">Closing</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Reporting Lines -->
+                            <div class="mt-8 border-t
