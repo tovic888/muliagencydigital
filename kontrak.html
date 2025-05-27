@@ -2760,6 +2760,61 @@ body.dark-mode .map-grid {
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+        // Initialize map
+        function initMap() {
+            // Coordinates for Kertayasa Sindangagung Kuningan
+            const kertayasa = [-6.9816, 108.4833];
+            
+            // Create map
+            const map = L.map('map').setView(kertayasa, 14);
+            
+            // Add tile layer (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add marker for Kertayasa
+            L.marker(kertayasa).addTo(map)
+                .bindPopup('<b>Kertayasa Sindangagung</b><br>Lokasi Proyek Kertamulya Residence')
+                .openPopup();
+            
+            // Add circle around the area
+            L.circle(kertayasa, {
+                color: '#1a365d',
+                fillColor: '#2c5282',
+                fillOpacity: 0.2,
+                radius: 2000
+            }).addTo(map).bindPopup("Area Canvasing Utama");
+            
+            // Add some points of interest
+            const poi = [
+                { coords: [-6.9916, 108.4733], name: "Pasar Sindangagung", type: "market" },
+                { coords: [-6.9716, 108.4933], name: "Kantor Kecamatan", type: "government" },
+                { coords: [-6.9816, 108.4733], name: "Sekolah Dasar", type: "school" },
+                { coords: [-6.9716, 108.4733], name: "Masjid Agung", type: "religious" },
+                { coords: [-6.9916, 108.4933], name: "Puskesmas", type: "hospital" }
+            ];
+            
+            poi.forEach(point => {
+                let iconColor;
+                switch(point.type) {
+                    case 'market': iconColor = 'green'; break;
+                    case 'government': iconColor = 'blue'; break;
+                    case 'school': iconColor = 'orange'; break;
+                    case 'religious': iconColor = 'purple'; break;
+                    case 'hospital': iconColor = 'red'; break;
+                    default: iconColor = 'gray';
+                }
+                
+                L.marker(point.coords, {
+                    icon: L.divIcon({
+                        className: 'custom-icon',
+                        html: `<div style="background-color: ${iconColor}; width: 24px; height: 24px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 12px; border: 2px solid white;">${point.type[0].toUpperCase()}</div>`,
+                        iconSize: [24, 24]
+                    })
+                }).addTo(map).bindPopup(`<b>${point.name}</b><br>Tempat Canvasing Prioritas`);
+            });
+        }
     </script>
 </body>
 </html>
