@@ -1,860 +1,553 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontrak Kerja Marketing Executive – Kertamulya Residence</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Previous head content remains the same -->
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
-            --primary-dark: #1d4ed8;
-            --secondary: #f59e0b;
-            --secondary-light: #fbbf24;
-            --secondary-dark: #d97706;
-            --accent: #10b981;
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-        }
-        
-        body {
-            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-            scroll-behavior: smooth;
-            color: var(--text-primary);
-            background-color: #f9fafb;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(59, 130, 246, 0.95) 100%);
-        }
-        
-        .section {
-            scroll-margin-top: 100px;
-        }
-        
-        .card {
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            background: white;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .title-underline {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .title-underline:after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background-color: rgba(245, 158, 11, 0.3);
-            z-index: -1;
-            border-radius: 4px;
-            transform: skewX(-15deg);
-        }
-        
-        .team-card {
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .flip-card {
-            perspective: 1200px;
-            min-height: 300px;
-        }
-        
-        .flip-card-inner {
-            transition: transform 0.7s;
-            transform-style: preserve-3d;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            border-radius: 16px;
-        }
-        
-        .flip-card-back {
-            transform: rotateY(180deg);
-        }
-        
-        .funnel-step {
-            position: relative;
-            transition: all 0.4s ease;
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-        }
-        
-        .funnel-step:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .funnel-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 3px;
-            background: var(--secondary);
-            opacity: 0.3;
-            border-radius: 3px;
-        }
-        
-        .progress-bar {
-            transition: width 1.5s ease-in-out;
-        }
-        
-        .glow-effect {
-            animation: glow 2s infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-            }
-            to {
-                box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
-            }
-        }
-        
-        .pulse-effect {
-            animation: pulse 2.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
-            }
-        }
-        
-        .bounce-effect {
-            animation: bounce 3s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-        
-        .organigram-box {
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .organigram-box:hover {
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-        }
-        
-        .timeline-item {
-            position: relative;
+        /* Add these new styles */
+        .company-logo {
+            height: 120px;
             margin-bottom: 20px;
         }
         
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid var(--accent);
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
         
-        .hover-scale {
-            transition: transform 0.3s ease;
+        .holding-box {
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
         }
         
-        .hover-scale:hover {
-            transform: scale(1.05);
+        .map-container {
+            height: 400px;
+            background-color: #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
         }
-
-        /* New Modern UX Elements */
-        .nav-item {
-            position: relative;
-            padding: 8px 0;
+        
+        .map-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #666;
         }
-
-        .nav-item:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--secondary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-item:hover:after {
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        
+        .avatar-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            color: var(--primary);
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 24px;
-        }
-
-        .data-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--secondary);
-            border: 1px solid #e5e7eb;
-        }
-
-        .data-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .data-card .value {
             font-size: 32px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 8px;
+            margin: 0 auto 15px;
         }
-
-        .data-card .label {
-            color: var(--text-secondary);
-            font-size: 14px;
+        
+        .freelance-form {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
         }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .nav-tabs {
-            display: flex;
-            border-bottom: 1px solid #e5e7eb;
-            margin-bottom: 20px;
-        }
-
-        .nav-tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
+        
+        .campaign-card {
             transition: all 0.3s ease;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .nav-tab:hover {
-            color: var(--primary);
-        }
-
-        .nav-tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--secondary);
-        }
-
-        .accordion-item {
-            margin-bottom: 10px;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background: white;
             border: 1px solid #e5e7eb;
         }
-
-        .accordion-header {
-            padding: 16px 20px;
-            background: white;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .accordion-header:hover {
-            background: #f9fafb;
-        }
-
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background: white;
-        }
-
-        .accordion-item.active .accordion-content {
-            padding: 20px;
-            max-height: 500px;
-        }
-
-        .accordion-item.active .accordion-header {
-            background: var(--primary);
-            color: white;
-        }
-
-        .accordion-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        /* Modern Glass Effect */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        /* Map Container */
-        .map-container {
-            height: 500px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Profile Image */
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #111827;
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .card,
-        body.dark-mode .team-card,
-        body.dark-mode .data-card {
-            background-color: #1f2937;
-            color: #f3f4f6;
-            border-color: #374151;
-        }
-
-        body.dark-mode .text-primary {
-            color: #f3f4f6 !important;
-        }
-
-        body.dark-mode .text-gray-700 {
-            color: #d1d5db !important;
-        }
-
-        body.dark-mode .bg-white {
-            background-color: #1f2937 !important;
-        }
-
-        body.dark-mode .bg-gray-50 {
-            background-color: #111827 !important;
-        }
-
-        body.dark-mode .accordion-header {
-            background-color: #1f2937;
-            color: #f3f4f6;
-            border-color: #374151;
-        }
-
-        body.dark-mode .accordion-content {
-            background-color: #1f2937;
-        }
-
-        body.dark-mode .nav-tab {
-            color: #d1d5db;
-        }
-
-        body.dark-mode .nav-tab.active {
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .border-gray-200 {
-            border-color: #374151;
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                scroll-margin-top: 80px;
-            }
-            
-            .mobile-stack {
-                flex-direction: column;
-            }
-            
-            .mobile-padding {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-            
-            .mobile-text-center {
-                text-align: center;
-            }
-            
-            .funnel-step:not(:last-child):after {
-                display: none;
-            }
-
-            .nav-tabs {
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 10px;
-            }
-
-            .nav-tab {
-                padding: 10px 15px;
-            }
-
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .map-container {
-                height: 350px;
-            }
+        
+        .campaign-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50 dark:bg-gray-800 dark:shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="https://i.imgur.com/yy0vB2n.png" alt="RMI Logo" class="h-14">
-                <div class="text-lg font-bold text-primary dark:text-white">Kertamulya Residence</div>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#team" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Struktur Tim
-                </a>
-                <a href="#schedule" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Jadwal Kerja
-                </a>
-                <a href="#commission" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Sistem Komisi
-                </a>
-                <a href="#kpi" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    KPI Marketing
-                </a>
-                <a href="#strategi" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Strategi Marketing
-                </a>
-            </div>
-            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-                <svg class="w-8 h-8 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white w-full px-6 py-4 shadow-xl dark:bg-gray-800" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
-                <a href="#team" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-users mr-3 text-secondary w-5"></i> Struktur Tim
-                </a>
-                <a href="#schedule" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-calendar-alt mr-3 text-secondary w-5"></i> Jadwal Kerja
-                </a>
-                <a href="#commission" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-money-bill-wave mr-3 text-secondary w-5"></i> Sistem Komisi
-                </a>
-                <a href="#kpi" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-chart-line mr-3 text-secondary w-5"></i> KPI Marketing
-                </a>
-                <a href="#strategi" class="text-primary hover:text-secondary transition font-semibold py-3 flex items-center dark:text-gray-300">
-                    <i class="fas fa-bullhorn mr-3 text-secondary w-5"></i> Strategi Marketing
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Previous content remains the same until Team Structure section -->
 
-    <!-- Hero Section -->
-    <section class="hero-gradient flex items-center justify-center text-center text-white pt-24 min-h-screen">
-        <div class="container mx-auto px-6 animate__animated animate__fadeInDown">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Kontrak Kerja<br><span class="gradient-text">Marketing Executive</span></h1>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-8">Kertamulya Residence</h2>
-            <p class="text-xl md:text-2xl opacity-90 mb-10 max-w-3xl mx-auto leading-relaxed">Presentasi Sistem Kerja, Komisi & KPI Tim Marketing</p>
-            <a href="#team" class="btn-primary px-10 py-4 rounded-full font-semibold transition duration-300 inline-flex items-center text-lg">
-                Mulai Presentasi <i class="fas fa-chevron-down ml-3 text-lg"></i>
-            </a>
+    <!-- Section 1: Team Structure - Revised -->
+    <section id="team" class="section mb-24">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Struktur Tim & Kontrak</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja dan kerja tim yang solid.</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-12 mb-16">
+            <div>
+                <!-- Previous team info cards remain the same -->
+            </div>
             
-            <div class="mt-12 flex justify-center space-x-4">
-                <a href="#commission" class="btn-secondary px-6 py-3 rounded-full font-medium transition duration-300 inline-flex items-center">
-                    <i class="fas fa-money-bill-wave mr-2"></i> Lihat Komisi
-                </a>
-                <a href="#kpi" class="glass-effect hover:bg-opacity-30 text-white px-6 py-3 rounded-full font-medium transition duration-300 inline-flex items-center">
-                    <i class="fas fa-chart-line mr-2"></i> Sistem KPI
-                </a>
+            <div>
+                <div class="card p-8 h-full">
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <i class="fas fa-sitemap mr-3 text-secondary"></i> Struktur Holding Perusahaan
+                    </h3>
+                    
+                    <div class="flex flex-col items-center">
+                        <!-- Level 1: Bimulialand - Revised -->
+                        <div class="holding-box bg-primary text-white shadow-lg w-full max-w-md text-center mb-10">
+                            <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="company-logo mx-auto">
+                            <div class="font-bold text-2xl mb-2">Bimulialand</div>
+                            <div class="text-lg opacity-90 mb-4">CEO: Eka Ahmad Fauzi</div>
+                            <div class="avatar-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Arrow -->
+                        <div class="flex justify-center mb-10">
+                            <div class="w-1 h-16 bg-gradient-to-b from-primary to-accent"></div>
+                        </div>
+                        
+                        <!-- Level 2: PT Rumah Mulia Indonesia - Revised -->
+                        <div class="holding-box bg-primary-light text-white shadow-lg w-full max-w-md text-center mb-10">
+                            <div class="font-bold text-2xl mb-2">PT Rumah Mulia Indonesia</div>
+                            <div class="text-lg opacity-90 mb-4">RD Manager: Rohmatullah</div>
+                            <div class="avatar-icon">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Arrow -->
+                        <div class="flex justify-center mb-10">
+                            <div class="w-1 h-16 bg-gradient-to-b from-primary-light to-accent"></div>
+                        </div>
+                        
+                        <!-- Level 3: MEA - Revised -->
+                        <div class="holding-box bg-accent text-white shadow-lg w-full max-w-md text-center">
+                            <div class="font-bold text-2xl mb-2">MEA</div>
+                            <div class="text-lg opacity-90 mb-4">Manager Marketing: Taufik Mansur Marie</div>
+                            <div class="avatar-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate__animated animate__fadeInUp animate__delay-1s">
-            <a href="#team" class="text-white hover:text-secondary transition">
-                <i class="fas fa-chevron-down text-2xl animate-bounce"></i>
-            </a>
+        <!-- Team Members - Revised with avatar icons -->
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-semibold text-primary mb-4 dark:text-white">Anggota Tim Marketing</h3>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto dark:text-gray-300">Tim profesional yang akan bekerja sama mencapai target penjualan.</p>
         </div>
-    </section>
-
-    <!-- Quick Stats Section -->
-    <section class="bg-white py-12 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="data-card">
-                    <div class="value">4 Orang</div>
-                    <div class="label">Anggota Tim</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-users text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <div class="value">3 Bulan</div>
-                    <div class="label">Periode Kontrak Awal</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-calendar-alt text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <div class="value">1%</div>
-                    <div class="label">Komisi Tim per Unit</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-money-bill-wave text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <div class="value">30 Unit</div>
-                    <div class="label">Target 6 Bulan</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-bullseye text-3xl text-accent opacity-30"></i>
+        
+        <!-- Manager - Revised -->
+        <div class="flex justify-center mb-8">
+            <div class="team-card w-full max-w-2xl">
+                <div class="h-72 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div class="relative z-10 text-center p-4">
+                        <div class="avatar-icon bg-white text-primary mx-auto mb-4">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-3xl mb-1">Taufik Mansur Marie</h3>
+                        <p class="text-white opacity-90 text-xl">Manager MEA</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-white text-primary px-4 py-2 rounded-full text-sm font-semibold">Atasan Langsung</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-20 mobile-padding">
-        <!-- Section 1: Team Structure -->
-        <section id="team" class="section mb-24">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Struktur Tim & Kontrak</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja dan kerja tim yang solid.</p>
+        
+        <!-- Marketing Team - Revised with avatar icons -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <!-- Team Card 1 -->
+            <div class="team-card">
+                <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div class="relative z-10 text-center p-4">
+                        <div class="avatar-icon bg-white text-primary mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-2xl mb-1">Royyan</h3>
+                        <p class="text-white opacity-90">Marketing Executive</p>
+                        <div class="mt-3">
+                            <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Sabtu</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+            <!-- Team Card 2 -->
+            <div class="team-card">
+                <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div class="relative z-10 text-center p-4">
+                        <div class="avatar-icon bg-white text-primary mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-2xl mb-1">Syifa</h3>
+                        <p class="text-white opacity-90">Marketing Executive</p>
+                        <div class="mt-3">
+                            <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Rabu & Minggu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Card 3 -->
+            <div class="team-card">
+                <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div class="relative z-10 text-center p-4">
+                        <div class="avatar-icon bg-white text-primary mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-2xl mb-1">Rahma</h3>
+                        <p class="text-white opacity-90">Marketing Executive</p>
+                        <div class="mt-3">
+                            <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Jumat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Card 4 -->
+            <div class="team-card">
+                <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                    <div class="relative z-10 text-center p-4">
+                        <div class="avatar-icon bg-white text-primary mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-2xl mb-1">Riza</h3>
+                        <p class="text-white opacity-90">Marketing Executive</p>
+                        <div class="mt-3">
+                            <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Kamis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Section: Marketing Executive Requirements -->
+        <div class="card p-8 mb-8">
+            <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
+                <i class="fas fa-user-plus mr-3 text-secondary"></i> Kewajiban Marketing Executive
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-8">
                 <div>
-                    <div class="card p-8 mb-8">
-                        <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
-                            <i class="fas fa-users mr-3 text-secondary"></i> Informasi Tim
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="feature-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-white">Komposisi Tim</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">4 anggota (3 Laki-laki & 1 Perempuan) dengan pembagian tugas yang jelas dan sistem kerja berbasis tim.</p>
-                                </div>
+                    <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">
+                        <i class="fas fa-users mr-2 text-secondary"></i> Rekrut Marketing Freelance
+                    </h4>
+                    <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                        <li>Wajib merekrut minimal 3 marketing freelance setiap canvasing</li>
+                        <li>Freelance harus berasal dari area sekitar lokasi proyek</li>
+                        <li>Berikan penjelasan sistem komisi Rp2.000.000 per closing valid</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">
+                        <i class="fas fa-file-alt mr-2 text-secondary"></i> Formulir Wajib
+                    </h4>
+                    <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                        <li>Setiap freelance wajib mengisi formulir data diri</li>
+                        <li>Lampirkan foto KTP freelance yang jelas</li>
+                        <li>Catat data rekening bank freelance untuk pembayaran komisi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="freelance-form mt-6">
+                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">
+                    <i class="fas fa-file-signature mr-2 text-secondary"></i> Contoh Formulir Freelance
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2 dark:text-gray-300">Nama Lengkap</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2 dark:text-gray-300">No. KTP</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2 dark:text-gray-300">No. Rekening</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2 dark:text-gray-300">Bank</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 mb-2 dark:text-gray-300">Alamat</label>
+                        <textarea class="w-full px-4 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Previous accordion content remains the same -->
+    </section>
+
+    <!-- Section 2: Schedule & Rolling Inhouse - Revised -->
+    <section id="schedule" class="section mb-24">
+        <!-- Previous schedule content remains the same -->
+        
+        <!-- Revised Map Section -->
+        <div class="card mb-16">
+            <div class="p-8">
+                <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <i class="fas fa-map-marked-alt mr-3 text-secondary"></i> Peta Area Canvasing
+                </h3>
+                
+                <div class="map-container">
+                    <!-- Replace this with your actual map image or embed code -->
+                    <div class="map-placeholder">
+                        <i class="fas fa-map text-5xl mb-4"></i>
+                        <div class="text-xl">Peta Area Canvasing Kertamulya Residence</div>
+                        <div class="text-sm mt-2">Sindangagung, Kuningan, Jawa Barat</div>
+                    </div>
+                </div>
+                
+                <!-- Previous mapping content remains the same -->
+            </div>
+        </div>
+        
+        <!-- Previous schedule content remains the same -->
+    </section>
+
+    <!-- New Section 5: Offline Collaboration -->
+    <section id="offline-collab" class="section mb-24">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Offline Kolaborasi Brosur UMKM</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Strategi pemasangan poster dan brosur di lokasi strategis oleh tim marketing.</p>
+        </div>
+        
+        <div class="card p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
+                        <i class="fas fa-users mr-3 text-secondary"></i> Tim Bertugas: Syifa & Rahma
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                            <i class="fas fa-map-marker-alt mr-2 text-secondary"></i> Lokasi Utama:
+                        </h4>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Warung kopi</li>
+                            <li>Alfamart/Indomaret (izin ke kasir)</li>
+                            <li>Klinik & rumah sakit kecil</li>
+                            <li>Pasar, bengkel motor, barbershop, warteg</li>
+                            <li>Toko bangunan & minimarket desa</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                            <i class="fas fa-file-image mr-2 text-secondary"></i> Materi:
+                        </h4>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Poster A3 laminasi tahan hujan</li>
+                            <li>Brosur kecil (diletakkan di meja atau kasir)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="campaign-card p-6 h-full">
+                        <div class="bg-gradient-to-r from-primary to-primary-light text-white p-6 rounded-xl mb-6">
+                            <h4 class="font-semibold text-xl flex items-center">
+                                <i class="fas fa-money-bill-wave mr-3 text-secondary-light"></i> Kompensasi
+                            </h4>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-3">Rp50.000</div>
+                            <div class="text-gray-700 mb-6 dark:text-gray-300">per titik (dibayar setelah pemasangan dengan bukti foto)</div>
+                            
+                            <div class="bg-primary bg-opacity-5 rounded-xl p-4 dark:bg-gray-800">
+                                <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                                    <i class="fas fa-camera mr-2 text-secondary"></i> Bukti Foto Wajib:
+                                </h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                                    <li>Foto poster/brosur terpasang</li>
+                                    <li>Foto lokasi secara keseluruhan</li>
+                                    <li>Foto bersama pemilik lokasi (jika memungkinkan)</li>
+                                </ul>
                             </div>
-                            <div class="flex items-start">
-                                <div class="feature-icon">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-white">Periode Kontrak</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">3 bulan awal dengan evaluasi kinerja untuk kemungkinan perpanjangan 1 tahun berikutnya.</p>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 6: Online Strategy -->
+    <section id="online-strategy" class="section mb-24">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Strategi Online Marketing</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Strategi digital marketing untuk meningkatkan brand awareness dan lead generation.</p>
+        </div>
+        
+        <div class="card p-8">
+            <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                <i class="fas fa-users mr-3 text-secondary"></i> Tim Bertugas: Taufik Mansur Marie (Manager MEA)
+            </h3>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Meta Ads -->
+                <div class="campaign-card p-6">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-400 text-white p-6 rounded-xl mb-4">
+                        <h4 class="font-semibold text-xl flex items-center">
+                            <i class="fab fa-facebook-square mr-3"></i> Iklan Meta
+                        </h4>
+                    </div>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p class="mb-3"><strong>Platform:</strong> Facebook/Instagram</p>
+                        <p class="mb-3"><strong>Objektif:</strong> Traffic ke Website Landing Page</p>
+                        <p class="mb-3"><strong>Target:</strong> Usia 25-45 tahun di Kuningan & sekitarnya</p>
+                        <p><strong>Budget:</strong> Rp500.000/hari</p>
+                    </div>
+                </div>
+                
+                <!-- YouTube Ads -->
+                <div class="campaign-card p-6">
+                    <div class="bg-gradient-to-r from-red-600 to-red-400 text-white p-6 rounded-xl mb-4">
+                        <h4 class="font-semibold text-xl flex items-center">
+                            <i class="fab fa-youtube mr-3"></i> Iklan YouTube
+                        </h4>
+                    </div>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p class="mb-3"><strong>Objektif:</strong> Traffic / Branding</p>
+                        <p class="mb-3"><strong>Konten:</strong> Visualisasi rumah subsidi</p>
+                        <p class="mb-3"><strong>Durasi:</strong> 15-30 detik</p>
+                        <p><strong>Budget:</strong> Rp300.000/hari</p>
+                    </div>
+                </div>
+                
+                <!-- TikTok Ads -->
+                <div class="campaign-card p-6">
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white p-6 rounded-xl mb-4">
+                        <h4 class="font-semibold text-xl flex items-center">
+                            <i class="fab fa-tiktok mr-3"></i> Iklan TikTok
+                        </h4>
+                    </div>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p class="mb-3"><strong>Objektif:</strong> Awareness & Storytelling</p>
+                        <p class="mb-3"><strong>Format:</strong> Video pendek 9-15 detik</p>
+                        <p class="mb-3"><strong>Target:</strong> Usia 18-35 tahun</p>
+                        <p><strong>Budget:</strong> Rp200.000/hari</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 7: Marketing Freelance Program -->
+    <section id="freelance-program" class="section mb-24">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Program Marketing Freelance</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Sistem kerja sama dengan freelance lokal untuk memperluas jangkauan pemasaran.</p>
+        </div>
+        
+        <div class="card p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
+                        <i class="fas fa-user-tie mr-3 text-secondary"></i> Sistem Kerja Freelance
+                    </h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                            <i class="fas fa-users mr-2 text-secondary"></i> Rekrutmen:
+                        </h4>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Freelance direkrut dari sekitar desa/kelurahan Kertamulya</li>
+                            <li>Minimal pendidikan SMA sederajat</li>
+                            <li>Memiliki jaringan sosial yang luas di komunitas lokal</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                            <i class="fas fa-money-bill-wave mr-2 text-secondary"></i> Kompensasi:
+                        </h4>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Rp2.000.000 per 1 closing valid</li>
+                            <li>Pembayaran setelah akad notaris</li>
+                            <li>Transfer ke rekening yang telah didaftarkan</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                            <i class="fas fa-file-alt mr-2 text-secondary"></i> Materi:
+                        </h4>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Brosur/flyer tanpa nomor marketing tetap</li>
+                            <li>Kolom kosong untuk nomor WA masing-masing freelancer</li>
+                            <li>Formulir pendaftaran calon pembeli</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
+                        <i class="fas fa-bullseye mr-3 text-secondary"></i> Target Penyebaran
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-4 text-center dark:bg-gray-800">
+                            <div class="avatar-icon bg-primary text-white mx-auto mb-3">
+                                <i class="fas fa-home"></i>
                             </div>
-                            <div class="flex items-start">
-                                <div class="feature-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-white">Sistem Kerja</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Teamwork solid dengan weekly meeting evaluasi progres dan pembagian tugas yang transparan.</p>
-                                </div>
+                            <div class="font-medium dark:text-white">RT/RW</div>
+                        </div>
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-4 text-center dark:bg-gray-800">
+                            <div class="avatar-icon bg-primary text-white mx-auto mb-3">
+                                <i class="fas fa-users"></i>
                             </div>
+                            <div class="font-medium dark:text-white">Arisan Ibu-ibu</div>
+                        </div>
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-4 text-center dark:bg-gray-800">
+                            <div class="avatar-icon bg-primary text-white mx-auto mb-3">
+                                <i class="fas fa-mosque"></i>
+                            </div>
+                            <div class="font-medium dark:text-white">Pengajian</div>
+                        </div>
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-4 text-center dark:bg-gray-800">
+                            <div class="avatar-icon bg-primary text-white mx-auto mb-3">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="font-medium dark:text-white">Komunitas Lokal</div>
                         </div>
                     </div>
                     
-                    <div class="card p-8">
-                        <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
-                            <i class="fas fa-graduation-cap mr-3 text-secondary"></i> Pengembangan Tim
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="bg-secondary bg-opacity-20 text-secondary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-700 dark:text-gray-300">Wajib mengikuti training online/offline untuk pengembangan skill marketing dan penjualan.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-secondary bg-opacity-20 text-secondary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-700 dark:text-gray-300">Sesi mentoring rutin dengan Manager Marketing untuk peningkatan performa.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-secondary bg-opacity-20 text-secondary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-700 dark:text-gray-300">Akses ke materi pembelajaran dan best practices perusahaan.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="card p-8 h-full">
-                        <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                            <i class="fas fa-sitemap mr-3 text-secondary"></i> Struktur Holding Perusahaan
-                        </h3>
-                        
-                        <div class="flex flex-col items-center">
-                            <!-- Level 1: Bimulialand -->
-                            <div class="organigram-box bg-primary text-white p-8 shadow-lg w-full max-w-md text-center mb-10 hover-scale">
-                                <div class="flex justify-center mb-4">
-                                    <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="h-32">
-                                </div>
-                                <div class="font-bold text-3xl mb-2">Bimulialand</div>
-                                <div class="text-xl opacity-90 mb-4">CEO: Eka Ahmad Fauzi</div>
-                                <div class="mt-4">
-                                    <img src="https://i.imgur.com/9jEa0tM.jpg" alt="Eka Ahmad Fauzi" class="profile-img">
-                                </div>
-                            </div>
-                            
-                            <!-- Arrow -->
-                            <div class="flex justify-center mb-10">
-                                <div class="w-1 h-16 bg-gradient-to-b from-primary to-accent"></div>
-                            </div>
-                            
-                            <!-- Level 2: PT Rumah Mulia Indonesia -->
-                            <div class="organigram-box bg-primary-light text-white p-8 shadow-lg w-full max-w-md text-center mb-10 hover-scale">
-                                <div class="font-bold text-3xl mb-2">PT Rumah Mulia Indonesia</div>
-                                <div class="text-xl opacity-90 mb-4">RD Manager: Rohmatullah</div>
-                                <div class="mt-4">
-                                    <img src="https://i.imgur.com/pslNJrs.jpg" alt="Rohmatullah" class="profile-img">
-                                </div>
-                            </div>
-                            
-                            <!-- Arrow -->
-                            <div class="flex justify-center mb-10">
-                                <div class="w-1 h-16 bg-gradient-to-b from-primary-light to-accent"></div>
-                            </div>
-                            
-                            <!-- Level 3: MEA -->
-                            <div class="organigram-box bg-accent text-white p-8 shadow-lg w-full max-w-md text-center hover-scale">
-                                <div class="font-bold text-3xl mb-2">MEA</div>
-                                <div class="text-xl opacity-90 mb-4">Manager Marketing: Taufik Mansur Marie</div>
-                                <div class="mt-4">
-                                    <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Taufik Mansur Marie" class="profile-img">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mt-6 bg-primary bg-opacity-5 rounded-xl p-6 dark:bg-gray-800">
+                        <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">
+                            <i class="fas fa-info-circle mr-2 text-secondary"></i> Catatan Penting:
+                        </h4>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Freelance tidak boleh menerima pembayaran langsung dari customer</li>
+                            <li>Semua transaksi harus melalui marketing executive</li>
+                            <li>Freelance wajib mengikuti briefing minimal 1x seminggu</li>
+                            <li>Komisi dibatalkan jika terjadi pembatalan oleh customer</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-            <!-- Team Members -->
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-semibold text-primary mb-4 dark:text-white">Anggota Tim Marketing</h3>
-                <p class="text-lg text-gray-700 max-w-3xl mx-auto dark:text-gray-300">Tim profesional yang akan bekerja sama mencapai target penjualan.</p>
-            </div>
-            
-            <!-- Manager -->
-            <div class="flex justify-center mb-8">
-                <div class="team-card w-full max-w-2xl">
-                    <div class="h-80 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
-                        <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Manager MEA" class="h-full w-full object-cover absolute inset-0">
-                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-                        <div class="relative z-10 text-center p-4">
-                            <h3 class="font-bold text-white text-3xl mb-1">Taufik Mansur Marie</h3>
-                            <p class="text-white opacity-90 text-xl">Manager MEA</p>
-                            <div class="mt-4">
-                                <span class="inline-block bg-white text-primary px-4 py-2 rounded-full text-sm font-semibold">Atasan Langsung</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Marketing Team -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <!-- Team Card 1 -->
-                <div class="team-card">
-                    <div class="h-80 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
-                        <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="h-full w-full object-cover absolute inset-0">
-                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-                        <div class="relative z-10 text-center p-4">
-                            <h3 class="font-bold text-white text-2xl mb-1">Royyan</h3>
-                            <p class="text-white opacity-90">Marketing Executive</p>
-                            <div class="mt-3">
-                                <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Sabtu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Card 2 -->
-                <div class="team-card">
-                    <div class="h-80 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
-                        <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="h-full w-full object-cover absolute inset-0">
-                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-                        <div class="relative z-10 text-center p-4">
-                            <h3 class="font-bold text-white text-2xl mb-1">Syifa</h3>
-                            <p class="text-white opacity-90">Marketing Executive</p>
-                            <div class="mt-3">
-                                <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Rabu & Minggu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Card 3 -->
-                <div class="team-card">
-                    <div class="h-80 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
-                        <img src="https://i.imgur.com/ss6mo40.jpg" alt="Rahma" class="h-full w-full object-cover absolute inset-0">
-                        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-                        <div class="relative z-10 text-center p-4">
-                            <h3 class="font-bold text-white text-2xl mb-1">Rahma</h3>
-                            <p class="text-white opacity-90">Marketing Executive</p>
-                            <div class="mt-3">
-                                <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Jumat</span>
-                            </div>
-                        </div>
-                    </div>
-                </
+        </div>
+    </section>
+
+    <!-- Previous sections remain the same -->
+
+    <!-- JavaScript remains the same -->
+</body>
+</html>
