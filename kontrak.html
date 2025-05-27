@@ -1739,40 +1739,25 @@ body.dark-mode .map-grid {
             </div>
         </section>
 
-            <!-- Section 4: Area Mapping -->
+         <!-- Section 4: Area Mapping -->
         <section id="mapping" class="section mb-20 animate__animated animate__fadeIn">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-blue-900 mb-4 title-underline">Mapping Area Canvasing</h2>
                 <p class="text-gray-700 max-w-2xl mx-auto text-lg">Segmentasi target dan area canvasing di sekitar Kertayasa Sindangagung Kuningan Jawa Barat.</p>
             </div>
             
-            
-            <div class="card mb-16">
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                        <i class="fas fa-map-marked-alt mr-3 text-secondary"></i> Peta Area Canvasing
-                    </h3>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-10">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Peta Area Canvasing</h3>
                     
-                    <div class="map-container">
-                        <div class="map-grid"></div>
-                        <div class="map-marker" style="top: 30%; left: 40%;"></div>
-                        <div class="map-marker" style="top: 45%; left: 60%;"></div>
-                        <div class="map-marker" style="top: 60%; left: 35%;"></div>
-                        <div class="map-marker" style="top: 25%; left: 70%;"></div>
-                        <div class="map-marker" style="top: 70%; left: 65%;"></div>
-                        <div class="map-placeholder">
-                            <i class="fas fa-map-marked-alt text-5xl text-primary mb-4"></i>
-                            <h4 class="text-xl font-semibold text-primary mb-2">Peta Area Canvasing Kertamulya Residence</h4>
-                            <p class="text-gray-600 max-w-md">Area prioritas di sekitar Kertayasa Sindangagung Kuningan Jawa Barat</p>
-                        </div>
-                    </div>
+                    <div class="map-container" id="map"></div>
                     
-                    <div class="mt-8 grid md:grid-cols-2 gap-8">
+                    <div class="mt-6 grid md:grid-cols-2 gap-6">
                         <div>
-                            <h4 class="font-semibold text-xl text-primary mb-4 flex items-center dark:text-white">
-                                <i class="fas fa-bullseye mr-3 text-secondary"></i> Segmentasi Target
+                            <h4 class="font-semibold text-blue-900 mb-3 flex items-center text-lg">
+                                <i class="fas fa-bullseye mr-2"></i> Segmentasi Target
                             </h4>
-                            <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
                                 <li>Karyawan swasta dengan gaji > Rp5 juta/bulan</li>
                                 <li>Pegawai negeri (PNS/TNI/POLRI)</li>
                                 <li>Pengusaha kecil-menengah di Kuningan</li>
@@ -1782,10 +1767,10 @@ body.dark-mode .map-grid {
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-xl text-primary mb-4 flex items-center dark:text-white">
-                                <i class="fas fa-map-marker-alt mr-3 text-secondary"></i> Lokasi Prioritas
+                            <h4 class="font-semibold text-blue-900 mb-3 flex items-center text-lg">
+                                <i class="fas fa-map-marked-alt mr-2"></i> Lokasi Prioritas
                             </h4>
-                            <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
                                 <li>Pusat kota Kuningan (sekitar alun-alun)</li>
                                 <li>Perumahan di sekitar Sindangagung</li>
                                 <li>Kawasan industri Cirebon-Kuningan</li>
@@ -1798,286 +1783,85 @@ body.dark-mode .map-grid {
             </div>
             
             <!-- Customer Profile Examples -->
-            <div class="card">
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                        <i class="fas fa-users mr-3 text-secondary"></i> Contoh Profil Customer Potensial (12 Kunjungan/Hari)
-                    </h3>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-6">Contoh Profil Customer Potensial (12 Kunjungan/Hari)</h3>
                     
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Customer 1 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="avatar-xs mr-4">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3">
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Ibu Siti</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Guru SMP Negeri</div>
+                                    <div class="font-semibold">Ibu Siti</div>
+                                    <div class="text-sm text-gray-600">Guru SMP Negeri</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
                                     <span>Sindangagung</span>
                                 </div>
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
                                     <span>Gaji Rp6.5 juta/bulan</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
                                     <span>Mencari rumah untuk keluarga kecil</span>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Customer 2 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="avatar-xs mr-4">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3">
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Bapak Ahmad</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pegawai Bank</div>
+                                    <div class="font-semibold">Bapak Ahmad</div>
+                                    <div class="text-sm text-gray-600">Pegawai Bank</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
                                     <span>Kuningan Kota</span>
                                 </div>
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
                                     <span>Gaji Rp8 juta/bulan</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
                                     <span>Investasi properti</span>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Customer 3 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="avatar-xs mr-4">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-3">
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Ibu Rina</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pengusaha Batik</div>
+                                    <div class="font-semibold">Ibu Rina</div>
+                                    <div class="text-sm text-gray-600">Pengusaha Batik</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
+                            <div class="text-sm text-gray-700">
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-map-marker-alt text-blue-900 mr-2 w-4"></i>
                                     <span>Cigugur</span>
                                 </div>
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
+                                <div class="flex items-center mb-1">
+                                    <i class="fas fa-money-bill-wave text-blue-900 mr-2 w-4"></i>
                                     <span>Omzet > Rp10 juta/bulan</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
+                                    <i class="fas fa-home text-blue-900 mr-2 w-4"></i>
                                     <span>Rumah untuk anak kuliah</span>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Customer 4 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="avatar-xs mr-4">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-lg dark:text-white">Bapak Dedi</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">PNS Kabupaten</div>
-                                </div>
-                            </div>
-                            <div class="text-gray-700 dark:text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
-                                    <span>Kuningan Kota</span>
-                                </div>
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
-                                    <span>Gaji Rp7.2 juta/bulan</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
-                                    <span>Rumah dekat kantor</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Customer 5 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="avatar-xs mr-4">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-lg dark:text-white">Ibu Ani</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pengusaha Warung</div>
-                                </div>
-                            </div>
-                            <div class="text-gray-700 dark:text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
-                                    <span>Cilimus</span>
-                                </div>
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
-                                    <span>Omzet > Rp8 juta/bulan</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
-                                    <span>Rumah untuk keluarga besar</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Customer 6 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
-                            <div class="flex items-center mb-4">
-                                <div class="avatar-xs mr-4">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-lg dark:text-white">Bapak Rudi</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Wiraswasta</div>
-                                </div>
-                            </div>
-                            <div class="text-gray-700 dark:text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
-                                    <span>Jalaksana</span>
-                                </div>
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
-                                    <span>Penghasilan > Rp6 juta/bulan</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
-                                    <span>Rumah untuk persiapan pensiun</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5: KPI Funnel -->
-        <section id="kpi" class="section mb-24">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Funnel Perhitungan KPI</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Sistem penilaian kinerja individu yang transparan dengan kompensasi maksimal Rp2.500.000/orang.</p>
-            </div>
-            
-            <div class="card p-8 mb-16">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                    <div class="funnel-step">
-                        <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
-                            <i class="fas fa-user-check"></i>
-                        </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Kehadiran</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">35% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">24 hari kerja/bulan</div>
-                        <div class="text-secondary font-bold text-xl">Rp875.000</div>
-                    </div>
-                    
-                    <div class="funnel-step">
-                        <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
-                            <i class="fas fa-search-dollar"></i>
-                        </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Canvasing</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">20% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">12 kunjungan/hari + 3 freelance</div>
-                        <div class="text-secondary font-bold text-xl">Rp500.000</div>
-                    </div>
-                    
-                    <div class="funnel-step">
-                        <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                        </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Laporan</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">15% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">Collabo & dokumen</div>
-                        <div class="text-secondary font-bold text-xl">Rp375.000</div>
-                    </div>
-                    
-                    <div class="funnel-step">
-                        <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Closing Tim</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">30% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">Target 30 unit</div>
-                        <div class="text-secondary font-bold text-xl">Rp750.000</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                        <i class="fas fa-chart-pie mr-3 text-secondary"></i> Detail KPI Individu (Maksimal Rp2.500.000/orang)
-                    </h3>
-                    
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead>
-                                <tr class="bg-gradient-to-r from-primary to-primary-light text-white">
-                                    <th class="py-4 px-6 text-left rounded-tl-xl">Aspek Penilaian</th>
-                                    <th class="py-4 px-6 text-left">Bobot</th>
-                                    <th class="py-4 px-6 text-left">Target</th>
-                                    <th class="py-4 px-6 text-left rounded-tr-xl">Kompensasi Maks.</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Kehadiran</td>
-                                    <td class="py-4 px-6 dark:text-white">35%</td>
-                                    <td class="py-4 px-6 dark:text-white">24 hari kerja/bulan</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp875.000</td>
-                                </tr>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Canvasing</td>
-                                    <td class="py-4 px-6 dark:text-white">20%</td>
-                                    <td class="py-4 px-6 dark:text-white">12 kunjungan/hari + 3 freelance</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp500.000</td>
-                                </tr>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Laporan</td>
-                                    <td class="py-4 px-6 dark:text-white">15%</td>
-                                    <td class="py-4 px-6 dark:text-white">Collabo & dokumen lapangan</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp375.000</td>
-                                </tr>
-                                <tr class="hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Closing Tim</td>
-                                    <td class="py-4 px-6 dark:text-white">30%</td>
-                                    <td class="py-4 px-6 dark:text-white">Target 30 unit</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp750.000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="mt-8 bg-primary bg-opacity-5 rounded-xl p-6 dark:bg-gray-800">
-                        <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">
-                            <i class="fas fa-info-circle mr-2 text-secondary"></i> Catatan Penting:
-                        </h4>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
-                            <li>Pembayaran KPI dilakukan setiap bulannya</li>
-                            <li>Pembayaran Komisi Team dilakukan kolektif berdasarkan jumlah akad yang sudah teralisai di lakukan setiap tgl 5</li>
-                            <li>Penilaian dilakukan secara objektif berdasarkan data yang tercatat</li>
-                            <li>KPI dapat menjadi pertimbangan utama untuk perpanjangan kontrak</li>
-                            <li>Kinerja individu yang konsisten tinggi akan mendapatkan bonus tambahan</li>
-                        </ul>
                     </div>
                 </div>
             </div>
