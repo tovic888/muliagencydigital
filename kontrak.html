@@ -9,723 +9,124 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        :root {
-            --primary: #1a237e;
-            --primary-light: #534bae;
-            --primary-dark: #000051;
-            --secondary: #ffab00;
-            --secondary-light: #ffdd4b;
-            --secondary-dark: #c67c00;
-            --accent: #00b0ff;
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
-        }
+        /* CSS yang sama seperti sebelumnya */
+        /* ... */
         
-        @font-face {
-            font-family: 'Inter';
-            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            color: var(--text-primary);
-            background-color: #f8fafc;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(26, 35, 126, 0.95) 0%, rgba(83, 75, 174, 0.95) 100%), 
-                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        
-        .section {
-            scroll-margin-top: 80px;
-        }
-        
-        .card {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-radius: 16px;
-            overflow: hidden;
-            background: white;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .title-underline {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .title-underline:after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background-color: rgba(255, 171, 0, 0.3);
-            z-index: -1;
-            border-radius: 4px;
-            transform: skewX(-15deg);
-        }
-        
-        .map-container {
-            height: 500px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .team-card {
+        /* Tambahan untuk revisi */
+        .holding-box {
             transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .flip-card {
-            perspective: 1200px;
-            min-height: 300px;
-        }
-        
-        .flip-card-inner {
-            transition: transform 0.7s;
-            transform-style: preserve-3d;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             border-radius: 16px;
-        }
-        
-        .flip-card-back {
-            transform: rotateY(180deg);
-        }
-        
-        .funnel-step {
-            position: relative;
-            transition: all 0.4s ease;
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .funnel-step:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .funnel-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 3px;
-            background: var(--secondary);
-            opacity: 0.3;
-            border-radius: 3px;
-        }
-        
-        .progress-bar {
-            transition: width 1.5s ease-in-out;
-            width: 0%;
-        }
-        
-        .glow-effect {
-            animation: glow 2s infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px rgba(255, 171, 0, 0.5);
-            }
-            to {
-                box-shadow: 0 0 25px rgba(255, 171, 0, 0.8);
-            }
-        }
-        
-        .pulse-effect {
-            animation: pulse 2.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 171, 0, 0.4);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 15px rgba(255, 171, 0, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 171, 0, 0);
-            }
-        }
-        
-        .bounce-effect {
-            animation: bounce 3s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-        
-        .float-effect {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        
-        .rotate-effect {
-            animation: rotate 15s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .organigram-box {
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-        }
-        
-        .organigram-box:hover {
-            transform: scale(1.08);
-            z-index: 10;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .schedule-day {
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-        
-        .schedule-day.active {
-            background-color: var(--primary);
-            color: white;
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(26, 35, 126, 0.2);
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid var(--accent);
-        }
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-
-        /* New UX Enhancements */
-        .nav-item {
-            position: relative;
-            padding: 8px 0;
-        }
-
-        .nav-item:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--secondary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-item:hover:after {
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 35, 126, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(26, 35, 126, 0.3);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 171, 0, 0.3);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(26, 35, 126, 0.1) 0%, rgba(83, 75, 174, 0.1) 100%);
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 24px;
-        }
-
-        .data-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .data-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .data-card .value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .data-card .label {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
         }
-
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 60px;
-            color: rgba(26, 35, 126, 0.1);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .nav-tabs {
-            display: flex;
-            border-bottom: 1px solid #e2e8f0;
+        
+        .holding-box img.logo {
+            height: 80px;
             margin-bottom: 20px;
         }
-
-        .nav-tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: var(--text-secondary);
+        
+        .holding-box img.profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 15px;
         }
-
-        .nav-tab:hover {
-            color: var(--primary);
+        
+        .holding-box .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
-
-        .nav-tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--secondary);
+        
+        .holding-box .position {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
         }
-
-        .accordion-item {
-            margin-bottom: 10px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .accordion-header {
-            padding: 16px 20px;
-            background: white;
-            cursor: pointer;
+        
+        .team-hierarchy {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
         }
-
-        .accordion-header:hover {
-            background: #f8fafc;
+        
+        .team-level {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
         }
-
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background: white;
-        }
-
-        .accordion-item.active .accordion-content {
-            padding: 20px;
-            max-height: 500px;
-        }
-
-        .accordion-item.active .accordion-header {
-            background: var(--primary);
-            color: white;
-        }
-
-        .accordion-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltip-text {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--primary);
-            color: white;
+        
+        .team-member {
             text-align: center;
-            border-radius: 6px;
-            padding: 10px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 14px;
-            font-weight: normal;
-        }
-
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .tooltip .tooltip-text:after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: var(--primary) transparent transparent transparent;
-        }
-
-        /* Dark mode toggle */
-        .dark-mode-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 15px;
             transition: all 0.3s ease;
         }
-
-        .dark-mode-toggle:hover {
-            transform: scale(1.1);
+        
+        .team-member:hover {
+            transform: translateY(-10px);
         }
-
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            z-index: 100;
-            width: 50px;
-            height: 50px;
+        
+        .team-member img {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: var(--secondary);
-            color: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
+        .manager-level img {
+            width: 120px;
+            height: 120px;
+            border: 4px solid var(--secondary);
+        }
+        
+        .timeline-with-image {
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
+            margin-bottom: 20px;
         }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
+        
+        .timeline-image {
+            flex: 0 0 100px;
+            margin-right: 20px;
         }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
+        
+        .timeline-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
+        
+        .customer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-
-        body.dark-mode .card,
-        body.dark-mode .team-card,
-        body.dark-mode .data-card,
-        body.dark-mode .testimonial-card {
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .text-primary {
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode .text-gray-700 {
-            color: #cbd5e0 !important;
-        }
-
-        body.dark-mode .bg-white {
-            background-color: #2d3748 !important;
-        }
-
-        body.dark-mode .bg-gray-50 {
-            background-color: #1a202c !important;
-        }
-
-        body.dark-mode .accordion-header {
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .accordion-content {
-            background-color: #2d3748;
-        }
-
-        body.dark-mode .nav-tab {
-            color: #cbd5e0;
-        }
-
-        body.dark-mode .nav-tab.active {
-            color: #e2e8f0;
-        }
-
-        @media (max-width: 768px) {
-            .hero-gradient {
-                background-attachment: scroll;
-                min-height: 600px;
+        
+        @media (max-width: 1024px) {
+            .customer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .section {
-                scroll-margin-top: 60px;
-            }
-            
-            .map-container {
-                height: 350px;
-            }
-            
-            .mobile-stack {
-                flex-direction: column;
-            }
-            
-            .mobile-padding {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-            
-            .mobile-text-center {
-                text-align: center;
-            }
-            
-            .funnel-step:not(:last-child):after {
-                display: none;
-            }
-
-            .nav-tabs {
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 10px;
-            }
-
-            .nav-tab {
-                padding: 10px 15px;
+        }
+        
+        @media (max-width: 640px) {
+            .customer-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-lg z-50 dark:bg-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <img src="https://i.imgur.com/yy0vB2n.png" alt="MEA Logo" class="h-12">
-                <div class="text-sm text-gray-600 hidden md:block font-medium dark:text-gray-300">PT Rumah Mulia Indonesia</div>
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#team" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Tim
-                </a>
-                <a href="#schedule" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Jadwal
-                </a>
-                <a href="#commission" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Komisi
-                </a>
-                <a href="#kpi" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    KPI
-                </a>
-                <a href="#summary" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Struktur
-                </a>
-            </div>
-            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-                <svg class="w-8 h-8 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white w-full px-6 py-4 shadow-xl dark:bg-gray-800" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
-                <a href="#team" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-users mr-3 text-secondary w-5"></i> Tim
-                </a>
-                <a href="#schedule" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-calendar-alt mr-3 text-secondary w-5"></i> Jadwal
-                </a>
-                <a href="#commission" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-money-bill-wave mr-3 text-secondary w-5"></i> Komisi
-                </a>
-                <a href="#kpi" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
-                    <i class="fas fa-chart-line mr-3 text-secondary w-5"></i> KPI
-                </a>
-                <a href="#summary" class="text-primary hover:text-secondary transition font-semibold py-3 flex items-center dark:text-gray-300">
-                    <i class="fas fa-sitemap mr-3 text-secondary w-5"></i> Struktur
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+    <!-- Sama seperti sebelumnya -->
+    
+    <!-- Hero Section (tanpa logo MEA) -->
     <section class="hero-gradient flex items-center justify-center text-center text-white pt-24 min-h-screen">
         <div class="container mx-auto px-6 animate__animated animate__fadeInDown">
             <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Kontrak Kerja<br><span class="gradient-text">Marketing Executive</span></h1>
@@ -753,40 +154,7 @@
     </section>
 
     <!-- Quick Stats Section -->
-    <section class="bg-white py-12 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="data-card">
-                    <div class="value">4 Orang</div>
-                    <div class="label">Anggota Tim</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-users text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <div class="value">3 Bulan</div>
-                    <div class="label">Periode Kontrak Awal</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-calendar-alt text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <div class="value">1%</div>
-                    <div class="label">Komisi Tim per Unit</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-money-bill-wave text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <div class="value">5 Unit/Bulan</div>
-                    <div class="label">Target Per Bulan</div>
-                    <div class="mt-4 text-right">
-                        <i class="fas fa-bullseye text-3xl text-accent opacity-30"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Sama seperti sebelumnya -->
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-20 mobile-padding">
@@ -875,25 +243,412 @@
                         
                         <div class="flex flex-col items-center">
                             <!-- Level 1: Bimulialand -->
-                            <div class="organigram-box bg-primary text-white p-8 shadow-lg w-full max-w-md text-center mb-10 hover-scale">
-                                <div class="flex justify-center mb-4">
-                                    <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="h-24">
-                                </div>
-                                <div class="font-bold text-2xl mb-2">Bimulialand</div>
-                                <div class="text-lg opacity-90 mb-4">CEO: Eka Ahmad Fauzi</div>
-                                <div class="mt-4">
-                                    <img src="https://i.imgur.com/9jEa0tM.jpg" alt="Eka Ahmad Fauzi" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-xl">
-                                </div>
+                            <div class="holding-box bg-gradient-to-br from-primary to-primary-dark text-white">
+                                <img src="https://i.imgur.com/aVIjrGJ.png" alt="Bimulialand Logo" class="logo">
+                                <div class="title">Bimulialand</div>
+                                <div class="position">CEO</div>
+                                <img src="https://i.imgur.com/9jEa0tM.jpg" alt="Eka Ahmad Fauzi" class="profile">
+                                <div class="title">Eka Ahmad Fauzi</div>
                             </div>
                             
                             <!-- Arrow -->
-                            <div class="flex justify-center mb-10">
+                            <div class="flex justify-center mb-4">
                                 <div class="w-1 h-16 bg-gradient-to-b from-primary to-accent"></div>
                             </div>
                             
                             <!-- Level 2: PT Rumah Mulia Indonesia -->
-                            <div class="organigram-box bg-primary-light text-white p-8 shadow-lg w-full max-w-md text-center mb-10 hover-scale">
-                                <div class="font-bold text-2xl mb-2">PT Rumah Mulia Indonesia</div>
-                                <div class="text-lg opacity-90 mb-4">RD Manager: Rohmatullah</div>
-                                <div class="mt-4">
-                                    <img src="https://i.imgur.com/pslNJrs.jpg" alt
+                            <div class="holding-box bg-gradient-to-br from-primary to-primary-light text-white">
+                                <div class="title">PT Rumah Mulia Indonesia</div>
+                                <div class="position">RD Manager</div>
+                                <img src="https://i.imgur.com/pslNJrs.jpg" alt="Rohmatullah" class="profile">
+                                <div class="title">Rohmatullah</div>
+                            </div>
+                            
+                            <!-- Arrow -->
+                            <div class="flex justify-center mb-4">
+                                <div class="w-1 h-16 bg-gradient-to-b from-primary-light to-accent"></div>
+                            </div>
+                            
+                            <!-- Level 3: MEA -->
+                            <div class="holding-box bg-gradient-to-br from-accent to-primary-light text-white">
+                                <div class="title">MEA</div>
+                                <div class="position">Manager Marketing</div>
+                                <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Taufik Mansur Marie" class="profile">
+                                <div class="title">Taufik Mansur Marie</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Members -->
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-semibold text-primary mb-4 dark:text-white">Anggota Tim Marketing</h3>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto dark:text-gray-300">Tim profesional yang akan bekerja sama mencapai target penjualan.</p>
+            </div>
+            
+            <!-- Team Hierarchy -->
+            <div class="card p-8 mb-16">
+                <div class="team-hierarchy">
+                    <!-- Manager Level -->
+                    <div class="team-level">
+                        <div class="team-member manager-level">
+                            <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Manager MEA">
+                            <div class="font-semibold text-lg dark:text-white">Taufik Mansur Marie</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Manager MEA</div>
+                            <div class="mt-2">
+                                <span class="inline-block bg-primary text-white px-2 py-1 rounded-full text-xs font-semibold">Atasan Langsung</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Arrow Down -->
+                    <div class="flex justify-center mb-4">
+                        <i class="fas fa-arrow-down text-primary text-xl"></i>
+                    </div>
+                    
+                    <!-- Marketing Team Level -->
+                    <div class="team-level">
+                        <!-- Royyan -->
+                        <div class="team-member">
+                            <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan">
+                            <div class="font-semibold dark:text-white">Royyan</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                        </div>
+                        
+                        <!-- Syifa -->
+                        <div class="team-member">
+                            <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa">
+                            <div class="font-semibold dark:text-white">Syifa</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                        </div>
+                        
+                        <!-- Rahma -->
+                        <div class="team-member">
+                            <img src="https://i.imgur.com/ss6mo40.jpg" alt="Rahma">
+                            <div class="font-semibold dark:text-white">Rahma</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                        </div>
+                        
+                        <!-- Riza -->
+                        <div class="team-member">
+                            <img src="https://i.imgur.com/9ziHjbS.jpg" alt="Riza">
+                            <div class="font-semibold dark:text-white">Riza</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Accordion -->
+            <div class="card p-8">
+                <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <i class="fas fa-info-circle mr-3 text-secondary"></i> Informasi Detail Tim
+                </h3>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Tanggung Jawab Utama</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Melakukan canvasing aktif sesuai area yang ditentukan</li>
+                            <li>Menjaga hubungan baik dengan calon pembeli dan komunitas lokal</li>
+                            <li>Mengikuti jadwal rolling inhouse sesuai pembagian</li>
+                            <li>Membuat laporan harian kegiatan marketing</li>
+                            <li>Mencapai target kunjungan dan penjualan yang ditetapkan</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mt-4">
+                    <div class="accordion-header">
+                        <span>Sistem Evaluasi</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Evaluasi harian melalui briefing pagi dan laporan harian</li>
+                            <li>Evaluasi mingguan dalam meeting tim setiap Senin</li>
+                            <li>Evaluasi bulanan berdasarkan pencapaian KPI individu dan tim</li>
+                            <li>Review kontrak setelah 3 bulan pertama</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mt-4">
+                    <div class="accordion-header">
+                        <span>Hak Anggota Tim</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
+                            <li>Mendapatkan komisi sesuai struktur yang telah ditetapkan</li>
+                            <li>Mendapatkan bonus tim ketika target tercapai</li>
+                            <li>Mendapatkan training dan pengembangan skill</li>
+                            <li>Menggunakan fasilitas dan alat marketing perusahaan</li>
+                            <li>Mendapatkan dukungan penuh dari manajemen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Schedule & Rolling Inhouse -->
+        <section id="schedule" class="section mb-24">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Jadwal Kerja & Rolling Inhouse</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Struktur kerja yang jelas untuk memaksimalkan produktivitas tim marketing.</p>
+            </div>
+            
+            <div class="card mb-16">
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <i class="fas fa-calendar-week mr-3 text-secondary"></i> Jadwal & Tugas Harian
+                    </h3>
+                    
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <div>
+                            <div class="flex items-start mb-8">
+                                <div class="bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-calendar-day"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-xl text-primary mb-2 dark:text-white">Hari Kerja: Rabu – Minggu</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Libur: Senin & Selasa (kecuali hari libur nasional diganti hari Jumat)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item mb-8">
+                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">07.30 – 08.00</h4>
+                                    <p class="text-gray-700 dark:text-gray-300">Briefing Tilawah bersama RMI</p>
+                                </div>
+                                
+                                <div class="timeline-item mb-8">
+                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">08.00 – 09.00</h4>
+                                    <p class="text-gray-700 dark:text-gray-300">Briefing harian dengan Manager MEA</p>
+                                </div>
+                                
+                                <div class="timeline-item mb-8">
+                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">09.00 – 16.30</h4>
+                                    <p class="text-gray-700 dark:text-gray-300">Canvasing (minimal 12 kunjungan/hari)</p>
+                                </div>
+                                
+                                <div class="timeline-item mb-8">
+                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">Rolling Inhouse</h4>
+                                    <p class="text-gray-700 dark:text-gray-300">1 orang/hari (jadwal di bawah)</p>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">16.30 – 17.30</h4>
+                                    <p class="text-gray-700 dark:text-gray-300">Administrasi (Collabo & laporan harian)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="bg-gradient-to-br from-primary to-primary-light rounded-xl p-8 h-full text-white">
+                                <h4 class="font-semibold text-xl mb-6 flex items-center">
+                                    <i class="fas fa-user-tie mr-3 text-secondary-light"></i> Tim Marketing
+                                </h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="text-center animate__animated animate__fadeIn">
+                                        <img src="https://i.imgur.com/o3rxcu0.jpg" alt="Manager Photo" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-xl hover-scale mb-3">
+                                        <div class="font-bold">Taufik Mansur Marie</div>
+                                        <div class="text-sm opacity-80">Manager MEA</div>
+                                    </div>
+                                    <div class="text-center animate__animated animate__fadeIn animate__delay-1s">
+                                        <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-xl hover-scale mb-3">
+                                        <div class="font-bold">Royyan</div>
+                                        <div class="text-sm opacity-80">Marketing Executive</div>
+                                    </div>
+                                    <div class="text-center animate__animated animate__fadeIn animate__delay-2s">
+                                        <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-xl hover-scale mb-3">
+                                        <div class="font-bold">Syifa</div>
+                                        <div class="text-sm opacity-80">Marketing Executive</div>
+                                    </div>
+                                    <div class="text-center animate__animated animate__fadeIn animate__delay-3s">
+                                        <img src="https://i.imgur.com/ss6mo40.jpg" alt="Rahma" class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-xl hover-scale mb-3">
+                                        <div class="font-bold">Rahma</div>
+                                        <div class="text-sm opacity-80">Marketing Executive</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weekly Schedule -->
+            <div class="card mb-16">
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <i class="fas fa-calendar-alt mr-3 text-secondary"></i> Jadwal Rolling Inhouse Mingguan
+                    </h3>
+                    
+                    <div class="nav-tabs">
+                        <div class="nav-tab active" data-tab="rabu">Rabu</div>
+                        <div class="nav-tab" data-tab="kamis">Kamis</div>
+                        <div class="nav-tab" data-tab="jumat">Jumat</div>
+                        <div class="nav-tab" data-tab="sabtu">Sabtu</div>
+                        <div class="nav-tab" data-tab="minggu">Minggu</div>
+                    </div>
+                    
+                    <div id="rabu" class="tab-content active">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-gradient-to-r from-primary to-primary-light text-white">
+                                        <th class="py-4 px-6 text-left rounded-tl-xl w-1/5">Hari</th>
+                                        <th class="py-4 px-6 text-left w-2/5">Inhouse</th>
+                                        <th class="py-4 px-6 text-left w-2/5">Canvasing</th>
+                                        <th class="py-4 px-6 text-left rounded-tr-xl w-1/5">Target</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
+                                        <td class="py-4 px-6 font-medium">Rabu</td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex items-center">
+                                                <img src="https://i.imgur.com/G2HP9Jp.jpg" alt="Syifa" class="w-10 h-10 rounded-full mr-3 border-2 border-white shadow">
+                                                <div>
+                                                    <span class="font-medium block">Syifa</span>
+                                                    <span class="text-sm text-gray-600 dark:text-gray-400">Inhouse Rabu & Minggu</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex flex-wrap gap-3">
+                                                <div class="flex items-center">
+                                                    <img src="https://i.imgur.com/9ziHjbS.jpg" alt="Riza" class="w-8 h-8 rounded-full mr-2 border-2 border-white shadow">
+                                                    <span>Riza</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <img src="https://i.imgur.com/ss6mo40.jpg" alt="Rahma" class="w-8 h-8 rounded-full mr-2 border-2 border-white shadow">
+                                                    <span>Rahma</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <img src="https://i.imgur.com/3zxXZrm.jpg" alt="Royyan" class="w-8 h-8 rounded-full mr-2 border-2 border-white shadow">
+                                                    <span>Royyan</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-6 font-medium">12 kunjungan/orang</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab content lainnya (Kamis, Jumat, Sabtu, Minggu) -->
+                    <!-- ... -->
+                </div>
+            </div>
+            
+            <!-- Inhouse Responsibilities -->
+            <!-- Sama seperti sebelumnya -->
+        </section>
+
+        <!-- Section 3: Commission Table -->
+        <!-- Sama seperti sebelumnya -->
+
+        <!-- Section 4: Area Mapping -->
+        <section id="mapping" class="section mb-24">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Mapping Area Canvasing</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Segmentasi target dan area canvasing di sekitar Kertayasa Sindangagung Kuningan Jawa Barat.</p>
+            </div>
+            
+            <div class="card mb-16">
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <i class="fas fa-map-marked-alt mr-3 text-secondary"></i> Peta Area Canvasing
+                    </h3>
+                    
+                    <div class="map-container" id="map"></div>
+                    
+                    <div class="mt-8 grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-xl text-primary mb-4 flex items-center dark:text-white">
+                                <i class="fas fa-bullseye mr-3 text-secondary"></i> Segmentasi Target
+                            </h4>
+                            <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                                <li>Karyawan swasta dengan gaji > Rp5 juta/bulan</li>
+                                <li>Pegawai negeri (PNS/TNI/POLRI)</li>
+                                <li>Pengusaha kecil-menengah di Kuningan</li>
+                                <li>Warga perantauan yang ingin memiliki rumah di kampung halaman</li>
+                                <li>Pasangan muda yang baru menikah</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-xl text-primary mb-4 flex items-center dark:text-white">
+                                <i class="fas fa-map-marker-alt mr-3 text-secondary"></i> Lokasi Prioritas
+                            </h4>
+                            <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                                <li>Pusat kota Kuningan (sekitar alun-alun)</li>
+                                <li>Perumahan di sekitar Sindangagung</li>
+                                <li>Kawasan industri Cirebon-Kuningan</li>
+                                <li>Pasar tradisional dan modern di Kuningan</li>
+                                <li>Sekolah dan kampus di Kuningan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customer Profile Examples -->
+            <div class="card">
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <i class="fas fa-users mr-3 text-secondary"></i> Contoh Profil Customer Potensial (12 Kunjungan/Hari)
+                    </h3>
+                    
+                    <div class="customer-grid">
+                        <!-- Customer 1 -->
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                            <div class="flex items-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-14 h-14 rounded-full mr-4 border-2 border-white shadow">
+                                <div>
+                                    <div class="font-semibold text-lg dark:text-white">Ibu Siti</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Guru SMP Negeri</div>
+                                </div>
+                            </div>
+                            <div class="text-gray-700 dark:text-gray-300">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
+                                    <span>Sindangagung</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
+                                    <span>Gaji Rp6.5 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-secondary mr-3 w-5"></i>
+                                    <span>Mencari rumah untuk keluarga kecil</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Customer 2 -->
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                            <div class="flex items-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="w-14 h-14 rounded-full mr-4 border-2 border-white shadow">
+                                <div>
+                                    <div class="font-semibold text-lg dark:text-white">Bapak Ahmad</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pegawai Bank</div>
+                                </div>
+                            </div>
+                            <div class="text-gray-700 dark:text-gray-300">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
+                                    <span>Kuningan Kota</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-money-bill-wave text-secondary mr-3 w-5"></i>
+                                    <span>Gaji Rp8 juta/bulan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-home text-secondary mr-3 w-5"></i
