@@ -148,6 +148,7 @@
         
         .progress-bar {
             transition: width 1.5s ease-in-out;
+            background: linear-gradient(to right, var(--secondary), var(--secondary-light));
         }
         
         .glow-effect {
@@ -429,57 +430,6 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #111827;
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .card,
-        body.dark-mode .team-card,
-        body.dark-mode .data-card,
-        body.dark-mode .flip-card-front,
-        body.dark-mode .flip-card-back,
-        body.dark-mode .accordion-content {
-            background-color: #1f2937;
-            color: #f3f4f6;
-            border-color: #374151;
-        }
-
-        body.dark-mode .text-primary,
-        body.dark-mode .text-gray-700,
-        body.dark-mode .text-gray-600,
-        body.dark-mode .text-gray-500,
-        body.dark-mode .text-gray-400 {
-            color: #f3f4f6 !important;
-        }
-
-        body.dark-mode .bg-white {
-            background-color: #1f2937 !important;
-        }
-
-        body.dark-mode .bg-gray-50 {
-            background-color: #111827 !important;
-        }
-
-        body.dark-mode .accordion-header {
-            background-color: #1f2937;
-            color: #f3f4f6;
-            border-color: #374151;
-        }
-
-        body.dark-mode .nav-tab {
-            color: #d1d5db;
-        }
-
-        body.dark-mode .nav-tab.active {
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .border-gray-200 {
-            border-color: #374151;
-        }
-
         /* Avatar Styles */
         .avatar {
             width: 100px;
@@ -515,10 +465,6 @@
             overflow: hidden;
         }
 
-        body.dark-mode .map-container {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-        }
-
         .map-placeholder {
             position: absolute;
             top: 0;
@@ -533,10 +479,6 @@
             z-index: 1;
         }
 
-        body.dark-mode .map-placeholder {
-            background: rgba(31, 41, 55, 0.8);
-        }
-
         .map-grid {
             position: absolute;
             top: 0;
@@ -548,12 +490,6 @@
                 linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
             background-size: 20px 20px;
             z-index: 0;
-        }
-
-        body.dark-mode .map-grid {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
         }
 
         .map-marker {
@@ -595,6 +531,88 @@
             border: none;
         }
 
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .team-card,
+        body.dark-mode .data-card,
+        body.dark-mode .flip-card-front,
+        body.dark-mode .flip-card-back,
+        body.dark-mode .accordion-content,
+        body.dark-mode .funnel-step {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            border-color: #374151;
+        }
+
+        body.dark-mode .text-primary,
+        body.dark-mode .text-gray-700,
+        body.dark-mode .text-gray-600,
+        body.dark-mode .text-gray-500,
+        body.dark-mode .text-gray-400 {
+            color: #f3f4f6 !important;
+        }
+
+        body.dark-mode .bg-white {
+            background-color: #1f2937 !important;
+        }
+
+        body.dark-mode .bg-gray-50 {
+            background-color: #111827 !important;
+        }
+
+        body.dark-mode .accordion-header {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            border-color: #374151;
+        }
+
+        body.dark-mode .nav-tab {
+            color: #d1d5db;
+        }
+
+        body.dark-mode .nav-tab.active {
+            color: #f3f4f6;
+        }
+
+        body.dark-mode .border-gray-200 {
+            border-color: #374151;
+        }
+
+        body.dark-mode .map-container {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+
+        body.dark-mode .map-placeholder {
+            background: rgba(31, 41, 55, 0.8);
+        }
+
+        body.dark-mode .map-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        }
+
+        body.dark-mode .form-container input,
+        body.dark-mode .form-container textarea,
+        body.dark-mode .form-container select {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #f3f4f6;
+        }
+
+        body.dark-mode .form-container label {
+            color: #f3f4f6 !important;
+        }
+
+        body.dark-mode .progress-bar {
+            background: linear-gradient(to right, var(--secondary-dark), var(--secondary-light));
+        }
+
         @media (max-width: 768px) {
             .section {
                 scroll-margin-top: 80px;
@@ -633,20 +651,6 @@
                 font-size: 32px;
             }
         }
-        /* Tambahkan di dark mode styles */
-body.dark-mode .form-container input,
-body.dark-mode .form-container textarea {
-    background-color: #374151;
-    border-color: #4b5563;
-    color: #f3f4f6;
-}
-
-body.dark-mode .form-container label {
-    color: #f3f4f6 !important;
-}
-body.dark-mode .progress-bar {
-    background: linear-gradient(to right, var(--secondary-dark), var(--secondary-light));
-}
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1724,17 +1728,16 @@ body.dark-mode .progress-bar {
                         <i class="fas fa-map-marked-alt mr-3 text-secondary"></i> Peta Area Canvasing
                     </h3>
                     
-                    <!-- Ganti div map-container dengan ini -->
-<div class="map-container">
-    <div class="map-grid"></div>
-    <div class="map-placeholder">
-        <i class="fas fa-map-marked-alt text-4xl text-primary mb-4 dark:text-white"></i>
-        <h4 class="text-xl font-semibold text-primary mb-2 dark:text-white">Peta Area Canvasing</h4>
-        <p class="text-gray-700 max-w-md text-center dark:text-gray-300">
-            Area canvasing meliputi wilayah Kuningan dan sekitarnya dengan fokus pada lokasi strategis.
-        </p>
-    </div>
-</div>
+                    <div class="map-container">
+                        <div class="map-grid"></div>
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt text-4xl text-primary mb-4 dark:text-white"></i>
+                            <h4 class="text-xl font-semibold text-primary mb-2 dark:text-white">Peta Area Canvasing</h4>
+                            <p class="text-gray-700 max-w-md text-center dark:text-gray-300">
+                                Area canvasing meliputi wilayah Kuningan dan sekitarnya dengan fokus pada lokasi strategis.
+                            </p>
+                        </div>
+                    </div>
                     
                     <div class="mt-8 grid md:grid-cols-2 gap-8">
                         <div>
@@ -2105,7 +2108,7 @@ body.dark-mode .progress-bar {
                                     <div class="text-md font-semibold text-primary dark:text-white">0/30</div>
                                 </div>
                                 <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                                    <div class="progress-bar bg-gradient-to-r from-secondary to-secondary-dark h-3 rounded-full" style="width: 0%"></div>
+                                    <div class="progress-bar h-3 rounded-full" style="width: 0%"></div>
                                 </div>
                             </div>
                             
@@ -2304,7 +2307,7 @@ body.dark-mode .progress-bar {
                     
                     <div class="bg-gray-100 p-8 rounded-xl dark:bg-gray-800">
                         <div class="form-container">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" class="dark:bg-gray-700">Memuat…</iframe>
                         </div>
                         
                         <div class="mt-8 grid md:grid-cols-2 gap-8">
@@ -2345,7 +2348,7 @@ body.dark-mode .progress-bar {
                     
                     <div class="bg-gray-100 p-8 rounded-xl dark:bg-gray-800">
                         <div class="form-container">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE2/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE2/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" class="dark:bg-gray-700">Memuat…</iframe>
                         </div>
                         
                         <div class="mt-8 grid md:grid-cols-2 gap-8">
@@ -2617,18 +2620,18 @@ body.dark-mode .progress-bar {
         const totalPerson = document.getElementById('total-person');
 
         unitsSoldInput.addEventListener('input', function() {
-    const units = parseInt(this.value);
-    unitsValue.textContent = units + ' Unit';
-    
-    // Calculate values
-    const commission = units * 1430000;
-    const bonus = units >= 30 ? units * 286000 : 0;
-    const fee = units * 400000;
-    
-    // Update progress bar
-    const progressBar = document.querySelector('.progress-bar');
-    const progressPercentage = Math.min(100, (units / 30) * 100);
-    progressBar.style.width = `${progressPercentage}%`;
+            const units = parseInt(this.value);
+            unitsValue.textContent = units + ' Unit';
+            
+            // Calculate values
+            const commission = units * 1430000;
+            const bonus = units >= 30 ? units * 286000 : 0;
+            const fee = units * 400000;
+            
+            // Update progress bar
+            const progressBar = document.querySelector('.progress-bar');
+            const progressPercentage = Math.min(100, (units / 30) * 100);
+            progressBar.style.width = `${progressPercentage}%`;
             
             const perPersonComm = Math.round(commission / 4);
             const perPersonBon = Math.round(bonus / 4);
@@ -2646,11 +2649,6 @@ body.dark-mode .progress-bar {
             perPersonFee.textContent = formatCurrency(perPersonFe);
             totalTeam.textContent = formatCurrency(totalTeamValue);
             totalPerson.textContent = formatCurrency(totalPersonValue);
-            
-            // Update progress bar
-            const progressBar = document.querySelector('.progress-bar');
-            const progressPercentage = (units / 30) * 100;
-            progressBar.style.width = `${progressPercentage}%`;
         });
 
         function formatCurrency(amount) {
@@ -2741,16 +2739,6 @@ body.dark-mode .progress-bar {
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
-// Tambahkan event listener untuk form validation
-document.querySelectorAll('.form-container input, .form-container textarea').forEach(input => {
-    input.addEventListener('focus', function() {
-        this.classList.add('ring-2', 'ring-primary');
-    });
-    
-    input.addEventListener('blur', function() {
-        this.classList.remove('ring-2', 'ring-primary');
-    });
-});
     </script>
 </body>
 </html>
