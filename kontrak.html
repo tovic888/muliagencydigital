@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
         :root {
             --primary: #2563eb;
@@ -23,7 +22,7 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
             scroll-behavior: smooth;
             color: var(--text-primary);
             background-color: #f9fafb;
@@ -438,18 +437,21 @@
 
         body.dark-mode .card,
         body.dark-mode .team-card,
-        body.dark-mode .data-card {
+        body.dark-mode .data-card,
+        body.dark-mode .flip-card-front,
+        body.dark-mode .flip-card-back,
+        body.dark-mode .accordion-content {
             background-color: #1f2937;
             color: #f3f4f6;
             border-color: #374151;
         }
 
-        body.dark-mode .text-primary {
+        body.dark-mode .text-primary,
+        body.dark-mode .text-gray-700,
+        body.dark-mode .text-gray-600,
+        body.dark-mode .text-gray-500,
+        body.dark-mode .text-gray-400 {
             color: #f3f4f6 !important;
-        }
-
-        body.dark-mode .text-gray-700 {
-            color: #d1d5db !important;
         }
 
         body.dark-mode .bg-white {
@@ -466,10 +468,6 @@
             border-color: #374151;
         }
 
-        body.dark-mode .accordion-content {
-            background-color: #1f2937;
-        }
-
         body.dark-mode .nav-tab {
             color: #d1d5db;
         }
@@ -483,215 +481,118 @@
         }
 
         /* Avatar Styles */
-        .avatar-large {
-            width: 120px;
-            height: 120px;
+        .avatar {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .avatar-medium {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .avatar-small {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        
-        .icon-avatar {
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
+            font-size: 40px;
+            margin: 0 auto;
+        }
+
+        .avatar-sm {
+            width: 60px;
+            height: 60px;
             font-size: 24px;
         }
-        
-        .icon-avatar-large {
-            width: 120px;
-            height: 120px;
-            font-size: 48px;
-        }
-        
-        .icon-avatar-medium {
-            width: 80px;
-            height: 80px;
-            font-size: 32px;
-        }
-        
-        .icon-avatar-small {
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
+
+        .avatar-xs {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
         }
 
-        /* Map Container */
+        /* Map Styles */
         .map-container {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border-radius: 12px;
+            height: 400px;
             position: relative;
-            height: 500px;
-            background: #f5f7fa;
-            border-radius: 16px;
             overflow: hidden;
         }
-        
-        #interactive-map {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .map-legend {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        
-        .legend-color {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        /* Form Styles */
-        .form-container {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-        
-        .form-section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #e5e7eb;
-        }
-        
-        .form-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .form-title i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-        
-        .signature-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .signature-box {
-            width: 45%;
-            text-align: center;
-        }
-        
-        .signature-placeholder {
-            height: 100px;
-            border: 1px dashed #e5e7eb;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-        }
-        
-        /* Progress Bar */
-        .progress-container {
-            width: 100%;
-            background-color: #e5e7eb;
-            border-radius: 10px;
-            margin: 15px 0;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, var(--secondary), var(--secondary-dark));
-            width: 0;
-            transition: width 1s ease-in-out;
+
+        body.dark-mode .map-container {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
         }
 
-        /* Dark mode adjustments */
-        body.dark-mode .form-container {
-            background-color: #1f2937;
-            border-color: #374151;
+        .map-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.8);
+            z-index: 1;
         }
-        
-        body.dark-mode .form-input {
-            background-color: #111827;
-            border-color: #374151;
-            color: #f3f4f6;
+
+        body.dark-mode .map-placeholder {
+            background: rgba(31, 41, 55, 0.8);
         }
-        
-        body.dark-mode .form-label {
-            color: #f3f4f6;
+
+        .map-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
         }
-        
-        body.dark-mode .signature-placeholder {
-            border-color: #374151;
-            color: #9ca3af;
+
+        body.dark-mode .map-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
         }
-        
-        body.dark-mode .map-legend {
-            background-color: #1f2937;
-            color: #f3f4f6;
+
+        .map-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 2px solid white;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        /* New Section Styles */
+        .strategy-card {
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Google Form Embed */
+        .form-container {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .form-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         @media (max-width: 768px) {
@@ -725,25 +626,11 @@
             .nav-tab {
                 padding: 10px 15px;
             }
-            
-            .avatar-large {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .icon-avatar-large {
+
+            .avatar {
                 width: 80px;
                 height: 80px;
                 font-size: 32px;
-            }
-            
-            .signature-container {
-                flex-direction: column;
-            }
-            
-            .signature-box {
-                width: 100%;
-                margin-bottom: 20px;
             }
         }
     </style>
@@ -772,9 +659,6 @@
                 <a href="#strategies" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
                     Strategi Pemasaran
                 </a>
-                <a href="#freelance-form" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
-                    Formulir Freelance
-                </a>
             </div>
             <button class="md:hidden focus:outline-none" id="mobile-menu-button">
                 <svg class="w-8 h-8 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -797,11 +681,8 @@
                 <a href="#kpi" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
                     <i class="fas fa-chart-line mr-3 text-secondary w-5"></i> KPI Marketing
                 </a>
-                <a href="#strategies" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
+                <a href="#strategies" class="text-primary hover:text-secondary transition font-semibold py-3 flex items-center dark:text-gray-300">
                     <i class="fas fa-bullseye mr-3 text-secondary w-5"></i> Strategi Pemasaran
-                </a>
-                <a href="#freelance-form" class="text-primary hover:text-secondary transition font-semibold py-3 flex items-center dark:text-gray-300">
-                    <i class="fas fa-file-signature mr-3 text-secondary w-5"></i> Formulir Freelance
                 </a>
             </div>
         </div>
@@ -861,7 +742,7 @@
                 </div>
                 <div class="data-card">
                     <div class="value">30 Unit</div>
-                    <div class="label">Target Tiap Bulan</div>
+                    <div class="label">Target 6 Bulan</div>
                     <div class="mt-4 text-right">
                         <i class="fas fa-bullseye text-3xl text-accent opacity-30"></i>
                     </div>
@@ -959,17 +840,12 @@
                             <!-- Level 1: Bimulialand -->
                             <div class="organigram-box bg-primary text-white p-8 shadow-lg w-full max-w-md text-center mb-10 hover-scale">
                                 <div class="flex justify-center mb-4">
-                                    <div class="icon-avatar icon-avatar-large">
+                                    <div class="avatar">
                                         <i class="fas fa-building"></i>
                                     </div>
                                 </div>
                                 <div class="font-bold text-2xl mb-2">Bimulialand</div>
                                 <div class="text-lg opacity-90 mb-4">CEO: Eka Ahmad Fauzi</div>
-                                <div class="mt-4">
-                                    <div class="icon-avatar icon-avatar-large mx-auto">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
-                                </div>
                             </div>
                             
                             <!-- Arrow -->
@@ -979,13 +855,13 @@
                             
                             <!-- Level 2: PT Rumah Mulia Indonesia -->
                             <div class="organigram-box bg-primary-light text-white p-8 shadow-lg w-full max-w-md text-center mb-10 hover-scale">
-                                <div class="font-bold text-2xl mb-2">PT Rumah Mulia Indonesia</div>
-                                <div class="text-lg opacity-90 mb-4">BD Manager: Rohmatullah</div>
-                                <div class="mt-4">
-                                    <div class="icon-avatar icon-avatar-large mx-auto">
-                                        <i class="fas fa-user-tie"></i>
+                                <div class="flex justify-center mb-4">
+                                    <div class="avatar">
+                                        <i class="fas fa-home"></i>
                                     </div>
                                 </div>
+                                <div class="font-bold text-2xl mb-2">PT Rumah Mulia Indonesia</div>
+                                <div class="text-lg opacity-90 mb-4">RD Manager: Rohmatullah</div>
                             </div>
                             
                             <!-- Arrow -->
@@ -995,13 +871,13 @@
                             
                             <!-- Level 3: MEA -->
                             <div class="organigram-box bg-accent text-white p-8 shadow-lg w-full max-w-md text-center hover-scale">
-                                <div class="font-bold text-2xl mb-2">MEA</div>
-                                <div class="text-lg opacity-90 mb-4">Manager Marketing: Taufik Mansur Marie</div>
-                                <div class="mt-4">
-                                    <div class="icon-avatar icon-avatar-large mx-auto">
+                                <div class="flex justify-center mb-4">
+                                    <div class="avatar">
                                         <i class="fas fa-user-tie"></i>
                                     </div>
                                 </div>
+                                <div class="font-bold text-2xl mb-2">MEA</div>
+                                <div class="text-lg opacity-90 mb-4">Manager Marketing: Taufik Mansur Marie</div>
                             </div>
                         </div>
                     </div>
@@ -1020,7 +896,7 @@
                     <div class="h-72 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
                         <div class="relative z-10 text-center p-4">
-                            <div class="icon-avatar icon-avatar-large mx-auto mb-4">
+                            <div class="avatar mb-4">
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <h3 class="font-bold text-white text-3xl mb-1">Taufik Mansur Marie</h3>
@@ -1040,10 +916,10 @@
                     <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
                         <div class="relative z-10 text-center p-4">
-                            <div class="icon-avatar icon-avatar-large mx-auto mb-4">
+                            <div class="avatar mb-4">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <h3 class="font-bold text-white text-2xl mb-1">Pria B</h3>
+                            <h3 class="font-bold text-white text-2xl mb-1">Royyan</h3>
                             <p class="text-white opacity-90">Marketing Executive</p>
                             <div class="mt-3">
                                 <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Sabtu</span>
@@ -1057,7 +933,7 @@
                     <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
                         <div class="relative z-10 text-center p-4">
-                            <div class="icon-avatar icon-avatar-large mx-auto mb-4">
+                            <div class="avatar mb-4">
                                 <i class="fas fa-user"></i>
                             </div>
                             <h3 class="font-bold text-white text-2xl mb-1">Syifa</h3>
@@ -1074,7 +950,7 @@
                     <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
                         <div class="relative z-10 text-center p-4">
-                            <div class="icon-avatar icon-avatar-large mx-auto mb-4">
+                            <div class="avatar mb-4">
                                 <i class="fas fa-user"></i>
                             </div>
                             <h3 class="font-bold text-white text-2xl mb-1">Rahma</h3>
@@ -1091,7 +967,7 @@
                     <div class="h-64 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-black bg-opacity-30"></div>
                         <div class="relative z-10 text-center p-4">
-                            <div class="icon-avatar icon-avatar-large mx-auto mb-4">
+                            <div class="avatar mb-4">
                                 <i class="fas fa-user"></i>
                             </div>
                             <h3 class="font-bold text-white text-2xl mb-1">Riza</h3>
@@ -1117,13 +993,15 @@
                     </div>
                     <div class="accordion-content">
                         <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
-                            <li>Melakukan canvasing aktif sesuai area yang ditentukan (12 kunjungan/hari)</li>
-                            <li>Merekrut minimal 3 marketing freelance setiap canvasing</li>
-                            <li>Mengumpulkan data lengkap marketing freelance (formulir, data bank, foto KTP)</li>
+                            <li>Melakukan canvasing aktif sesuai area yang ditentukan (minimal 12 kunjungan/hari)</li>
+                            <li>Wajib merekrut 3 marketing freelance setiap hari canvasing</li>
+                            <li>Mengisi formulir data marketing freelance (termasuk data bank dan foto KTP)</li>
                             <li>Menjaga hubungan baik dengan calon pembeli dan komunitas lokal</li>
                             <li>Mengikuti jadwal rolling inhouse sesuai pembagian</li>
                             <li>Membuat laporan harian kegiatan marketing</li>
                             <li>Mencapai target kunjungan dan penjualan yang ditetapkan</li>
+                            <li>Mengelola grup WhatsApp marketing freelance dan menjadikan Manager sebagai admin</li>
+                            <li>Aktif berkomunikasi dengan marketing freelance di grup masing-masing</li>
                         </ul>
                     </div>
                 </div>
@@ -1182,24 +1060,19 @@
                                 </div>
                                 <div>
                                     <h4 class="font-medium text-xl text-primary mb-2 dark:text-white">Hari Kerja: Rabu – Minggu</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">Libur: Senin & Selasa (kecuali hari libur nasional diganti hari Jumat)</p>
+                                    <p class="text-gray-700 dark:text-gray-400">Libur: Senin & Selasa (kecuali hari libur nasional diganti hari Jumat)</p>
                                 </div>
                             </div>
                             
                             <div class="timeline">
                                 <div class="timeline-item mb-8">
-                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">07.30 – 08.00</h4>
+                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">08.00 – 09.00</h4>
                                     <p class="text-gray-700 dark:text-gray-300">Briefing harian & tilawah bersama RMI</p>
                                 </div>
                                 
                                 <div class="timeline-item mb-8">
-                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">08.00 – 09.00</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Briefing marketing dengan Manager MEA</p>
-                                </div>
-                                
-                                <div class="timeline-item mb-8">
                                     <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">09.00 – 16.30</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Canvasing (minimal 12 kunjungan/hari + 3 freelance)</p>
+                                    <p class="text-gray-700 dark:text-gray-300">Canvasing (minimal 12 kunjungan/hari) + rekrut 3 freelance</p>
                                 </div>
                                 
                                 <div class="timeline-item mb-8">
@@ -1209,7 +1082,7 @@
                                 
                                 <div class="timeline-item">
                                     <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">16.30 – 17.30</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Administrasi (Kollabo & laporan harian)</p>
+                                    <p class="text-gray-700 dark:text-gray-300">Administrasi (Collabo & laporan harian)</p>
                                 </div>
                             </div>
                         </div>
@@ -1221,38 +1094,38 @@
                                 </h4>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div class="text-center">
-                                        <div class="icon-avatar icon-avatar-medium mx-auto">
+                                        <div class="avatar-sm mb-3">
                                             <i class="fas fa-user-tie"></i>
                                         </div>
-                                        <div class="mt-3 font-semibold">Taufik</div>
+                                        <div class="font-semibold">Taufik</div>
                                         <div class="text-sm opacity-80">Manager</div>
                                     </div>
                                     <div class="text-center">
-                                        <div class="icon-avatar icon-avatar-medium mx-auto">
+                                        <div class="avatar-sm mb-3">
                                             <i class="fas fa-user"></i>
                                         </div>
-                                        <div class="mt-3 font-semibold">Pria B</div>
+                                        <div class="font-semibold">Royyan</div>
                                         <div class="text-sm opacity-80">Marketing</div>
                                     </div>
                                     <div class="text-center">
-                                        <div class="icon-avatar icon-avatar-medium mx-auto">
+                                        <div class="avatar-sm mb-3">
                                             <i class="fas fa-user"></i>
                                         </div>
-                                        <div class="mt-3 font-semibold">Syifa</div>
+                                        <div class="font-semibold">Syifa</div>
                                         <div class="text-sm opacity-80">Marketing</div>
                                     </div>
                                     <div class="text-center">
-                                        <div class="icon-avatar icon-avatar-medium mx-auto">
+                                        <div class="avatar-sm mb-3">
                                             <i class="fas fa-user"></i>
                                         </div>
-                                        <div class="mt-3 font-semibold">Rahma</div>
+                                        <div class="font-semibold">Rahma</div>
                                         <div class="text-sm opacity-80">Marketing</div>
                                     </div>
                                     <div class="text-center col-span-2">
-                                        <div class="icon-avatar icon-avatar-medium mx-auto">
+                                        <div class="avatar-sm mb-3">
                                             <i class="fas fa-user"></i>
                                         </div>
-                                        <div class="mt-3 font-semibold">Riza</div>
+                                        <div class="font-semibold">Riza</div>
                                         <div class="text-sm opacity-80">Marketing</div>
                                     </div>
                                 </div>
@@ -1293,7 +1166,7 @@
                                         <td class="py-4 px-6 font-medium">Rabu</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
-                                                <div class="icon-avatar icon-avatar-small mr-3">
+                                                <div class="avatar-xs mr-3">
                                                     <i class="fas fa-user"></i>
                                                 </div>
                                                 <div>
@@ -1305,26 +1178,26 @@
                                         <td class="py-4 px-6">
                                             <div class="flex flex-wrap gap-4">
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Riza</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Rahma</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Pria B</span>
+                                                    <span>Royyan</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 font-medium">12 kunjungan/orang + 3 freelance</td>
+                                        <td class="py-4 px-6 font-medium">12 kunjungan + 3 freelance/orang</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1347,7 +1220,7 @@
                                         <td class="py-4 px-6 font-medium">Kamis</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
-                                                <div class="icon-avatar icon-avatar-small mr-3">
+                                                <div class="avatar-xs mr-3">
                                                     <i class="fas fa-user"></i>
                                                 </div>
                                                 <div>
@@ -1359,26 +1232,26 @@
                                         <td class="py-4 px-6">
                                             <div class="flex flex-wrap gap-4">
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Syifa</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Rahma</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Pria B</span>
+                                                    <span>Royyan</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 font-medium">12 kunjungan/orang + 3 freelance</td>
+                                        <td class="py-4 px-6 font-medium">12 kunjungan + 3 freelance/orang</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1401,7 +1274,7 @@
                                         <td class="py-4 px-6 font-medium">Jumat</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
-                                                <div class="icon-avatar icon-avatar-small mr-3">
+                                                <div class="avatar-xs mr-3">
                                                     <i class="fas fa-user"></i>
                                                 </div>
                                                 <div>
@@ -1413,26 +1286,26 @@
                                         <td class="py-4 px-6">
                                             <div class="flex flex-wrap gap-4">
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Syifa</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Riza</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Pria B</span>
+                                                    <span>Royyan</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 font-medium">12 kunjungan/orang + 3 freelance</td>
+                                        <td class="py-4 px-6 font-medium">12 kunjungan + 3 freelance/orang</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1455,11 +1328,11 @@
                                         <td class="py-4 px-6 font-medium">Sabtu</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
-                                                <div class="icon-avatar icon-avatar-small mr-3">
+                                                <div class="avatar-xs mr-3">
                                                     <i class="fas fa-user"></i>
                                                 </div>
                                                 <div>
-                                                    <span class="font-medium">Pria B</span>
+                                                    <span class="font-medium">Royyan</span>
                                                     <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
                                                 </div>
                                             </div>
@@ -1467,26 +1340,26 @@
                                         <td class="py-4 px-6">
                                             <div class="flex flex-wrap gap-4">
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Syifa</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Riza</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Rahma</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 font-medium">12 kunjungan/orang + 3 freelance</td>
+                                        <td class="py-4 px-6 font-medium">12 kunjungan + 3 freelance/orang</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1509,7 +1382,7 @@
                                         <td class="py-4 px-6 font-medium">Minggu</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
-                                                <div class="icon-avatar icon-avatar-small mr-3">
+                                                <div class="avatar-xs mr-3">
                                                     <i class="fas fa-user"></i>
                                                 </div>
                                                 <div>
@@ -1521,26 +1394,26 @@
                                         <td class="py-4 px-6">
                                             <div class="flex flex-wrap gap-4">
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Riza</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <span>Rahma</span>
                                                 </div>
                                                 <div class="flex items-center">
-                                                    <div class="icon-avatar icon-avatar-small mr-2">
+                                                    <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Pria B</span>
+                                                    <span>Royyan</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 font-medium">12 kunjungan/orang + 3 freelance</td>
+                                        <td class="py-4 px-6 font-medium">12 kunjungan + 3 freelance/orang</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1566,7 +1439,7 @@
                             <li>Menangani semua leads yang masuk (online/offline/freelance)</li>
                             <li>Melayani konsumen yang datang ke lokasi proyek</li>
                             <li>Membuat laporan harian handling konsumen</li>
-                            <li>Update status konsumen di sistem Kollabo setiap hari</li>
+                            <li>Update status konsumen di sistem Collabo setiap hari</li>
                         </ul>
                         
                         <h4 class="font-medium text-lg text-primary mb-4 flex items-center dark:text-white">
@@ -1839,16 +1712,12 @@
                     
                     <div class="map-container">
                         <div class="map-grid"></div>
+                        <img src="https://maps.googleapis.com/maps/api/staticmap?center=-6.9816,108.4833&zoom=12&size=800x400&maptype=roadmap&markers=color:red%7C-6.9816,108.4833&key=YOUR_API_KEY" alt="Map Area Canvasing" class="w-full h-full object-cover">
                         <div class="map-marker" style="top: 30%; left: 40%;"></div>
                         <div class="map-marker" style="top: 45%; left: 60%;"></div>
                         <div class="map-marker" style="top: 60%; left: 35%;"></div>
                         <div class="map-marker" style="top: 25%; left: 70%;"></div>
                         <div class="map-marker" style="top: 70%; left: 65%;"></div>
-                        <div class="map-placeholder">
-                            <i class="fas fa-map-marked-alt text-5xl text-primary mb-4"></i>
-                            <h4 class="text-xl font-semibold text-primary mb-2">Peta Area Canvasing Kertamulya Residence</h4>
-                            <p class="text-gray-600 max-w-md">Area prioritas di sekitar Kertayasa Sindangagung Kuningan Jawa Barat</p>
-                        </div>
                     </div>
                     
                     <div class="mt-8 grid md:grid-cols-2 gap-8">
@@ -2247,129 +2116,6 @@
                 </div>
             </div>
         </section>
-   <!-- Section Baru: Formulir Marketing Freelance -->
-    <section id="freelance-form" class="section mb-24">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Formulir Marketing Freelance</h2>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Formulir wajib untuk merekrut marketing freelance dengan data lengkap.</p>
-        </div>
-        
-        <div class="card">
-            <div class="p-8">
-                <div class="form-container dark:bg-gray-800">
-                    <div class="form-section">
-                        <h3 class="form-title"><i class="fas fa-user-circle"></i> Data Pribadi</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nama Lengkap</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan nama lengkap">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nomor KTP</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan nomor KTP">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Alamat Lengkap</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan alamat lengkap">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Tanggal Lahir</label>
-                                <input type="date" class="form-input dark:bg-gray-700 dark:text-white">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h3 class="form-title"><i class="fas fa-phone-alt"></i> Kontak</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nomor Telepon</label>
-                                <input type="tel" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan nomor telepon">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nomor WhatsApp</label>
-                                <input type="tel" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan nomor WhatsApp">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Email</label>
-                                <input type="email" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan alamat email">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Akun Media Sosial</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Instagram/Facebook">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h3 class="form-title"><i class="fas fa-university"></i> Data Bank</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nama Bank</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Contoh: BCA, BRI, dll">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nomor Rekening</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan nomor rekening">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Nama Pemilik Rekening</label>
-                                <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Harus sama dengan nama KTP">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h3 class="form-title"><i class="fas fa-id-card"></i> Dokumen</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Foto KTP</label>
-                                <input type="file" class="form-input dark:bg-gray-700 dark:text-white">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label dark:text-white">Foto Buku Tabungan</label>
-                                <input type="file" class="form-input dark:bg-gray-700 dark:text-white">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h3 class="form-title"><i class="fas fa-users"></i> Grup Marketing Freelance</h3>
-                        <div class="mb-4">
-                            <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                Setiap Marketing Executive wajib membuat dan mengelola grup WhatsApp untuk marketing freelance yang direkrut. Grup harus mencakup:
-                            </p>
-                            <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
-                                <li>Manager MEA sebagai admin utama</li>
-                                <li>BD Manager sebagai admin</li>
-                                <li>Marketing Executive sebagai admin</li>
-                                <li>Semua marketing freelance yang direkrut</li>
-                            </ul>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label dark:text-white">Link Grup WhatsApp</label>
-                            <input type="text" class="form-input dark:bg-gray-700 dark:text-white" placeholder="Masukkan link grup WhatsApp">
-                        </div>
-                    </div>
-                    
-                    <div class="signature-container">
-                        <div class="signature-box">
-                            <div class="signature-placeholder dark:border-gray-600 dark:text-gray-400">
-                                Tanda Tangan Marketing Freelance
-                            </div>
-                            <div class="text-gray-600 dark:text-gray-400">Tanggal: _______________</div>
-                        </div>
-                        <div class="signature-box">
-                            <div class="signature-placeholder dark:border-gray-600 dark:text-gray-400">
-                                Tanda Tangan Marketing Executive
-                            </div>
-                            <div class="text-gray-600 dark:text-gray-400">Tanggal: _______________</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
         <!-- Section 7: Marketing Strategies -->
         <section id="strategies" class="section mb-24">
@@ -2541,68 +2287,74 @@
                     </h3>
                     
                     <div class="bg-gray-100 p-8 rounded-xl dark:bg-gray-800">
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-container">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+                        </div>
+                        
+                        <div class="mt-8 grid md:grid-cols-2 gap-8">
                             <div>
-                                <div class="mb-6">
-                                    <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">Data Pribadi</h4>
-                                    <div class="space-y-4">
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Nama Lengkap</label>
-                                            <div class="bg-white p-3 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600">[Nama Freelance]</div>
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">No. KTP</label>
-                                            <div class="bg-white p-3 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600">[Nomor KTP]</div>
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Alamat</label>
-                                            <div class="bg-white p-3 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600">[Alamat Lengkap]</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">Data Bank</h4>
-                                    <div class="space-y-4">
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Nama Bank</label>
-                                            <div class="bg-white p-3 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600">[Nama Bank]</div>
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">No. Rekening</label>
-                                            <div class="bg-white p-3 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600">[Nomor Rekening]</div>
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Atas Nama</label>
-                                            <div class="bg-white p-3 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600">[Nama Pemilik Rekening]</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Field Wajib:</h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                                    <li>Nama Lengkap</li>
+                                    <li>Nomor Telepon/WhatsApp</li>
+                                    <li>Email</li>
+                                    <li>Alamat Lengkap</li>
+                                    <li>Foto KTP (wajib jelas dan terbaca)</li>
+                                    <li>Tanda Tangan</li>
+                                    <li>Data Rekening Bank</li>
+                                </ul>
                             </div>
                             
                             <div>
-                                <div class="mb-6">
-                                    <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">Foto KTP</h4>
-                                    <div class="bg-white p-8 rounded-xl border-2 border-dashed border-gray-300 text-center dark:bg-gray-700 dark:border-gray-600">
-                                        <i class="fas fa-id-card text-4xl text-gray-400 mb-4"></i>
-                                        <p class="text-gray-500 dark:text-gray-400">Upload foto KTP yang jelas dan terbaca</p>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-3 dark:text-white">Tanda Tangan</h4>
-                                    <div class="bg-white p-8 rounded-xl border-2 border-dashed border-gray-300 text-center dark:bg-gray-700 dark:border-gray-600">
-                                        <i class="fas fa-signature text-4xl text-gray-400 mb-4"></i>
-                                        <p class="text-gray-500 dark:text-gray-400">Area tanda tangan freelance</p>
-                                    </div>
-                                </div>
+                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Aturan Fee:</h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                                    <li>Freelance mendapatkan Rp2.500.000 per closing valid</li>
+                                    <li>Pembayaran dilakukan setelah akad selesai</li>
+                                    <li>Marketing Executive wajib follow up customer dari freelance</li>
+                                    <li>Marketing Executive wajib mendampingi customer dari freelance</li>
+                                    <li>Freelance harus aktif berkomunikasi dengan marketing executive</li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Executive Canvasing Form -->
+            <div class="card mt-8">
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <i class="fas fa-clipboard-list mr-3 text-secondary"></i> Formulir Canvasing Marketing Executive
+                    </h3>
+                    
+                    <div class="bg-gray-100 p-8 rounded-xl dark:bg-gray-800">
+                        <div class="form-container">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE2/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+                        </div>
                         
-                        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
-                                <i class="fas fa-info-circle mr-2"></i> Formulir ini wajib diisi lengkap oleh marketing executive saat merekrut freelance baru. Data akan diverifikasi oleh tim marketing sebelum komisi dibayarkan.
-                            </p>
+                        <div class="mt-8 grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Data Wajib:</h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                                    <li>Nama User</li>
+                                    <li>Nomor Telepon</li>
+                                    <li>Desa/Kelurahan</li>
+                                    <li>Kecamatan</li>
+                                    <li>Usaha/Pekerjaan</li>
+                                    <li>Jam Kunjungan</li>
+                                    <li>Tanda Tangan User</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Ketentuan:</h4>
+                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                                    <li>Formulir harus diisi lengkap dan valid</li>
+                                    <li>Data akan diverifikasi oleh tim marketing</li>
+                                    <li>Wajib melampirkan foto KTP jika diperlukan</li>
+                                    <li>Formulir menjadi dasar evaluasi kinerja</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2792,64 +2544,8 @@
     <div class="fixed bottom-6 right-24 bg-primary text-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center cursor-pointer z-50 hidden" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
     <script>
-        // Inisialisasi peta
-        function initMap() {
-            // Koordinat Kuningan, Jawa Barat
-            const kuningan = [-6.9759, 108.4831];
-            
-            // Buat peta
-            const map = L.map('interactive-map').setView(kuningan, 12);
-            
-            // Tambahkan layer peta
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            
-            // Tambahkan marker untuk lokasi proyek
-            L.marker([-6.9759, 108.4831]).addTo(map)
-                .bindPopup('Kertamulya Residence')
-                .openPopup();
-            
-            // Tambahkan area canvasing (contoh)
-            const priorityArea = L.circle([-6.9759, 108.4831], {
-                color: '#3b82f6',
-                fillColor: '#3b82f6',
-                fillOpacity: 0.3,
-                radius: 2000
-            }).addTo(map).bindPopup('Area Prioritas - Radius 2km');
-            
-            const secondaryArea = L.circle([-6.9759, 108.4831], {
-                color: '#10b981',
-                fillColor: '#10b981',
-                fillOpacity: 0.2,
-                radius: 5000
-            }).addTo(map).bindPopup('Area Sekunder - Radius 5km');
-            
-            const potentialArea = L.circle([-6.9759, 108.4831], {
-                color: '#f59e0b',
-                fillColor: '#f59e0b',
-                fillOpacity: 0.1,
-                radius: 10000
-            }).addTo(map).bindPopup('Area Potensial - Radius 10km');
-        }
-        
-        // Panggil fungsi initMap setelah halaman selesai dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            initMap();
-            
-            // Inisialisasi progress bar
-            const progressBar = document.getElementById('target-progress-bar');
-            const progressText = document.getElementById('progress-text');
-            
-            // Contoh: set progress 10 dari 30
-            const currentProgress = 10;
-            const maxProgress = 30;
-            const progressPercentage = (currentProgress / maxProgress) * 100;
-            
-            progressBar.style.width = `${progressPercentage}%`;
-            progressText.textContent = `${currentProgress}/${maxProgress}`;
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
