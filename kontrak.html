@@ -10,22 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
-            --primary-dark: #1d4ed8;
+            --primary: #3b82f6;
+            --primary-light: #60a5fa;
+            --primary-dark: #2563eb;
             --secondary: #f59e0b;
             --secondary-light: #fbbf24;
             --secondary-dark: #d97706;
             --accent: #10b981;
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
+            --text-primary: #f3f4f6;
+            --text-secondary: #d1d5db;
         }
         
         body {
             font-family: 'Poppins', system-ui, -apple-system, sans-serif;
             scroll-behavior: smooth;
             color: var(--text-primary);
-            background-color: #f9fafb;
+            background-color: #111827;
         }
         
         .hero-gradient {
@@ -38,16 +38,17 @@
         
         .card {
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
             border-radius: 16px;
             overflow: hidden;
-            background: white;
-            border: 1px solid #e5e7eb;
+            background: #1f2937;
+            border: 1px solid #374151;
+            color: #f3f4f6;
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
         }
         
         .gradient-text {
@@ -76,16 +77,16 @@
         
         .team-card {
             transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
             overflow: hidden;
-            background: white;
-            border: 1px solid #e5e7eb;
+            background: #1f2937;
+            border: 1px solid #374151;
         }
         
         .team-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
         }
         
         .flip-card {
@@ -121,16 +122,16 @@
         .funnel-step {
             position: relative;
             transition: all 0.4s ease;
-            background: white;
+            background: #1f2937;
             border-radius: 12px;
             padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #374151;
         }
         
         .funnel-step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
         }
         
         .funnel-step:not(:last-child):after {
@@ -198,15 +199,15 @@
         
         .organigram-box {
             transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #374151;
         }
         
         .organigram-box:hover {
             transform: scale(1.05);
             z-index: 10;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
         }
         
         .timeline {
@@ -309,18 +310,18 @@
         }
 
         .data-card {
-            background: white;
+            background: #1f2937;
             border-radius: 12px;
             padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-left: 4px solid var(--secondary);
-            border: 1px solid #e5e7eb;
+            border: 1px solid #374151;
         }
 
         .data-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .data-card .value {
@@ -351,7 +352,7 @@
 
         .nav-tabs {
             display: flex;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #374151;
             margin-bottom: 20px;
         }
 
@@ -361,7 +362,7 @@
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: #d1d5db;
         }
 
         .nav-tab:hover {
@@ -377,13 +378,13 @@
             margin-bottom: 10px;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #374151;
         }
 
         .accordion-header {
             padding: 16px 20px;
-            background: white;
+            background: #1f2937;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -393,7 +394,7 @@
         }
 
         .accordion-header:hover {
-            background: #f9fafb;
+            background: #1a202c;
         }
 
         .accordion-content {
@@ -401,7 +402,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
-            background: white;
+            background: #1f2937;
         }
 
         .accordion-item.active .accordion-content {
@@ -458,49 +459,17 @@
 
         /* Map Styles */
         .map-container {
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
             border-radius: 12px;
             height: 400px;
             position: relative;
             overflow: hidden;
         }
 
-        .map-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.8);
-            z-index: 1;
-        }
-
-        .map-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .map-iframe {
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            z-index: 0;
-        }
-
-        .map-marker {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: var(--secondary);
-            border-radius: 50%;
-            border: 2px solid white;
-            transform: translate(-50%, -50%);
-            z-index: 2;
+            border: none;
         }
 
         /* New Section Styles */
@@ -511,7 +480,7 @@
 
         .strategy-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         /* Google Form Embed */
@@ -529,88 +498,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #111827;
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .card,
-        body.dark-mode .team-card,
-        body.dark-mode .data-card,
-        body.dark-mode .flip-card-front,
-        body.dark-mode .flip-card-back,
-        body.dark-mode .accordion-content,
-        body.dark-mode .funnel-step {
-            background-color: #1f2937;
-            color: #f3f4f6;
-            border-color: #374151;
-        }
-
-        body.dark-mode .text-primary,
-        body.dark-mode .text-gray-700,
-        body.dark-mode .text-gray-600,
-        body.dark-mode .text-gray-500,
-        body.dark-mode .text-gray-400 {
-            color: #f3f4f6 !important;
-        }
-
-        body.dark-mode .bg-white {
-            background-color: #1f2937 !important;
-        }
-
-        body.dark-mode .bg-gray-50 {
-            background-color: #111827 !important;
-        }
-
-        body.dark-mode .accordion-header {
-            background-color: #1f2937;
-            color: #f3f4f6;
-            border-color: #374151;
-        }
-
-        body.dark-mode .nav-tab {
-            color: #d1d5db;
-        }
-
-        body.dark-mode .nav-tab.active {
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .border-gray-200 {
-            border-color: #374151;
-        }
-
-        body.dark-mode .map-container {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-        }
-
-        body.dark-mode .map-placeholder {
-            background: rgba(31, 41, 55, 0.8);
-        }
-
-        body.dark-mode .map-grid {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        }
-
-        body.dark-mode .form-container input,
-        body.dark-mode .form-container textarea,
-        body.dark-mode .form-container select {
-            background-color: #374151;
-            border-color: #4b5563;
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .form-container label {
-            color: #f3f4f6 !important;
-        }
-
-        body.dark-mode .progress-bar {
-            background: linear-gradient(to right, var(--secondary-dark), var(--secondary-light));
         }
 
         @media (max-width: 768px) {
@@ -653,53 +540,53 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-900">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50 dark:bg-gray-800 dark:shadow-md">
+    <nav class="fixed w-full bg-gray-800 shadow-md z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-4">
                 <img src="https://i.imgur.com/yy0vB2n.png" alt="RMI Logo" class="h-14">
-                <div class="text-lg font-bold text-primary dark:text-white">Kertamulya Residence</div>
+                <div class="text-lg font-bold text-white">Kertamulya Residence</div>
             </div>
             <div class="hidden md:flex space-x-8">
-                <a href="#team" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
+                <a href="#team" class="nav-item text-white hover:text-secondary transition font-semibold">
                     Struktur Tim
                 </a>
-                <a href="#schedule" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
+                <a href="#schedule" class="nav-item text-white hover:text-secondary transition font-semibold">
                     Jadwal Kerja
                 </a>
-                <a href="#commission" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
+                <a href="#commission" class="nav-item text-white hover:text-secondary transition font-semibold">
                     Sistem Komisi
                 </a>
-                <a href="#kpi" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
+                <a href="#kpi" class="nav-item text-white hover:text-secondary transition font-semibold">
                     KPI Marketing
                 </a>
-                <a href="#strategies" class="nav-item text-primary hover:text-secondary transition font-semibold dark:text-gray-300">
+                <a href="#strategies" class="nav-item text-white hover:text-secondary transition font-semibold">
                     Strategi Pemasaran
                 </a>
             </div>
             <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-                <svg class="w-8 h-8 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
         <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white w-full px-6 py-4 shadow-xl dark:bg-gray-800" id="mobile-menu">
+        <div class="md:hidden hidden bg-gray-800 w-full px-6 py-4 shadow-xl" id="mobile-menu">
             <div class="flex flex-col space-y-4">
-                <a href="#team" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
+                <a href="#team" class="text-white hover:text-secondary transition font-semibold py-3 border-b border-gray-700 flex items-center">
                     <i class="fas fa-users mr-3 text-secondary w-5"></i> Struktur Tim
                 </a>
-                <a href="#schedule" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
+                <a href="#schedule" class="text-white hover:text-secondary transition font-semibold py-3 border-b border-gray-700 flex items-center">
                     <i class="fas fa-calendar-alt mr-3 text-secondary w-5"></i> Jadwal Kerja
                 </a>
-                <a href="#commission" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
+                <a href="#commission" class="text-white hover:text-secondary transition font-semibold py-3 border-b border-gray-700 flex items-center">
                     <i class="fas fa-money-bill-wave mr-3 text-secondary w-5"></i> Sistem Komisi
                 </a>
-                <a href="#kpi" class="text-primary hover:text-secondary transition font-semibold py-3 border-b border-gray-100 flex items-center dark:text-gray-300 dark:border-gray-700">
+                <a href="#kpi" class="text-white hover:text-secondary transition font-semibold py-3 border-b border-gray-700 flex items-center">
                     <i class="fas fa-chart-line mr-3 text-secondary w-5"></i> KPI Marketing
                 </a>
-                <a href="#strategies" class="text-primary hover:text-secondary transition font-semibold py-3 flex items-center dark:text-gray-300">
+                <a href="#strategies" class="text-white hover:text-secondary transition font-semibold py-3 flex items-center">
                     <i class="fas fa-bullseye mr-3 text-secondary w-5"></i> Strategi Pemasaran
                 </a>
             </div>
@@ -734,7 +621,7 @@
     </section>
 
     <!-- Quick Stats Section -->
-    <section class="bg-white py-12 dark:bg-gray-800">
+    <section class="bg-gray-800 py-12">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="data-card">
@@ -760,7 +647,7 @@
                 </div>
                 <div class="data-card">
                     <div class="value">30 Unit</div>
-                    <div class="label">Target 6 Bulan</div>
+                    <div class="label">Target Tiap Bulan</div>
                     <div class="mt-4 text-right">
                         <i class="fas fa-bullseye text-3xl text-accent opacity-30"></i>
                     </div>
@@ -774,14 +661,14 @@
         <!-- Section 1: Team Structure -->
         <section id="team" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Struktur Tim & Kontrak</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja dan kerja tim yang solid.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Struktur Tim & Kontrak</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Tim Marketing Executive untuk proyek Kertamulya Residence dengan sistem remunerasi berbasis kinerja dan kerja tim yang solid.</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12 mb-16">
                 <div>
                     <div class="card p-8 mb-8">
-                        <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
+                        <h3 class="text-2xl font-semibold text-white mb-6 flex items-center">
                             <i class="fas fa-users mr-3 text-secondary"></i> Informasi Tim
                         </h3>
                         <div class="space-y-6">
@@ -790,8 +677,8 @@
                                     <i class="fas fa-users"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-white">Komposisi Tim</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">4 anggota (3 Laki-laki & 1 Perempuan) dengan pembagian tugas yang jelas dan sistem kerja berbasis tim.</p>
+                                    <h4 class="font-semibold text-lg text-white mb-2">Komposisi Tim</h4>
+                                    <p class="text-gray-300">4 anggota (3 Laki-laki & 1 Perempuan) dengan pembagian tugas yang jelas dan sistem kerja berbasis tim.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -799,8 +686,8 @@
                                     <i class="fas fa-calendar-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-white">Periode Kontrak</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">3 bulan awal dengan evaluasi kinerja untuk kemungkinan perpanjangan 1 tahun berikutnya.</p>
+                                    <h4 class="font-semibold text-lg text-white mb-2">Periode Kontrak</h4>
+                                    <p class="text-gray-300">3 bulan awal dengan evaluasi kinerja untuk kemungkinan perpanjangan 1 tahun berikutnya.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -808,15 +695,15 @@
                                     <i class="fas fa-chart-line"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-white">Sistem Kerja</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Teamwork solid dengan weekly meeting evaluasi progres dan pembagian tugas yang transparan.</p>
+                                    <h4 class="font-semibold text-lg text-white mb-2">Sistem Kerja</h4>
+                                    <p class="text-gray-300">Teamwork solid dengan weekly meeting evaluasi progres dan pembagian tugas yang transparan.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="card p-8">
-                        <h3 class="text-2xl font-semibold text-primary mb-6 flex items-center dark:text-white">
+                        <h3 class="text-2xl font-semibold text-white mb-6 flex items-center">
                             <i class="fas fa-graduation-cap mr-3 text-secondary"></i> Pengembangan Tim
                         </h3>
                         <div class="space-y-4">
@@ -825,7 +712,7 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-700 dark:text-gray-300">Wajib mengikuti training online/offline untuk pengembangan skill marketing dan penjualan.</p>
+                                    <p class="text-gray-300">Wajib mengikuti training online/offline untuk pengembangan skill marketing dan penjualan.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -833,7 +720,7 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-700 dark:text-gray-300">Sesi mentoring rutin dengan Manager Marketing untuk peningkatan performa.</p>
+                                    <p class="text-gray-300">Sesi mentoring rutin dengan Manager Marketing untuk peningkatan performa.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -841,7 +728,7 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-700 dark:text-gray-300">Akses ke materi pembelajaran dan best practices perusahaan.</p>
+                                    <p class="text-gray-300">Akses ke materi pembelajaran dan best practices perusahaan.</p>
                                 </div>
                             </div>
                         </div>
@@ -850,7 +737,7 @@
                 
                 <div>
                     <div class="card p-8 h-full">
-                        <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                        <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                             <i class="fas fa-sitemap mr-3 text-secondary"></i> Struktur Holding Perusahaan
                         </h3>
                         
@@ -904,8 +791,8 @@
             
             <!-- Team Members -->
             <div class="text-center mb-12">
-                <h3 class="text-3xl font-semibold text-primary mb-4 dark:text-white">Anggota Tim Marketing</h3>
-                <p class="text-lg text-gray-700 max-w-3xl mx-auto dark:text-gray-300">Tim profesional yang akan bekerja sama mencapai target penjualan.</p>
+                <h3 class="text-3xl font-semibold text-white mb-4">Anggota Tim Marketing</h3>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">Tim profesional yang akan bekerja sama mencapai target penjualan.</p>
             </div>
             
             <!-- Manager -->
@@ -937,7 +824,7 @@
                             <div class="avatar mb-4">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <h3 class="font-bold text-white text-2xl mb-1">Royyan</h3>
+                            <h3 class="font-bold text-white text-2xl mb-1">MEA Pria</h3>
                             <p class="text-white opacity-90">Marketing Executive</p>
                             <div class="mt-3">
                                 <span class="inline-block bg-white text-primary px-3 py-1 rounded-full text-xs font-semibold">Inhouse Sabtu</span>
@@ -1000,7 +887,7 @@
             
             <!-- Team Accordion -->
             <div class="card p-8">
-                <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                     <i class="fas fa-info-circle mr-3 text-secondary"></i> Informasi Detail Tim
                 </h3>
                 
@@ -1010,7 +897,7 @@
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </div>
                     <div class="accordion-content">
-                        <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
+                        <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Melakukan canvasing aktif sesuai area yang ditentukan (minimal 12 kunjungan/hari)</li>
                             <li>Wajib merekrut 3 marketing freelance setiap hari canvasing</li>
                             <li>Mengisi formulir data marketing freelance (termasuk data bank dan foto KTP)</li>
@@ -1030,7 +917,7 @@
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </div>
                     <div class="accordion-content">
-                        <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
+                        <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Evaluasi harian melalui briefing pagi dan laporan harian</li>
                             <li>Evaluasi mingguan dalam meeting tim setiap Senin</li>
                             <li>Evaluasi bulanan berdasarkan pencapaian KPI individu dan tim</li>
@@ -1045,7 +932,7 @@
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </div>
                     <div class="accordion-content">
-                        <ul class="list-disc pl-5 text-gray-700 space-y-2 dark:text-gray-300">
+                        <ul class="list-disc pl-5 text-gray-300 space-y-2">
                             <li>Mendapatkan komisi sesuai struktur yang telah ditetapkan</li>
                             <li>Mendapatkan bonus tim ketika target tercapai</li>
                             <li>Mendapatkan training dan pengembangan skill</li>
@@ -1060,13 +947,13 @@
         <!-- Section 2: Schedule & Rolling Inhouse -->
         <section id="schedule" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Jadwal Kerja & Rolling Inhouse</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Struktur kerja yang jelas untuk memaksimalkan produktivitas tim marketing.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Jadwal Kerja & Rolling Inhouse</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Struktur kerja yang jelas untuk memaksimalkan produktivitas tim marketing.</p>
             </div>
             
             <div class="card mb-16">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                         <i class="fas fa-calendar-week mr-3 text-secondary"></i> Jadwal & Tugas Harian
                     </h3>
                     
@@ -1077,30 +964,30 @@
                                     <i class="fas fa-calendar-day"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-xl text-primary mb-2 dark:text-white">Hari Kerja: Rabu – Minggu</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Libur: Senin & Selasa (kecuali hari libur nasional diganti hari Jumat)</p>
+                                    <h4 class="font-medium text-xl text-white mb-2">Hari Kerja: Rabu – Minggu</h4>
+                                    <p class="text-gray-400">Libur: Senin & Selasa (kecuali hari libur nasional diganti hari Jumat)</p>
                                 </div>
                             </div>
                             
                             <div class="timeline">
                                 <div class="timeline-item mb-8">
-                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">08.00 – 09.00</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Briefing harian & tilawah bersama RMI</p>
+                                    <h4 class="font-medium text-lg text-white mb-2">08.00 – 09.00</h4>
+                                    <p class="text-gray-300">Briefing harian & tilawah bersama RMI</p>
                                 </div>
                                 
                                 <div class="timeline-item mb-8">
-                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">09.00 – 16.30</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Canvasing (minimal 12 kunjungan/hari) + rekrut 3 freelance</p>
+                                    <h4 class="font-medium text-lg text-white mb-2">09.00 – 16.30</h4>
+                                    <p class="text-gray-300">Canvasing (minimal 12 kunjungan/hari) + rekrut 3 freelance</p>
                                 </div>
                                 
                                 <div class="timeline-item mb-8">
-                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">Rolling Inhouse</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">1 orang/hari (jadwal di bawah)</p>
+                                    <h4 class="font-medium text-lg text-white mb-2">Rolling Inhouse</h4>
+                                    <p class="text-gray-300">1 orang/hari (jadwal di bawah)</p>
                                 </div>
                                 
                                 <div class="timeline-item">
-                                    <h4 class="font-medium text-lg text-primary mb-2 dark:text-white">16.30 – 17.30</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">Administrasi (Kolabo / Custom & laporan harian)</p>
+                                    <h4 class="font-medium text-lg text-white mb-2">16.30 – 17.30</h4>
+                                    <p class="text-gray-300">Administrasi (Custom & laporan harian)</p>
                                 </div>
                             </div>
                         </div>
@@ -1122,7 +1009,7 @@
                                         <div class="avatar-sm mb-3">
                                             <i class="fas fa-user"></i>
                                         </div>
-                                        <div class="font-semibold">Royyan</div>
+                                        <div class="font-semibold">MEA Pria</div>
                                         <div class="text-sm opacity-80">Marketing</div>
                                     </div>
                                     <div class="text-center">
@@ -1156,7 +1043,7 @@
             <!-- Weekly Schedule -->
             <div class="card mb-16">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                         <i class="fas fa-calendar-alt mr-3 text-secondary"></i> Jadwal Rolling Inhouse Mingguan
                     </h3>
                     
@@ -1180,7 +1067,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
+                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
                                         <td class="py-4 px-6 font-medium">Rabu</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
@@ -1189,7 +1076,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="font-medium">Syifa</span>
-                                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -1211,7 +1098,7 @@
                                                     <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Royyan</span>
+                                                    <span>MEA Pria</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -1234,7 +1121,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
+                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
                                         <td class="py-4 px-6 font-medium">Kamis</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
@@ -1243,7 +1130,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="font-medium">Riza</span>
-                                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -1265,7 +1152,7 @@
                                                     <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Royyan</span>
+                                                    <span>MEA Pria</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -1288,7 +1175,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
+                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
                                         <td class="py-4 px-6 font-medium">Jumat</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
@@ -1297,7 +1184,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="font-medium">Rahma</span>
-                                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -1319,7 +1206,7 @@
                                                     <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Royyan</span>
+                                                    <span>MEA Pria</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -1342,7 +1229,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
+                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
                                         <td class="py-4 px-6 font-medium">Sabtu</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
@@ -1350,8 +1237,8 @@
                                                     <i class="fas fa-user"></i>
                                                 </div>
                                                 <div>
-                                                    <span class="font-medium">Royyan</span>
-                                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                                    <span class="font-medium">MEA Pria</span>
+                                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -1396,7 +1283,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
+                                    <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
                                         <td class="py-4 px-6 font-medium">Minggu</td>
                                         <td class="py-4 px-6">
                                             <div class="flex items-center">
@@ -1405,7 +1292,7 @@
                                                 </div>
                                                 <div>
                                                     <span class="font-medium">Syifa</span>
-                                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -1427,7 +1314,7 @@
                                                     <div class="avatar-xs mr-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <span>Royyan</span>
+                                                    <span>MEA Pria</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -1450,20 +1337,20 @@
                         </h3>
                     </div>
                     <div class="p-8">
-                        <h4 class="font-medium text-lg text-primary mb-4 flex items-center dark:text-white">
+                        <h4 class="font-medium text-lg text-white mb-4 flex items-center">
                             <i class="fas fa-tasks mr-3 text-secondary"></i> Tanggung Jawab Utama
                         </h4>
-                        <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-3 dark:text-gray-300">
+                        <ul class="list-disc pl-6 mb-6 text-gray-300 space-y-3">
                             <li>Menangani semua leads yang masuk (online/offline/freelance)</li>
                             <li>Melayani konsumen yang datang ke lokasi proyek</li>
                             <li>Membuat laporan harian handling konsumen</li>
-                            <li>Update status konsumen di sistem Kolabo / Custom setiap hari</li>
+                            <li>Update status konsumen di sistem Custom setiap hari</li>
                         </ul>
                         
-                        <h4 class="font-medium text-lg text-primary mb-4 flex items-center dark:text-white">
+                        <h4 class="font-medium text-lg text-white mb-4 flex items-center">
                             <i class="fas fa-exclamation-circle mr-3 text-secondary"></i> SOP Penting
                         </h4>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                        <ul class="list-disc pl-6 text-gray-300 space-y-3">
                             <li>Dilarang menerima pembayaran langsung dari konsumen</li>
                             <li>Wajib menggunakan nomor resmi marketing pada brosur</li>
                             <li>Wajib mengikuti weekly meeting evaluasi</li>
@@ -1476,25 +1363,25 @@
                 <!-- Sanctions Card -->
                 <div class="flip-card h-full">
                     <div class="flip-card-inner h-full">
-                        <div class="flip-card-front bg-white h-full dark:bg-gray-800">
+                        <div class="flip-card-front bg-gray-800 h-full">
                             <div class="bg-gradient-to-r from-primary to-primary-light text-white p-6">
                                 <h3 class="font-semibold text-xl flex items-center">
                                     <i class="fas fa-gavel mr-3 text-secondary-light"></i> Sanksi & Terminasi
                                 </h3>
                             </div>
-                            <div class="p-8 flex flex-col h-full dark:bg-gray-800">
+                            <div class="p-8 flex flex-col h-full">
                                 <div class="flex-grow flex items-center justify-center">
                                     <div class="text-center">
-                                        <i class="fas fa-hand-pointer text-5xl text-primary opacity-20 mb-4 dark:text-gray-600"></i>
-                                        <div class="text-primary font-medium text-lg dark:text-white">Klik untuk melihat kebijakan sanksi</div>
+                                        <i class="fas fa-hand-pointer text-5xl text-primary opacity-20 mb-4"></i>
+                                        <div class="text-white font-medium text-lg">Klik untuk melihat kebijakan sanksi</div>
                                     </div>
                                 </div>
-                                <div class="text-sm text-gray-500 text-center dark:text-gray-400">
+                                <div class="text-sm text-gray-500 text-center">
                                     <i class="fas fa-sync-alt mr-2"></i> Balik kartu untuk melihat detail
                                 </div>
                             </div>
                         </div>
-                        <div class="flip-card-back bg-white h-full dark:bg-gray-800">
+                        <div class="flip-card-back bg-gray-800 h-full">
                             <div class="bg-gradient-to-r from-primary to-primary-light text-white p-6">
                                 <h3 class="font-semibold text-xl flex items-center">
                                     <i class="fas fa-gavel mr-3 text-secondary-light"></i> Sanksi & Terminasi
@@ -1502,37 +1389,37 @@
                             </div>
                             <div class="p-8">
                                 <div class="flex items-start mb-6">
-                                    <div class="bg-red-100 text-red-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-red-900 dark:bg-opacity-20">
+                                    <div class="bg-red-900 bg-opacity-20 text-red-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
                                         <i class="fas fa-exclamation-triangle"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">KPI <50% selama 2 bulan</h4>
-                                        <p class="text-gray-600 dark:text-gray-400">Teguran tertulis & evaluasi khusus</p>
+                                        <h4 class="font-medium text-lg text-white mb-1">KPI <50% selama 2 bulan</h4>
+                                        <p class="text-gray-400">Teguran tertulis & evaluasi khusus</p>
                                     </div>
                                 </div>
                                 
                                 <div class="flex items-start mb-6">
-                                    <div class="bg-red-100 text-red-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-red-900 dark:bg-opacity-20">
+                                    <div class="bg-red-900 bg-opacity-20 text-red-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
                                         <i class="fas fa-ban"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Pelanggaran SOP Berat</h4>
-                                        <p class="text-gray-600 dark:text-gray-400">Pemotongan komisi atau terminasi kontrak</p>
+                                        <h4 class="font-medium text-lg text-white mb-1">Pelanggaran SOP Berat</h4>
+                                        <p class="text-gray-400">Pemotongan komisi atau terminasi kontrak</p>
                                     </div>
                                 </div>
                                 
                                 <div class="flex items-start">
-                                    <div class="bg-red-100 text-red-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-red-900 dark:bg-opacity-20">
+                                    <div class="bg-red-900 bg-opacity-20 text-red-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
                                         <i class="fas fa-sign-out-alt"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Pengunduran Diri</h4>
-                                        <p class="text-gray-600 dark:text-gray-400">Pemberitahuan minimal 30 hari sebelumnya</p>
+                                        <h4 class="font-medium text-lg text-white mb-1">Pengunduran Diri</h4>
+                                        <p class="text-gray-400">Pemberitahuan minimal 30 hari sebelumnya</p>
                                     </div>
                                 </div>
                                 
-                                <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                                <div class="mt-8 pt-4 border-t border-gray-700">
+                                    <p class="text-sm text-gray-500">
                                         <i class="fas fa-info-circle mr-2"></i> Semua sanksi akan diberikan setelah melalui proses verifikasi dan pembelaan diri.
                                     </p>
                                 </div>
@@ -1546,8 +1433,8 @@
         <!-- Section 3: Commission Table -->
         <section id="commission" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Struktur Komisi & Fee</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Sistem komisi yang transparan dengan pembagian yang adil untuk seluruh anggota tim.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Struktur Komisi & Fee</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Sistem komisi yang transparan dengan pembagian yang adil untuk seluruh anggota tim.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -1560,10 +1447,10 @@
                     </div>
                     <div class="p-8">
                         <div class="text-4xl font-bold text-primary mb-3">1%</div>
-                        <div class="text-gray-700 mb-6 dark:text-gray-300">dari harga unit Rp143.000.000 = Rp1.430.000/unit</div>
-                        <div class="border-t pt-6 dark:border-gray-700">
-                            <div class="text-sm text-gray-600 mb-2 dark:text-gray-400">Dibagi rata 4 orang:</div>
-                            <div class="text-2xl font-semibold text-primary dark:text-white">Rp357.500/orang</div>
+                        <div class="text-gray-300 mb-6">dari harga unit Rp143.000.000 = Rp1.430.000/unit</div>
+                        <div class="border-t pt-6 border-gray-700">
+                            <div class="text-sm text-gray-400 mb-2">Dibagi rata 4 orang:</div>
+                            <div class="text-2xl font-semibold text-primary">Rp357.500/orang</div>
                         </div>
                     </div>
                 </div>
@@ -1577,10 +1464,10 @@
                     </div>
                     <div class="p-8">
                         <div class="text-4xl font-bold text-primary mb-3">0.2%</div>
-                        <div class="text-gray-700 mb-6 dark:text-gray-300">Jika Target 30 Unit Tercapai = Rp286.000/unit</div>
-                        <div class="border-t pt-6 dark:border-gray-700">
-                            <div class="text-sm text-gray-600 mb-2 dark:text-gray-400">Dibagi rata 4 orang:</div>
-                            <div class="text-2xl font-semibold text-primary dark:text-white">Rp71.500/orang</div>
+                        <div class="text-gray-300 mb-6">Jika Target 30 Team MEA + 30 Marketing Freelance = Rp286.000/unit</div>
+                        <div class="border-t pt-6 border-gray-700">
+                            <div class="text-sm text-gray-400 mb-2">Dibagi rata 4 orang:</div>
+                            <div class="text-2xl font-semibold text-primary">Rp71.500/orang</div>
                         </div>
                     </div>
                 </div>
@@ -1594,10 +1481,10 @@
                     </div>
                     <div class="p-8">
                         <div class="text-4xl font-bold text-primary mb-3">Rp400.000</div>
-                        <div class="text-gray-700 mb-6 dark:text-gray-300">Leads dari Channel Bebas/Freelance per unit</div>
-                        <div class="border-t pt-6 dark:border-gray-700">
-                            <div class="text-sm text-gray-600 mb-2 dark:text-gray-400">Dibagi rata 4 orang:</div>
-                            <div class="text-2xl font-semibold text-primary dark:text-white">Rp100.000/orang</div>
+                        <div class="text-gray-300 mb-6">Leads dari Channel Bebas/Freelance per unit</div>
+                        <div class="border-t pt-6 border-gray-700">
+                            <div class="text-sm text-gray-400 mb-2">Dibagi rata 4 orang:</div>
+                            <div class="text-2xl font-semibold text-primary">Rp100.000/orang</div>
                         </div>
                     </div>
                 </div>
@@ -1606,8 +1493,8 @@
             <!-- Interactive Simulation -->
             <div class="card mb-16">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                        <i class="fas fa-calculator mr-3 text-secondary"></i> Simulasi Penghasilan (30 Unit Tercapai)
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
+                        <i class="fas fa-calculator mr-3 text-secondary"></i> Simulasi Penghasilan (30 Mea + 30 Marketing Freelance)
                     </h3>
                     
                     <div class="overflow-x-auto">
@@ -1620,25 +1507,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Komisi 1%</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp42.900.000</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp10.725.000</td>
+                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
+                                    <td class="py-4 px-6 font-medium">Komisi 1%</td>
+                                    <td class="py-4 px-6">Rp42.900.000</td>
+                                    <td class="py-4 px-6">Rp10.725.000</td>
                                 </tr>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Bonus 0,2%</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp8.580.000</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp2.145.000</td>
+                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
+                                    <td class="py-4 px-6 font-medium">Bonus 0,2%</td>
+                                    <td class="py-4 px-6">Rp8.580.000</td>
+                                    <td class="py-4 px-6">Rp2.145.000</td>
                                 </tr>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Fee Freelance</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp12.000.000</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp3.000.000</td>
+                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
+                                    <td class="py-4 px-6 font-medium">Fee Freelance</td>
+                                    <td class="py-4 px-6">Rp12.000.000</td>
+                                    <td class="py-4 px-6">Rp3.000.000</td>
                                 </tr>
-                                <tr class="bg-primary bg-opacity-10 font-semibold dark:bg-gray-800">
-                                    <td class="py-4 px-6 rounded-bl-xl dark:text-white">Total</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp63.480.000</td>
-                                    <td class="py-4 px-6 rounded-br-xl dark:text-white">Rp15.870.000</td>
+                                <tr class="bg-primary bg-opacity-10 font-semibold">
+                                    <td class="py-4 px-6 rounded-bl-xl">Total</td>
+                                    <td class="py-4 px-6">Rp63.480.000</td>
+                                    <td class="py-4 px-6 rounded-br-xl">Rp15.870.000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1649,14 +1536,14 @@
             <!-- Interactive Calculator -->
             <div class="card">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                         <i class="fas fa-calculator mr-3 text-secondary"></i> Kalkulator Komisi Interaktif
                     </h3>
                     
                     <div class="mb-8">
-                        <label for="units-sold" class="block text-gray-700 mb-3 font-semibold text-lg dark:text-white">Jumlah Unit Terjual:</label>
-                        <input type="range" id="units-sold" min="0" max="30" value="15" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary dark:bg-gray-700">
-                        <div class="flex justify-between text-sm text-gray-600 mt-2 dark:text-gray-400">
+                        <label for="units-sold" class="block text-white mb-3 font-semibold text-lg">Jumlah Unit Terjual:</label>
+                        <input type="range" id="units-sold" min="0" max="30" value="15" class="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary">
+                        <div class="flex justify-between text-sm text-gray-400 mt-2">
                             <span>0 Unit</span>
                             <span id="units-value">15 Unit</span>
                             <span>30 Unit</span>
@@ -1664,33 +1551,33 @@
                     </div>
                     
                     <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-primary bg-opacity-5 p-6 rounded-xl dark:bg-gray-800">
-                            <div class="text-sm text-gray-600 mb-2 flex items-center dark:text-gray-400">
+                        <div class="bg-primary bg-opacity-5 p-6 rounded-xl">
+                            <div class="text-sm text-gray-400 mb-2 flex items-center">
                                 <i class="fas fa-money-bill-wave mr-2 text-secondary"></i> Komisi Tim (1%)
                             </div>
                             <div class="text-2xl font-bold text-primary mb-2" id="team-commission">Rp21.450.000</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                <i class="fas fa-user mr-2 text-secondary"></i> Per orang: <span id="per-person-commission" class="font-medium dark:text-white">Rp5.362.500</span>
+                            <div class="text-sm text-gray-400">
+                                <i class="fas fa-user mr-2 text-secondary"></i> Per orang: <span id="per-person-commission" class="font-medium">Rp5.362.500</span>
                             </div>
                         </div>
                         
-                        <div class="bg-primary bg-opacity-5 p-6 rounded-xl dark:bg-gray-800">
-                            <div class="text-sm text-gray-600 mb-2 flex items-center dark:text-gray-400">
+                        <div class="bg-primary bg-opacity-5 p-6 rounded-xl">
+                            <div class="text-sm text-gray-400 mb-2 flex items-center">
                                 <i class="fas fa-award mr-2 text-secondary"></i> Bonus Tim (0.2%)
                             </div>
                             <div class="text-2xl font-bold text-primary mb-2" id="team-bonus">Rp4.290.000</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                <i class="fas fa-user mr-2 text-secondary"></i> Per orang: <span id="per-person-bonus" class="font-medium dark:text-white">Rp1.072.500</span>
+                            <div class="text-sm text-gray-400">
+                                <i class="fas fa-user mr-2 text-secondary"></i> Per orang: <span id="per-person-bonus" class="font-medium">Rp1.072.500</span>
                             </div>
                         </div>
                         
-                        <div class="bg-primary bg-opacity-5 p-6 rounded-xl dark:bg-gray-800">
-                            <div class="text-sm text-gray-600 mb-2 flex items-center dark:text-gray-400">
+                        <div class="bg-primary bg-opacity-5 p-6 rounded-xl">
+                            <div class="text-sm text-gray-400 mb-2 flex items-center">
                                 <i class="fas fa-user-tie mr-2 text-secondary"></i> Fee Freelance
                             </div>
                             <div class="text-2xl font-bold text-primary mb-2" id="team-fee">Rp6.000.000</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                <i class="fas fa-user mr-2 text-secondary"></i> Per orang: <span id="per-person-fee" class="font-medium dark:text-white">Rp1.500.000</span>
+                            <div class="text-sm text-gray-400">
+                                <i class="fas fa-user mr-2 text-secondary"></i> Per orang: <span id="per-person-fee" class="font-medium">Rp1.500.000</span>
                             </div>
                         </div>
                     </div>
@@ -1708,7 +1595,7 @@
                         </div>
                     </div>
                     
-                    <div class="mt-6 text-sm text-gray-600 dark:text-gray-400">
+                    <div class="mt-6 text-sm text-gray-400">
                         <i class="fas fa-info-circle mr-2"></i> Perhitungan ini berdasarkan asumsi semua unit terjual berasal dari leads tim (bukan freelance).
                     </div>
                 </div>
@@ -1718,33 +1605,27 @@
         <!-- Section 4: Area Mapping -->
         <section id="mapping" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Mapping Area Canvasing</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Segmentasi target dan area canvasing di sekitar Kertayasa Sindangagung Kuningan Jawa Barat.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Mapping Area Canvasing</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Segmentasi target dan area canvasing di sekitar Kertayasa Sindangagung Kuningan Jawa Barat.</p>
             </div>
             
             <div class="card mb-16">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                         <i class="fas fa-map-marked-alt mr-3 text-secondary"></i> Peta Area Canvasing
                     </h3>
                     
                     <div class="map-container">
-                        <div class="map-grid"></div>
-                        <div class="map-placeholder">
-                            <i class="fas fa-map-marked-alt text-4xl text-primary mb-4 dark:text-white"></i>
-                            <h4 class="text-xl font-semibold text-primary mb-2 dark:text-white">Peta Area Canvasing</h4>
-                            <p class="text-gray-700 max-w-md text-center dark:text-gray-300">
-                                Area canvasing meliputi wilayah Kuningan dan sekitarnya dengan fokus pada lokasi strategis.
-                            </p>
-                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.225041601798!2d108.48327731529461!3d-6.988980794960901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTknMjAuMyJTIDEwOMKwMjknMDYuMCJF!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid" 
+                                class="map-iframe" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                     
                     <div class="mt-8 grid md:grid-cols-2 gap-8">
                         <div>
-                            <h4 class="font-semibold text-xl text-primary mb-4 flex items-center dark:text-white">
+                            <h4 class="font-semibold text-xl text-white mb-4 flex items-center">
                                 <i class="fas fa-bullseye mr-3 text-secondary"></i> Segmentasi Target
                             </h4>
-                            <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                            <ul class="list-disc pl-6 text-gray-300 space-y-3">
                                 <li>Karyawan swasta dengan gaji > Rp5 juta/bulan</li>
                                 <li>Pegawai negeri (PNS/TNI/POLRI)</li>
                                 <li>Pengusaha kecil-menengah di Kuningan</li>
@@ -1754,10 +1635,10 @@
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-xl text-primary mb-4 flex items-center dark:text-white">
+                            <h4 class="font-semibold text-xl text-white mb-4 flex items-center">
                                 <i class="fas fa-map-marker-alt mr-3 text-secondary"></i> Lokasi Prioritas
                             </h4>
-                            <ul class="list-disc pl-6 text-gray-700 space-y-3 dark:text-gray-300">
+                            <ul class="list-disc pl-6 text-gray-300 space-y-3">
                                 <li>Pusat kota Kuningan (sekitar alun-alun)</li>
                                 <li>Perumahan di sekitar Sindangagung</li>
                                 <li>Kawasan industri Cirebon-Kuningan</li>
@@ -1772,23 +1653,23 @@
             <!-- Customer Profile Examples -->
             <div class="card">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                         <i class="fas fa-users mr-3 text-secondary"></i> Contoh Profil Customer Potensial (12 Kunjungan/Hari)
                     </h3>
                     
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Customer 1 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="avatar-xs mr-4">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Ibu Siti</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Guru SMP Negeri</div>
+                                    <div class="font-semibold text-lg">Ibu Siti</div>
+                                    <div class="text-sm text-gray-400">Guru SMP Negeri</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
+                            <div class="text-gray-300">
                                 <div class="flex items-center mb-2">
                                     <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
                                     <span>Sindangagung</span>
@@ -1805,17 +1686,17 @@
                         </div>
                         
                         <!-- Customer 2 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="avatar-xs mr-4">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Bapak Ahmad</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pegawai Bank</div>
+                                    <div class="font-semibold text-lg">Bapak Ahmad</div>
+                                    <div class="text-sm text-gray-400">Pegawai Bank</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
+                            <div class="text-gray-300">
                                 <div class="flex items-center mb-2">
                                     <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
                                     <span>Kuningan Kota</span>
@@ -1832,17 +1713,17 @@
                         </div>
                         
                         <!-- Customer 3 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="avatar-xs mr-4">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Ibu Rina</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pengusaha Batik</div>
+                                    <div class="font-semibold text-lg">Ibu Rina</div>
+                                    <div class="text-sm text-gray-400">Pengusaha Batik</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
+                            <div class="text-gray-300">
                                 <div class="flex items-center mb-2">
                                     <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
                                     <span>Cigugur</span>
@@ -1859,17 +1740,17 @@
                         </div>
                         
                         <!-- Customer 4 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="avatar-xs mr-4">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Bapak Dedi</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">PNS Kabupaten</div>
+                                    <div class="font-semibold text-lg">Bapak Dedi</div>
+                                    <div class="text-sm text-gray-400">PNS Kabupaten</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
+                            <div class="text-gray-300">
                                 <div class="flex items-center mb-2">
                                     <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
                                     <span>Kuningan Kota</span>
@@ -1886,17 +1767,17 @@
                         </div>
                         
                         <!-- Customer 5 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="avatar-xs mr-4">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Ibu Ani</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Pengusaha Warung</div>
+                                    <div class="font-semibold text-lg">Ibu Ani</div>
+                                    <div class="text-sm text-gray-400">Pengusaha Warung</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
+                            <div class="text-gray-300">
                                 <div class="flex items-center mb-2">
                                     <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
                                     <span>Cilimus</span>
@@ -1913,17 +1794,17 @@
                         </div>
                         
                         <!-- Customer 6 -->
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-6 hover-scale">
                             <div class="flex items-center mb-4">
                                 <div class="avatar-xs mr-4">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-lg dark:text-white">Bapak Rudi</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Wiraswasta</div>
+                                    <div class="font-semibold text-lg">Bapak Rudi</div>
+                                    <div class="text-sm text-gray-400">Wiraswasta</div>
                                 </div>
                             </div>
-                            <div class="text-gray-700 dark:text-gray-300">
+                            <div class="text-gray-300">
                                 <div class="flex items-center mb-2">
                                     <i class="fas fa-map-marker-alt text-secondary mr-3 w-5"></i>
                                     <span>Jalaksana</span>
@@ -1946,8 +1827,8 @@
         <!-- Section 5: KPI Funnel -->
         <section id="kpi" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Funnel Perhitungan KPI</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Sistem penilaian kinerja individu yang transparan dengan kompensasi maksimal Rp2.500.000/orang.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Funnel Perhitungan KPI</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Sistem penilaian kinerja individu yang transparan dengan kompensasi maksimal Rp2.500.000/orang.</p>
             </div>
             
             <div class="card p-8 mb-16">
@@ -1956,9 +1837,9 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
                             <i class="fas fa-user-check"></i>
                         </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Kehadiran</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">35% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">24 hari kerja/bulan</div>
+                        <h3 class="font-semibold text-xl text-white mb-2">Kehadiran</h3>
+                        <div class="text-sm text-gray-400 mb-3">35% Bobot</div>
+                        <div class="text-md font-medium mb-3">24 hari kerja/bulan</div>
                         <div class="text-secondary font-bold text-xl">Rp875.000</div>
                     </div>
                     
@@ -1966,9 +1847,9 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
                             <i class="fas fa-search-dollar"></i>
                         </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Canvasing</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">20% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">12 kunjungan/hari + 3 freelance</div>
+                        <h3 class="font-semibold text-xl text-white mb-2">Canvasing</h3>
+                        <div class="text-sm text-gray-400 mb-3">20% Bobot</div>
+                        <div class="text-md font-medium mb-3">12 kunjungan/hari + 3 freelance</div>
                         <div class="text-secondary font-bold text-xl">Rp500.000</div>
                     </div>
                     
@@ -1976,9 +1857,9 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
                             <i class="fas fa-file-invoice-dollar"></i>
                         </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Laporan</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">15% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">Kolabo / Custom & dokumen</div>
+                        <h3 class="font-semibold text-xl text-white mb-2">Laporan</h3>
+                        <div class="text-sm text-gray-400 mb-3">15% Bobot</div>
+                        <div class="text-md font-medium mb-3">Custom & dokumen</div>
                         <div class="text-secondary font-bold text-xl">Rp375.000</div>
                     </div>
                     
@@ -1986,9 +1867,9 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl">
                             <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <h3 class="font-semibold text-xl text-primary mb-2 dark:text-white">Closing Tim</h3>
-                        <div class="text-sm text-gray-600 mb-3 dark:text-gray-400">30% Bobot</div>
-                        <div class="text-md font-medium mb-3 dark:text-white">Target 30 unit</div>
+                        <h3 class="font-semibold text-xl text-white mb-2">Closing Tim</h3>
+                        <div class="text-sm text-gray-400 mb-3">30% Bobot</div>
+                        <div class="text-md font-medium mb-3">Target 30 unit</div>
                         <div class="text-secondary font-bold text-xl">Rp750.000</div>
                     </div>
                 </div>
@@ -1996,7 +1877,7 @@
             
             <div class="card">
                 <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                    <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                         <i class="fas fa-chart-pie mr-3 text-secondary"></i> Detail KPI Individu (Maksimal Rp2.500.000/orang)
                     </h3>
                     
@@ -2011,39 +1892,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Kehadiran</td>
-                                    <td class="py-4 px-6 dark:text-white">35%</td>
-                                    <td class="py-4 px-6 dark:text-white">24 hari kerja/bulan</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp875.000</td>
+                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
+                                    <td class="py-4 px-6 font-medium">Kehadiran</td>
+                                    <td class="py-4 px-6">35%</td>
+                                    <td class="py-4 px-6">24 hari kerja/bulan</td>
+                                    <td class="py-4 px-6">Rp875.000</td>
                                 </tr>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Canvasing</td>
-                                    <td class="py-4 px-6 dark:text-white">20%</td>
-                                    <td class="py-4 px-6 dark:text-white">12 kunjungan/hari + 3 freelance</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp500.000</td>
+                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
+                                    <td class="py-4 px-6 font-medium">Canvasing</td>
+                                    <td class="py-4 px-6">20%</td>
+                                    <td class="py-4 px-6">12 kunjungan/hari + 3 freelance</td>
+                                    <td class="py-4 px-6">Rp500.000</td>
                                 </tr>
-                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10 dark:border-gray-700">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Laporan</td>
-                                    <td class="py-4 px-6 dark:text-white">15%</td>
-                                    <td class="py-4 px-6 dark:text-white">Kolabo / Custom & dokumen lapangan</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp375.000</td>
+                                <tr class="border-b hover:bg-primary hover:bg-opacity-5 transition border-gray-700">
+                                    <td class="py-4 px-6 font-medium">Laporan</td>
+                                    <td class="py-4 px-6">15%</td>
+                                    <td class="py-4 px-6">Custom & dokumen lapangan</td>
+                                    <td class="py-4 px-6">Rp375.000</td>
                                 </tr>
-                                <tr class="hover:bg-primary hover:bg-opacity-5 transition dark:hover:bg-opacity-10">
-                                    <td class="py-4 px-6 font-medium dark:text-white">Closing Tim</td>
-                                    <td class="py-4 px-6 dark:text-white">30%</td>
-                                    <td class="py-4 px-6 dark:text-white">Target 30 unit</td>
-                                    <td class="py-4 px-6 dark:text-white">Rp750.000</td>
+                                <tr class="hover:bg-primary hover:bg-opacity-5 transition">
+                                    <td class="py-4 px-6 font-medium">Closing Tim</td>
+                                    <td class="py-4 px-6">30%</td>
+                                    <td class="py-4 px-6">Target 30 unit</td>
+                                    <td class="py-4 px-6">Rp750.000</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     
-                    <div class="mt-8 bg-primary bg-opacity-5 rounded-xl p-6 dark:bg-gray-800">
-                        <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">
+                    <div class="mt-8 bg-primary bg-opacity-5 rounded-xl p-6">
+                        <h4 class="font-semibold text-lg text-white mb-4">
                             <i class="fas fa-info-circle mr-2 text-secondary"></i> Catatan Penting:
                         </h4>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
+                        <ul class="list-disc pl-6 text-gray-300 space-y-2">
                             <li>Pembayaran KPI dilakukan setiap bulannya</li>
                             <li>Pembayaran Komisi Team dilakukan kolektif berdasarkan jumlah akad yang sudah teralisai di lakukan setiap tgl 5</li>
                             <li>Penilaian dilakukan secara objektif berdasarkan data yang tercatat</li>
@@ -2058,7 +1939,7 @@
         <!-- Section 6: Target Distribution -->
         <section class="section mb-24">
             <div class="card p-8">
-                <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
+                <h3 class="text-2xl font-semibold text-white mb-8 flex items-center">
                     <i class="fas fa-bullseye mr-3 text-secondary"></i> Pembagian Target Closing Individu
                 </h3>
                 
@@ -2069,8 +1950,8 @@
                                 <i class="fas fa-bullseye"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-xl text-primary mb-2 dark:text-white">Target tim: 30 unit selama 6 bulan</h4>
-                                <p class="text-gray-700 dark:text-gray-300">Estimasi rata-rata individu: 7–8 unit (5 unit/bulan)</p>
+                                <h4 class="font-medium text-xl text-white mb-2">Target tim: 30 unit Setiap bulannya</h4>
+                                <p class="text-gray-300">Estimasi rata-rata individu: 7–8 unit (5 unit/bulan)</p>
                             </div>
                         </div>
                         
@@ -2079,8 +1960,8 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-xl text-primary mb-2 dark:text-white">Tidak wajib merata, sistem tetap berbasis tim</h4>
-                                <p class="text-gray-700 dark:text-gray-300">Selama target tim tercapai, komisi dan bonus dibagi rata</p>
+                                <h4 class="font-medium text-xl text-white mb-2">Tidak wajib merata, sistem tetap berbasis tim</h4>
+                                <p class="text-gray-300">Selama target tim tercapai, komisi dan bonus dibagi rata</p>
                             </div>
                         </div>
                         
@@ -2089,45 +1970,45 @@
                                 <i class="fas fa-hand-holding-usd"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-xl text-primary mb-2 dark:text-white">Fee freelance juga tetap dibagi rata</h4>
-                                <p class="text-gray-700 dark:text-gray-300">Meskipun hanya satu orang yang menangani buyer</p>
+                                <h4 class="font-medium text-xl text-white mb-2">Fee freelance juga tetap dibagi rata</h4>
+                                <p class="text-gray-300">Meskipun hanya satu orang yang menangani buyer</p>
                             </div>
                         </div>
                     </div>
                     
                     <div>
-                        <div class="bg-primary bg-opacity-5 rounded-xl p-8 h-full dark:bg-gray-800">
+                        <div class="bg-primary bg-opacity-5 rounded-xl p-8 h-full">
                             <div class="text-center mb-6">
-                                <div class="text-5xl font-bold text-primary mb-2 dark:text-white">30</div>
-                                <div class="text-gray-600 dark:text-gray-400">Unit Target Tim (6 bulan)</div>
+                                <div class="text-5xl font-bold text-primary mb-2">30</div>
+                                <div class="text-gray-400">Unit Target Tim (6 bulan)</div>
                             </div>
                             
                             <div class="mb-6">
                                 <div class="flex justify-between items-center mb-2">
-                                    <div class="text-md font-medium dark:text-white">Progress Tim</div>
-                                    <div class="text-md font-semibold text-primary dark:text-white">0/30</div>
+                                    <div class="text-md font-medium">Progress Tim</div>
+                                    <div class="text-md font-semibold text-primary">0/30</div>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
+                                <div class="w-full bg-gray-700 rounded-full h-3">
                                     <div class="progress-bar h-3 rounded-full" style="width: 0%"></div>
                                 </div>
                             </div>
                             
                             <div class="grid grid-cols-4 gap-4 text-center">
-                                <div class="bg-white p-3 rounded-lg shadow-sm dark:bg-gray-700">
-                                    <div class="text-xl font-semibold dark:text-white">7-8</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Unit/Orang</div>
+                                <div class="bg-gray-700 p-3 rounded-lg shadow-sm">
+                                    <div class="text-xl font-semibold">7-8</div>
+                                    <div class="text-xs text-gray-400">Unit/Orang</div>
                                 </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm dark:bg-gray-700">
-                                    <div class="text-xl font-semibold dark:text-white">1.43jt</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Komisi/Unit</div>
+                                <div class="bg-gray-700 p-3 rounded-lg shadow-sm">
+                                    <div class="text-xl font-semibold">1.43jt</div>
+                                    <div class="text-xs text-gray-400">Komisi/Unit</div>
                                 </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm dark:bg-gray-700">
-                                    <div class="text-xl font-semibold dark:text-white">286k</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Bonus/Unit</div>
+                                <div class="bg-gray-700 p-3 rounded-lg shadow-sm">
+                                    <div class="text-xl font-semibold">286k</div>
+                                    <div class="text-xs text-gray-400">Bonus/Unit</div>
                                 </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm dark:bg-gray-700">
-                                    <div class="text-xl font-semibold dark:text-white">100k</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Fee/Unit</div>
+                                <div class="bg-gray-700 p-3 rounded-lg shadow-sm">
+                                    <div class="text-xl font-semibold">100k</div>
+                                    <div class="text-xs text-gray-400">Fee/Unit</div>
                                 </div>
                             </div>
                         </div>
@@ -2139,8 +2020,8 @@
         <!-- Section 7: Marketing Strategies -->
         <section id="strategies" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Strategi Pemasaran</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Pendekatan offline dan online untuk mencapai target penjualan.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Strategi Pemasaran</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Pendekatan offline dan online untuk mencapai target penjualan.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -2150,17 +2031,17 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
                             <i class="fas fa-store"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold text-primary mb-4 text-center dark:text-white">Offline Kolaborasi Brosur UMKM</h3>
-                        <p class="text-gray-700 mb-6 text-center dark:text-gray-300">Tugas: Syifa & Rahma</p>
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Offline Kolaborasi Brosur UMKM</h3>
+                        <p class="text-gray-300 mb-6 text-center">Tugas: Syifa & Rahma</p>
                         
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Lokasi Utama</h4>
-                                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-400">
+                                    <h4 class="font-medium text-lg text-white mb-1">Lokasi Utama</h4>
+                                    <ul class="list-disc pl-5 text-gray-300">
                                         <li>Warung kopi</li>
                                         <li>Alfamart/Indomaret (izin ke kasir)</li>
                                         <li>Klinik & rumah sakit kecil</li>
@@ -2171,12 +2052,12 @@
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-file-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Materi</h4>
-                                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-400">
+                                    <h4 class="font-medium text-lg text-white mb-1">Materi</h4>
+                                    <ul class="list-disc pl-5 text-gray-300">
                                         <li>Poster A3 laminasi tahan hujan</li>
                                         <li>Brosur kecil (diletakkan di meja atau kasir)</li>
                                     </ul>
@@ -2184,12 +2065,12 @@
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-money-bill-wave"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Kompensasi</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Rp50.000 per titik (dibayar setelah pemasangan dengan bukti foto)</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Kompensasi</h4>
+                                    <p class="text-gray-300">Rp50.000 per titik (dibayar setelah pemasangan dengan bukti foto)</p>
                                 </div>
                             </div>
                         </div>
@@ -2202,37 +2083,37 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold text-primary mb-4 text-center dark:text-white">Strategi Online</h3>
-                        <p class="text-gray-700 mb-6 text-center dark:text-gray-300">Tugas: Taufik, Mansur, Marie (Manager MEA)</p>
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Strategi Online</h3>
+                        <p class="text-gray-300 mb-6 text-center">Tugas: Taufik, Mansur, Marie (Manager MEA)</p>
                         
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fab fa-facebook"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Iklan Meta</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Facebook/Instagram → Objektif: Traffic ke Website Landing Page</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Iklan Meta</h4>
+                                    <p class="text-gray-300">Facebook/Instagram → Objektif: Traffic ke Website Landing Page</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fab fa-youtube"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Iklan YouTube</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Objektif: Traffic / Branding (visualisasi rumah subsidi)</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Iklan YouTube</h4>
+                                    <p class="text-gray-300">Objektif: Traffic / Branding (visualisasi rumah subsidi)</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fab fa-tiktok"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Iklan TikTok</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Objektif: Awareness & Storytelling melalui video pendek</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Iklan TikTok</h4>
+                                    <p class="text-gray-300">Objektif: Awareness & Storytelling melalui video pendek</p>
                                 </div>
                             </div>
                         </div>
@@ -2245,47 +2126,47 @@
                         <div class="bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold text-primary mb-4 text-center dark:text-white">Marketing Freelance</h3>
-                        <p class="text-gray-700 mb-6 text-center dark:text-gray-300">Tugas: Marketing Executive</p>
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Marketing Freelance</h3>
+                        <p class="text-gray-300 mb-6 text-center">Tugas: Marketing Executive</p>
                         
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-user-plus"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Rekrutmen</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Rekrut freelance lokal sekitar desa/kelurahan Kertamulya</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Rekrutmen</h4>
+                                    <p class="text-gray-300">Rekrut freelance lokal sekitar desa/kelurahan Kertamulya</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-money-bill-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Sistem Komisi</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Rp2.500.000 per 1 closing valid</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Sistem Komisi</h4>
+                                    <p class="text-gray-300">Rp2.500.000 per 1 closing valid</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-file-contract"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Formulir Wajib</h4>
-                                    <p class="text-gray-700 dark:text-gray-400">Setiap marketing executive wajib membawa formulir untuk mengumpulkan data marketing freelance termasuk data bank dan foto KTP</p>
+                                    <h4 class="font-medium text-lg text-white mb-1">Formulir Wajib</h4>
+                                    <p class="text-gray-300">Setiap marketing executive wajib membawa formulir untuk mengumpulkan data marketing freelance termasuk data bank dan foto KTP</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                     <i class="fas fa-bullseye"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-lg text-primary mb-1 dark:text-white">Target Sebar</h4>
-                                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-400">
+                                    <h4 class="font-medium text-lg text-white mb-1">Target Sebar</h4>
+                                    <ul class="list-disc pl-5 text-gray-300">
                                         <li>RT/RW</li>
                                         <li>Arisan ibu-ibu</li>
                                         <li>Pengajian</li>
@@ -2298,100 +2179,20 @@
                 </div>
             </div>
             
-            <!-- Freelance Form Example -->
-            <div class="card">
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                        <i class="fas fa-file-alt mr-3 text-secondary"></i> Contoh Formulir Rekrutmen Freelance
-                    </h3>
-                    
-                    <div class="bg-gray-100 p-8 rounded-xl dark:bg-gray-800">
-                        <div class="form-container">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" class="dark:bg-gray-700">Memuat…</iframe>
-                        </div>
-                        
-                        <div class="mt-8 grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Field Wajib:</h4>
-                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
-                                    <li>Nama Lengkap</li>
-                                    <li>Nomor Telepon/WhatsApp</li>
-                                    <li>Email</li>
-                                    <li>Alamat Lengkap</li>
-                                    <li>Foto KTP (wajib jelas dan terbaca)</li>
-                                    <li>Tanda Tangan</li>
-                                    <li>Data Rekening Bank</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Aturan Fee:</h4>
-                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
-                                    <li>Freelance mendapatkan Rp2.500.000 per closing valid</li>
-                                    <li>Pembayaran dilakukan setelah akad selesai</li>
-                                    <li>Marketing Executive wajib follow up customer dari freelance</li>
-                                    <li>Marketing Executive wajib mendampingi customer dari freelance</li>
-                                    <li>Freelance harus aktif berkomunikasi dengan marketing executive</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Marketing Executive Canvasing Form -->
-            <div class="card mt-8">
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-primary mb-8 flex items-center dark:text-white">
-                        <i class="fas fa-clipboard-list mr-3 text-secondary"></i> Formulir Canvasing Marketing Executive
-                    </h3>
-                    
-                    <div class="bg-gray-100 p-8 rounded-xl dark:bg-gray-800">
-                        <div class="form-container">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE2/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" class="dark:bg-gray-700">Memuat…</iframe>
-                        </div>
-                        
-                        <div class="mt-8 grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Data Wajib:</h4>
-                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
-                                    <li>Nama User</li>
-                                    <li>Nomor Telepon</li>
-                                    <li>Desa/Kelurahan</li>
-                                    <li>Kecamatan</li>
-                                    <li>Usaha/Pekerjaan</li>
-                                    <li>Jam Kunjungan</li>
-                                    <li>Tanda Tangan User</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-semibold text-lg text-primary mb-4 dark:text-white">Ketentuan:</h4>
-                                <ul class="list-disc pl-6 text-gray-700 space-y-2 dark:text-gray-300">
-                                    <li>Formulir harus diisi lengkap dan valid</li>
-                                    <li>Data akan diverifikasi oleh tim marketing</li>
-                                    <li>Wajib melampirkan foto KTP jika diperlukan</li>
-                                    <li>Formulir menjadi dasar evaluasi kinerja</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+           
 
         <!-- Section 8: Summary Diagram -->
         <section id="summary" class="section mb-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-6 title-underline dark:text-white">Struktur Alur Kerja & Reporting</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed dark:text-gray-300">Diagram alur kerja dan sistem pelaporan tim marketing.</p>
+                <h2 class="text-4xl font-bold text-white mb-6 title-underline">Struktur Alur Kerja & Reporting</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Diagram alur kerja dan sistem pelaporan tim marketing.</p>
             </div>
             
             <div class="card p-8">
                 <div class="flex justify-center">
                     <div class="relative w-full max-w-5xl">
                         <!-- Diagram Container -->
-                        <div class="relative bg-primary bg-opacity-5 rounded-2xl p-10 dark:bg-gray-800">
+                        <div class="relative bg-primary bg-opacity-5 rounded-2xl p-10">
                             <!-- Manager -->
                             <div class="organigram-box bg-gradient-to-br from-primary to-primary-light text-white p-6 shadow-xl mx-auto w-80 text-center mb-10 hover-scale">
                                 <div class="flex justify-center mb-4">
@@ -2410,87 +2211,87 @@
                             
                             <!-- Team -->
                             <div class="grid md:grid-cols-4 gap-6 mb-10">
-                                <div class="organigram-box bg-white p-4 shadow text-center border-t-4 border-secondary dark:bg-gray-700 dark:border-secondary-dark hover-scale">
+                                <div class="organigram-box bg-gray-700 p-4 shadow text-center border-t-4 border-secondary hover-scale">
                                     <div class="avatar-sm mx-auto mb-3">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Royyan</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                    <div class="font-semibold text-lg text-primary mb-1">MEA Pria</div>
+                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                 </div>
-                                <div class="organigram-box bg-white p-4 shadow text-center border-t-4 border-secondary dark:bg-gray-700 dark:border-secondary-dark hover-scale">
+                                <div class="organigram-box bg-gray-700 p-4 shadow text-center border-t-4 border-secondary hover-scale">
                                     <div class="avatar-sm mx-auto mb-3">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Syifa</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                    <div class="font-semibold text-lg text-primary mb-1">Syifa</div>
+                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                 </div>
-                                <div class="organigram-box bg-white p-4 shadow text-center border-t-4 border-secondary dark:bg-gray-700 dark:border-secondary-dark hover-scale">
+                                <div class="organigram-box bg-gray-700 p-4 shadow text-center border-t-4 border-secondary hover-scale">
                                     <div class="avatar-sm mx-auto mb-3">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Rahma</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                    <div class="font-semibold text-lg text-primary mb-1">Rahma</div>
+                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                 </div>
-                                <div class="organigram-box bg-white p-4 shadow text-center border-t-4 border-secondary dark:bg-gray-700 dark:border-secondary-dark hover-scale">
+                                <div class="organigram-box bg-gray-700 p-4 shadow text-center border-t-4 border-secondary hover-scale">
                                     <div class="avatar-sm mx-auto mb-3">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Riza</div>
-                                    <div class="text-xs text-gray-600 dark:text-gray-400">Marketing Executive</div>
+                                    <div class="font-semibold text-lg text-primary mb-1">Riza</div>
+                                    <div class="text-xs text-gray-400">Marketing Executive</div>
                                 </div>
                             </div>
                             
                             <!-- Process Flow -->
                             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center mb-10">
-                                <div class="bg-white rounded-xl p-4 text-center shadow hover-scale dark:bg-gray-700">
-                                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-primary text-2xl dark:bg-gray-800 dark:text-white">
+                                <div class="bg-gray-700 rounded-xl p-4 text-center shadow hover-scale">
+                                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-primary text-2xl">
                                         <i class="fas fa-calendar-check"></i>
                                     </div>
-                                    <div class="text-md font-medium dark:text-white">Briefing Harian</div>
+                                    <div class="text-md font-medium">Briefing Harian</div>
                                 </div>
                                 <div class="flex justify-center">
-                                    <i class="fas fa-arrow-right text-gray-400 text-2xl dark:text-gray-600"></i>
+                                    <i class="fas fa-arrow-right text-gray-600 text-2xl"></i>
                                 </div>
-                                <div class="bg-white rounded-xl p-4 text-center shadow hover-scale dark:bg-gray-700">
-                                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-primary text-2xl dark:bg-gray-800 dark:text-white">
+                                <div class="bg-gray-700 rounded-xl p-4 text-center shadow hover-scale">
+                                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-primary text-2xl">
                                         <i class="fas fa-search-location"></i>
                                     </div>
-                                    <div class="text-md font-medium dark:text-white">Canvasing + Rekrut Freelance</div>
+                                    <div class="text-md font-medium">Canvasing + Rekrut Freelance</div>
                                 </div>
                                 <div class="flex justify-center">
-                                    <i class="fas fa-arrow-right text-gray-400 text-2xl dark:text-gray-600"></i>
+                                    <i class="fas fa-arrow-right text-gray-600 text-2xl"></i>
                                 </div>
-                                <div class="bg-white rounded-xl p-4 text-center shadow hover-scale dark:bg-gray-700">
-                                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-primary text-2xl dark:bg-gray-800 dark:text-white">
+                                <div class="bg-gray-700 rounded-xl p-4 text-center shadow hover-scale">
+                                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-primary text-2xl">
                                         <i class="fas fa-handshake"></i>
                                     </div>
-                                    <div class="text-md font-medium dark:text-white">Closing</div>
+                                    <div class="text-md font-medium">Closing</div>
                                 </div>
                             </div>
                             
                             <!-- Reporting Lines -->
-                            <div class="border-t-2 border-dashed border-primary border-opacity-30 pt-10 dark:border-gray-700">
+                            <div class="border-t-2 border-dashed border-primary border-opacity-30 pt-10">
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    <div class="organigram-box bg-white rounded-xl p-5 shadow text-center border-l-4 border-secondary hover-scale dark:bg-gray-700 dark:border-secondary-dark">
-                                        <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-secondary text-2xl dark:bg-gray-800">
+                                    <div class="organigram-box bg-gray-700 rounded-xl p-5 shadow text-center border-l-4 border-secondary hover-scale">
+                                        <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-secondary text-2xl">
                                             <i class="fas fa-calendar-day"></i>
                                         </div>
-                                        <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Harian</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Laporan Canvasing & Freelance</div>
+                                        <div class="font-semibold text-lg text-primary mb-1">Harian</div>
+                                        <div class="text-sm text-gray-400">Laporan Canvasing & Freelance</div>
                                     </div>
-                                    <div class="organigram-box bg-white rounded-xl p-5 shadow text-center border-l-4 border-secondary hover-scale dark:bg-gray-700 dark:border-secondary-dark">
-                                        <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-secondary text-2xl dark:bg-gray-800">
+                                    <div class="organigram-box bg-gray-700 rounded-xl p-5 shadow text-center border-l-4 border-secondary hover-scale">
+                                        <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-secondary text-2xl">
                                             <i class="fas fa-chart-line"></i>
                                         </div>
-                                        <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Mingguan</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Meeting Evaluasi</div>
+                                        <div class="font-semibold text-lg text-primary mb-1">Mingguan</div>
+                                        <div class="text-sm text-gray-400">Meeting Evaluasi</div>
                                     </div>
-                                    <div class="organigram-box bg-white rounded-xl p-5 shadow text-center border-l-4 border-secondary hover-scale dark:bg-gray-700 dark:border-secondary-dark">
-                                        <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-secondary text-2xl dark:bg-gray-800">
+                                    <div class="organigram-box bg-gray-700 rounded-xl p-5 shadow text-center border-l-4 border-secondary hover-scale">
+                                        <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 text-secondary text-2xl">
                                             <i class="fas fa-clipboard-check"></i>
                                         </div>
-                                        <div class="font-semibold text-lg text-primary mb-1 dark:text-white">Bulanan</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Evaluasi KPI</div>
+                                        <div class="font-semibold text-lg text-primary mb-1">Bulanan</div>
+                                        <div class="text-sm text-gray-400">Evaluasi KPI</div>
                                     </div>
                                 </div>
                             </div>
@@ -2553,11 +2354,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Dark Mode Toggle -->
-    <div class="fixed bottom-6 right-6 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center cursor-pointer z-50 dark:bg-gray-800" id="dark-mode-toggle">
-        <i class="fas fa-moon text-gray-700 dark:text-yellow-300" id="dark-mode-icon"></i>
-    </div>
 
     <!-- Back to Top Button -->
     <div class="fixed bottom-6 right-24 bg-primary text-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center cursor-pointer z-50 hidden" id="back-to-top">
@@ -2697,31 +2493,6 @@
                 behavior: 'smooth'
             });
         });
-
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkModeIcon = document.getElementById('dark-mode-icon');
-        
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-        
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.body.classList.add('dark-mode');
-            darkModeIcon.classList.remove('fa-moon');
-            darkModeIcon.classList.add('fa-sun');
-        }
 
         // Animate elements when they come into view
         const animateOnScroll = () => {
