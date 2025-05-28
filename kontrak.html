@@ -633,6 +633,20 @@
                 font-size: 32px;
             }
         }
+        /* Tambahkan di dark mode styles */
+body.dark-mode .form-container input,
+body.dark-mode .form-container textarea {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f3f4f6;
+}
+
+body.dark-mode .form-container label {
+    color: #f3f4f6 !important;
+}
+body.dark-mode .progress-bar {
+    background: linear-gradient(to right, var(--secondary-dark), var(--secondary-light));
+}
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1710,15 +1724,17 @@
                         <i class="fas fa-map-marked-alt mr-3 text-secondary"></i> Peta Area Canvasing
                     </h3>
                     
-                    <div class="map-container">
-                        <div class="map-grid"></div>
-                        <img src="https://maps.googleapis.com/maps/api/staticmap?center=-6.9816,108.4833&zoom=12&size=800x400&maptype=roadmap&markers=color:red%7C-6.9816,108.4833&key=YOUR_API_KEY" alt="Map Area Canvasing" class="w-full h-full object-cover">
-                        <div class="map-marker" style="top: 30%; left: 40%;"></div>
-                        <div class="map-marker" style="top: 45%; left: 60%;"></div>
-                        <div class="map-marker" style="top: 60%; left: 35%;"></div>
-                        <div class="map-marker" style="top: 25%; left: 70%;"></div>
-                        <div class="map-marker" style="top: 70%; left: 65%;"></div>
-                    </div>
+                    <!-- Ganti div map-container dengan ini -->
+<div class="map-container">
+    <div class="map-grid"></div>
+    <div class="map-placeholder">
+        <i class="fas fa-map-marked-alt text-4xl text-primary mb-4 dark:text-white"></i>
+        <h4 class="text-xl font-semibold text-primary mb-2 dark:text-white">Peta Area Canvasing</h4>
+        <p class="text-gray-700 max-w-md text-center dark:text-gray-300">
+            Area canvasing meliputi wilayah Kuningan dan sekitarnya dengan fokus pada lokasi strategis.
+        </p>
+    </div>
+</div>
                     
                     <div class="mt-8 grid md:grid-cols-2 gap-8">
                         <div>
@@ -2601,13 +2617,18 @@
         const totalPerson = document.getElementById('total-person');
 
         unitsSoldInput.addEventListener('input', function() {
-            const units = parseInt(this.value);
-            unitsValue.textContent = units + ' Unit';
-            
-            // Calculate values
-            const commission = units * 1430000;
-            const bonus = units >= 30 ? units * 286000 : 0;
-            const fee = units * 400000;
+    const units = parseInt(this.value);
+    unitsValue.textContent = units + ' Unit';
+    
+    // Calculate values
+    const commission = units * 1430000;
+    const bonus = units >= 30 ? units * 286000 : 0;
+    const fee = units * 400000;
+    
+    // Update progress bar
+    const progressBar = document.querySelector('.progress-bar');
+    const progressPercentage = Math.min(100, (units / 30) * 100);
+    progressBar.style.width = `${progressPercentage}%`;
             
             const perPersonComm = Math.round(commission / 4);
             const perPersonBon = Math.round(bonus / 4);
@@ -2720,6 +2741,16 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+// Tambahkan event listener untuk form validation
+document.querySelectorAll('.form-container input, .form-container textarea').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.classList.add('ring-2', 'ring-primary');
+    });
+    
+    input.addEventListener('blur', function() {
+        this.classList.remove('ring-2', 'ring-primary');
+    });
+});
     </script>
 </body>
 </html>
